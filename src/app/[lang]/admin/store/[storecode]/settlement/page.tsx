@@ -1884,7 +1884,7 @@ export default function Index({ params }: any) {
                         "storeUrl": "https://test.com",
                         "storeDescription": "설명입니다.",
                         "storeLogo": "https://vzrcy5vcsuuocnf3.public.blob.vercel-storage.com/5M8446y-TT1KF2HDXnBNi0ESO5gFaWcbjJAQHi.png",
-                        "storeBanner": "https://www.stable.makeup/logo.png"
+                        "storeBanner": "https://xlay-tether.vercel.app/logo.png"
                     }
                 }
             },
@@ -2161,7 +2161,7 @@ const fetchBuyOrders = async () => {
                   connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://www.stable.makeup/logo.png",                           
+                    titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
                     showThirdwebBranding: false,
                   }}
   

@@ -769,7 +769,7 @@ export default function SendUsdt({ params }: any) {
                 connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://www.stable.makeup/logo.png",                           
+                    titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
                     showThirdwebBranding: false,
                 }}
 

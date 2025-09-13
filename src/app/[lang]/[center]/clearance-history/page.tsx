@@ -2789,7 +2789,7 @@ const [tradeSummary, setTradeSummary] = useState({
               connectModal={{
                 size: "wide", 
                 //size: "compact",
-                titleIcon: "https://www.stable.makeup/logo.png",                           
+                titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
                 showThirdwebBranding: false,
               }}
 
@@ -3040,7 +3040,7 @@ const [tradeSummary, setTradeSummary] = useState({
                     connectModal={{
                       size: "wide", 
                       //size: "compact",
-                      titleIcon: "https://www.stable.makeup/logo.png",                           
+                      titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
                       showThirdwebBranding: false,
                     }}
 
