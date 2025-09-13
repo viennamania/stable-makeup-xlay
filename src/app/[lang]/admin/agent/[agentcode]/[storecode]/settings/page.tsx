@@ -1681,7 +1681,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-gray-500 font-semibold">
+                            <span className="ml-2 text-sm text-gray-500 font-light">
                                 돌아가기
                             </span>
                         </button>
@@ -1726,7 +1726,7 @@ export default function SettingsPage({ params }: any) {
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-lg text-gray-500 font-semibold">
+                            <span className="text-lg text-gray-500 font-light">
                             {user?.nickname || "프로필"}
                             </span>
 
@@ -1749,7 +1749,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-semibold">
+                        <div className="text-xl font-light">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}관리
@@ -1789,7 +1789,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     {' '}메모하기{' '}
                                     {store?.memoCount > 0 && (
-                                        <span className="text-red-500 font-semibold">
+                                        <span className="text-red-500 font-light">
                                             ({store?.memoCount})
                                         </span>
                                     )}
@@ -1815,7 +1815,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     {' '}청산관리{' '}
                                     {store?.clearanceCount > 0 && (
-                                        <span className="text-red-500 font-semibold">
+                                        <span className="text-red-500 font-light">
                                             ({store?.clearanceCount})
                                         </span>
                                     )}
@@ -1855,7 +1855,7 @@ export default function SettingsPage({ params }: any) {
                                 <span className="text-lg">
                                     가맹점 코드
                                 </span>
-                                <span className="text-xl text-blue-500 font-semibold">
+                                <span className="text-xl text-blue-500 font-light">
                                     {store?.storecode}
                                 </span>
                             </div>
@@ -1871,7 +1871,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg">
                                         가맹점 이름
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {store?.storeName}
                                     </span>
                                 </div>
@@ -1925,7 +1925,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg">
                                         가맹점 설명
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {store?.storeDescription}
                                     </span>
                                 </div>
@@ -2088,7 +2088,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg">
                                         에이전트 이름
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {store?.agentName || "없음"}
                                     </span>
                                 </div>
@@ -2098,7 +2098,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg">
                                         에이전트 코드
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {store?.agentcode || "없음"}
                                     </span>
                                 </div>
@@ -2152,7 +2152,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg">
                                         에이전트 수수료 지갑
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {store?.agentFeeWalletAddress || "없음"}
                                     </span>
                                 </div>
@@ -2200,7 +2200,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg">
                                         에이전트 수수료율
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {store?.agentFeePercent || "없음"}%
                                     </span>
                                 </div>
@@ -2738,7 +2738,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className='text-sm font-semibold'>
+                                    <span className='text-sm font-light'>
                                         가맹점 PG 수수료율은 0.01 ~ 5.00%로 설정하세요
                                     </span>
                                 </div>
@@ -2980,7 +2980,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                         />
-                                        <span className="text-xl text-[#409192] font-semibold">
+                                        <span className="text-xl text-[#409192] font-light">
                                             {store && store.escrowAmountUSDT &&
                                             store.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                             || 0.00}

@@ -715,7 +715,7 @@ export default function SettingsPage({ params }: any) {
                             :
                             '/' + params.lang + '/' + params.center
                         ) }
-                        className="text-zinc-100 font-semibold underline"
+                        className="text-zinc-100 font-light underline"
                     >
                         {Go_Home}
                     </button>
@@ -726,7 +726,7 @@ export default function SettingsPage({ params }: any) {
 
                     <div className='flex flex-row items-center space-x-4'>
                         <GearSetupIcon />
-                        <div className="text-2xl font-semibold">
+                        <div className="text-2xl font-light">
                             {Profile_Settings}
                         </div>
 
@@ -810,7 +810,7 @@ export default function SettingsPage({ params }: any) {
                                     나의 아이디
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     {nickname}
                                 </div>
 
@@ -855,7 +855,7 @@ export default function SettingsPage({ params }: any) {
 
                                 <input
                                     disabled={!address}
-                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-semibold"
+                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-light"
                                     placeholder={Enter_your_nickname}
                                     
                                     //value={nickname}
@@ -884,7 +884,7 @@ export default function SettingsPage({ params }: any) {
 
                                 />
                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                    <span className='text-xs font-semibold'>
+                                    <span className='text-xs font-light'>
                                         {Nickname_should_be_5_10_characters}
                                     </span>
                                 </div>
@@ -911,7 +911,7 @@ export default function SettingsPage({ params }: any) {
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}
@@ -932,7 +932,7 @@ export default function SettingsPage({ params }: any) {
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     {userCode}
                                 </div>
 
@@ -972,15 +972,15 @@ export default function SettingsPage({ params }: any) {
                                     {Seller}
                                 </div>
 
-                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                         {seller?.bankInfo?.bankName}
                                     </div>
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                         {seller?.bankInfo?.accountNumber}
                                     </div>
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                         {seller?.bankInfo?.accountHolder}
                                     </div>
 
@@ -1036,13 +1036,13 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     {!seller && (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                             {Not_a_seller}
                                         </div>
                                     )}
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                             {Applying}...
                                         </div>
                                     ) : (
@@ -1062,7 +1062,7 @@ export default function SettingsPage({ params }: any) {
                                                 ${!verifiedOtp ? 'bg-gray-300 text-gray-400'
                                                 : 'bg-green-500 text-zinc-100'}
 
-                                                p-2 rounded-lg text-sm font-semibold
+                                                p-2 rounded-lg text-sm font-light
                                             `}
                                         >
                                             {Apply}
@@ -1076,7 +1076,7 @@ export default function SettingsPage({ params }: any) {
                                                                         
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                         placeholder={Enter_your_bank_name}
                                         value={bankName}
                                         type='text'
@@ -1086,7 +1086,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                         placeholder={Enter_your_account_number}
                                         value={accountNumber}
                                         type='number'
@@ -1101,7 +1101,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                         placeholder={Enter_your_account_holder}
                                         value={accountHolder}
                                         type='text'
@@ -1139,7 +1139,7 @@ export default function SettingsPage({ params }: any) {
                                         
                                         ${isSendedOtp && 'hidden'}
 
-                                        w-32 p-2 rounded-lg text-sm font-semibold
+                                        w-32 p-2 rounded-lg text-sm font-light
 
                                             ${
                                             !address || isSendingOtp
@@ -1157,7 +1157,7 @@ export default function SettingsPage({ params }: any) {
                                         <input
                                         type="text"
                                         placeholder={Enter_OTP}
-                                        className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-semibold"
+                                        className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-light"
                                         value={otp}
                                         onChange={(e) => setOtp(e.target.value)}
                                         />
@@ -1165,7 +1165,7 @@ export default function SettingsPage({ params }: any) {
                                         <button
                                         disabled={!otp || isVerifingOtp}
                                         onClick={verifyOtp}
-                                        className={`w-32 p-2 rounded-lg text-sm font-semibold
+                                        className={`w-32 p-2 rounded-lg text-sm font-light
 
                                             ${
                                             !otp || isVerifingOtp
@@ -1205,7 +1205,7 @@ export default function SettingsPage({ params }: any) {
                                         Update USDT Price
                                     </div>
 
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                         1 USDT = {usdtPrice} KRW
                                     </div>
 
@@ -1225,7 +1225,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-col gap-2 items-center justify-between'>
 
                                         <input 
-                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                             placeholder="Enter USDT Price"
                                             type='number'
                                             value={editUsdtPrice}
@@ -1238,7 +1238,7 @@ export default function SettingsPage({ params }: any) {
 
                                             className={`
                                                 ${editingUsdtPrice ? 'bg-gray-300 text-gray-400' : 'bg-green-500 text-zinc-100'}
-                                                p-2 rounded-lg text-sm font-semibold
+                                                p-2 rounded-lg text-sm font-light
                                             `}
 
                                             onClick={async () => {

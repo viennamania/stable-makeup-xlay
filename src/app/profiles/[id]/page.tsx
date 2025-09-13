@@ -373,7 +373,7 @@ export default function ProfilePage() {
 
         
                 <div className="flex justify-start space-x-4 mb-10">
-                    <button onClick={() => router.push('/')} className="text-zinc-100 font-semibold underline">Go Home</button>
+                    <button onClick={() => router.push('/')} className="text-zinc-100 font-light underline">Go Home</button>
                 </div>
 
 
@@ -381,7 +381,7 @@ export default function ProfilePage() {
 
                     <div className='flex flex-row items-center space-x-4'>
                         <GearSetupIcon />
-                        <div className="text-2xl font-semibold">Profile</div>
+                        <div className="text-2xl font-light">Profile</div>
 
                         {!address && (
                             <ConnectButton
@@ -464,7 +464,7 @@ export default function ProfilePage() {
                                     My Profile Picture
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     <Uploader
                                         lang="en"
                                         walletAddress={address}
@@ -483,7 +483,7 @@ export default function ProfilePage() {
                                    My Nickname
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     {nickname}
                                 </div>
 
@@ -516,7 +516,7 @@ export default function ProfilePage() {
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     {userCode}
                                 </div>
 
@@ -543,15 +543,15 @@ export default function ProfilePage() {
                                     Seller
                                 </div>
 
-                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                         {seller?.bankInfo?.bankName}
                                     </div>
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                         {seller?.bankInfo?.accountNumber}
                                     </div>
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                         {seller?.bankInfo?.accountHolder}
                                     </div>
 
@@ -579,12 +579,12 @@ export default function ProfilePage() {
                                         Seller
                                     </div>
 
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                         Not a seller
                                     </div>
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                             Applying...
                                         </div>
                                     ) : (
@@ -611,7 +611,7 @@ export default function ProfilePage() {
                                                                         
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                         placeholder="Enter your bank name"
                                         value={bankName}
                                         type='text'
@@ -621,7 +621,7 @@ export default function ProfilePage() {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                         placeholder="Enter your account number"
                                         value={accountNumber}
                                         type='number'
@@ -636,7 +636,7 @@ export default function ProfilePage() {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                         placeholder="Enter your account holder"
                                         value={accountHolder}
                                         type='text'
@@ -646,7 +646,7 @@ export default function ProfilePage() {
                                     />
                                 </div>
 
-                                <div className="text-xs font-semibold">
+                                <div className="text-xs font-light">
                                     To become a seller, you need to send 1 USDT to the contract address
                                 </div>
 

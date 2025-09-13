@@ -2175,7 +2175,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg font-semibold text-zinc-500">
+                      <span className="text-lg font-light text-zinc-500">
                         현재 보유량
                       </span>
                     </div>
@@ -2191,7 +2191,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-semibold"
+                      <span className="text-lg text-[#409192] font-light"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -2202,7 +2202,7 @@ export default function Index({ params }: any) {
                   </div>
 
                   <div className="flex flex-row gap-2 items-center">
-                    <span className="text-sm text-zinc-500 font-semibold">
+                    <span className="text-sm text-zinc-500 font-light">
                       오늘 수수료 차감량
                     </span>
                     <div className="
@@ -2216,7 +2216,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-red-600 font-semibold"
+                      <span className="text-lg text-red-600 font-light"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -2253,7 +2253,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 거래
                   </span>
                 </div>
@@ -2266,7 +2266,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -2277,7 +2277,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -2300,7 +2300,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 정산
                   </span>
                 </div>
@@ -2313,7 +2313,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -2324,7 +2324,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -2348,7 +2348,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 판매
                   </span>
                 </div>
@@ -2361,7 +2361,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -2372,7 +2372,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -2407,7 +2407,7 @@ export default function Index({ params }: any) {
                         height={35}
                         className="w-4 h-4"
                       />
-                      <div className="text-sm font-semibold">
+                      <div className="text-sm font-light">
                         회원관리
                       </div>
                   </div>
@@ -2487,7 +2487,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-semibold">
+                <div className="text-xl font-light">
                   회원관리
                 </div>
 
@@ -2859,7 +2859,7 @@ export default function Index({ params }: any) {
                   <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-semibold"
+                      className="bg-zinc-800 text-white text-sm font-light"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}
@@ -2942,7 +2942,7 @@ export default function Index({ params }: any) {
                                   height={20}
                                   className="w-5 h-5"
                                 />
-                                <span className="text-lg text-[#409192] font-semibold"
+                                <span className="text-lg text-[#409192] font-light"
                                   style={{ fontFamily: 'monospace' }}
                                 >
                                 {
@@ -2954,7 +2954,7 @@ export default function Index({ params }: any) {
                                 </span>
                               </div>
                               <div className="w-full flex flex-row items-center justify-end gap-1">
-                                <span className="text-lg text-yellow-600 font-semibold"
+                                <span className="text-lg text-yellow-600 font-light"
                                   style={{ fontFamily: 'monospace' }}
                                 >
                                 {item?.totalPaymentConfirmedKrwAmount && item?.totalPaymentConfirmedKrwAmount.toLocaleString('ko-KR') || 0}
@@ -3102,23 +3102,23 @@ export default function Index({ params }: any) {
                               <span className="text-sm text-zinc-500">
                                 {
                                 item?.buyOrderStatus === 'ordered' ? (
-                                  <span className="text-lg text-yellow-500 font-semibold">
+                                  <span className="text-lg text-yellow-500 font-light">
                                     구매주문
                                   </span>
                                 ) : item?.buyOrderStatus === 'accepted' ? (
-                                  <span className="text-lg text-green-500 font-semibold">
+                                  <span className="text-lg text-green-500 font-light">
                                     판매자확정
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                  <span className="text-lg text-red-500 font-semibold">
+                                  <span className="text-lg text-red-500 font-light">
                                     결제요청
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
-                                  <span className="text-lg text-green-500 font-semibold">
+                                  <span className="text-lg text-green-500 font-light">
                                     결제완료
                                   </span>
                                 ) : item?.buyOrderStatus === 'cancelled' ? (
-                                  <span className="text-lg text-red-500 font-semibold">
+                                  <span className="text-lg text-red-500 font-light">
                                     거래취소
                                   </span>
                                 ) : ''
@@ -3213,7 +3213,7 @@ export default function Index({ params }: any) {
 
                   {allBuyer.map((item, index) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4">
-                      <h2 className="text-lg font-semibold">{item.nickname}</h2>
+                      <h2 className="text-lg font-light">{item.nickname}</h2>
 
                     </div>
                   ))}
@@ -3347,7 +3347,7 @@ const UserHomePage = (
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4">
-      <h1 className="text-2xl font-semibold">회원 결제페이지</h1>
+      <h1 className="text-2xl font-light">회원 결제페이지</h1>
       
       {/* iframe */}
       <iframe
@@ -3398,7 +3398,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

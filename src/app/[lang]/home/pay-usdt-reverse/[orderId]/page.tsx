@@ -1691,7 +1691,7 @@ export default function Index({ params }: any) {
                 height={38}
                 className='rounded-lg w-16 h-16 bg-zinc-200'
               />
-              <span className="text-sm text-zinc-100 font-semibold">
+              <span className="text-sm text-zinc-100 font-light">
                 {storeInfo?.storeName}
               </span>
             </div>
@@ -1752,7 +1752,7 @@ export default function Index({ params }: any) {
                   </span>
 
                   <div className="flex flex-row items-center justify-center gap-2">
-                    <span className="text-xl font-semibold text-zinc-100">
+                    <span className="text-xl font-light text-zinc-100">
                       {Number(balance).toFixed(2)}
                     </span>
                     {' '}
@@ -2020,7 +2020,7 @@ export default function Index({ params }: any) {
                     <div className=' w-full  flex-row items-between justify-start gap-5'>
 
                       <div className=" flex flex-col gap-2 items-start">
-                        <div className="text-5xl font-semibold text-zinc-500">
+                        <div className="text-5xl font-light text-zinc-500">
                           {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                         </div>
                       </div>
@@ -2040,7 +2040,7 @@ export default function Index({ params }: any) {
                                 height: '20px',
                             }}
                           />
-                          <div className="text-lg font-semibold text-zinc-500 ">{
+                          <div className="text-lg font-light text-zinc-500 ">{
                             user?.nickname ? user.nickname : Anonymous
                           }</div>
 
@@ -2468,7 +2468,7 @@ export default function Index({ params }: any) {
                                   />      
 
 
-                                  <h2 className="text-lg font-semibold">
+                                  <h2 className="text-lg font-light">
                                       판매자: {
 
                                           item.walletAddress === address ? item.nickname ? item.nickname : Anonymous  + ' :' + Me :
@@ -2576,7 +2576,7 @@ export default function Index({ params }: any) {
                                       height={32}
                                   />
 
-                                  <span className="text-lg font-semibold">
+                                  <span className="text-lg font-light">
                                       판매자: {
                                           item?.seller?.nickname ? item?.seller?.nickname : Anonymous
                                       }
@@ -2619,7 +2619,7 @@ export default function Index({ params }: any) {
                                   bg-white px-2 py-3 rounded-md  border border-zinc-100
                                   ">
 
-                                    <p className=" text-xl font-semibold text-[#f472b6] ">
+                                    <p className=" text-xl font-light text-[#f472b6] ">
                                       거래번호:{' '}#{item.tradeId}
                                     </p>
 
@@ -2683,7 +2683,7 @@ export default function Index({ params }: any) {
                                   <div className='w-full flex flex-row items-center justify-between
                                     gap-2 bg-white px-2 py-3 rounded-md'>
 
-                                    <p className=" text-xl font-semibold text-[#f472b6] ">
+                                    <p className=" text-xl font-light text-[#f472b6] ">
                                       거래번호:{' '}#{item.tradeId}
                                     </p>
 
@@ -3091,7 +3091,7 @@ export default function Index({ params }: any) {
                                             height={32}
                                             className="animate-spin"
                                         />
-                                        <div className="text-lg font-semibold text-zinc-500">
+                                        <div className="text-lg font-light text-zinc-500">
                                           Escrowing {item.usdtAmount} USDT...
                                         </div>
                                       </div>
@@ -3260,7 +3260,7 @@ export default function Index({ params }: any) {
                                         height={32}
                                       />
 
-                                      <div className="text-lg font-semibold text-green-500">
+                                      <div className="text-lg font-light text-green-500">
                                         {Escrow}: {item.usdtAmount} USDT
                                       </div>
 
@@ -3309,7 +3309,7 @@ export default function Index({ params }: any) {
                                             width={24}
                                             height={24}
                                           />
-                                          <div className="text-lg font-semibold text-green-500">
+                                          <div className="text-lg font-light text-green-500">
                                             입금은행
                                           </div>
                                         </div>
@@ -3346,7 +3346,7 @@ export default function Index({ params }: any) {
                                                 navigator.clipboard.writeText(item?.store?.bankInfo.accountNumber);
                                                 toast.success("계좌번호가 복사되었습니다.");
                                             } }
-                                            className='text-lg font-semibold'
+                                            className='text-lg font-light'
                                           >
                                             {item?.store?.bankInfo.accountNumber}
                                           </button>
@@ -3376,7 +3376,7 @@ export default function Index({ params }: any) {
                                                   navigator.clipboard.writeText(item.buyer?.depositName ? item.buyer?.depositName : item.tradeId);
                                                   toast.success("입금자명이 복사되었습니다.");
                                               } }
-                                              className="text-lg font-semibold"
+                                              className="text-lg font-light"
                                             >
                                               {item.buyer?.depositName ? item.buyer?.depositName : item.tradeId}
                                             </button>
@@ -3404,7 +3404,7 @@ export default function Index({ params }: any) {
                                                   navigator.clipboard.writeText(item.krwAmount.toString());
                                                   toast.success("입금액이 복사되었습니다.");
                                               } }
-                                              className="text-lg font-semibold"
+                                              className="text-lg font-light"
                                             >
                                               {item.krwAmount?.toLocaleString('ko-KR', {
                                                   style: 'currency',
@@ -3608,7 +3608,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

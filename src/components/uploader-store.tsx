@@ -242,7 +242,7 @@ const {
     >
       <div>
         <div className="space-y-1 mb-4">
-          <h2 className="text-sm font-semibold">
+          <h2 className="text-sm font-light">
             {Upload_a_file}
           </h2>
           <p className="text-sm">

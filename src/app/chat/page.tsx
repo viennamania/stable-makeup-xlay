@@ -245,7 +245,7 @@ function ChatPageContent() {
                               height={20}
                               className="rounded-full"
                           />
-                          <span className="text-sm text-gray-500 font-semibold">
+                          <span className="text-sm text-gray-500 font-light">
                               돌아가기
                           </span>
                       </div>
@@ -329,7 +329,7 @@ function ChatPageContent() {
                       </div>
 
                       <div className="flex flex-row items-center justify-end  gap-2">
-                          <span className="text-2xl xl:text-4xl font-semibold text-[#409192]">
+                          <span className="text-2xl xl:text-4xl font-light text-[#409192]">
                               {Number(balance).toFixed(2)}
                           </span>
                           {' '}

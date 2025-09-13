@@ -1124,7 +1124,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-gray-500 font-semibold">
+                            <span className="ml-2 text-sm text-gray-500 font-light">
                                 돌아가기
                             </span>
                         </button>
@@ -1206,7 +1206,7 @@ export default function SettingsPage({ params }: any) {
                                         className="w-6 h-6 rounded-full object-cover"
                                     />
 
-                                    <div className="text-lg font-semibold">
+                                    <div className="text-lg font-light">
                                     에이전트 기본 정보
                                     </div>
                                 </div>                                
@@ -1220,7 +1220,7 @@ export default function SettingsPage({ params }: any) {
                                         <span className="text-lg">
                                             에이전트 코드
                                         </span>
-                                        <span className="text-xl text-blue-500 font-semibold">
+                                        <span className="text-xl text-blue-500 font-light">
                                             {agent?.agentcode}
                                         </span>
                                     </div>
@@ -1236,7 +1236,7 @@ export default function SettingsPage({ params }: any) {
                                         <span className="text-lg">
                                             에이전트 이름
                                         </span>
-                                        <span className="text-xl text-blue-500 font-semibold">
+                                        <span className="text-xl text-blue-500 font-light">
                                             {agent?.agentName}
                                         </span>
                                     </div>
@@ -1285,7 +1285,7 @@ export default function SettingsPage({ params }: any) {
                                             </span>
                                         </div>
                                         <div className='flex flex-row gap-2 items-center justify-between'>
-                                            <span className='text-sm font-semibold'>
+                                            <span className='text-sm font-light'>
                                                 {nicknameEdit ? "에이전트 이름을 수정하세요" : "에이전트 이름을 설정하세요"}
                                             </span>
                                         </div>
@@ -1294,7 +1294,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='w-full flex flex-col gap-2'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-semibold"
+                                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-light"
                                                     placeholder="에이전트 이름을 입력하세요"
                                                     
                                                     //value={nickname}
@@ -1403,7 +1403,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <div className="w-full
                                     flex flex-col items-center justify-center gap-2
-                                    p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                    p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                         <Uploader
                                             lang={params.lang}
                                             agentcode={params.agentcode as string}
@@ -1436,7 +1436,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-500 font-semibold">
+                                    <span className="text-lg text-zinc-500 font-light">
                                         에이전트 관리자 설정
                                     </span>
                                 </div>
@@ -1492,7 +1492,7 @@ export default function SettingsPage({ params }: any) {
                                             navigator.clipboard.writeText(agent.adminWalletAddress);
                                             toast.success(Copied_Wallet_Address);
                                             } }
-                                            className="text-lg text-zinc-500 underline font-semibold"
+                                            className="text-lg text-zinc-500 underline font-light"
                                         >
                                             {agent && agent.adminWalletAddress.substring(0, 6)}...{agent && agent.adminWalletAddress.substring(agent.adminWalletAddress.length - 4)}
                                         </button>
@@ -1604,7 +1604,7 @@ export default function SettingsPage({ params }: any) {
                                         </div>
 
 
-                                        <span className="text-lg text-blue-500 font-semibold">
+                                        <span className="text-lg text-blue-500 font-light">
                                             {agent?.agentFeeWalletAddress 
                                                 ? (
                                                     <button
@@ -1670,7 +1670,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-500 font-semibold">
+                                    <span className="text-lg text-zinc-500 font-light">
                                         환율 설정
                                     </span>
                                 </div>
@@ -1678,10 +1678,10 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-full flex flex-row items-center justify-start gap-2'>
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-500 font-semibold">
+                                    <span className="text-lg text-zinc-500 font-light">
                                         USDT-KRW 환율
                                     </span>
-                                    <span className="text-xl text-blue-500 font-semibold">
+                                    <span className="text-xl text-blue-500 font-light">
                                         {
                                         agent?.usdtKRWRate && agent?.usdtKRWRate > 0
                                         ? agent?.usdtKRWRate.toLocaleString()
@@ -1736,7 +1736,7 @@ export default function SettingsPage({ params }: any) {
                                 <span className="text-lg">
                                     에이전트 수수료율
                                 </span>
-                                <span className="text-xl text-blue-500 font-semibold">
+                                <span className="text-xl text-blue-500 font-light">
                                     {agent?.agentFeePercent || "없음"}%
                                 </span>
                             </div>

@@ -3057,7 +3057,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg font-semibold text-zinc-500">
+                      <span className="text-lg font-light text-zinc-500">
                         현재 보유량
                       </span>
                     </div>
@@ -3073,7 +3073,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-semibold"
+                      <span className="text-lg text-[#409192] font-light"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -3084,7 +3084,7 @@ const fetchBuyOrders = async () => {
                   </div>
 
                   <div className="flex flex-row gap-2 items-center">
-                    <span className="text-sm text-zinc-500 font-semibold">
+                    <span className="text-sm text-zinc-500 font-light">
                       오늘 수수료 차감량
                     </span>
                     <div className="
@@ -3098,7 +3098,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-red-600 font-semibold"
+                      <span className="text-lg text-red-600 font-light"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -3136,7 +3136,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 거래
                   </span>
                 </div>
@@ -3149,7 +3149,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -3160,7 +3160,7 @@ const fetchBuyOrders = async () => {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -3183,7 +3183,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 정산
                   </span>
                 </div>
@@ -3196,7 +3196,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -3207,7 +3207,7 @@ const fetchBuyOrders = async () => {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -3231,7 +3231,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 판매
                   </span>
                 </div>
@@ -3244,7 +3244,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -3255,7 +3255,7 @@ const fetchBuyOrders = async () => {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -3312,7 +3312,7 @@ const fetchBuyOrders = async () => {
                       height={35}
                       className="w-4 h-4"
                     />
-                    <div className="text-sm font-semibold">
+                    <div className="text-sm font-light">
                       P2P 거래내역
                     </div>
                   </div>
@@ -3372,7 +3372,7 @@ const fetchBuyOrders = async () => {
                     className="w-6 h-6"
                   />
 
-                  <div className="text-xl font-semibold">
+                  <div className="text-xl font-light">
                     P2P 거래내역
                   </div>
 
@@ -3398,7 +3398,7 @@ const fetchBuyOrders = async () => {
                 {/*
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">전체</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {totalCount}
                   </div>
                 </div>
@@ -3549,7 +3549,7 @@ const fetchBuyOrders = async () => {
                   
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 P2P 거래수(건)</div>
-                    <div className="text-xl font-semibold text-zinc-500">
+                    <div className="text-xl font-light text-zinc-500">
                       {tradeSummary.totalCount?.toLocaleString()}
                     </div>
                   </div>
@@ -3557,7 +3557,7 @@ const fetchBuyOrders = async () => {
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 P2P 거래금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
-                      <span className="text-xl font-semibold text-yellow-600"
+                      <span className="text-xl font-light text-yellow-600"
                         style={{ fontFamily: 'monospace' }}
                       >
                       
@@ -3582,7 +3582,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xl font-semibold text-[#409192]"
+                      <span className="text-xl font-light text-[#409192]"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {Number(tradeSummary.totalUsdtAmount
@@ -3604,7 +3604,7 @@ const fetchBuyOrders = async () => {
                   
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 결제수(건)</div>
-                    <div className="text-xl font-semibold text-zinc-500">
+                    <div className="text-xl font-light text-zinc-500">
                       {tradeSummary.totalSettlementCount?.toLocaleString()}
                     </div>
                   </div>
@@ -3612,7 +3612,7 @@ const fetchBuyOrders = async () => {
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 결제금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
-                      <span className="text-xl font-semibold text-yellow-600"
+                      <span className="text-xl font-light text-yellow-600"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -3634,7 +3634,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xl font-semibold text-[#409192]"
+                      <span className="text-xl font-light text-[#409192]"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {Number(tradeSummary.totalSettlementAmount
@@ -3648,7 +3648,7 @@ const fetchBuyOrders = async () => {
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 수수료금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
-                      <span className="text-xl font-semibold text-yellow-600"
+                      <span className="text-xl font-light text-yellow-600"
                         style={{ fontFamily: 'monospace' }}
                       >
 
@@ -3671,7 +3671,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xl font-semibold text-[#409192]"
+                      <span className="text-xl font-light text-[#409192]"
                         style={{ fontFamily: 'monospace' }}
                       >
                       {
@@ -3693,7 +3693,7 @@ const fetchBuyOrders = async () => {
                 <div className="w-full xl:w-1/4 flex flex-row items-center justify-between gap-2 pl-4 pr-4">
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 청산수(건)</div>
-                    <div className="text-xl font-semibold text-zinc-500">
+                    <div className="text-xl font-light text-zinc-500">
                       {tradeSummary.totalClearanceCount?.toLocaleString()}
                     </div>
                   </div>
@@ -3701,7 +3701,7 @@ const fetchBuyOrders = async () => {
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 청산금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
-                      <span className="text-xl font-semibold text-yellow-600">
+                      <span className="text-xl font-light text-yellow-600">
                         {tradeSummary.totalClearanceAmount?.toLocaleString()}
                       </span>
                       
@@ -3717,7 +3717,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xl font-semibold text-[#409192]">
+                      <span className="text-xl font-light text-[#409192]">
                         {Number(tradeSummary.totalClearanceAmountUSDT
                           ? tradeSummary.totalClearanceAmountUSDT
                           : 0
@@ -3742,7 +3742,7 @@ const fetchBuyOrders = async () => {
                   <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-semibold"
+                      className="bg-zinc-800 text-white text-sm font-light"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}
@@ -3750,10 +3750,10 @@ const fetchBuyOrders = async () => {
                       <tr>
                         <th className="p-2">
                           <div className="flex flex-col gap-2 items-center justify-center">
-                            <span className="text-sm text-white font-semibold">
+                            <span className="text-sm text-white font-light">
                               구매신청시간
                             </span>
-                            <span className="text-sm text-white font-semibold">
+                            <span className="text-sm text-white font-light">
                               {TID}
                             </span>
                           </div>
@@ -3763,13 +3763,13 @@ const fetchBuyOrders = async () => {
 
                         <th className="p-2">
                           <div className="flex flex-col gap-2 items-center justify-center">
-                            <span className="text-sm text-white font-semibold">
+                            <span className="text-sm text-white font-light">
                               구매금액(원)
                             </span>
-                            <span className="text-sm text-white font-semibold">
+                            <span className="text-sm text-white font-light">
                               구래량(USDT)
                             </span>
-                            <span className="text-sm text-white font-semibold">
+                            <span className="text-sm text-white font-light">
                               환율
                             </span>
                           </div>
@@ -3812,7 +3812,7 @@ const fetchBuyOrders = async () => {
                               flex flex-col gap-2 items-center justify-center">
 
                               <div className="flex flex-col gap-2 items-center justify-center">
-                                <span className="text-sm text-zinc-500 font-semibold">
+                                <span className="text-sm text-zinc-500 font-light">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('ko-KR', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -3820,7 +3820,7 @@ const fetchBuyOrders = async () => {
                                   })}
                                 </span>
 
-                                <span className="text-sm text-zinc-500 font-semibold">
+                                <span className="text-sm text-zinc-500 font-light">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('en-US', {
 
                                     hour: '2-digit',
@@ -3831,7 +3831,7 @@ const fetchBuyOrders = async () => {
 
                               </div>
 
-                              <span className="text-sm text-zinc-500 font-semibold">
+                              <span className="text-sm text-zinc-500 font-light">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
@@ -3864,7 +3864,7 @@ const fetchBuyOrders = async () => {
                                   navigator.clipboard.writeText(item.tradeId);
                                   toast.success('거래번호가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-semibold
+                                className="text-sm text-zinc-500 font-light
                                   hover:text-blue-600 cursor-pointer
                                   hover:underline"
                                 title="거래번호 복사"
@@ -3883,7 +3883,7 @@ const fetchBuyOrders = async () => {
                               flex flex-col items-center justify-center gap-2">
 
                                 {/* buyer nickname */}
-                                <div className="text-lg text-blue-600 font-semibold">
+                                <div className="text-lg text-blue-600 font-light">
                                   {item?.nickname}
                                 </div>
 
@@ -3893,7 +3893,7 @@ const fetchBuyOrders = async () => {
                                     navigator.clipboard.writeText(item.walletAddress);
                                     toast.success('지갑주소가 복사되었습니다.');
                                   }}
-                                  className="text-sm text-zinc-500 font-semibold
+                                  className="text-sm text-zinc-500 font-light
                                   hover:text-blue-600 cursor-pointer
                                   hover:underline"
                                   title="지갑주소 복사"
@@ -3911,20 +3911,20 @@ const fetchBuyOrders = async () => {
                               w-24 
                               flex flex-col items-center justify-center gap-2">
 
-                                <div className="text-lg text-yellow-600 font-semibold">
+                                <div className="text-lg text-yellow-600 font-light">
                                   {
                                     item?.buyer?.depositName
 
                                   }
                                 </div>
-                                <div className="text-sm text-zinc-500 font-semibold">
+                                <div className="text-sm text-zinc-500 font-light">
                                   {
                                     item?.buyer?.depositBankName
 
                                   }
                                 </div>
 
-                                <div className="text-sm text-zinc-500 font-semibold">
+                                <div className="text-sm text-zinc-500 font-light">
                                   {
                                     item?.buyer?.depositBankAccountNumber &&
                                     item?.buyer?.depositBankAccountNumber.slice(0, 5) + '...'
@@ -3942,7 +3942,7 @@ const fetchBuyOrders = async () => {
                               flex flex-col gap-2 items-center justify-center">
 
                               <div className="flex flex-col gap-2 items-end justify-center">
-                                <span className="text-lg text-yellow-600 font-semibold"
+                                <span className="text-lg text-yellow-600 font-light"
                                   style={{
                                     fontFamily: 'monospace',
                                   }}
@@ -3957,7 +3957,7 @@ const fetchBuyOrders = async () => {
                                     height={20}
                                     className="w-5 h-5"
                                   />
-                                  <span className="text-lg text-[#409192] font-semibold"
+                                  <span className="text-lg text-[#409192] font-light"
                                     style={{
                                       fontFamily: 'monospace',
                                       }}
@@ -3969,7 +3969,7 @@ const fetchBuyOrders = async () => {
                                   </span>
                                 </div>
                               </div>
-                              <span className="text-sm text-zinc-500 font-semibold"
+                              <span className="text-sm text-zinc-500 font-light"
                                 style={{
                                   fontFamily: 'monospace',
                                 }}
@@ -3987,14 +3987,14 @@ const fetchBuyOrders = async () => {
                             <div className="
                               w-24
                               flex flex-col gap-2 items-center justify-center">
-                              <span className="text-lg font-semibold text-blue-600">
+                              <span className="text-lg font-light text-blue-600">
                                 {
                                   item.seller?.nickname
                                 }
                               </span>
                               {/* seller.walletAddress */}
                               <button
-                                className="text-sm text-zinc-500 font-semibold
+                                className="text-sm text-zinc-500 font-light
                                   hover:text-blue-500
                                   hover:underline
                                   cursor-pointer
@@ -4021,7 +4021,7 @@ const fetchBuyOrders = async () => {
                             <div className="
                               w-24
                               flex flex-col gap-2 items-center justify-center">
-                              <div className="text-sm font-semibold text-zinc-500">
+                              <div className="text-sm font-light text-zinc-500">
                                 {item?.store?.bankInfo?.bankName}
                               </div>
 
@@ -4031,7 +4031,7 @@ const fetchBuyOrders = async () => {
                                   navigator.clipboard.writeText(item?.store?.bankInfo?.accountNumber);
                                   toast.success('판매자 통장번호가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-semibold
+                                className="text-sm text-zinc-500 font-light
                                   hover:text-blue-600 cursor-pointer
                                   hover:underline"
                                 title="판매자 통장번호 복사"
@@ -4039,7 +4039,7 @@ const fetchBuyOrders = async () => {
                                 {item?.store?.bankInfo?.accountNumber}
                               </button>
 
-                              <div className="text-sm font-semibold text-zinc-500">
+                              <div className="text-sm font-light text-zinc-500">
                                 {item?.store?.bankInfo?.accountHolder}
                               </div>
                             </div>
@@ -4055,11 +4055,11 @@ const fetchBuyOrders = async () => {
                                 {item?.status === 'paymentCompleted' && (
                                   <>
                                     {item?.autoConfirmPayment ? (
-                                      <span className="text-sm text-green-500 font-semibold">
+                                      <span className="text-sm text-green-500 font-light">
                                         자동입금처리
                                       </span>
                                     ) : (
-                                      <span className="text-sm text-red-500 font-semibold">
+                                      <span className="text-sm text-red-500 font-light">
                                         수동입금처리
                                       </span>
                                     )}
@@ -4068,7 +4068,7 @@ const fetchBuyOrders = async () => {
 
 
                               
-                                <div className=" text-yellow-600 text-lg font-semibold"
+                                <div className=" text-yellow-600 text-lg font-light"
                                   style={{
                                     fontFamily: 'monospace',
                                   }}
@@ -4093,7 +4093,7 @@ const fetchBuyOrders = async () => {
                               <div className="flex flex-row items-center gap-2">
                                 {/* status */}
                                 {item.status === 'ordered' && (
-                                  <div className="text-sm text-yellow-500 font-semibold">
+                                  <div className="text-sm text-yellow-500 font-light">
                                     {Buy_Order_Opened}
                                   </div>
                                 )}
@@ -4213,7 +4213,7 @@ const fetchBuyOrders = async () => {
                                     flex flex-row gap-1 items-start justify-start">
 
                                       <button
-                                        className="text-sm text-green-500 font-semibold
+                                        className="text-sm text-green-500 font-light
                                           border border-green-500 rounded-lg p-2
                                           bg-green-100
                                           w-full text-center
@@ -4276,7 +4276,7 @@ const fetchBuyOrders = async () => {
                                 <button
                                   className="
                                     flex flex-row gap-2 items-center justify-between
-                                    text-sm text-[#409192] font-semibold
+                                    text-sm text-[#409192] font-light
                                     border border-[#409192] rounded-lg p-2
                                     bg-blue-100
                                     text-center
@@ -4317,7 +4317,7 @@ const fetchBuyOrders = async () => {
                                             height={20}
                                             className="w-5 h-5"
                                           />
-                                          <span className="text-lg text-[#409192] font-semibold"
+                                          <span className="text-lg text-[#409192] font-light"
                                             style={{
                                               fontFamily: 'monospace',
                                             }}>
@@ -4724,7 +4724,7 @@ const fetchBuyOrders = async () => {
                                             height={20}
                                             className="animate-spin"
                                           />
-                                          <span className="text-sm font-semibold text-zinc-500">
+                                          <span className="text-sm font-light text-zinc-500">
                                             가맹점 결제중...
                                           </span>
                                         </div>
@@ -4962,7 +4962,7 @@ const fetchBuyOrders = async () => {
                                 />
 
 
-                                <p className="text-sm font-semibold text-green-500 ">
+                                <p className="text-sm font-light text-green-500 ">
                                   {item.tradeId}
                                 </p>
 
@@ -5100,10 +5100,10 @@ const fetchBuyOrders = async () => {
 
                               <div className="mt-2 flex flex-row items-start gap-2">
 
-                                <p className="text-xl font-semibold text-zinc-500">
+                                <p className="text-xl font-light text-zinc-500">
                                   {item.usdtAmount}{' '}USDT
                                 </p>
-                                <p className="text-lg font-semibold text-zinc-500">{Rate}: {
+                                <p className="text-lg font-light text-zinc-500">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(3)
 
@@ -5141,7 +5141,7 @@ const fetchBuyOrders = async () => {
                                 <div className="flex flex-col gap-2 items-start">
                                   <div className="flex items-center space-x-2">{Buyer}:</div>
 
-                                  <div className="text-sm font-semibold">
+                                  <div className="text-sm font-light">
                                     {item.nickname}
                                   </div>
                                   <div className="text-lg text-green-500">
@@ -5209,7 +5209,7 @@ const fetchBuyOrders = async () => {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-sm text-red-500 font-semibold">
+                                  <p className="text-sm text-red-500 font-light">
                                     {Buyer}: {
                                       address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
                                     }
@@ -5239,7 +5239,7 @@ const fetchBuyOrders = async () => {
                                       height: '32px',
                                   }}
                                 />
-                                <p className="text-xl text-green-500 font-semibold">
+                                <p className="text-xl text-green-500 font-light">
                                   {Seller}: {
                                     item.seller?.nickname
                                   }
@@ -5383,7 +5383,7 @@ const fetchBuyOrders = async () => {
                             {/* if status is accepted, show payment request button */}
                             {item.status === 'paymentConfirmed' && (
                               <div className="flex flex-col gap-1">
-                                <span className="text-sm font-semibold text-green-500">
+                                <span className="text-sm font-light text-green-500">
                                   {Completed}
                                 </span>
                                 <span>{
@@ -5845,7 +5845,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

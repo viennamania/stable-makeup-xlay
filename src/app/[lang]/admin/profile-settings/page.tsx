@@ -943,7 +943,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-semibold">
+                        <span className="text-sm text-gray-500 font-light">
                             돌아가기
                         </span>
                     </div>
@@ -1006,11 +1006,11 @@ export default function SettingsPage({ params }: any) {
                                     toast.success(Copied_Wallet_Address);
                                 }}
                                 className="
-                                text-sm text-gray-500 font-semibold
+                                text-sm text-gray-500 font-light
                                 hover:text-gray-700 transition duration-200
                                 underline underline-offset-4"
                             >
-                                <span className="text-lg text-gray-500 font-semibold">
+                                <span className="text-lg text-gray-500 font-light">
                                     {address.slice(0, 6)}...{address.slice(-4)}
                                 </span>
                             </button>
@@ -1039,7 +1039,7 @@ export default function SettingsPage({ params }: any) {
                                 height: '20px',
                             }}
                         />
-                        <div className="text-xl font-semibold">
+                        <div className="text-xl font-light">
                             {Profile_Settings}
                             
                         </div>
@@ -1058,7 +1058,7 @@ export default function SettingsPage({ params }: any) {
                                     회원코드
                                 </span>
                             </div>
-                            <span className="text-xl font-semibold text-zinc-500">
+                            <span className="text-xl font-light text-zinc-500">
                                 {userCode}
                             </span>
                             <button
@@ -1091,7 +1091,7 @@ export default function SettingsPage({ params }: any) {
                                 </div>
 
 
-                                <span className="text-xl font-semibold text-zinc-500">
+                                <span className="text-xl font-light text-zinc-500">
                                     {nickname}
                                 </span>
 
@@ -1139,7 +1139,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-col gap-2'>
                                     <input
                                         disabled={!address}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-light"
                                         placeholder={Enter_your_nickname}
                                         
                                         //value={nickname}
@@ -1168,7 +1168,7 @@ export default function SettingsPage({ params }: any) {
 
                                     />
                                     <div className='flex flex-row gap-2 items-center justify-between'>
-                                        <span className='text-xs font-semibold'>
+                                        <span className='text-xs font-light'>
                                             {Nickname_should_be_5_10_characters}
                                         </span>
                                     </div>
@@ -1196,7 +1196,7 @@ export default function SettingsPage({ params }: any) {
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}
@@ -1223,7 +1223,7 @@ export default function SettingsPage({ params }: any) {
                             height={20}
                             className="rounded-full"
                         />
-                        <span className='text-xl font-semibold text-zinc-500'>
+                        <span className='text-xl font-light text-zinc-500'>
                             지갑 관리
                         </span>
                     </div>

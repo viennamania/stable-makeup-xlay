@@ -907,7 +907,7 @@ export default function Index({ params }: any) {
                       </div>
 
                       <div className="hidden flex-row items-center justify-end  gap-2">
-                          <span className="text-2xl xl:text-4xl font-semibold text-[#409192]">
+                          <span className="text-2xl xl:text-4xl font-light text-[#409192]">
                               {Number(balance).toFixed(2)}
                           </span>
                           {' '}
@@ -1146,7 +1146,7 @@ export default function Index({ params }: any) {
 
                           <div className="flex flex-row gap-2 justify-center items-center">
                             
-                            <span className="text-3xl font-semibold text-zinc-800">
+                            <span className="text-3xl font-light text-zinc-800">
                               {nickname}
                             </span>
                             
@@ -1531,7 +1531,7 @@ function Header() {
       />
 
       
-      <h1 className="text-2xl md:text-6xl font-semibold md:font-bold tracking-tighter mb-6 text-zinc-100">
+      <h1 className="text-2xl md:text-6xl font-light md:font-bold tracking-tighter mb-6 text-zinc-100">
         thirdweb SDK
         <span className="text-zinc-300 inline-block mx-1"> + </span>
         <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
@@ -1639,7 +1639,7 @@ function ArticleCard(props: {
       </div>
 
       <article>
-        <h2 className="text-lg font-semibold mb-2">{props.title}</h2>
+        <h2 className="text-lg font-light mb-2">{props.title}</h2>
         <p className="text-sm text-zinc-400">{props.description}</p>
       </article>
     </a>

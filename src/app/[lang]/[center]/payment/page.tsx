@@ -2250,7 +2250,7 @@ export default function Index({ params }: any) {
                 height={38}
                 className='rounded-full w-10 h-10'
               />
-              <span className="text-sm text-zinc-100 font-semibold">
+              <span className="text-sm text-zinc-100 font-light">
                 {storeInfo?.storeName}
               </span>
             </div>
@@ -2306,7 +2306,7 @@ export default function Index({ params }: any) {
                   </span>
 
                   <div className="flex flex-row items-center justify-center gap-2">
-                    <span className="text-xl font-semibold text-zinc-100">
+                    <span className="text-xl font-light text-zinc-100">
                       {Number(balance).toFixed(2)}
                     </span>
                     {' '}
@@ -2453,7 +2453,7 @@ export default function Index({ params }: any) {
                   <div className='hidden w-full  flex-row items-between justify-start gap-5'>
 
                     <div className=" flex flex-col gap-2 items-start">
-                      <div className="text-5xl font-semibold text-zinc-500">
+                      <div className="text-5xl font-light text-zinc-500">
                         {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                       </div>
                     </div>
@@ -2473,7 +2473,7 @@ export default function Index({ params }: any) {
                               height: '20px',
                           }}
                         />
-                        <div className="text-lg font-semibold text-zinc-500 ">{
+                        <div className="text-lg font-light text-zinc-500 ">{
                           user?.nickname ? user.nickname : Anonymous
                         }</div>
 
@@ -2578,7 +2578,7 @@ export default function Index({ params }: any) {
                             className="rounded-full w-6 h-6"
                           />
 
-                          <div className="text-2xl font-semibold text-zinc-500">
+                          <div className="text-2xl font-light text-zinc-500">
                             {
                               (selectedKrwAmount / rate)?.toLocaleString('us-US', {
                                 minimumFractionDigits: 2,
@@ -2614,7 +2614,7 @@ export default function Index({ params }: any) {
                             <span className="text-sm text-zinc-500">
                               구매금액
                             </span>
-                            <div className="text-2xl font-semibold text-zinc-500">
+                            <div className="text-2xl font-light text-zinc-500">
                               {
                                 selectedKrwAmount?.toLocaleString('ko-KR')
                               } 원
@@ -2646,7 +2646,7 @@ export default function Index({ params }: any) {
                             <span className="text-sm text-zinc-500">
                               시세
                             </span>
-                            <div className="text-2xl font-semibold text-zinc-500">
+                            <div className="text-2xl font-light text-zinc-500">
                               {
                                 rate?.toLocaleString('ko-KR')
                               } 원
@@ -2798,7 +2798,7 @@ export default function Index({ params }: any) {
                               value={depositBankName || ''}
                               onChange={(e) => setDepositBankName(e.target.value)}
                               placeholder="입금자은행명"
-                              className=" text-sm font-semibold bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
+                              className=" text-sm font-light bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
                             />
                           </div>
 
@@ -2815,7 +2815,7 @@ export default function Index({ params }: any) {
                               value={depositBankAccountNumber || ''}
                               onChange={(e) => setDepositBankAccountNumber(e.target.value)}
                               placeholder="입금자계좌번호"
-                              className=" text-sm font-semibold bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
+                              className=" text-sm font-light bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
                             />
                           </div>
 
@@ -2836,7 +2836,7 @@ export default function Index({ params }: any) {
                               value={depositName || ''}
                               onChange={(e) => setDepositName(e.target.value)}
                               placeholder={Deposit_Name}
-                              className=" text-sm font-semibold bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
+                              className=" text-sm font-light bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
                             />
                           </div>
 
@@ -3018,7 +3018,7 @@ export default function Index({ params }: any) {
                                 />      
 
 
-                                <h2 className="text-lg font-semibold">
+                                <h2 className="text-lg font-light">
                                     {Seller}: {
 
                                         item.walletAddress === address ? item.nickname ? item.nickname : Anonymous  + ' :' + Me :
@@ -3066,7 +3066,7 @@ export default function Index({ params }: any) {
                                     }}
                                 />
 
-                                <h2 className="text-lg font-semibold">
+                                <h2 className="text-lg font-light">
                                     {Buyer}: {
                                         item.buyer?.nickname ? item.buyer?.nickname : Anonymous
                                     }
@@ -3175,7 +3175,7 @@ export default function Index({ params }: any) {
                                     />
                                   )}
 
-                                  <p className=" text-xl font-semibold text-green-500 ">
+                                  <p className=" text-xl font-light text-green-500 ">
                                     {TID}: {item.tradeId}
                                   </p>
 
@@ -3428,8 +3428,8 @@ export default function Index({ params }: any) {
                                 <div className="mt-2 flex flex-row items-between space-x-2">
 
 
-                                  <p className="text-lg font-semibold text-zinc-500">{item.usdtAmount} USDT</p>
-                                  <p className="text-lg font-semibold text-zinc-500">{Rate}: {
+                                  <p className="text-lg font-light text-zinc-500">{item.usdtAmount} USDT</p>
+                                  <p className="text-lg font-light text-zinc-500">{Rate}: {
 
                                     Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -3548,7 +3548,7 @@ export default function Index({ params }: any) {
                                           height={32}
                                           className="animate-spin"
                                       />
-                                      <div className="text-lg font-semibold text-zinc-500">
+                                      <div className="text-lg font-light text-zinc-500">
                                         Escrowing {item.usdtAmount} USDT...
                                       </div>
                                     </div>
@@ -3577,7 +3577,7 @@ export default function Index({ params }: any) {
                                           height={50}
                                           className="animate-spin"
                                       />
-                                      <div className="text-lg font-semibold text-zinc-500">
+                                      <div className="text-lg font-light text-zinc-500">
                                         {Requesting_Payment}...
                                       </div>
                                     </div>
@@ -3648,7 +3648,7 @@ export default function Index({ params }: any) {
                                             navigator.clipboard.writeText(item.seller?.bankInfo.accountNumber);
                                             toast.success(Account_number_has_been_copied);
                                         } }
-                                        className='text-lg font-semibold'
+                                        className='text-lg font-light'
                                       >
                                         {item.seller?.bankInfo.accountNumber}
                                       </button>
@@ -3697,7 +3697,7 @@ export default function Index({ params }: any) {
                                     <div className="flex flex-col gap-2">
                                       <div className="flex flex-row items-center gap-2">
                                         <GearSetupIcon />
-                                        <div className="text-lg font-semibold">
+                                        <div className="text-lg font-light">
                                         {Request_Payment}
                                         </div>
                                       </div>
@@ -3754,7 +3754,7 @@ export default function Index({ params }: any) {
                                         )}
 
 
-                                        <div className="text-lg font-semibold">
+                                        <div className="text-lg font-light">
                                         {Request_Payment}
                                         </div>
                                       </div>
@@ -3900,7 +3900,7 @@ export default function Index({ params }: any) {
                                       height={32}
                                     />
 
-                                    <div className="text-lg font-semibold text-green-500">
+                                    <div className="text-lg font-light text-green-500">
                                       {Escrow}: {item.usdtAmount} USDT
                                     </div>
 
@@ -3932,7 +3932,7 @@ export default function Index({ params }: any) {
                                       width={32}
                                       height={32}
                                     />
-                                    <div className="text-lg font-semibold text-green-500">
+                                    <div className="text-lg font-light text-green-500">
                                       {Bank_Transfer}
                                     </div>
                                     <span className="text-sm text-green-500">
@@ -3946,7 +3946,7 @@ export default function Index({ params }: any) {
                                   {address && (item.walletAddress === address || item.buyer?.walletAddress === address ) && (
                                     <>
                                       {/* bank transfer information 입금은행 */}
-                                      <div className='mt-4 text-lg text-green-500 font-semibold'>
+                                      <div className='mt-4 text-lg text-green-500 font-light'>
                                         입금은행
                                       </div>
                                       <div className='flex flex-row items-center justify-center gap-2'>
@@ -3959,7 +3959,7 @@ export default function Index({ params }: any) {
                                               navigator.clipboard.writeText(item.seller?.bankInfo.accountNumber);
                                               toast.success("계좌번호가 복사되었습니다.");
                                           } }
-                                          className='text-lg font-semibold'
+                                          className='text-lg font-light'
                                         >
                                           {item.seller?.bankInfo.accountNumber}
                                         </button>
@@ -3988,7 +3988,7 @@ export default function Index({ params }: any) {
                                                 navigator.clipboard.writeText(item.buyer?.depositName ? item.buyer?.depositName : item.tradeId);
                                                 toast.success(Payment_name_has_been_copied);
                                             } }
-                                            className="text-lg font-semibold"
+                                            className="text-lg font-light"
                                           >
                                             {item.buyer?.depositName ? item.buyer?.depositName : item.tradeId}
                                           </button>
@@ -4015,7 +4015,7 @@ export default function Index({ params }: any) {
                                                 navigator.clipboard.writeText(item.krwAmount.toString());
                                                 toast.success(Payment_amount_has_been_copied);
                                             } }
-                                            className="text-lg font-semibold"
+                                            className="text-lg font-light"
                                           >
                                             {item.krwAmount?.toLocaleString('ko-KR', {
                                                 style: 'currency',
@@ -4151,7 +4151,7 @@ export default function Index({ params }: any) {
                                             height={32}
                                             className="animate-spin"
                                         />
-                                        <div className="text-lg font-semibold text-zinc-500">
+                                        <div className="text-lg font-light text-zinc-500">
                                           
                                           {Checking_the_bank_transfer_from_the_buyer} ( {
                                             item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
@@ -4234,7 +4234,7 @@ export default function Index({ params }: any) {
                                         height={32}
                                         className="animate-spin"
                                     />
-                                    <div className="text-lg font-semibold text-zinc-500">
+                                    <div className="text-lg font-light text-zinc-500">
 
                                       {/*
                                       Transfering {item.usdtAmount} USDT to the buyer ( {item?.buyer?.nickname} ) wallet address...
@@ -4278,7 +4278,7 @@ export default function Index({ params }: any) {
                               {/* buyer mobile number */}
                               {/*address && item.buyer?.walletAddress === address && (
                                 <div className="mt-4 flex flex-row items-center gap-2">
-                                  <div className="text-lg font-semibold text-green-500">
+                                  <div className="text-lg font-light text-green-500">
                                     SMS: {item.buyer?.mobile}
                                   </div>
                                 </div>
@@ -4334,11 +4334,11 @@ export default function Index({ params }: any) {
             bg-white shadow-lg rounded-lg p-6
             border border-gray-200
             ">
-            <p className="text-sm text-zinc-500 font-semibold">
+            <p className="text-sm text-zinc-500 font-light">
             📌 필독 안내사항
             </p>
             <div className='flex flex-col items-start justify-start mt-2'>
-              <ul className="list-disc list-inside text-sm text-zinc-500 font-semibold">
+              <ul className="list-disc list-inside text-sm text-zinc-500 font-light">
                 <li>대행 신청 전 유의사항을 반드시 확인해 주세요. 신청 전 안내된 내용을 충분히 숙지하지 않아 발생하는 모든 문제는 회원 본인의 책임이며, 당사는 이에 대해 책임지지 않습니다.</li>
                 <li>코인 전송 완료 후에는 취소 및 환불이 불가능합니다. 대행 신청 완료 후 진행된 코인 거래는 어떤 경우에도 취소나 환불이 불가하오니 신중히 진행해 주세요.</li>
                 <li>최근 코인 거래 관련 사기가 빈번하게 발생하고 있습니다. 구매 및 판매 시 반드시 신원과 거래 내용을 철저히 확인하신 후 진행해 주시기 바랍니다. ※ 대행 신청 후 사고 발생 시 당사는 도움을 드릴 수 없습니다.</li>
@@ -4437,7 +4437,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

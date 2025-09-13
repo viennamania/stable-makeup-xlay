@@ -1589,7 +1589,7 @@ export default function Index({ params }: any) {
                 </button>
 
                 {/* title */}
-                <span className="text-sm text-gray-500 font-semibold">
+                <span className="text-sm text-gray-500 font-light">
                     돌아가기
                 </span>
             </div>
@@ -1653,7 +1653,7 @@ export default function Index({ params }: any) {
                           className="w-10 h-10 rounded-full"
                       />
 
-                      <div className="text-xl font-semibold">
+                      <div className="text-xl font-light">
                       가맹점{' '}{
                           store && store.storeName + " (" + store.storecode + ")"
                       }{' '}청산관리
@@ -1693,7 +1693,7 @@ export default function Index({ params }: any) {
                                 <span className="text-sm text-zinc-500">
                                     에스크로 잔액
                                 </span>
-                                <span className="text-2xl xl:text-4xl font-semibold text-[#409192]">
+                                <span className="text-2xl xl:text-4xl font-light text-[#409192]">
                                     {Number(balance).toFixed(2)}
                                 </span>
                                 {' '}
@@ -1719,21 +1719,21 @@ export default function Index({ params }: any) {
               <div className="w-full flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 거래수(건)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 거래금액(원)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalKrwAmount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 거래량(USDT)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalUsdtAmount?.toLocaleString()}
                   </div>
                 </div>
@@ -1746,20 +1746,20 @@ export default function Index({ params }: any) {
               <div className="w-full flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제수(건)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalSettlementCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제금액(원)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalSettlementAmountKRW?.toLocaleString()}
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제량(USDT)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalSettlementAmount?.toLocaleString()}
                   </div>
                 </div>
@@ -1773,20 +1773,20 @@ export default function Index({ params }: any) {
               <div className="w-full flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제수(건)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalSettlementCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 수수료금액(원)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalFeeAmountKRW?.toLocaleString()}
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 수수료수량(USDT)</div>
-                  <div className="text-xl font-semibold text-zinc-500">
+                  <div className="text-xl font-light text-zinc-500">
                     {tradeSummary.totalFeeAmount?.toLocaleString()}
                   </div>
                 </div>
@@ -1984,7 +1984,7 @@ export default function Index({ params }: any) {
                               </div>
 
                               {krwAmount > 0 && (
-                                <div className="text-lg font-semibold text-zinc-400">
+                                <div className="text-lg font-light text-zinc-400">
                                   {Rate}: {
 
                                     // currency format
@@ -2260,7 +2260,7 @@ export default function Index({ params }: any) {
 
                                 </div>
                                 {/* 회수수량 */}
-                                <span className="text-lg font-semibold text-zinc-400">
+                                <span className="text-lg font-light text-zinc-400">
                                   회수수량(USDT)
                                 </span>
   
@@ -2386,7 +2386,7 @@ export default function Index({ params }: any) {
                     {/*
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Total}</div>
-                      <div className="text-xl font-semibold text-white">
+                      <div className="text-xl font-light text-white">
                         {buyOrders.length}
                       </div>
                     </div>
@@ -2394,7 +2394,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">가맹점 청산신청 건수</div>
-                      <div className="text-xl font-semibold text-zinc-400">
+                      <div className="text-xl font-light text-zinc-400">
                         {buyOrders.filter((item) => item.status === 'ordered').length}
                       </div>
                     </div>
@@ -2469,14 +2469,14 @@ export default function Index({ params }: any) {
                                   )}
                               </td>
                               
-                              <td className="text-blue-500 text-lg font-semibold">
+                              <td className="text-blue-500 text-lg font-light">
                                 #{item.tradeId}
                               </td>
 
 
                               <td>
                                 <div className="flex flex-col gap-1">
-                                  <span className="text-lg text-yellow-500 font-semibold">
+                                  <span className="text-lg text-yellow-500 font-light">
                                     {Number(item.krwAmount)?.toLocaleString('ko-KR', {
                                       style: 'currency',
                                       currency: 'KRW',
@@ -2497,7 +2497,7 @@ export default function Index({ params }: any) {
                                 </div>
                               </td>
 
-                              <td className="text-lg text-yellow-500 font-semibold">
+                              <td className="text-lg text-yellow-500 font-light">
                                 {item.status === 'paymentConfirmed' && (
                                   Number(item.krwAmount)?.toLocaleString('ko-KR', {
                                     style: 'currency',
@@ -2568,7 +2568,7 @@ export default function Index({ params }: any) {
 
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-col gap-1">
-                                    <span className="text-lg font-semibold text-green-500">
+                                    <span className="text-lg font-light text-green-500">
                                       {Completed}
                                     </span>
                                     <span>{
@@ -2580,7 +2580,7 @@ export default function Index({ params }: any) {
                                 {item.status === 'accepted' && (
                                   <div className="flex flex-row gap-1">
 
-                                    <span className="text-lg font-semibold text-yellow-500">
+                                    <span className="text-lg font-light text-yellow-500">
                                       주문접수
                                     </span>
 
@@ -2635,7 +2635,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex flex-col gap-1">
 
-                                    <span className="text-lg font-semibold text-yellow-500">
+                                    <span className="text-lg font-light text-yellow-500">
                                       결제요청
                                     </span>
 
@@ -2886,7 +2886,7 @@ export default function Index({ params }: any) {
                                 )}
 
 
-                                <p className="text-xl font-semibold text-green-500 ">
+                                <p className="text-xl font-light text-green-500 ">
                                   {TID}: {item.tradeId}
                                 </p>
 
@@ -2906,7 +2906,7 @@ export default function Index({ params }: any) {
                                   height={50}
                                 />
 
-                                <p className="text-xl font-semibold text-green-500 ">
+                                <p className="text-xl font-light text-green-500 ">
                                   {TID}: {item.tradeId}
                                 </p>
                               </div>
@@ -2960,9 +2960,9 @@ export default function Index({ params }: any) {
 
                               <div className="flex flex-row items-start gap-2">
 
-                                <p className="text-lg font-semibold text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-lg font-light text-white">{item.usdtAmount} USDT</p>
 
-                                <p className="text-lg font-semibold text-white">{Rate}: {
+                                <p className="text-lg font-light text-white">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -2992,7 +2992,7 @@ export default function Index({ params }: any) {
                        
 
                             
-                            <div className="mt-4 flex text-lg font-semibold mb-2">
+                            <div className="mt-4 flex text-lg font-light mb-2">
                               {
    
 
@@ -3098,7 +3098,7 @@ export default function Index({ params }: any) {
                               && (
                                 <div className="w-full mt-4 mb-2 flex flex-col gap-2 items-start ">
 
-                                  <p className="text-sm text-green-500 font-semibold">
+                                  <p className="text-sm text-green-500 font-light">
                                     {Seller}: {
                                       item.seller.walletAddress === address ? item.seller.nickname + ' :' + Me :
                                     
@@ -3348,7 +3348,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

@@ -400,7 +400,7 @@ export default function SettingsPage({ params }: any) {
                         '/' + params.lang + '/' + params.center + '/?wallet=' + wallet
                         
                     )}
-                        className="text-zinc-100 font-semibold underline"
+                        className="text-zinc-100 font-light underline"
                     >
                         {Go_Home}
                     </button>
@@ -411,7 +411,7 @@ export default function SettingsPage({ params }: any) {
 
                     <div className='flex flex-row items-center space-x-4'>
                         <GearSetupIcon />
-                        <div className="text-2xl font-semibold">
+                        <div className="text-2xl font-light">
                             {Wallet_Settings}
                         </div>
 
@@ -513,7 +513,7 @@ export default function SettingsPage({ params }: any) {
 
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xs xl:text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xs xl:text-xl font-light">
                                     {address}
                                 </div>
 
@@ -533,7 +533,7 @@ export default function SettingsPage({ params }: any) {
                                         onChange={() => setAgreementCopy(!agreementCopy)}
                                         className='w-6 h-6'
                                     />
-                                    <div className='text-lg text-zinc-100 font-semibold'>
+                                    <div className='text-lg text-zinc-100 font-light'>
                                         {I_understand_that_I_should_never_deposit_any_other_tokens}
                                     </div>
                                 </div>
@@ -566,7 +566,7 @@ export default function SettingsPage({ params }: any) {
                                 {My_Phone_Number}
                             </div>
 
-                            <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-2xl font-semibold">
+                            <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-2xl font-light">
                                 {phoneNumber}
                             </div>
 

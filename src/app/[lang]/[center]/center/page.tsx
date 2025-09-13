@@ -1967,7 +1967,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <span className="text-lg font-semibold text-zinc-500">
+                    <span className="text-lg font-light text-zinc-500">
                       현재 보유량
                     </span>
                   </div>
@@ -1983,7 +1983,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <span className="text-lg text-[#409192] font-semibold"
+                    <span className="text-lg text-[#409192] font-light"
                       style={{ fontFamily: 'monospace' }}
                     >
                       {
@@ -1995,7 +1995,7 @@ export default function Index({ params }: any) {
 
                 {/* 오늘 수수료 차감량 */}
                 <div className="flex flex-row gap-2 items-center">
-                  <span className="text-sm text-zinc-500 font-semibold">
+                  <span className="text-sm text-zinc-500 font-light">
                     오늘 수수료 차감량
                   </span>
                   <div className="
@@ -2009,7 +2009,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <span className="text-lg text-red-600 font-semibold"
+                    <span className="text-lg text-red-600 font-light"
                       style={{ fontFamily: 'monospace' }}
                     >
                       {
@@ -2050,7 +2050,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg font-semibold text-zinc-500">
+                <span className="text-lg font-light text-zinc-500">
                   가맹점 거래
                 </span>
               </div>
@@ -2063,7 +2063,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg text-[#409192] font-semibold"
+                <span className="text-lg text-[#409192] font-light"
                   style={{ fontFamily: 'monospace' }}
                 >
                   {
@@ -2074,7 +2074,7 @@ export default function Index({ params }: any) {
               </div>
 
               <div className="flex flex-row gap-1 items-center">
-                <span className="text-lg text-yellow-600 font-semibold"
+                <span className="text-lg text-yellow-600 font-light"
                   style={{ fontFamily: 'monospace' }}
                 >
                   {
@@ -2101,7 +2101,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg font-semibold text-zinc-500">
+                <span className="text-lg font-light text-zinc-500">
                   가맹점 정산
                 </span>
               </div>
@@ -2114,7 +2114,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg text-[#409192] font-semibold"
+                <span className="text-lg text-[#409192] font-light"
                   style={{ fontFamily: 'monospace' }}
                 >
                   {
@@ -2125,7 +2125,7 @@ export default function Index({ params }: any) {
               </div>
 
               <div className="flex flex-row gap-1 items-center">
-                <span className="text-lg text-yellow-600 font-semibold"
+                <span className="text-lg text-yellow-600 font-light"
                   style={{ fontFamily: 'monospace' }}
                 >
                   {
@@ -2151,7 +2151,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg font-semibold text-zinc-500">
+                <span className="text-lg font-light text-zinc-500">
                   가맹점 판매
                 </span>
               </div>
@@ -2164,7 +2164,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg text-[#409192] font-semibold"
+                <span className="text-lg text-[#409192] font-light"
                   style={{ fontFamily: 'monospace' }}
                 >
                   {
@@ -2175,7 +2175,7 @@ export default function Index({ params }: any) {
               </div>
 
               <div className="flex flex-row gap-1 items-center">
-                <span className="text-lg text-yellow-600 font-semibold"
+                <span className="text-lg text-yellow-600 font-light"
                   style={{ fontFamily: 'monospace' }}
                 >
                   {
@@ -2249,7 +2249,7 @@ export default function Index({ params }: any) {
                       height={35}
                       className="w-5 h-5"
                     />
-                    <h2 className="text-lg font-semibold">최근 구매회원</h2>
+                    <h2 className="text-lg font-light">최근 구매회원</h2>
                     {fetchingStoreSummary && (
                       <Image
                         src="/loading.png"
@@ -2275,7 +2275,7 @@ export default function Index({ params }: any) {
 
                 <div className="w-full flex flex-col items-end justify-center gap-2
                 border-b-2 border-b-[#3167b4]">
-                  <h2 className="text-lg font-semibold">총 회원수</h2>
+                  <h2 className="text-lg font-light">총 회원수</h2>
                   <p className="text-lg text-zinc-500">
                     {storeSummary.totalNumberOfBuyers}명
                   </p>
@@ -2322,7 +2322,7 @@ export default function Index({ params }: any) {
                       height={35}
                       className="w-6 h-6"
                     />
-                    <h2 className="text-lg font-semibold">최근 구매주문</h2>
+                    <h2 className="text-lg font-light">최근 구매주문</h2>
                     {fetchingStoreSummary && (
                       <Image
                         src="/loading.png"
@@ -2351,13 +2351,13 @@ export default function Index({ params }: any) {
 
 
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-semibold">총 구매주문수</h2>
+                    <h2 className="text-lg font-light">총 구매주문수</h2>
                     <p className="text-lg text-zinc-500">
                       {storeSummary.totalNumberOfOrders}
                     </p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-semibold">총 구매금액(원)</h2>
+                    <h2 className="text-lg font-light">총 구매금액(원)</h2>
                     <div className="flex flex-row items-center justify-end gap-2">
                       <p className="text-lg text-yellow-600"
                         style={{ fontFamily: 'monospace' }}>
@@ -2366,7 +2366,7 @@ export default function Index({ params }: any) {
                     </div>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-semibold">총 구매량(USDT)</h2>
+                    <h2 className="text-lg font-light">총 구매량(USDT)</h2>
 
                     <div className="flex flex-row items-center justify-center gap-2">
                       <Image
@@ -2434,22 +2434,22 @@ export default function Index({ params }: any) {
                           <td className="px-4 py-2">
 
                             {order.status === 'ordered' && (
-                              <span className="text-sm text-yellow-500 font-semibold">
+                              <span className="text-sm text-yellow-500 font-light">
                                 구매신청
                               </span>
                             )}
                             {order.status === 'accepted' && (
-                              <span className="text-sm text-green-500 font-semibold">
+                              <span className="text-sm text-green-500 font-light">
                                 구매승인
                               </span>
                             )}
                             {order.status === 'paymentRequested' && (
-                              <span className="text-sm text-blue-500 font-semibold">
+                              <span className="text-sm text-blue-500 font-light">
                                 결제요청
                               </span>
                             )}
                             {order.status === 'paymentConfirmed' && (
-                              <span className="text-sm text-blue-500 font-semibold">
+                              <span className="text-sm text-blue-500 font-light">
                                 결제완료
                               </span>
                             )}
@@ -2481,7 +2481,7 @@ export default function Index({ params }: any) {
                       height={35}
                       className="w-6 h-6"
                     />
-                    <h2 className="text-lg font-semibold">최근 거래내역(회원)</h2>
+                    <h2 className="text-lg font-light">최근 거래내역(회원)</h2>
                     {fetchingStoreSummary && (
                       <Image
                         src="/loading.png"
@@ -2511,13 +2511,13 @@ export default function Index({ params }: any) {
 
                   <div className="w-full flex flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 거래수</h2>
+                      <h2 className="text-lg font-light">총 거래수</h2>
                       <p className="text-lg text-zinc-500">
                         {storeSummary.totalNumberOfTrades}
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 거래금액(원)</h2>
+                      <h2 className="text-lg font-light">총 거래금액(원)</h2>
                       <div className="flex flex-row items-center justify-end gap-2">
                         <p className="text-lg text-yellow-600"
                           style={{ fontFamily: 'monospace' }}>
@@ -2526,7 +2526,7 @@ export default function Index({ params }: any) {
                       </div>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 거래량(USDT)</h2>
+                      <h2 className="text-lg font-light">총 거래량(USDT)</h2>
 
                       <div className="flex flex-row items-center justify-center gap-2">
                         <Image
@@ -2551,13 +2551,13 @@ export default function Index({ params }: any) {
                   {/* total settlement count, total settlement amount krw, total usdt amount */}
                   <div className="w-full flex flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 결제수</h2>
+                      <h2 className="text-lg font-light">총 결제수</h2>
                       <p className="text-lg text-zinc-500">
                         {storeSummary.totalSettlementCount}
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 결제금액(원)</h2>
+                      <h2 className="text-lg font-light">총 결제금액(원)</h2>
                       <div className="flex flex-row items-center justify-end gap-2">
                         <p className="text-lg text-yellow-600"
                           style={{ fontFamily: 'monospace' }}>
@@ -2566,7 +2566,7 @@ export default function Index({ params }: any) {
                       </div>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 결제량(USDT)</h2>
+                      <h2 className="text-lg font-light">총 결제량(USDT)</h2>
                       <div className="flex flex-row items-center justify-center gap-2">
                         <Image
                           src="/icon-tether.png"
@@ -2685,7 +2685,7 @@ export default function Index({ params }: any) {
                       height={35}
                       className="w-6 h-6"
                     />
-                    <h2 className="text-lg font-semibold">최근 판매내역(거래소)</h2>
+                    <h2 className="text-lg font-light">최근 판매내역(거래소)</h2>
                     {fetchingStoreSummary && (
                       <Image
                         src="/loading.png"
@@ -2715,13 +2715,13 @@ export default function Index({ params }: any) {
 
                   <div className="flex flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 판매주문수</h2>
+                      <h2 className="text-lg font-light">총 판매주문수</h2>
                       <p className="text-lg text-zinc-500">
                         {storeSummary.totalClearanceCount}
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 판매금액(원)</h2>
+                      <h2 className="text-lg font-light">총 판매금액(원)</h2>
                       <div className="flex flex-row items-center justify-end gap-2">
                         <p className="text-lg text-yellow-600"
                           style={{ fontFamily: 'monospace' }}>
@@ -2733,7 +2733,7 @@ export default function Index({ params }: any) {
                       </div>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-semibold">총 판매량(USDT)</h2>
+                      <h2 className="text-lg font-light">총 판매량(USDT)</h2>
                       <div className="flex flex-row items-center justify-center gap-2">
                         <Image
                           src="/icon-tether.png"
@@ -2836,12 +2836,12 @@ export default function Index({ params }: any) {
                             {/*
                             <td className="px-4 py-2">
                               {trade.status === 'paymentConfirmed' && (
-                                <span className="text-sm text-green-500 font-semibold">
+                                <span className="text-sm text-green-500 font-light">
                                   판매완료
                                 </span>
                               )}
                               {trade.status === 'paymentRequested' && (
-                                <span className="text-sm text-blue-500 font-semibold">  
+                                <span className="text-sm text-blue-500 font-light">  
                                   판매요청
                                 </span>
                               )}
@@ -2929,7 +2929,7 @@ export default function Index({ params }: any) {
 
                             <div className="flex flex-row gap-2 justify-center items-center">
                               
-                              <span className="text-3xl font-semibold text-zinc-800">
+                              <span className="text-3xl font-light text-zinc-800">
                                 {user?.nickname}
                               </span>
                               

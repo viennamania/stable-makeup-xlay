@@ -1697,7 +1697,7 @@ export default function Index({ params }: any) {
                 </button>
 
                 {/* title */}
-                <span className="text-sm text-gray-500 font-semibold">
+                <span className="text-sm text-gray-500 font-light">
                     돌아가기
                 </span>
             </div>
@@ -1773,7 +1773,7 @@ export default function Index({ params }: any) {
                       className="w-10 h-10 rounded-full"
                   />
 
-                  <div className="text-xl font-semibold">
+                  <div className="text-xl font-light">
                   가맹점{' '}{
                       store && store.storeName + " (" + store.storecode + ")"
                   }{' '}청산관리
@@ -1828,7 +1828,7 @@ export default function Index({ params }: any) {
                         height={30}
                         className="w-6 h-6"
                       />
-                      <span className="text-2xl xl:text-4xl font-semibold text-[#409192]"
+                      <span className="text-2xl xl:text-4xl font-light text-[#409192]"
                         style={{ fontFamily: "monospace" }}>
                           {
                             (Number(sellerWalletBalance || 0).toFixed(3))
@@ -1889,7 +1889,7 @@ export default function Index({ params }: any) {
                         height={30}
                         className="w-6 h-6"
                       />
-                      <span className="text-2xl xl:text-4xl font-semibold text-[#409192]"
+                      <span className="text-2xl xl:text-4xl font-light text-[#409192]"
                         style={{ fontFamily: "monospace" }}>
                           {
                             (Number(balance || 0).toFixed(3))
@@ -1959,7 +1959,7 @@ export default function Index({ params }: any) {
                                 height={30}
                                 className="w-6 h-6"
                               />
-                              <span className="text-2xl xl:text-4xl font-semibold text-[#409192]"
+                              <span className="text-2xl xl:text-4xl font-light text-[#409192]"
                                 style={{ fontFamily: "monospace" }}>
                                 {store && store.escrowAmountUSDT &&
                                 store.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -2020,7 +2020,7 @@ export default function Index({ params }: any) {
                                     height={30}
                                     className="w-6 h-6"
                                 />
-                                <span className="text-2xl xl:text-4xl font-semibold text-[#409192]"
+                                <span className="text-2xl xl:text-4xl font-light text-[#409192]"
                                   style={{ fontFamily: "monospace" }}>
                                     {
                                       (Number(settlementWalletBalance || 0).toFixed(3))
@@ -2226,7 +2226,7 @@ export default function Index({ params }: any) {
                               </div>
 
                               {krwAmount > 0 && (
-                                <div className="text-lg font-semibold text-zinc-400">
+                                <div className="text-lg font-light text-zinc-400">
                                   {Rate}: {
 
                                     // currency format
@@ -2502,7 +2502,7 @@ export default function Index({ params }: any) {
 
                                 </div>
                                 {/* 매입수량 */}
-                                <span className="text-lg font-semibold text-zinc-400">
+                                <span className="text-lg font-light text-zinc-400">
                                   매입수량(USDT)
                                 </span>
   
@@ -2656,7 +2656,7 @@ export default function Index({ params }: any) {
                     {/*
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">건수</div>
-                      <div className="text-xl font-semibold text-zinc-400">
+                      <div className="text-xl font-light text-zinc-400">
                         {buyOrders.length.toLocaleString()}
                       </div>
                     </div>
@@ -2680,7 +2680,7 @@ export default function Index({ params }: any) {
                             <span className="text-sm text-zinc-500">
                               총 매입주문수(건)
                             </span>
-                            <span className="text-xl xl:text-2xl font-semibold text-[#409192]">
+                            <span className="text-xl xl:text-2xl font-light text-[#409192]">
                               {totalClearanceCount.toLocaleString()}
                             </span>
                           </div>
@@ -2690,7 +2690,7 @@ export default function Index({ params }: any) {
                                   총 매입수량(USDT)
                               </span>
                               <div className="flex flex-row items-center justify-center gap-2">
-                                <span className="text-xl xl:text-2xl font-semibold text-[#409192]"
+                                <span className="text-xl xl:text-2xl font-light text-[#409192]"
                                   style={{ fontFamily: "monospace" }}>
                                     {
                                       (Number(totalClearanceAmount).toFixed(3))
@@ -2705,7 +2705,7 @@ export default function Index({ params }: any) {
                                   총 매입금액(원)
                               </span>
                               <div className="flex flex-row items-center justify-center gap-2">
-                                <span className="text-xl xl:text-2xl font-semibold text-yellow-600"
+                                <span className="text-xl xl:text-2xl font-light text-yellow-600"
                                   style={{ fontFamily: "monospace" }}>
                                     {
                                       (Number(totalClearanceAmountKRW).toFixed(0))
@@ -2739,7 +2739,7 @@ export default function Index({ params }: any) {
                   <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-semibold"
+                      className="bg-zinc-800 text-white text-sm font-light"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}
@@ -2782,7 +2782,7 @@ export default function Index({ params }: any) {
                         `}>
 
                               {/* monospace font */}
-                              <td className="p-2 text-lg text-zinc-600 font-semibold"
+                              <td className="p-2 text-lg text-zinc-600 font-light"
                                 style={{
                                   fontFamily: 'monospace',
                                 }}
@@ -2796,7 +2796,7 @@ export default function Index({ params }: any) {
                               <td className="p-2">
 
                                 <div className="flex flex-col items-center justify-center gap-1">
-                                  <span className="text-lg text-zinc-600 font-semibold">
+                                  <span className="text-lg text-zinc-600 font-light">
                                     {new Date(item.createdAt).toLocaleString()}
                                   </span>
   
@@ -2851,7 +2851,7 @@ export default function Index({ params }: any) {
                                       height={20}
                                       className="w-5 h-5 rounded-full"
                                     />
-                                    <span className="text-lg text-zinc-400 font-semibold">
+                                    <span className="text-lg text-zinc-400 font-light">
                                       {item.walletAddress.slice(0, 6) + '...' + item.walletAddress.slice(-4)}
                                     </span>
                                   </div>
@@ -2884,7 +2884,7 @@ export default function Index({ params }: any) {
                                       height={20}
                                       className="w-5 h-5 rounded-full"
                                     />
-                                    <span className="text-lg text-zinc-400 font-semibold">
+                                    <span className="text-lg text-zinc-400 font-light">
                                       {item?.seller?.walletAddress.slice(0, 6) + '...' + item?.seller?.walletAddress.slice(-4)}
                                     </span>
                                   </div>
@@ -2906,7 +2906,7 @@ export default function Index({ params }: any) {
                                       height={20}
                                       className="w-5 h-5"
                                     />
-                                    <span className="text-xl text-[#409192] font-semibold"
+                                    <span className="text-xl text-[#409192] font-light"
                                       style={{
                                         fontFamily: 'monospace',
                                       }}
@@ -2915,7 +2915,7 @@ export default function Index({ params }: any) {
                                     </span>
                                   </div>
 
-                                  <span className="text-xl text-yellow-600 font-semibold"
+                                  <span className="text-xl text-yellow-600 font-light"
                                     style={{
                                       fontFamily: 'monospace',
                                     }}
@@ -2924,7 +2924,7 @@ export default function Index({ params }: any) {
                                   </span>
 
 
-                                  <span className="text-lg text-zinc-400 font-semibold"
+                                  <span className="text-lg text-zinc-400 font-light"
                                     style={{
                                       fontFamily: 'monospace',
                                     }}
@@ -2982,7 +2982,7 @@ export default function Index({ params }: any) {
                               <td>
                                 
                                 {item.status === 'paymentConfirmed' && (
-                                  <span className="text-xl text-yellow-600 font-semibold">
+                                  <span className="text-xl text-yellow-600 font-light">
                                     
                                     {Number(item.krwAmount)?.toLocaleString()}
                                   </span>
@@ -3065,7 +3065,7 @@ export default function Index({ params }: any) {
 
                                     <>
                               
-                                    <span className="text-lg text-yellow-600 font-semibold">
+                                    <span className="text-lg text-yellow-600 font-light">
                     
                                       주문 신청중...
                                     </span>
@@ -3080,7 +3080,7 @@ export default function Index({ params }: any) {
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-col items-center justify-center gap-2">
 
-                                    <span className="text-lg font-semibold text-[#409192]">
+                                    <span className="text-lg font-light text-[#409192]">
                                       {Completed}
                                     </span>
                                     <span>{
@@ -3088,7 +3088,7 @@ export default function Index({ params }: any) {
                                     }</span>
 
                                     <button
-                                      className="text-sm text-blue-600 font-semibold
+                                      className="text-sm text-blue-600 font-light
                                         border border-blue-600 rounded-lg p-2
                                         bg-blue-100
                                         w-full text-center
@@ -3140,7 +3140,7 @@ export default function Index({ params }: any) {
                                 {item.status === 'accepted' && (
                                   <div className="flex flex-row gap-1">
 
-                                    <span className="text-lg font-semibold text-yellow-600">
+                                    <span className="text-lg font-light text-yellow-600">
                                       주문접수
                                     </span>
 
@@ -3195,7 +3195,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex flex-row gap-1">
 
-                                    <span className="text-lg font-semibold text-yellow-600">
+                                    <span className="text-lg font-light text-yellow-600">
                                       결제요청
                                     </span>
 
@@ -3557,7 +3557,7 @@ export default function Index({ params }: any) {
                                 )}
 
 
-                                <p className="text-xl font-semibold text-green-500 ">
+                                <p className="text-xl font-light text-green-500 ">
                                   {TID}: {item.tradeId}
                                 </p>
 
@@ -3577,7 +3577,7 @@ export default function Index({ params }: any) {
                                   height={50}
                                 />
 
-                                <p className="text-xl font-semibold text-green-500 ">
+                                <p className="text-xl font-light text-green-500 ">
                                   {TID}: {item.tradeId}
                                 </p>
                               </div>
@@ -3631,9 +3631,9 @@ export default function Index({ params }: any) {
 
                               <div className="flex flex-row items-start gap-2">
 
-                                <p className="text-lg font-semibold text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-lg font-light text-white">{item.usdtAmount} USDT</p>
 
-                                <p className="text-lg font-semibold text-white">{Rate}: {
+                                <p className="text-lg font-light text-white">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -3663,7 +3663,7 @@ export default function Index({ params }: any) {
                        
 
                             
-                            <div className="mt-4 flex text-lg font-semibold mb-2">
+                            <div className="mt-4 flex text-lg font-light mb-2">
                               {
    
 
@@ -3771,7 +3771,7 @@ export default function Index({ params }: any) {
                               && (
                                 <div className="w-full mt-4 mb-2 flex flex-col gap-2 items-start ">
 
-                                  <p className="text-sm text-green-500 font-semibold">
+                                  <p className="text-sm text-green-500 font-light">
                                     {Seller}: {
                                       item.seller.walletAddress === address ? item.seller.nickname + ' :' + Me :
                                     
@@ -4134,7 +4134,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

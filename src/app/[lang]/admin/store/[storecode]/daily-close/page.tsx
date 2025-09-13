@@ -1287,7 +1287,7 @@ const fetchBuyOrders = async () => {
                             height={20}
                             className="rounded-full"
                         />
-                        <span className="ml-2 text-sm text-gray-500 font-semibold">
+                        <span className="ml-2 text-sm text-gray-500 font-light">
                             돌아가기
                         </span>
                     </button>
@@ -1333,7 +1333,7 @@ const fetchBuyOrders = async () => {
                 {address && !loadingUser && (
                     <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                        <span className="text-lg text-gray-500 font-semibold">
+                        <span className="text-lg text-gray-500 font-light">
                         {user?.nickname || "프로필"}
                         </span>
 
@@ -1354,7 +1354,7 @@ const fetchBuyOrders = async () => {
                     className="w-10 h-10 rounded-full"
                 />
 
-                <div className="text-xl font-semibold">
+                <div className="text-xl font-light">
                 가맹점{' '}{
                     store && store.storeName + " (" + store.storecode + ")"
                 }{' '}에스크로관리
@@ -1377,7 +1377,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 보유수량(USDT)
                   </span>
                 </div>
@@ -1390,7 +1390,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1409,7 +1409,7 @@ const fetchBuyOrders = async () => {
             <div className="flex flex-row items-center justify-between gap-2 mt-4">
               
               <div className="flex flex-col items-start justify-start gap-2 w-full">
-                <label className="text-sm text-zinc-500 font-semibold">
+                <label className="text-sm text-zinc-500 font-light">
                   에스크로 입금 금액(USDT)
                 </label>
                 <input
@@ -1426,7 +1426,7 @@ const fetchBuyOrders = async () => {
                 className={`
                   ${depositEscrowAmount <= 0 ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}
                   w-72 h-10 flex items-center justify-center
-                  text-white font-semibold py-2 px-4 rounded-md transition duration-200 ease-in-out
+                  text-white font-light py-2 px-4 rounded-md transition duration-200 ease-in-out
                 `}
               >
                 에스크로 입금
@@ -1437,7 +1437,7 @@ const fetchBuyOrders = async () => {
             {/* escrow history table */}
             <div className="w-full flex flex-col items-start justify-start gap-2 mt-4">
 
-              <h2 className="text-lg font-semibold text-zinc-600">
+              <h2 className="text-lg font-light text-zinc-600">
                 에스크로 입출금 내역
               </h2>
 
@@ -1445,21 +1445,21 @@ const fetchBuyOrders = async () => {
 
                 <thead className="bg-zinc-200">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-left text-sm font-light text-zinc-600">
                       날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       에스크로 출금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       에스크로 입금량(USDT)
                     </th>
                     {/* 처리전 잔고 */}
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       처리전 잔고(USDT)
                     </th>
                     {/* 처리후 잔고 */}
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       처리후 잔고(USDT)
                     </th>
 
@@ -1474,7 +1474,7 @@ const fetchBuyOrders = async () => {
                       <td className="px-4 py-2 text-sm text-zinc-700">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1483,7 +1483,7 @@ const fetchBuyOrders = async () => {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1493,7 +1493,7 @@ const fetchBuyOrders = async () => {
                         }
                       </td>
                       {/* beforeBalance */}
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1503,7 +1503,7 @@ const fetchBuyOrders = async () => {
                         }
                       </td>
                       {/* afterBalance */}
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1520,7 +1520,7 @@ const fetchBuyOrders = async () => {
             </div>
 
             <div className="w-full overflow-x-auto mt-4">
-              <h2 className="text-lg font-semibold text-zinc-600">
+              <h2 className="text-lg font-light text-zinc-600">
                 에스크로 출금처리
               </h2>
 
@@ -1528,29 +1528,29 @@ const fetchBuyOrders = async () => {
 
                   <thead className="bg-zinc-200">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-semibold text-zinc-600">
+                      <th className="px-4 py-2 text-left text-sm font-light text-zinc-600">
                         날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">P2P 거래금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">P2P 거래량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">P2P 거래금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">결제수(건)/미결제수(건)</th>
                       */}
 
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">AG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">AG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">AG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">AG 수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">PG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">PG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">PG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">PG 수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">결제금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">결제량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">결제금액(원)</th>
 
                       {/* escrow withdraw */}
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                         에스크로 출금
                       </th>
 
@@ -1576,12 +1576,12 @@ const fetchBuyOrders = async () => {
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -1595,41 +1595,41 @@ const fetchBuyOrders = async () => {
                           </td>
                           */}
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalAgentFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalAgentFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-blue-600 font-semibold text-right">
+                          <td className="px-4 py-2 text-sm text-blue-600 font-light text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
                               <span className="text-[#409192]">
                                 {Number(order.totalEscrowWithdrawAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
@@ -1746,7 +1746,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

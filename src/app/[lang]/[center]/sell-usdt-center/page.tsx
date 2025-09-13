@@ -738,7 +738,7 @@ export default function SendUsdt({ params }: any) {
                     />
                 </button>
                 {/* title */}
-                <span className="text-sm text-gray-500 font-semibold">
+                <span className="text-sm text-gray-500 font-light">
                     돌아가기
                 </span>
             </div>
@@ -809,7 +809,7 @@ export default function SendUsdt({ params }: any) {
                     </div>
 
                     <div className="flex flex-row items-center justify-end  gap-2">
-                        <span className="text-2xl xl:text-4xl font-semibold text-[#409192]">
+                        <span className="text-2xl xl:text-4xl font-light text-[#409192]">
                             {Number(balance).toFixed(2)}
                         </span>
                         {' '}
@@ -838,7 +838,7 @@ export default function SendUsdt({ params }: any) {
                 />
               </div>
 
-              <div className="text-xl font-semibold">
+              <div className="text-xl font-light">
                 USDT 판매하기
               </div>
 
@@ -862,7 +862,7 @@ export default function SendUsdt({ params }: any) {
                   disabled={sending}
                   type="number"
                   //placeholder="Enter amount"
-                  className=" w-64 p-2 border border-gray-300 rounded text-black text-5xl font-semibold "
+                  className=" w-64 p-2 border border-gray-300 rounded text-black text-5xl font-light "
                   
                   value={amount}
 
@@ -895,7 +895,7 @@ export default function SendUsdt({ params }: any) {
 
                       className="
                         
-                        w-56 p-2 border border-gray-300 rounded text-black text-2xl font-semibold "
+                        w-56 p-2 border border-gray-300 rounded text-black text-2xl font-light "
                         
                       value={
                         recipient?.nickname
@@ -960,7 +960,7 @@ export default function SendUsdt({ params }: any) {
                       disabled={true}
                       type="text"
                       placeholder={User_wallet_address}
-                      className=" w-80  xl:w-full p-2 border border-gray-300 rounded text-white text-xs xl:text-lg font-semibold"
+                      className=" w-80  xl:w-full p-2 border border-gray-300 rounded text-white text-xs xl:text-lg font-light"
                       value={recipient?.walletAddress}
                       onChange={(e) => {
       
@@ -1003,7 +1003,7 @@ export default function SendUsdt({ params }: any) {
                       disabled={sending}
                       type="text"
                       placeholder={User_wallet_address}
-                      className=" w-80 xl:w-96 p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-sm font-semibold"
+                      className=" w-80 xl:w-96 p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-sm font-light"
                       value={recipient.walletAddress}
                       onChange={(e) => setRecipient({
                         ...recipient,
@@ -1087,7 +1087,7 @@ export default function SendUsdt({ params }: any) {
                       
                       ${isSendedOtp && 'hidden'}
 
-                      w-32 p-2 rounded-lg text-sm font-semibold
+                      w-32 p-2 rounded-lg text-sm font-light
 
                         ${
                         !address || !recipient?.walletAddress || !amount || isSendingOtp
@@ -1104,7 +1104,7 @@ export default function SendUsdt({ params }: any) {
                     <input
                       type="text"
                       placeholder="Enter OTP"
-                      className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-semibold"
+                      className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-light"
                       value={otp}
                       onChange={(e) => setOtp(e.target.value)}
                     />
@@ -1112,7 +1112,7 @@ export default function SendUsdt({ params }: any) {
                     <button
                       disabled={!otp || isVerifingOtp}
                       onClick={verifyOtp}
-                      className={`w-32 p-2 rounded-lg text-sm font-semibold
+                      className={`w-32 p-2 rounded-lg text-sm font-light
 
                           ${
                           !otp || isVerifingOtp
@@ -1138,7 +1138,7 @@ export default function SendUsdt({ params }: any) {
               <button
                 disabled={!address || !recipient?.walletAddress || !amount || sending || !verifiedOtp}
                 onClick={sendUsdt}
-                className={`mt-10 w-full p-2 rounded-lg text-xl font-semibold
+                className={`mt-10 w-full p-2 rounded-lg text-xl font-light
 
                     ${
                     !address || !recipient?.walletAddress || !amount || sending || !verifiedOtp
@@ -1151,7 +1151,7 @@ export default function SendUsdt({ params }: any) {
                   USDT 판매하기
               </button>
 
-              <div className="w-full flex flex-row gap-2 text-xl font-semibold">
+              <div className="w-full flex flex-row gap-2 text-xl font-light">
 
                 {/* sending rotate animation with white color*/}
                 {sending && (

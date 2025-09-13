@@ -1034,7 +1034,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-semibold">
+                        <span className="text-sm text-gray-500 font-light">
                             돌아가기
                         </span>
                     </div>
@@ -1105,7 +1105,7 @@ export default function SettingsPage({ params }: any) {
                             </div>
 
                             <div className="flex flex-row items-center justify-end  gap-2">
-                                <span className="text-2xl xl:text-4xl font-semibold text-[#409192]">
+                                <span className="text-2xl xl:text-4xl font-light text-[#409192]">
                                     {Number(balance).toFixed(2)}
                                 </span>
                                 {' '}
@@ -1135,14 +1135,14 @@ export default function SettingsPage({ params }: any) {
 
                         <div className="flex flex-col xl:flex-row p-2 gap-2">
                             
-                            <span className="text-lg text-zinc-500 font-semibold">
+                            <span className="text-lg text-zinc-500 font-light">
                                 {seller?.bankInfo?.bankName}
                             </span>
 
-                            <span className="text-lg text-zinc-500 font-semibold">
+                            <span className="text-lg text-zinc-500 font-light">
                                 {seller?.bankInfo?.accountNumber}
                             </span>
-                            <span className="text-lg text-zinc-500 font-semibold">
+                            <span className="text-lg text-zinc-500 font-light">
                                 {seller?.bankInfo?.accountHolder}
                             </span>
 
@@ -1198,7 +1198,7 @@ export default function SettingsPage({ params }: any) {
                             )}
 
                             {applying ? (
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     {Applying}...
                                 </div>
                             ) : (
@@ -1218,7 +1218,7 @@ export default function SettingsPage({ params }: any) {
                                         ${!verifiedOtp ? 'bg-gray-300 text-gray-400'
                                         : 'bg-green-500 text-zinc-100'}
 
-                                        p-2 rounded-lg text-sm font-semibold
+                                        p-2 rounded-lg text-sm font-light
                                     `}
                                 >
                                     {Apply}
@@ -1233,7 +1233,7 @@ export default function SettingsPage({ params }: any) {
                             {/*                             
                             <input 
                                 disabled={applying}
-                                className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-semibold"
+                                className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
                                 placeholder={Enter_your_bank_name}
                                 value={bankName}
                                 type='text'
@@ -1380,7 +1380,7 @@ export default function SettingsPage({ params }: any) {
                                 
                                 ${isSendedOtp && 'hidden'}
 
-                                w-32 p-2 rounded-lg text-sm font-semibold
+                                w-32 p-2 rounded-lg text-sm font-light
 
                                     ${
                                     !address || isSendingOtp
@@ -1398,7 +1398,7 @@ export default function SettingsPage({ params }: any) {
                                 <input
                                 type="text"
                                 placeholder={Enter_OTP}
-                                className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-semibold"
+                                className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-light"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}
                                 />
@@ -1406,7 +1406,7 @@ export default function SettingsPage({ params }: any) {
                                 <button
                                 disabled={!otp || isVerifingOtp}
                                 onClick={verifyOtp}
-                                className={`w-32 p-2 rounded-lg text-sm font-semibold
+                                className={`w-32 p-2 rounded-lg text-sm font-light
 
                                     ${
                                     !otp || isVerifingOtp

@@ -1305,7 +1305,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-4 h-4"
                   />
-                  <div className="text-sm font-semibold">
+                  <div className="text-sm font-light">
                     통계(일별)
                   </div>
                 </div>
@@ -1322,7 +1322,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-semibold">
+                <div className="text-xl font-light">
                   통계(일별)
                 </div>
 
@@ -1349,7 +1349,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg font-semibold text-zinc-500">
+                      <span className="text-lg font-light text-zinc-500">
                         현재 보유량
                       </span>
                     </div>
@@ -1365,7 +1365,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-semibold"
+                      <span className="text-lg text-[#409192] font-light"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1377,7 +1377,7 @@ export default function Index({ params }: any) {
 
                   {/* 오늘 수수료 차감량 */}
                   <div className="flex flex-row gap-2 items-center">
-                    <span className="text-sm text-zinc-500 font-semibold">
+                    <span className="text-sm text-zinc-500 font-light">
                       오늘 수수료 차감량
                     </span>
                     <div className="
@@ -1391,7 +1391,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-red-600 font-semibold"
+                      <span className="text-lg text-red-600 font-light"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1431,7 +1431,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 거래
                   </span>
                 </div>
@@ -1444,7 +1444,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1455,7 +1455,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1482,7 +1482,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 정산
                   </span>
                 </div>
@@ -1495,7 +1495,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1506,7 +1506,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1532,7 +1532,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-semibold text-zinc-500">
+                  <span className="text-lg font-light text-zinc-500">
                     가맹점 판매
                   </span>
                 </div>
@@ -1545,7 +1545,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-semibold"
+                  <span className="text-lg text-[#409192] font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1556,7 +1556,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-semibold"
+                  <span className="text-lg text-yellow-600 font-light"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1585,7 +1585,7 @@ export default function Index({ params }: any) {
             {/*
             <div className="w-full flex flex-col items-start justify-start gap-2 mt-4">
 
-              <h2 className="text-lg font-semibold text-zinc-600">
+              <h2 className="text-lg font-light text-zinc-600">
                 에스크로 입출금 내역
               </h2>
 
@@ -1593,19 +1593,19 @@ export default function Index({ params }: any) {
 
                 <thead className="bg-zinc-200">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-left text-sm font-light text-zinc-600">
                       날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       에스크로 출금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       에스크로 입금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       처리전 잔고(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                       처리후 잔고(USDT)
                     </th>
 
@@ -1620,7 +1620,7 @@ export default function Index({ params }: any) {
                       <td className="px-4 py-2 text-sm text-zinc-700">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1629,7 +1629,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1638,7 +1638,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1647,7 +1647,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1672,26 +1672,26 @@ export default function Index({ params }: any) {
 
                   <thead className="bg-zinc-200">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-semibold text-zinc-600">
+                      <th className="px-4 py-2 text-left text-sm font-light text-zinc-600">
                         날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">P2P 거래금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">P2P 거래량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">P2P 거래금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">결제수(건)/미결제수(건)</th>
                       */}
                       
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">결제금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">결제량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">결제금액(원)</th>
 
                       {/* escrow withdraw */}
-                      <th className="px-4 py-2 text-right text-sm font-semibold text-zinc-600">
+                      <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
                         보유량(USDT) 출금처리
                       </th>
 
@@ -1717,12 +1717,12 @@ export default function Index({ params }: any) {
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -1736,14 +1736,14 @@ export default function Index({ params }: any) {
                           </td>
                           */}
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalAgentFeeAmount
                               + order.totalFeeAmount
                             ).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalAgentFeeAmountKRW
@@ -1751,19 +1751,19 @@ export default function Index({ params }: any) {
                             ).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-semibold text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-600 font-light text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-blue-600 font-semibold text-right">
+                          <td className="px-4 py-2 text-sm text-blue-600 font-light text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
                               <span className="text-[#409192]"
                                 style={{ fontFamily: 'monospace' }}
@@ -1876,7 +1876,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

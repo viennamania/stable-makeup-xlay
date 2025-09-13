@@ -1120,7 +1120,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-semibold">
+                        <span className="text-sm text-gray-500 font-light">
                             돌아가기
                         </span>
                     </div>
@@ -1186,7 +1186,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-semibold">
+                        <div className="text-xl font-light">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}관리
@@ -1263,7 +1263,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-col gap-2'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-semibold"
+                                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-light"
                                                     placeholder="가맹점 이름을 입력하세요"
                                                     
                                                     //value={nickname}
@@ -1282,7 +1282,7 @@ export default function SettingsPage({ params }: any) {
 
                                                 />
                                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                                    <span className='text-sm font-semibold'>
+                                                    <span className='text-sm font-light'>
                                                         {nicknameEdit ? "가맹점 이름을 수정하세요" : "가맹점 이름을 설정하세요"}
                                                     </span>
                                                 </div>
@@ -1364,7 +1364,7 @@ export default function SettingsPage({ params }: any) {
                                     </span>
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-semibold">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
                                     <Uploader
                                         lang={params.lang}
                                         storecode={params.center as string}
@@ -1790,7 +1790,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='hidden flex-col gap-2'>
                                         <input
                                             disabled={!address}
-                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-semibold"
+                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-light"
                                             placeholder="가맹점 수수료율을 입력하세요"
                                             value={settlementFeePercent}
                                             type='number'
@@ -1810,7 +1810,7 @@ export default function SettingsPage({ params }: any) {
                                             onWheel={(e) => e.currentTarget.blur()}
                                         />
                                         <div className='flex flex-row gap-2 items-center justify-between'>
-                                            <span className='text-sm font-semibold'>
+                                            <span className='text-sm font-light'>
                                                 가맹점 수수료율을 설정하세요
                                             </span>
                                         </div>
@@ -1843,7 +1843,7 @@ export default function SettingsPage({ params }: any) {
                                     </button>
                                 </div>
                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                    <span className='text-sm font-semibold'>
+                                    <span className='text-sm font-light'>
                                         가맹점 수수료율은 0.01 ~ 5.00%로 설정하세요
                                     </span>
                                 </div>
@@ -2103,21 +2103,21 @@ export default function SettingsPage({ params }: any) {
                                 <div className='hidden w-full flex-row items-center justify-start gap-2'>
                                     <input
                                         type="text"
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-light"
                                         placeholder="은행명"
                                         value={bankName}
                                         onChange={(e) => setBankName(e.target.value)}
                                     />
                                     <input
                                         type="number"
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-light"
                                         placeholder="계좌번호"
                                         value={accountNumber}
                                         onChange={(e) => setAccountNumber(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-semibold"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-light"
                                         placeholder="예금주"
                                         value={accountHolder}
                                         onChange={(e) => setAccountHolder(e.target.value)}

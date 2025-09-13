@@ -2126,7 +2126,7 @@ export default function Index({ params }: any) {
                   height={35}
                   className="w-4 h-4"
                 />
-                <div className="text-sm font-semibold">
+                <div className="text-sm font-light">
                   회원관리
                 </div>
             </div>
@@ -2216,7 +2216,7 @@ export default function Index({ params }: any) {
                 className="w-6 h-6"
               />
 
-              <div className="text-xl font-semibold">
+              <div className="text-xl font-light">
                 회원관리
               </div>
           </div>
@@ -2499,7 +2499,7 @@ export default function Index({ params }: any) {
 
                   <span className="
                     w-32
-                    text-sm font-semibold">
+                    text-sm font-light">
                     가맹점선택
                   </span>
 
@@ -2628,7 +2628,7 @@ export default function Index({ params }: any) {
                 )}
 
 
-                <p className="text-lg text-red-500 font-semibold">
+                <p className="text-lg text-red-500 font-light">
                   {
                   totalNumberOfBuyOrders
                   }
@@ -2686,7 +2686,7 @@ export default function Index({ params }: any) {
                   />
                 )}
 
-                <p className="text-lg text-yellow-500 font-semibold">
+                <p className="text-lg text-yellow-500 font-light">
                   {
                   totalNumberOfClearanceOrders
                   }
@@ -2736,7 +2736,7 @@ export default function Index({ params }: any) {
                   <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-semibold"
+                      className="bg-zinc-800 text-white text-sm font-light"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}
@@ -2817,7 +2817,7 @@ export default function Index({ params }: any) {
                               flex flex-col xl:flex-row items-center justify-between gap-2">
                               <span className="
                                 w-1/2
-                                text-lg font-semibold">
+                                text-lg font-light">
                                 {item.nickname}
                               </span>
                               <span className="
@@ -3110,7 +3110,7 @@ export default function Index({ params }: any) {
 
                   {allBuyer.map((item, index) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4">
-                      <h2 className="text-lg font-semibold">{item.nickname}</h2>
+                      <h2 className="text-lg font-light">{item.nickname}</h2>
 
                     </div>
                   ))}
@@ -3252,7 +3252,7 @@ const UserHomePage = (
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4">
-      <h1 className="text-2xl font-semibold">회원 결제페이지</h1>
+      <h1 className="text-2xl font-light">회원 결제페이지</h1>
       
       {/* iframe */}
       <iframe
@@ -3304,7 +3304,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <h2 className="text-lg font-light text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
