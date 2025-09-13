@@ -152,30 +152,11 @@ export default function Index({ params }: any) {
       showThirdwebBranding: false,
       theme: 'light',
       
-      /*
-      appMetadata: {
-        name: "GoodTether",
-        description: "GoodTether",
-        url: "https://gold.goodtether.com",
-        //icons: ["https://gold.goodtether.com/logo.png"],
-      },
-      */
+
 
       size: 'compact',
 
-      /*
-      size: 'wide',
 
-      welcomeScreen: {
-        title: "Custom Title",
-        subtitle: "Custom Subtitle",
-        img: {
-          src: "https://example.com/image.png",
-          width: 100,
-          height: 100,
-        },
-      },
-      */
     
      //locale: 'en_US',
      locale: 'ko_KR',
@@ -770,7 +751,7 @@ export default function Index({ params }: any) {
 
   ///console.log("storeCode", storeCode);
  {/*
-  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
   */}
 
 
@@ -798,7 +779,7 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-row items-center gap-2">
                   <Image
-                      src={store?.storeLogo || "/logo.png"}
+                      src={store?.storeLogo || "/logo-xlay.jpg"}
                       alt="Store"
                       width={35}
                       height={35}
@@ -869,7 +850,7 @@ export default function Index({ params }: any) {
                       connectModal={{
                         size: "wide", 
                         //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                         showThirdwebBranding: false,
                       }}
 
@@ -987,7 +968,7 @@ export default function Index({ params }: any) {
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}

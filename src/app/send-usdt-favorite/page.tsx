@@ -520,7 +520,7 @@ export default function SendUsdt() {
                   
                   appMetadata={
                   {
-                      logoUrl: "https://gold.goodtether.com/logo.png",
+                      logoUrl: "https://gold.goodtether.com/logo-xlay.jpg",
                       name: "Next App",
                       url: "https://gold.goodtether.com",
                       description: "This is a Next App.",

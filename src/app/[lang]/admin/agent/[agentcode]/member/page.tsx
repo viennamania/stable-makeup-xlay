@@ -1202,7 +1202,7 @@ export default function Index({ params }: any) {
 
 
   {/*
-  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
   */}
 
   // insert buyer user
@@ -1488,7 +1488,7 @@ export default function Index({ params }: any) {
 
              >
                 <Image
-                  src={agent?.agentLogo || "/logo.png"}
+                  src={agent?.agentLogo || "/logo-xlay.jpg"}
                   alt="logo"
                   width={35}
                   height={35}
@@ -1610,7 +1610,7 @@ export default function Index({ params }: any) {
               connectModal={{
                 size: "wide", 
                 //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                 showThirdwebBranding: false,
               }}
 
@@ -1648,7 +1648,7 @@ export default function Index({ params }: any) {
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}
@@ -1948,7 +1948,7 @@ export default function Index({ params }: any) {
 
 
               {/*
-              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
               */}
 
               {/* table view is horizontal scroll */}

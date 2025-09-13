@@ -1277,7 +1277,7 @@ const fetchBuyOrders = async () => {
             connectModal={{
               size: "wide", 
               //size: "compact",
-              titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+              titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
               showThirdwebBranding: false,
             }}
 
@@ -1355,7 +1355,7 @@ const fetchBuyOrders = async () => {
 
             >
               <Image
-                src="/logo.png"
+                src="/logo-xlay.jpg"
                 alt="logo"
                 width={100}
                 height={100}
@@ -1465,7 +1465,7 @@ const fetchBuyOrders = async () => {
               connectModal={{
                 size: "wide", 
                 //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                 showThirdwebBranding: false,
               }}
 
@@ -1499,7 +1499,7 @@ const fetchBuyOrders = async () => {
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}

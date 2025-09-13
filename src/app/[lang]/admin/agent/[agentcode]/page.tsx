@@ -1263,7 +1263,7 @@ export default function Index({ params }: any) {
 
 
   {/*
-  {"agentcode":"testagentcode","agentName":"테스트상점","agentType":"test","agentUrl":"https://test.com","agentDescription":"설명입니다.","agentLogo":"https://test.com/logo.png","agentBanner":"https://test.com/banner.png"}
+  {"agentcode":"testagentcode","agentName":"테스트상점","agentType":"test","agentUrl":"https://test.com","agentDescription":"설명입니다.","agentLogo":"https://test.com/logo-xlay.jpg","agentBanner":"https://test.com/banner.png"}
   */}
 
 
@@ -1485,7 +1485,7 @@ export default function Index({ params }: any) {
 
                       <td className="px-4 py-2 border">
                         <Image
-                          src={agent.agentLogo || "/logo.png"}
+                          src={agent.agentLogo || "/logo-xlay.jpg"}
                           alt="Agent Logo"
                           width={50}
                           height={50}
@@ -1554,7 +1554,7 @@ export default function Index({ params }: any) {
               <div className="w-full flex flex-row items-center justify-start gap-2">
                 <div className="flex flex-row items-center justify-start gap-2">
                   <Image
-                    src={agent?.agentLogo || "/logo.png"}
+                    src={agent?.agentLogo || "/logo-xlay.jpg"}
                     alt="logo"
                     width={50}
                     height={50}
@@ -1664,7 +1664,7 @@ export default function Index({ params }: any) {
                   connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                     showThirdwebBranding: false,
                   }}
 
@@ -1759,7 +1759,7 @@ export default function Index({ params }: any) {
           data-transparent="true"
           data-locale="ko"
           data-fiat="KRW"
-          //data-powered-by="Powered by OneClick USDT"
+          //data-powered-by="Powered by X-RAY"
           //data-disclaimer="Disclaimer"
         ></div>
         */}
@@ -1802,7 +1802,7 @@ export default function Index({ params }: any) {
 
             <div className="w-full flex flex-row items-center justify-start gap-2">
               <Image
-                src={agent?.agentLogo || "/logo.png"}
+                src={agent?.agentLogo || "/logo-xlay.jpg"}
                 alt="logo"
                 width={50}
                 height={50}
@@ -1947,7 +1947,7 @@ export default function Index({ params }: any) {
               
             <div className="w-full flex flex-row items-center justify-start gap-2">
               <Image
-                src={agent?.agentLogo || "/logo.png"}
+                src={agent?.agentLogo || "/logo-xlay.jpg"}
                 alt="logo"
                 width={50}
                 height={50}
@@ -2141,7 +2141,7 @@ export default function Index({ params }: any) {
           data-transparent="true"
           data-locale="ko"
           data-fiat="KRW"
-          //data-powered-by="Powered by OneClick USDT"
+          //data-powered-by="Powered by X-RAY"
           //data-disclaimer="Disclaimer"
         ></div>
         */}

@@ -2679,7 +2679,7 @@ const fetchBuyOrders = async () => {
 
                       <td className="px-4 py-2 border">
                         <Image
-                          src={agent.agentLogo || "/logo.png"}
+                          src={agent.agentLogo || "/logo-xlay.jpg"}
                           alt="Agent Logo"
                           width={50}
                           height={50}
@@ -2748,7 +2748,7 @@ const fetchBuyOrders = async () => {
               <div className="w-full flex flex-row items-center justify-start gap-2">
                 <div className="flex flex-row items-center justify-start gap-2">
                   <Image
-                    src={agent?.agentLogo || "/logo.png"}
+                    src={agent?.agentLogo || "/logo-xlay.jpg"}
                     alt="logo"
                     width={50}
                     height={50}
@@ -2858,7 +2858,7 @@ const fetchBuyOrders = async () => {
                   connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                     showThirdwebBranding: false,
                   }}
 
@@ -2953,7 +2953,7 @@ const fetchBuyOrders = async () => {
           data-transparent="true"
           data-locale="ko"
           data-fiat="KRW"
-          //data-powered-by="Powered by OneClick USDT"
+          //data-powered-by="Powered by X-RAY"
           //data-disclaimer="Disclaimer"
         ></div>
         */}
@@ -2995,7 +2995,7 @@ const fetchBuyOrders = async () => {
 
             <div className="w-full flex flex-row items-center justify-start gap-2">
               <Image
-                src={agent?.agentLogo || "/logo.png"}
+                src={agent?.agentLogo || "/logo-xlay.jpg"}
                 alt="logo"
                 width={50}
                 height={50}
@@ -3121,7 +3121,7 @@ const fetchBuyOrders = async () => {
 
              >
                 <Image
-                  src={agent?.agentLogo || "/logo.png"}
+                  src={agent?.agentLogo || "/logo-xlay.jpg"}
                   alt="logo"
                   width={35}
                   height={35}
@@ -3243,7 +3243,7 @@ const fetchBuyOrders = async () => {
                 connectModal={{
                   size: "wide", 
                   //size: "compact",
-                  titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                  titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                   showThirdwebBranding: false,
                 }}
 
@@ -3279,7 +3279,7 @@ const fetchBuyOrders = async () => {
                 data-transparent="true"
                 data-locale="ko"
                 data-fiat="KRW"
-                //data-powered-by="Powered by OneClick USDT"
+                //data-powered-by="Powered by X-RAY"
                 //data-disclaimer="Disclaimer"
               ></div>
               */}

@@ -717,8 +717,8 @@ export default function Index({ params }: any) {
     "storeType": "test",
     "storeUrl": "https://test.com",
     "storeDescription": "설명입니다.",
-    "storeLogo": "https://xlay-tether.vercel.app/logo.png",
-    "storeBanner": "https://xlay-tether.vercel.app/logo.png",
+    "storeLogo": "https://xlay-tether.vercel.app/logo-xlay.jpg",
+    "storeBanner": "https://xlay-tether.vercel.app/logo-xlay.jpg",
     "createdAt": "2025-05-07T10:58:28.019Z"
     }
     */
@@ -2244,7 +2244,7 @@ export default function Index({ params }: any) {
 
             <div className='flex flex-col gap-2 items-center justify-start'>
               <Image
-                src={storeInfo?.storeLogo || '/logo.png'}
+                src={storeInfo?.storeLogo || '/logo-xlay.jpg'}
                 alt="Store Logo"
                 width={38}
                 height={38}
@@ -2347,7 +2347,7 @@ export default function Index({ params }: any) {
         data-transparent="true"
         data-locale="ko"
         data-fiat="KRW"
-        //data-powered-by="Powered by OneClick USDT"
+        //data-powered-by="Powered by X-RAY"
         //data-disclaimer="Disclaimer"
       ></div>
       */} 

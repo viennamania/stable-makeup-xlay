@@ -292,7 +292,7 @@ const StabilityConsole = () => {
           connectModal={{
             size: "wide", 
             //size: "compact",
-            titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+            titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
             showThirdwebBranding: false,
           }}
 

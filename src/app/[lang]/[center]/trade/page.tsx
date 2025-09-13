@@ -2047,7 +2047,7 @@ export default function Index({ params }: any) {
           {params.center && (
               <div className="w-full flex flex-row items-center justify-center gap-2 bg-black/10 p-2 rounded-lg mb-4">
                   <Image
-                      src={store?.storeLogo || "/logo.png"}
+                      src={store?.storeLogo || "/logo-xlay.jpg"}
                       alt="Store"
                       width={35}
                       height={35}
@@ -2148,7 +2148,7 @@ export default function Index({ params }: any) {
                   connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                     showThirdwebBranding: false,
                   }}
 

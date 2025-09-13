@@ -2924,7 +2924,7 @@ const [tradeSummary, setTradeSummary] = useState({
                     <td className="px-4 py-2">{store.storecode}</td>
                     <td className="px-4 py-2">
                       <Image
-                        src={store.storeLogo || "/logo.png"}
+                        src={store.storeLogo || "/logo-xlay.jpg"}
                         alt={store.storeName}
                         width={100}
                         height={100}
@@ -2980,7 +2980,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
           <div className="w-full flex flex-row items-center justify-start gap-2">
             <Image
-              src={store?.storeLogo || "/logo.png"}
+              src={store?.storeLogo || "/logo-xlay.jpg"}
               alt="logo"
               width={35}
               height={35}
@@ -3080,7 +3080,7 @@ const [tradeSummary, setTradeSummary] = useState({
               connectModal={{
                 size: "wide", 
                 //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                 showThirdwebBranding: false,
               }}
 
@@ -3195,7 +3195,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
         <div className="flex flex-row items-center justify-center gap-2">
           <Image
-            src={store?.storeLogo || "/logo.png"}
+            src={store?.storeLogo || "/logo-xlay.jpg"}
             alt="logo"
             width={35}
             height={35}
@@ -3284,7 +3284,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                 <div className="flex flex-row items-center gap-2">
                   <Image
-                      src={store?.storeLogo || "/logo.png"}
+                      src={store?.storeLogo || "/logo-xlay.jpg"}
                       alt="Store"
                       width={35}
                       height={35}
@@ -3336,7 +3336,7 @@ const [tradeSummary, setTradeSummary] = useState({
                       connectModal={{
                         size: "wide", 
                         //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                         showThirdwebBranding: false,
                       }}
 
@@ -3444,7 +3444,7 @@ const [tradeSummary, setTradeSummary] = useState({
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}

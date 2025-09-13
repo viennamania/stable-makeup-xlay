@@ -1113,7 +1113,7 @@ export default function Index({ params }: any) {
 
 
   {/*
-  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
   */}
 
 
@@ -1236,8 +1236,8 @@ export default function Index({ params }: any) {
     "storeType": "test",
     "storeUrl": "https://test.com",
     "storeDescription": "설명입니다.",
-    "storeLogo": "https://xlay-tether.vercel.app/logo.png",
-    "storeBanner": "https://xlay-tether.vercel.app/logo.png",
+    "storeLogo": "https://xlay-tether.vercel.app/logo-xlay.jpg",
+    "storeBanner": "https://xlay-tether.vercel.app/logo-xlay.jpg",
     "createdAt": "2025-05-06T04:36:44.683Z"
     "adminWalletAddress": "0x2111b6A49CbFf1C8Cc39d13250eF6bd4e1B59cF6",
   }
@@ -1631,7 +1631,7 @@ export default function Index({ params }: any) {
                     <td className="px-4 py-2">{store.storecode}</td>
                     <td className="px-4 py-2">
                       <Image
-                        src={store.storeLogo || "/logo.png"}
+                        src={store.storeLogo || "/logo-xlay.jpg"}
                         alt={store.storeName}
                         width={100}
                         height={100}
@@ -1681,7 +1681,7 @@ export default function Index({ params }: any) {
 
               <div className="w-full flex flex-row items-center justify-start gap-2">
                 <Image
-                  src={store?.storeLogo || "/logo.png"}
+                  src={store?.storeLogo || "/logo-xlay.jpg"}
                   alt="logo"
                   width={35}
                   height={35}
@@ -1781,7 +1781,7 @@ export default function Index({ params }: any) {
                   connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                     showThirdwebBranding: false,
                   }}
 
@@ -1899,7 +1899,7 @@ export default function Index({ params }: any) {
 
         <div className="flex flex-row items-center justify-center gap-2">
           <Image
-            src={store?.storeLogo || "/logo.png"}
+            src={store?.storeLogo || "/logo-xlay.jpg"}
             alt="logo"
             width={35}
             height={35}
@@ -1991,7 +1991,7 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-row items-center gap-2">
                   <Image
-                      src={store?.storeLogo || "/logo.png"}
+                      src={store?.storeLogo || "/logo-xlay.jpg"}
                       alt="Store"
                       width={35}
                       height={35}
@@ -2043,7 +2043,7 @@ export default function Index({ params }: any) {
                       connectModal={{
                         size: "wide", 
                         //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                         showThirdwebBranding: false,
                       }}
 
@@ -2150,7 +2150,7 @@ export default function Index({ params }: any) {
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}
@@ -2847,7 +2847,7 @@ export default function Index({ params }: any) {
 
 
               {/*
-              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
               */}
 
               {/* table view is horizontal scroll */}

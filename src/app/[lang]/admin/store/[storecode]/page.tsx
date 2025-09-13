@@ -1152,7 +1152,7 @@ export default function Index({ params }: any) {
 
 
   {/*
-  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+  {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
   */}
 
 
@@ -1253,8 +1253,8 @@ export default function Index({ params }: any) {
     "storeType": "test",
     "storeUrl": "https://test.com",
     "storeDescription": "설명입니다.",
-    "storeLogo": "https://xlay-tether.vercel.app/logo.png",
-    "storeBanner": "https://xlay-tether.vercel.app/logo.png",
+    "storeLogo": "https://xlay-tether.vercel.app/logo-xlay.jpg",
+    "storeBanner": "https://xlay-tether.vercel.app/logo-xlay.jpg",
     "createdAt": "2025-05-06T04:36:44.683Z"
     "adminWalletAddress": "0x2111b6A49CbFf1C8Cc39d13250eF6bd4e1B59cF6",
   }
@@ -1439,7 +1439,7 @@ export default function Index({ params }: any) {
                 connectModal={{
                   size: "wide", 
                   //size: "compact",
-                  titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                  titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                   showThirdwebBranding: false,
                 }}
 
@@ -1837,7 +1837,7 @@ export default function Index({ params }: any) {
 
 
               {/*
-              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo.png","storeBanner":"https://test.com/banner.png"}
+              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
               */}
 
               {/* table view is horizontal scroll */}

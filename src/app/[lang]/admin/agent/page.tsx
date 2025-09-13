@@ -1044,7 +1044,7 @@ export default function Index({ params }: any) {
 
 
   {/*
-  {"agentcode":"testagentcode","agentName":"테스트상점","agentType":"test","agentUrl":"https://test.com","agentDescription":"설명입니다.","agentLogo":"https://test.com/logo.png","agentBanner":"https://test.com/banner.png"}
+  {"agentcode":"testagentcode","agentName":"테스트상점","agentType":"test","agentUrl":"https://test.com","agentDescription":"설명입니다.","agentLogo":"https://test.com/logo-xlay.jpg","agentBanner":"https://test.com/banner.png"}
   */}
 
 
@@ -1054,8 +1054,8 @@ export default function Index({ params }: any) {
   const [agentType, setAgentType] = useState('test');
   const [agentUrl, setAgentUrl] = useState('https://test.com');
   const [agentDescription, setAgentDescription] = useState('설명입니다.');
-  const [agentLogo, setAgentLogo] = useState('https://cryptoss.beauty/logo.png');
-  const [agentBanner, setAgentBanner] = useState('https://cryptoss.beauty/logo.png');
+  const [agentLogo, setAgentLogo] = useState('https://cryptoss.beauty/logo-xlay.jpg');
+  const [agentBanner, setAgentBanner] = useState('https://cryptoss.beauty/logo-xlay.jpg');
 
 
   const [insertingAgent, setInsertingAgent] = useState(false);
@@ -1289,7 +1289,7 @@ export default function Index({ params }: any) {
             connectModal={{
               size: "wide", 
               //size: "compact",
-              titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+              titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
               showThirdwebBranding: false,
             }}
 
@@ -1372,7 +1372,7 @@ export default function Index({ params }: any) {
 
              >
                <Image
-                 src="/logo.png"
+                 src="/logo-xlay.jpg"
                  alt="logo"
                  width={100}
                  height={100}
@@ -1481,7 +1481,7 @@ export default function Index({ params }: any) {
               connectModal={{
                 size: "wide", 
                 //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                 showThirdwebBranding: false,
               }}
 
@@ -1525,7 +1525,7 @@ export default function Index({ params }: any) {
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}
@@ -1913,7 +1913,7 @@ export default function Index({ params }: any) {
 
 
               {/*
-              {"agentcode":"testagentcode","agentName":"테스트상점","agentType":"test","agentUrl":"https://test.com","agentDescription":"설명입니다.","agentLogo":"https://test.com/logo.png","agentBanner":"https://test.com/banner.png"}
+              {"agentcode":"testagentcode","agentName":"테스트상점","agentType":"test","agentUrl":"https://test.com","agentDescription":"설명입니다.","agentLogo":"https://test.com/logo-xlay.jpg","agentBanner":"https://test.com/banner.png"}
               */}
 
               {/* table view is horizontal scroll */}

@@ -1139,7 +1139,7 @@ export default function Index({ params }: any) {
             connectModal={{
               size: "wide", 
               //size: "compact",
-              titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+              titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
               showThirdwebBranding: false,
             }}
 
@@ -1219,7 +1219,7 @@ export default function Index({ params }: any) {
 
             >
               <Image
-                src="/logo.png"
+                src="/logo-xlay.jpg"
                 alt="logo"
                 width={100}
                 height={100}
@@ -1329,7 +1329,7 @@ export default function Index({ params }: any) {
               connectModal={{
                 size: "wide", 
                 //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                 showThirdwebBranding: false,
               }}
 
@@ -1366,7 +1366,7 @@ export default function Index({ params }: any) {
               data-transparent="true"
               data-locale="ko"
               data-fiat="KRW"
-              //data-powered-by="Powered by OneClick USDT"
+              //data-powered-by="Powered by X-RAY"
               //data-disclaimer="Disclaimer"
             ></div>
             */}

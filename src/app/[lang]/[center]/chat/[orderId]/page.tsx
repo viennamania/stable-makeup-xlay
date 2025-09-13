@@ -1643,7 +1643,7 @@ export default function Index({ params }: any) {
 
             <div className='flex flex-col gap-2 items-center justify-start'>
               <Image
-                src={storeInfo?.storeLogo || '/logo.png'}
+                src={storeInfo?.storeLogo || '/logo-xlay.jpg'}
                 alt="Store Logo"
                 width={38}
                 height={38}
@@ -1689,7 +1689,7 @@ export default function Index({ params }: any) {
                 connectModal={{
                   size: "wide", 
                   //size: "compact",
-                  titleIcon: "https://xlay-tether.vercel.app/logo.png",                           
+                  titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
                   showThirdwebBranding: false,
                 }}
 
@@ -1802,7 +1802,7 @@ export default function Index({ params }: any) {
         data-transparent="true"
         data-locale="ko"
         data-fiat="KRW"
-        //data-powered-by="Powered by OneClick USDT"
+        //data-powered-by="Powered by X-RAY"
         //data-disclaimer="Disclaimer"
       ></div>
       */}
