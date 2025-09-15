@@ -1698,7 +1698,7 @@ export default function Index({ params }: any) {
                 onClick={() => {
                   router.push('/' + params.lang + '/' + params.center + '/center');
                 }}
-                className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
               >
 
                 <div className="flex flex-row items-center gap-2">
@@ -1729,7 +1729,7 @@ export default function Index({ params }: any) {
                     }}
                     className="
                       items-center justify-center
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <span className="text-sm text-zinc-50">가맹점 설정</span>
                   </button>
@@ -1792,7 +1792,7 @@ export default function Index({ params }: any) {
                         }}
                         className="
                         items-center justify-center
-                        bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                        bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                       >
                         <div className="
                           w-40 xl:w-48
@@ -1834,7 +1834,7 @@ export default function Index({ params }: any) {
                           className="
                             w-32
                             flex items-center justify-center gap-2
-                            bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                            bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                       >
                         <Image
                           src="/icon-logout.webp"
@@ -2029,7 +2029,7 @@ export default function Index({ params }: any) {
                 onClick={() => {
                   router.push('/' + params.lang + '/' + params.center + '/escrow-history');
                 }}
-                className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80
+                className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80
                 flex items-center justify-center gap-2
                 border border-zinc-300 hover:border-[#3167b4]"
               >
@@ -2265,7 +2265,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/' + params.center + '/member');
                     }}
-                    className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     회원관리
                   </button>
@@ -2338,7 +2338,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/' + params.center + '/buyorder');
                     }}
-                    className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     구매주문관리
                   </button>
@@ -2496,7 +2496,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/' + params.center + '/trade-history');
                     }}
-                    className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     P2P 거래내역
                   </button>
@@ -2700,7 +2700,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/' + params.center + '/clearance-history');
                     }}
-                    className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     USDT 판매(거래소)
                   </button>
@@ -2885,7 +2885,7 @@ export default function Index({ params }: any) {
 
                 <div className="w-full flex flex-row gap-2 items-center justify-start
                     rounded-t-lg
-                    bg-[#3167b4]
+                    bg-gray-700
                     p-2
                   ">
                       <Image
@@ -2992,7 +2992,7 @@ export default function Index({ params }: any) {
 
                                   }}
                                   //className="text-zinc-800 underline"
-                                  className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                 >
 
                                   프로필 설정
@@ -3017,7 +3017,7 @@ export default function Index({ params }: any) {
 
                                   }}
                                   //className="text-zinc-800 underline"
-                                  className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                   >
 
                                   판매자 회원 결제용 통장 설정하기
@@ -3045,7 +3045,7 @@ export default function Index({ params }: any) {
 
                                   }}
                                   //className="text-zinc-800 underline"
-                                  className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                   >
 
                                   출금통장(USDT 판매용) 설정하기
@@ -3092,7 +3092,7 @@ export default function Index({ params }: any) {
 
 
                                   }}
-                                  className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                 >
 
                                   프로필 설정
@@ -3116,7 +3116,7 @@ export default function Index({ params }: any) {
 
 
                                   }}
-                                  className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                   >
 
                                   판매자 설정

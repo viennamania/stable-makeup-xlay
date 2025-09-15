@@ -3173,7 +3173,7 @@ const fetchBuyOrders = async () => {
                   } }
 
                   className="flex items-center justify-center gap-2
-                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
               >
                 <Image
                   src="/icon-logout.webp"
@@ -3236,7 +3236,7 @@ const fetchBuyOrders = async () => {
                 onClick={() => {
                   router.push('/' + params.lang + '/admin/profile-settings');
                 }}
-                className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
               >
                 <div className="flex flex-row items-center justify-center gap-2">
                   {isAdmin && (
@@ -3276,7 +3276,7 @@ const fetchBuyOrders = async () => {
                   } }
 
                   className="flex items-center justify-center gap-2
-                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
               >
                 <Image
                   src="/icon-logout.webp"
@@ -3382,8 +3382,8 @@ const fetchBuyOrders = async () => {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/store')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3393,8 +3393,8 @@ const fetchBuyOrders = async () => {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/agent')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3405,8 +3405,8 @@ const fetchBuyOrders = async () => {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/member')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3430,8 +3430,8 @@ const fetchBuyOrders = async () => {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/trade-history')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3442,8 +3442,8 @@ const fetchBuyOrders = async () => {
               {version !== 'bangbang' && (
                 <button
                   onClick={() => router.push('/' + params.lang + '/admin/clearance-history')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3454,8 +3454,8 @@ const fetchBuyOrders = async () => {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/trade-history-daily')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3465,8 +3465,8 @@ const fetchBuyOrders = async () => {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/trade-history-daily-agent')}
-                  className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-[#3167b4]/80
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
                   hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -3477,8 +3477,8 @@ const fetchBuyOrders = async () => {
               {version !== 'bangbang' && (
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/escrow-history')}
-                    className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-[#3167b4]/80
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
                     hover:cursor-pointer
                   hover:scale-105
                   transition-transform duration-200 ease-in-out
@@ -4114,7 +4114,7 @@ const fetchBuyOrders = async () => {
                       router.push('/' + params.lang + '/admin/clearance-history');
                     }}
                     className="flex items-center justify-center gap-2
-                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <span className="text-sm">
                       청산관리
@@ -4202,7 +4202,9 @@ const fetchBuyOrders = async () => {
                         </div>
 
                         <div className="flex flex-row items-center justify-center gap-2">
-                          <span>자동매칭</span>
+                          <span className="text-sm text-zinc-50 font-light">
+                            자동매칭
+                          </span>
                           <Image
                             src="/icon-matching.png"
                             alt="Auto Matching"
@@ -4242,7 +4244,7 @@ const fetchBuyOrders = async () => {
                       <div className="flex flex-col items-center justify-center gap-2">
 
                         <div className="flex flex-row items-center justify-center gap-2">
-                          <span>
+                          <span className="text-sm text-zinc-50 font-light">
                             자동입금확인
                           </span>
                           <Image
@@ -4280,10 +4282,10 @@ const fetchBuyOrders = async () => {
 
                     <th className="p-2">
                       <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
-                        <span>
+                        <span className="text-sm text-zinc-50 font-light">
                           P2P 거래취소
                         </span>
-                        <span>
+                        <span className="text-sm text-zinc-50 font-light">
                           P2P 거래완료
                         </span>
                       </div>
@@ -4300,7 +4302,7 @@ const fetchBuyOrders = async () => {
                       p-2">
                       <div className="flex flex-col items-center justify-center gap-2">
                         <div className="flex flex-row items-center justify-center gap-2">
-                          <span>
+                          <span className="text-sm text-zinc-50 font-light">
                             가맹점 자동결제 및 정산(USDT)
                           </span>
                           <Image
@@ -8382,7 +8384,7 @@ const UserPaymentPage = (
 
       <button
         onClick={closeModal}
-        className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
       >
         닫기
       </button>

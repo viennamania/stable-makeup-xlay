@@ -2404,7 +2404,7 @@ const fetchBuyOrders = async () => {
                   onClick={() => {
                     router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/profile-settings');
                   }}
-                  className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                 >
                   <div className="flex flex-row items-center justify-center gap-2">
 
@@ -2444,7 +2444,7 @@ const fetchBuyOrders = async () => {
                     } }
 
                     className="flex items-center justify-center gap-2
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                 >
                   <Image
                     src="/icon-logout.webp"
@@ -2541,8 +2541,8 @@ const fetchBuyOrders = async () => {
               <div className="grid grid-cols-3 xl:grid-cols-4 gap-2 mb-4">
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/store')}
-                    className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-[#3167b4]/80
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
                     hover:cursor-pointer
                     hover:scale-105
                     transition-transform duration-200 ease-in-out
@@ -2554,8 +2554,8 @@ const fetchBuyOrders = async () => {
 
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/member')}
-                    className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-[#3167b4]/80
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
                     hover:cursor-pointer
                     hover:scale-105
                     transition-transform duration-200 ease-in-out
@@ -2565,8 +2565,8 @@ const fetchBuyOrders = async () => {
 
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/buyorder')}
-                    className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-[#3167b4]/80
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
                     hover:cursor-pointer
                     hover:scale-105
                     transition-transform duration-200 ease-in-out
@@ -2590,8 +2590,8 @@ const fetchBuyOrders = async () => {
 
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/trade-history-daily')}
-                    className="flex w-32 bg-[#3167b4] text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-[#3167b4]/80
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
                     hover:cursor-pointer
                     hover: scale-105
                     transition-all duration-200 ease-in-out
@@ -2892,7 +2892,7 @@ const fetchBuyOrders = async () => {
 
                         getTradeSummary();
                       }}
-                      className="bg-[#3167b4] text-white px-4 py-2 rounded-lg w-full"
+                      className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
                       disabled={fetchingBuyOrders}
                     >
                       <div className="flex flex-row items-center justify-between gap-2">

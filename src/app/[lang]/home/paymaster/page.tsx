@@ -2056,7 +2056,7 @@ export default function Index({ params }: any) {
                         onClick={() => {
                           router.push('/' + params.lang + '/home/profile-settings');
                         }}
-                        className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                        className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                       >
                         <div className="flex flex-row items-center justify-center gap-2">
 
@@ -2085,7 +2085,7 @@ export default function Index({ params }: any) {
                           } }
 
                           className="flex items-center justify-center gap-2
-                            bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                            bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                       >
                         <Image
                           src="/icon-logout.webp"
@@ -4191,7 +4191,7 @@ export default function Index({ params }: any) {
           </a>
         </div>
         <div className="text-sm text-zinc-500 mt-2">
-          © 2023 Iskan9. All rights reserved.
+          © 2025 X-Ray. All rights reserved.
         </div>
 
       </div>

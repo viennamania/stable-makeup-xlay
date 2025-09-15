@@ -1592,7 +1592,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/admin/profile-settings');
                     }}
-                    className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     {user?.nickname || "프로필"}
                   </button>
@@ -1613,7 +1613,7 @@ export default function Index({ params }: any) {
                       } }
 
                       className="flex items-center justify-center gap-2
-                        bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                        bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <Image
                       src="/icon-logout.webp"
@@ -1838,7 +1838,7 @@ export default function Index({ params }: any) {
                 } }
 
                 className="flex items-center justify-center gap-2
-                  bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
               >
                 <Image
                   src="/icon-logout.webp"
@@ -1881,7 +1881,7 @@ export default function Index({ params }: any) {
                   router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/profile-settings');
                   //router.push('/' + params.lang + '/' + params.agentcode + '/profile-settings');
                 }}
-                className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
               >
                 회원가입하러 가기
               </button>
@@ -1980,7 +1980,7 @@ export default function Index({ params }: any) {
                     }}
                     className="
                       items-center justify-center
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <span className="text-sm text-zinc-50">에이전트 설정</span>
                   </button>
@@ -1998,7 +1998,7 @@ export default function Index({ params }: any) {
                   onClick={() => {
                     router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/profile-settings');
                   }}
-                  className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                 >
                   <div className="flex flex-row items-center justify-center gap-2">
 
@@ -2039,7 +2039,7 @@ export default function Index({ params }: any) {
                     } }
 
                     className="flex items-center justify-center gap-2
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                 >
                   <Image
                     src="/icon-logout.webp"
@@ -2197,7 +2197,7 @@ export default function Index({ params }: any) {
                     }}
                     className="
                       w-full
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <div className="flex flex-row items-center justify-center gap-2">
                       {
@@ -2237,7 +2237,7 @@ export default function Index({ params }: any) {
               <div className="w-full mt-4">
                 <div className="flex flex-row items-center justify-start gap-2">
                   {/* dot */}
-                  <div className="w-2 h-2 bg-[#3167b4] rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                   <h2 className="text-lg font-light">최근 등록 가맹점</h2>
                 </div>
                 <table className="min-w-full
@@ -2388,7 +2388,7 @@ export default function Index({ params }: any) {
                     }}
                     className="
                       w-full
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <div className="flex flex-row items-center justify-center gap-2">
                       {
@@ -2430,7 +2430,7 @@ export default function Index({ params }: any) {
               <div className="w-full mt-4">
                 <div className="flex flex-row items-center justify-start gap-2">
                   {/* dot */}
-                  <div className="w-2 h-2 bg-[#3167b4] rounded-full"></div>
+                  <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                   <h2 className="text-lg font-light">최근 구매회원</h2>
                 </div>
                 <table className="min-w-full
@@ -2531,7 +2531,7 @@ export default function Index({ params }: any) {
                     }}
                     className="
                       w-full
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <div className="flex flex-row items-center justify-center gap-2">
                       {
@@ -2638,7 +2638,7 @@ export default function Index({ params }: any) {
                 <div className="w-full mt-4">
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
-                    <div className="w-2 h-2 bg-[#3167b4] rounded-full"></div>
+                    <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                     <h2 className="text-lg font-light">최근 거래</h2>
                   </div>
 
@@ -2755,7 +2755,7 @@ export default function Index({ params }: any) {
                   onClick={() => {
                     router.push('/' + params.lang + '/admin/trade-history');
                   }}
-                  className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                 >
                   P2P 거래내역
                 </button>
@@ -2801,7 +2801,7 @@ export default function Index({ params }: any) {
                     }}
                     className="
                       w-full
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                   >
                     <div className="flex flex-row items-center justify-center gap-2">
                       {
@@ -2843,7 +2843,7 @@ export default function Index({ params }: any) {
                 <div className="w-full mt-4">
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
-                    <div className="w-2 h-2 bg-[#3167b4] rounded-full"></div>
+                    <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                     <h2 className="text-lg font-light">최근 구매주문</h2>
                   </div>
 
@@ -2916,9 +2916,9 @@ export default function Index({ params }: any) {
                               }}
                               className={`
                                 text-sm font-light
-                                bg-[#3167b4] text-white
+                                bg-gray-700 text-white
                                 px-2 py-1 rounded-lg
-                                hover:bg-[#3167b4]/80
+                                hover:bg-gray-700/80
                                 ${trade.status === "ordered" ? "bg-red-500" : ""}
                                 ${trade.status === "accepted" ? "bg-green-500" : ""}
                                 ${trade.status === "paymentRequested" ? "bg-yellow-500" : ""}
@@ -2989,7 +2989,7 @@ export default function Index({ params }: any) {
                   onClick={() => {
                     router.push('/' + params.lang + '/admin/trade-history');
                   }}
-                  className="bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                 >
                   P2P 거래내역
                 </button>
@@ -3016,7 +3016,7 @@ export default function Index({ params }: any) {
 
             <div className="w-full flex flex-row gap-2 items-center justify-start
                 rounded-t-lg
-                bg-[#3167b4]
+                bg-gray-700
                 p-2
               ">
                   <Image
@@ -3183,7 +3183,7 @@ export default function Index({ params }: any) {
 
                       }}
                       className="w-full flex flex-row gap-2 justify-center items-center
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                     >
                       <Image
                         src="/icon-buy-label-color.png"
@@ -3228,7 +3228,7 @@ export default function Index({ params }: any) {
 
                       }}
                       className="w-full flex flex-row gap-2 justify-center items-center
-                      bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
                     >
                       <Image
                         src="/icon-sell-label-color.png"
@@ -3304,7 +3304,7 @@ export default function Index({ params }: any) {
             </a>
           </div>
           <div className="text-sm text-zinc-500 mt-2">
-            © 2023 Iskan9. All rights reserved.
+            © 2025 X-Ray. All rights reserved.
           </div>
 
         </div>
@@ -3367,7 +3367,7 @@ const UserHomePage = (
 
       <button
         onClick={closeModal}
-        className="bg-[#3167b4] text-white px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
       >
         닫기
       </button>
