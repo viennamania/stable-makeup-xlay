@@ -1431,7 +1431,7 @@ export default function Index({ params }: any) {
                   //width: "40px",
                   height: "38px",
                 },
-                label: "원클릭 로그인",
+                label: "X-Ray 로그인",
               }}
 
               connectModal={{

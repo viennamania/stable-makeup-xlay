@@ -1133,7 +1133,7 @@ export default function Index({ params }: any) {
                 //width: "40px",
                 height: "38px",
               },
-              label: "원클릭 로그인",
+              label: "X-Ray 로그인",
             }}
 
             connectModal={{
@@ -1323,7 +1323,7 @@ export default function Index({ params }: any) {
                   //width: "40px",
                   height: "38px",
                 },
-                label: "원클릭 로그인",
+                label: "X-Ray 로그인",
               }}
 
               connectModal={{
@@ -2161,7 +2161,7 @@ export default function Index({ params }: any) {
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
               <div className="text-sm text-zinc-600">
-                © 2024 Stable Makeup. All rights reserved.
+                © 2025 X-Ray. All rights reserved.
               </div>
               <div className="text-sm text-zinc-600">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
