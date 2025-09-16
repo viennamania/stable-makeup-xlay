@@ -945,11 +945,20 @@ export default function Index({ params }: any) {
 
 
 
-  {/*
+  
   if (!address) {
     return (
       <div className="flex flex-col items-center justify-center">
 
+
+        {/* warning message */}
+        <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 m-4" role="alert">
+          <p className="font-bold">지갑을 연결해주세요</p>
+          <p>이 페이지에 접근하려면 지갑을 연결해야 합니다.</p>
+        </div>
+
+
+        {/*
         <h1 className="text-2xl font-bold">로그인</h1>
 
           <ConnectButton
@@ -987,11 +996,13 @@ export default function Index({ params }: any) {
             locale={"ko_KR"}
             //locale={"en_US"}
           />
+        */}
 
       </div>
+
     );
   }
-  */}
+  
 
 
   if (address && !loadingUser && !isAdmin) {
@@ -1155,6 +1166,7 @@ export default function Index({ params }: any) {
           )}
 
 
+          {/*
           {!address && (
             <ConnectButton
               client={client}
@@ -1193,6 +1205,7 @@ export default function Index({ params }: any) {
             />
 
           )}
+          */}
 
 
 
