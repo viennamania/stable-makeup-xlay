@@ -950,11 +950,19 @@ export default function Index({ params }: any) {
     return (
       <div className="flex flex-col items-center justify-center">
 
-
-        {/* warning message */}
-        <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 m-4" role="alert">
-          <p className="font-bold">지갑을 연결해주세요</p>
-          <p>이 페이지에 접근하려면 지갑을 연결해야 합니다.</p>
+        <div className="flex flex-row items-center justify-center gap-2 mt-4 mb-4">
+          <Image
+            src="/logo-xlay.jpg"
+            alt="logo"
+            width={100}
+            height={100}
+            className="h-10 w-10 rounded-full animate-pulse"
+          />
+          {/* warning message */}
+          <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 m-4" role="alert">
+            <p className="font-bold">지갑을 연결해주세요</p>
+            <p>이 페이지에 접근하려면 지갑을 연결해야 합니다.</p>
+          </div>
         </div>
 
 
