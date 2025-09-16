@@ -945,7 +945,7 @@ export default function Index({ params }: any) {
 
 
 
-
+  {/*
   if (!address) {
     return (
       <div className="flex flex-col items-center justify-center">
@@ -991,6 +991,7 @@ export default function Index({ params }: any) {
       </div>
     );
   }
+  */}
 
 
   if (address && !loadingUser && !isAdmin) {
