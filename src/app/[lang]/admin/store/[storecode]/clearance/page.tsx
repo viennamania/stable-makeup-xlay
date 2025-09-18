@@ -1923,7 +1923,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col xl:flex-row items-between justify-between gap-5
                       border border-zinc-300/50
-                      bg-white/50
+                      bg-zinc-200
                       p-4 rounded-lg shadow-md
                       w-full
                       ">
@@ -2667,7 +2667,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-row items-center justify-center gap-5
                       border border-zinc-300/50
-                      bg-white/50
+                      bg-zinc-200
                       p-4 rounded-lg shadow-md
                       w-full xl:w-1/2
                       ">
