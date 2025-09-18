@@ -1132,7 +1132,7 @@ export default function SettingsPage({ params }: any) {
                                 height: '20px',
                             }}
                         />
-                        <div className="text-xl font-normal">
+                        <div className="text-xl font-normal text-zinc-100">
                             {Profile_Settings}
                             
                         </div>

@@ -1142,7 +1142,7 @@ export default function SettingsPage({ params }: any) {
                                 height: '20px',
                             }}
                         />
-                        <div className="text-xl font-normal">
+                        <div className="text-xl font-normal text-zinc-100">
                             출금통장(USDT 판매용) 설정하기
                         </div>
 

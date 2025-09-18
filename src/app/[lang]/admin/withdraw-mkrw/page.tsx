@@ -893,7 +893,7 @@ export default function SendUsdt({ params }: any) {
                 />
               </div>
 
-              <div className="text-xl font-normal">
+              <div className="text-xl font-normal text-zinc-100">
                 포인트 출금
               </div>
 

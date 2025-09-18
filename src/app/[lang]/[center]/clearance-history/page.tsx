@@ -3242,7 +3242,7 @@ const [tradeSummary, setTradeSummary] = useState({
                 className="w-6 h-6"
               />
 
-              <div className="text-xl font-normal">
+              <div className="text-xl font-normal text-zinc-100">
                 판매(거래소)
               </div>
 

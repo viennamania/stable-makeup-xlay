@@ -1258,7 +1258,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal">
+                <div className="text-xl font-normal text-zinc-100">
                   통계(일별)
                 </div>
 

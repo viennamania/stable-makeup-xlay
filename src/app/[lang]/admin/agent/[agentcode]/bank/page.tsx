@@ -2175,7 +2175,7 @@ const fetchBuyOrders = async () => {
                     className="w-6 h-6"
                   />
 
-                  <div className="text-xl font-normal">
+                  <div className="text-xl font-normal text-zinc-100">
                     통장관리
                   </div>
 

@@ -305,7 +305,7 @@ export default function SendUsdt() {
                 Send
             </button>
 
-            <div className="text-xl font-normal">
+            <div className="text-xl font-normal text-zinc-100">
                 Balance: {balance} USDT
             </div>
         </div>

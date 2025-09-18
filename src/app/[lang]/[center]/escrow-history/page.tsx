@@ -1161,7 +1161,7 @@ export default function Index({ params }: any) {
                     className="w-10 h-10 rounded-full"
                 />
 
-                <div className="text-xl font-normal">
+                <div className="text-xl font-normal text-zinc-100">
                 가맹점{' '}{
                     store && store.storeName + " (" + store.storecode + ")"
                 }{' '}보유량 관리
@@ -1272,7 +1272,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal">
+                <div className="text-xl font-normal text-zinc-100">
                   보유량 변동 내역(USDT)
                 </div>
 
