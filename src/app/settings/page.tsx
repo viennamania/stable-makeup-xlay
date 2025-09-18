@@ -249,7 +249,7 @@ export default function SettingsPage() {
                 */}
         
                 <div className="flex justify-start space-x-4 mb-10">
-                    <button onClick={() => router.push('/')} className="text-zinc-100 font-light underline">Go Home</button>
+                    <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
                 </div>
 
 
@@ -257,7 +257,7 @@ export default function SettingsPage() {
 
                     <div className='flex flex-row items-center space-x-4'>
                         <GearSetupIcon />
-                        <div className="text-2xl font-light">Wallet Settings</div>
+                        <div className="text-2xl font-normal">Wallet Settings</div>
 
                         {!address && (
                             <ConnectButton
@@ -344,7 +344,7 @@ export default function SettingsPage() {
 
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xs xl:text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xs xl:text-xl font-normal">
                                     {address}
                                 </div>
 
@@ -365,7 +365,7 @@ export default function SettingsPage() {
                                         onChange={() => setAgreementCopy(!agreementCopy)}
                                         className='w-6 h-6'
                                     />
-                                    <div className='text-lg text-zinc-100 font-light'>
+                                    <div className='text-lg text-zinc-100 font-normal'>
                                         I understand that I should never deposit any other tokens (e.g. Ethereum) to this address.
                                     </div>
                                 </div>
@@ -404,7 +404,7 @@ export default function SettingsPage() {
                                 My Phone Number
                             </div>
 
-                            <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-2xl font-light">
+                            <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-2xl font-normal">
                                 {phoneNumber}
                             </div>
 

@@ -361,7 +361,7 @@ const StabilityConsole = () => {
 
               <div className="
               w-40 flex flex-col items-end justify-center
-              text-xl font-light text-[#409192]"
+              text-xl font-normal text-[#409192]"
               style={{ fontFamily: "monospace" }}
               >
                 {Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -412,7 +412,7 @@ const StabilityConsole = () => {
                 chain === "arbitrum" ? "ETH" :
                 chain === "bsc" ? "BNB" : ""})
               </span>
-              <div className="text-xl font-light text-zinc-800"
+              <div className="text-xl font-normal text-zinc-800"
                 style={{ fontFamily: "monospace" }}
               >
                 {Number(nativeBalance).toFixed(8)}

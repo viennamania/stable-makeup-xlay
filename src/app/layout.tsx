@@ -248,7 +248,7 @@ export default function RootLayout({
                       height={25}
                       className="h-6 w-6 rounded-full object-cover"
                     />
-                    <span className="text-sm xl:text-lg font-light text-gray-800">
+                    <span className="text-sm xl:text-lg font-normal text-gray-800">
                       {clientId}
                     </span>
                   </div>
@@ -374,7 +374,7 @@ export default function RootLayout({
                 <div className="mt-1 flex flex-col items-center justify-center">
 
                   <div className="flex flex-row items-center justify-between gap-2 mb-2">
-                    <span className="text-sm font-light text-gray-800">
+                    <span className="text-sm font-normal text-gray-800">
                       My Wallet
                     </span>
                     <button

@@ -776,7 +776,7 @@ export default function SendUsdt({ params }: any) {
                     />
                 </button>
                 {/* title */}
-                <span className="text-sm text-gray-500 font-light">
+                <span className="text-sm text-gray-500 font-normal">
                     돌아가기
                 </span>
             </div>
@@ -864,7 +864,7 @@ export default function SendUsdt({ params }: any) {
                         height={20}
                         className="w-6 h-6"
                       />
-                      <span className="text-2xl xl:text-4xl font-light text-yellow-600">
+                      <span className="text-2xl xl:text-4xl font-normal text-yellow-600">
                           {Number(mkrwBalance).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                       </span>
                       {' '}
@@ -893,7 +893,7 @@ export default function SendUsdt({ params }: any) {
                 />
               </div>
 
-              <div className="text-xl font-light">
+              <div className="text-xl font-normal">
                 포인트 출금
               </div>
 
@@ -915,7 +915,7 @@ export default function SendUsdt({ params }: any) {
                   disabled={sending}
                   type="number"
                   //placeholder="Enter amount"
-                  className=" w-64 p-2 border border-gray-300 rounded text-black text-5xl font-light "
+                  className=" w-64 p-2 border border-gray-300 rounded text-black text-5xl font-normal "
                   
                   value={amount}
 
@@ -948,7 +948,7 @@ export default function SendUsdt({ params }: any) {
 
                       className="
                         
-                        w-56 p-2 border border-gray-300 rounded text-black text-2xl font-light "
+                        w-56 p-2 border border-gray-300 rounded text-black text-2xl font-normal "
                         
                       value={
                         recipient?.nickname
@@ -1013,7 +1013,7 @@ export default function SendUsdt({ params }: any) {
                       disabled={true}
                       type="text"
                       placeholder={User_wallet_address}
-                      className=" w-80  xl:w-full p-2 border border-gray-300 rounded text-white text-xs xl:text-lg font-light"
+                      className=" w-80  xl:w-full p-2 border border-gray-300 rounded text-white text-xs xl:text-lg font-normal"
                       value={recipient?.walletAddress}
                       onChange={(e) => {
       
@@ -1056,7 +1056,7 @@ export default function SendUsdt({ params }: any) {
                       disabled={sending}
                       type="text"
                       placeholder={User_wallet_address}
-                      className=" w-80 xl:w-96 p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-sm font-light"
+                      className=" w-80 xl:w-96 p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-sm font-normal"
                       value={recipient.walletAddress}
                       onChange={(e) => setRecipient({
                         ...recipient,
@@ -1140,7 +1140,7 @@ export default function SendUsdt({ params }: any) {
                       
                       ${isSendedOtp && 'hidden'}
 
-                      w-32 p-2 rounded-lg text-sm font-light
+                      w-32 p-2 rounded-lg text-sm font-normal
 
                         ${
                         !address || !recipient?.walletAddress || !amount || isSendingOtp
@@ -1157,7 +1157,7 @@ export default function SendUsdt({ params }: any) {
                     <input
                       type="text"
                       placeholder="Enter OTP"
-                      className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-light"
+                      className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-normal"
                       value={otp}
                       onChange={(e) => setOtp(e.target.value)}
                     />
@@ -1165,7 +1165,7 @@ export default function SendUsdt({ params }: any) {
                     <button
                       disabled={!otp || isVerifingOtp}
                       onClick={verifyOtp}
-                      className={`w-32 p-2 rounded-lg text-sm font-light
+                      className={`w-32 p-2 rounded-lg text-sm font-normal
 
                           ${
                           !otp || isVerifingOtp
@@ -1191,7 +1191,7 @@ export default function SendUsdt({ params }: any) {
               <button
                 disabled={!address || !recipient?.walletAddress || !amount || sending || !verifiedOtp}
                 onClick={sendMkrw}
-                className={`mt-10 w-full p-2 rounded-lg text-xl font-light
+                className={`mt-10 w-full p-2 rounded-lg text-xl font-normal
 
                     ${
                     !address || !recipient?.walletAddress || !amount || sending || !verifiedOtp
@@ -1204,7 +1204,7 @@ export default function SendUsdt({ params }: any) {
                   MKRW 출금하기
               </button>
 
-              <div className="w-full flex flex-row gap-2 text-xl font-light">
+              <div className="w-full flex flex-row gap-2 text-xl font-normal">
 
                 {/* sending rotate animation with white color*/}
                 {sending && (
@@ -1245,7 +1245,7 @@ export default function SendUsdt({ params }: any) {
                           height={20}
                           className='rounded-full w-6 h-6'
                         />
-                        <h2 className="text-sm font-light">입출금 내역</h2>
+                        <h2 className="text-sm font-normal">입출금 내역</h2>
                         {loadingTransferListMKRW && (
                           <div className="flex items-center justify-center">
                             <Image
@@ -1262,7 +1262,7 @@ export default function SendUsdt({ params }: any) {
                       <table className="w-full table-auto">
                         <thead>
                           <tr
-                            className="bg-gray-200 text-gray-700 text-sm font-light">
+                            className="bg-gray-200 text-gray-700 text-sm font-normal">
 
 
                             <th className="px-4 py-2">날짜<br/>입금 / 출금</th>
@@ -1290,7 +1290,7 @@ export default function SendUsdt({ params }: any) {
                                   </span>
                                 </div>
 
-                                <span className="font-light text-lg">
+                                <span className="font-normal text-lg">
                                   {transfer.sendOrReceive === "send" ? (
                                     <span className="text-red-600">출금</span>
                                   ) : (
@@ -1375,7 +1375,7 @@ export default function SendUsdt({ params }: any) {
                                 )}
                               </td>
                               <td className="border px-4 py-2 text-right">
-                                <span className="text-lg font-light text-gray-800"
+                                <span className="text-lg font-normal text-gray-800"
                                   style={{fontFamily: 'monospace'}}
                                 >
                                 {

@@ -982,7 +982,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-light">
+                        <span className="text-sm text-gray-500 font-normal">
                             돌아가기
                         </span>
                     </div>
@@ -1048,7 +1048,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-light">
+                        <div className="text-xl font-normal">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}메모하기

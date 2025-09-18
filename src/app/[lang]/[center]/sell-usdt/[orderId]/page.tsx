@@ -1288,13 +1288,13 @@ export default function Index({ params }: any) {
                   onClick={() =>
                       router.push('/' + params.lang + '/' + params.center)
                   }
-                  className="text-zinc-100 font-light underline"
+                  className="text-zinc-100 font-normal underline"
               >
                 {Go_Home}
               </button>
               <button
                 onClick={() => router.push('/' + params.lang + '/' + params.center + '/buy-usdt')}
-                className="text-zinc-100 font-light underline"
+                className="text-zinc-100 font-normal underline"
               >
         
                 {Go_Buy_USDT}
@@ -1303,7 +1303,7 @@ export default function Index({ params }: any) {
               {/*
               <button
                   onClick={() => router.push('/' + params.lang + '/' + params.center + '/sell-usdt')}
-                  className="text-zinc-100 font-light underline"
+                  className="text-zinc-100 font-normal underline"
               >
                 {Go_Sell_USDT}
               </button>
@@ -1445,7 +1445,7 @@ export default function Index({ params }: any) {
                     <div className='w-full flex flex-row items-between justify-start gap-5'>
 
                       <div className=" flex flex-col gap-2 items-start">
-                        <div className="text-5xl font-light text-white">
+                        <div className="text-5xl font-normal text-white">
                           {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                         </div>
                       </div>
@@ -1465,7 +1465,7 @@ export default function Index({ params }: any) {
                                 height: '20px',
                             }}
                           />
-                          <div className="text-lg font-light text-white ">{
+                          <div className="text-lg font-normal text-white ">{
                             user?.nickname ? user.nickname : Anonymous
                           }</div>
 
@@ -1575,7 +1575,7 @@ export default function Index({ params }: any) {
                                 />      
 
 
-                                <h2 className="text-lg font-light">
+                                <h2 className="text-lg font-normal">
                                     {Seller}: {
 
                                         item.walletAddress === address ? item.nickname ? item.nickname : Anonymous  + ' :' + Me :
@@ -1646,7 +1646,7 @@ export default function Index({ params }: any) {
                                     }}
                                 />
 
-                                <h2 className="text-lg font-light">
+                                <h2 className="text-lg font-normal">
                                     {Buyer}: {
                                         item.buyer?.nickname ? item.buyer?.nickname : Anonymous
                                     }
@@ -1755,7 +1755,7 @@ export default function Index({ params }: any) {
                                     />
                                   )}
 
-                                  <p className=" text-xl font-light text-green-500 ">
+                                  <p className=" text-xl font-normal text-green-500 ">
                                     {TID}: {item.tradeId}
                                   </p>
 
@@ -1921,8 +1921,8 @@ export default function Index({ params }: any) {
                                 <div className="mt-2 flex flex-row items-between space-x-2">
 
 
-                                  <p className="text-lg font-light text-white">{item.usdtAmount} USDT</p>
-                                  <p className="text-lg font-light text-white">{Rate}: {
+                                  <p className="text-lg font-normal text-white">{item.usdtAmount} USDT</p>
+                                  <p className="text-lg font-normal text-white">{Rate}: {
 
                                     Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -2021,7 +2021,7 @@ export default function Index({ params }: any) {
                                           height={32}
                                           className="animate-spin"
                                       />
-                                      <div className="text-lg font-light text-white">
+                                      <div className="text-lg font-normal text-white">
                                         Escrowing {item.usdtAmount} USDT...
                                       </div>
                                     </div>
@@ -2050,7 +2050,7 @@ export default function Index({ params }: any) {
                                           height={50}
                                           className="animate-spin"
                                       />
-                                      <div className="text-lg font-light text-white">
+                                      <div className="text-lg font-normal text-white">
                                         {Requesting_Payment}...
                                       </div>
                                     </div>
@@ -2160,7 +2160,7 @@ export default function Index({ params }: any) {
                                     <div className="flex flex-col gap-2">
                                       <div className="flex flex-row items-center gap-2">
                                         <GearSetupIcon />
-                                        <div className="text-lg font-light">
+                                        <div className="text-lg font-normal">
                                         {Request_Payment}
                                         </div>
                                       </div>
@@ -2215,7 +2215,7 @@ export default function Index({ params }: any) {
                                         )}
 
 
-                                        <div className="text-lg font-light">
+                                        <div className="text-lg font-normal">
                                         {Request_Payment}
                                         </div>
                                       </div>
@@ -2361,7 +2361,7 @@ export default function Index({ params }: any) {
                                       height={32}
                                     />
 
-                                    <div className="text-lg font-light text-green-500">
+                                    <div className="text-lg font-normal text-green-500">
                                       {Escrow}: {item.usdtAmount} USDT
                                     </div>
 
@@ -2401,7 +2401,7 @@ export default function Index({ params }: any) {
                                       width={32}
                                       height={32}
                                     />
-                                    <div className="text-lg font-light text-green-500">
+                                    <div className="text-lg font-normal text-green-500">
                                       {Bank_Transfer}
                                     </div>
                                   </div>
@@ -2555,7 +2555,7 @@ export default function Index({ params }: any) {
                                             height={32}
                                             className="animate-spin"
                                         />
-                                        <div className="text-lg font-light text-white">
+                                        <div className="text-lg font-normal text-white">
                                           
                                           {Checking_the_bank_transfer_from_the_buyer} ( {
                                             item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
@@ -2638,7 +2638,7 @@ export default function Index({ params }: any) {
                                         height={32}
                                         className="animate-spin"
                                     />
-                                    <div className="text-lg font-light text-white">
+                                    <div className="text-lg font-normal text-white">
 
                                       {/*
                                       Transfering {item.usdtAmount} USDT to the buyer ( {item?.buyer?.nickname} ) wallet address...
@@ -2682,7 +2682,7 @@ export default function Index({ params }: any) {
                               {/* buyer mobile number */}
                               {address && item.buyer?.walletAddress === address && (
                                 <div className="mt-4 flex flex-row items-center gap-2">
-                                  <div className="text-lg font-light text-green-500">
+                                  <div className="text-lg font-normal text-green-500">
                                     SMS: {item.buyer?.mobile}
                                   </div>
                                 </div>
@@ -2762,7 +2762,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

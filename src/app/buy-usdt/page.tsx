@@ -464,7 +464,7 @@ const P2PTable = () => {
           */}
   
           <div className="flex justify-start space-x-4 mb-10">
-              <button onClick={() => router.push('/')} className="text-zinc-100 font-light underline">Go Home</button>
+              <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
           </div>
 
 
@@ -487,7 +487,7 @@ const P2PTable = () => {
                     className="rounded-lg"
                   />
 
-                  <div className="text-2xl font-light">Buy USDT</div>
+                  <div className="text-2xl font-normal">Buy USDT</div>
 
 
 
@@ -535,7 +535,7 @@ const P2PTable = () => {
                 <div className="w-full flex flex-row items-start justify-between gap-2">
                   {/* my usdt balance */}
                   <div className="flex flex-col gap-2 items-start">
-                    <div className="text-5xl font-light text-white">
+                    <div className="text-5xl font-normal text-white">
                       {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                     </div>
                   </div>
@@ -550,7 +550,7 @@ const P2PTable = () => {
 
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">Total</div>
-                    <div className="text-xl font-light text-white">
+                    <div className="text-xl font-normal text-white">
                       {sellOrders.length}
                     </div>
                     
@@ -558,14 +558,14 @@ const P2PTable = () => {
 
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">Orders</div>
-                    <div className="text-xl font-light text-white">
+                    <div className="text-xl font-normal text-white">
                       {sellOrders.filter((item) => item.status === 'ordered').length}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">Trades</div>
-                    <div className="text-xl font-light text-white">
+                    <div className="text-xl font-normal text-white">
 
                       {
                         //sellOrders.filter((item) => item.status === 'accepted').length
@@ -593,7 +593,7 @@ const P2PTable = () => {
                             height: '20px',
                         }}
                       />
-                      <div className="text-lg font-light text-white ">{user?.nickname}</div>
+                      <div className="text-lg font-normal text-white ">{user?.nickname}</div>
                     </div>
                     {/* checkbox for search my trades */}
                     <div className="flex flex-row items-center gap-2">
@@ -759,7 +759,7 @@ const P2PTable = () => {
                                 />
 
 
-                                <p className="text-sm font-light text-green-500 ">
+                                <p className="text-sm font-normal text-green-500 ">
                                   {item.tradeId}
                                 </p>
 
@@ -819,7 +819,7 @@ const P2PTable = () => {
                             <div className="mt-4 flex flex-row items-between space-x-2">
 
                               <div className="flex flex-col items-start">
-                                <p className="text-2xl font-light text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-2xl font-normal text-white">{item.usdtAmount} USDT</p>
 
                                 <p className="text-lg text-zinc-400">
                                   Price: {
@@ -835,7 +835,7 @@ const P2PTable = () => {
                               </div>
 
                               <div className="flex flex-row items-start gap-2">
-                                <p className="text-lg font-light text-white">Rate: {
+                                <p className="text-lg font-normal text-white">Rate: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -869,7 +869,7 @@ const P2PTable = () => {
 
                               <div className="flex items-center space-x-2">Seller:</div>
 
-                              <h2 className="text-lg font-light">
+                              <h2 className="text-lg font-normal">
                                 {item.walletAddress === address ? 'Me' : item.nickname}
                                
                               </h2>
@@ -909,7 +909,7 @@ const P2PTable = () => {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-xl text-red-500 font-light">
+                                  <p className="text-xl text-red-500 font-normal">
                                     Buyer: {
                                       item?.buyer?.walletAddress === address ? 'Me' :
                                       item?.buyer?.nickname.substring(0, 1) + '***'
@@ -940,7 +940,7 @@ const P2PTable = () => {
                                       height: '32px',
                                   }}
                                 />
-                                <p className="text-xl text-green-500 font-light">
+                                <p className="text-xl text-green-500 font-normal">
                                   Buyer: {
                                     item?.buyer?.walletAddress === address ? 'Me' :
                                     item?.buyer?.nickname.substring(0, 1) + '***'
@@ -1327,7 +1327,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

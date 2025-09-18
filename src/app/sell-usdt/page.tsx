@@ -486,7 +486,7 @@ const P2PTable = () => {
           */}
   
           <div className="flex justify-start space-x-4 mb-10">
-              <button onClick={() => router.push('/')} className="text-zinc-100 font-light underline">Go Home</button>
+              <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
           </div>
 
 
@@ -507,7 +507,7 @@ const P2PTable = () => {
                     height={32}
                     className="rounded-lg"
                   />
-                  <div className="text-2xl font-light">Sell USDT</div>
+                  <div className="text-2xl font-normal">Sell USDT</div>
 
 
 
@@ -556,7 +556,7 @@ const P2PTable = () => {
                 <div className="flex flex-row items-start justify-between gap-2">
                   {/* my usdt balance */}
                   <div className="flex flex-col gap-2 items-start">
-                    <div className="text-5xl font-light text-white">
+                    <div className="text-5xl font-normal text-white">
                       {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                     </div>
                   </div>
@@ -590,7 +590,7 @@ const P2PTable = () => {
                                 width={40}
                                 height={40}
                               />
-                              <h2 className="text-lg font-light text-white">Order</h2>
+                              <h2 className="text-lg font-normal text-white">Order</h2>
                             </div>
 
                             {/* check box for private sale */}
@@ -635,7 +635,7 @@ const P2PTable = () => {
                                 }}
 
                               />
-                              <div className="text-lg font-light text-white">{nickname}</div>
+                              <div className="text-lg font-normal text-white">{nickname}</div>
 
                               <Image
                                 src="/verified.png"
@@ -797,7 +797,7 @@ const P2PTable = () => {
                               </div>
 
                               {krwAmount > 0 && (
-                                <div className="text-lg font-light text-zinc-400">
+                                <div className="text-lg font-normal text-zinc-400">
                                   Rate: {
 
                                     // currency format
@@ -999,21 +999,21 @@ const P2PTable = () => {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">Total</div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
                         {sellOrders.length}
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">Orders</div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
                         {sellOrders.filter((item) => item.status === 'ordered').length}
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">Trades</div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
 
                         {
                           //sellOrders.filter((item) => item.status === 'accepted').length
@@ -1041,7 +1041,7 @@ const P2PTable = () => {
                               height: '20px',
                           }}
                         />
-                        <div className="text-lg font-light text-white ">{user?.nickname}</div>
+                        <div className="text-lg font-normal text-white ">{user?.nickname}</div>
                       </div>
                       {/* checkbox for search my trades */}
                       <div className="flex flex-row items-center gap-2">
@@ -1238,7 +1238,7 @@ const P2PTable = () => {
                                 )}
 
 
-                                <p className="text-xl font-light text-green-500 ">
+                                <p className="text-xl font-normal text-green-500 ">
                                   TID: {item.tradeId}
                                 </p>
 
@@ -1258,7 +1258,7 @@ const P2PTable = () => {
                                   height={50}
                                 />
 
-                                <p className="text-xl font-light text-green-500 ">
+                                <p className="text-xl font-normal text-green-500 ">
                                   TID: {item.tradeId}
                                 </p>
                               </div>
@@ -1297,7 +1297,7 @@ const P2PTable = () => {
                             <div className="mt-4 flex flex-row items-between space-x-2">
 
                               <div className="flex flex-col items-start">
-                                <p className="text-2xl font-light text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-2xl font-normal text-white">{item.usdtAmount} USDT</p>
 
                                 <p className="text-lg text-zinc-400">
                                   Price: {
@@ -1313,7 +1313,7 @@ const P2PTable = () => {
                               </div>
 
                               <div className="flex flex-col items-start">
-                                <p className="text-lg font-light text-white">Rate: {
+                                <p className="text-lg font-normal text-white">Rate: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -1332,7 +1332,7 @@ const P2PTable = () => {
                        
 
                             
-                            <div className="mt-4 flex text-lg font-light mb-2">
+                            <div className="mt-4 flex text-lg font-normal mb-2">
                               {
    
 
@@ -1431,7 +1431,7 @@ const P2PTable = () => {
                               && (
                                 <div className="w-full mt-4 mb-2 flex flex-col items-start ">
 
-                                  <p className="text-xl text-green-500 font-light">
+                                  <p className="text-xl text-green-500 font-normal">
                                     Buyer: {
                                       item?.buyer?.walletAddress === address ? item?.buyer?.nickname + ' :Me' :
                                     
@@ -1628,7 +1628,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

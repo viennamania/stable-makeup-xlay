@@ -883,7 +883,7 @@ export default function Index({ params }: any) {
                 onClick={() => router.push(
                   '/' + params.lang + '/' + params.center + '?wallet=' + wallet
                 )}
-                className="text-zinc-100 font-light underline"
+                className="text-zinc-100 font-normal underline"
               >
                 {Go_Home}
               </button>
@@ -909,7 +909,7 @@ export default function Index({ params }: any) {
                     className="rounded-lg"
                   />
 
-                  <div className="text-2xl font-light">{Buy_USDT}</div>
+                  <div className="text-2xl font-normal">{Buy_USDT}</div>
 
               </div>
 
@@ -923,7 +923,7 @@ export default function Index({ params }: any) {
                     <div className="flex flex-col gap-2 items-start">
                       <div className="text-sm">{My_Balance}</div>
                       <div className="flex flex-row items-end justify-center  gap-2">
-                        <span className="text-4xl font-light text-white">
+                        <span className="text-4xl font-normal text-white">
                           {Number(balance).toFixed(2)}
                         </span>
                         <span className="text-lg">USDT</span>
@@ -999,7 +999,7 @@ export default function Index({ params }: any) {
                               }}
                             />
                             
-                            <div className="text-lg font-light text-white ">
+                            <div className="text-lg font-normal text-white ">
                               {
                                 user && user.nickname ? user.nickname : Anonymous
                               }
@@ -1051,7 +1051,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Total}</div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
                         {sellOrders.length} 
                       </div>
                       
@@ -1059,14 +1059,14 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Sell}</div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
                         {sellOrders.filter((item) => item.status === 'ordered').length}
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Trades}</div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
 
                         {
                           //sellOrders.filter((item) => item.status === 'accepted').length
@@ -1094,7 +1094,7 @@ export default function Index({ params }: any) {
                               height: '20px',
                           }}
                         />
-                        <div className="text-lg font-light text-white ">
+                        <div className="text-lg font-normal text-white ">
                           {
                             user && user.nickname ? user.nickname : Anonymous
                           }
@@ -1232,7 +1232,7 @@ export default function Index({ params }: any) {
                                   }}
                                 />
                                 <div className="flex flex-col gap-2 items-start">
-                                  <div className="text-lg font-light text-white">
+                                  <div className="text-lg font-normal text-white">
                                     {item.walletAddress === address ? 'Me' : item.nickname}
                                   </div>
                                   <div className="text-sm text-zinc-400">
@@ -1243,7 +1243,7 @@ export default function Index({ params }: any) {
                             </td>
 
                             <td className="p-2">
-                              <div className="text-sm font-light text-white">
+                              <div className="text-sm font-normal text-white">
                                 {
                                   // currency
                                   Number(item.krwAmount)?.toLocaleString('ko-KR', {
@@ -1252,19 +1252,19 @@ export default function Index({ params }: any) {
                                   })
                                 }
                               </div>
-                              <div className="text-sm font-light text-white">
+                              <div className="text-sm font-normal text-white">
                               {Rate}{' '}{Number(item.krwAmount / item.usdtAmount).toFixed(2)}
                               </div>
                             </td>
 
                             <td className="p-2">
-                              <div className="text-sm font-light text-white">
+                              <div className="text-sm font-normal text-white">
                                 {item.usdtAmount} USDT
                               </div>
                             </td>
 
                             <td className="p-2">
-                              <div className="text-sm font-light text-white">
+                              <div className="text-sm font-normal text-white">
                                 {item.seller?.bankInfo.bankName}
                               </div>
                             </td>
@@ -1630,7 +1630,7 @@ export default function Index({ params }: any) {
                                   />
 
 
-                                  <p className="text-sm font-light text-green-500 ">
+                                  <p className="text-sm font-normal text-green-500 ">
                                     {item.tradeId}
                                   </p>
 
@@ -1768,10 +1768,10 @@ export default function Index({ params }: any) {
 
                                 <div className="mt-2 flex flex-row items-start gap-2">
 
-                                  <p className="text-xl font-light text-white">
+                                  <p className="text-xl font-normal text-white">
                                     {item.usdtAmount}{' '}USDT
                                   </p>
-                                  <p className="text-lg font-light text-white">{Rate}: {
+                                  <p className="text-lg font-normal text-white">{Rate}: {
 
                                     Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -1808,7 +1808,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex items-center space-x-2">{Seller}:</div>
 
-                                  <h2 className="text-lg font-light">
+                                  <h2 className="text-lg font-normal">
                                     {item.walletAddress === address ? 'Me' : item.nickname}
                                   
                                   </h2>
@@ -1873,7 +1873,7 @@ export default function Index({ params }: any) {
                                           height: '32px',
                                       }}
                                     />
-                                    <p className="text-sm text-red-500 font-light">
+                                    <p className="text-sm text-red-500 font-normal">
                                       {Buyer}: {
                                         address && item?.buyer?.walletAddress === address ? Me :
                                         address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
@@ -1906,7 +1906,7 @@ export default function Index({ params }: any) {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-xl text-green-500 font-light">
+                                  <p className="text-xl text-green-500 font-normal">
                                     {Buyer}: {
                                       item?.buyer?.walletAddress === address ? Me :
                                       item?.buyer?.nickname?.substring(0, 1) + '***'
@@ -2339,7 +2339,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

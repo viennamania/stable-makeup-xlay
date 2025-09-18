@@ -2109,7 +2109,7 @@ export default function Index({ params }: any) {
                       />
                   </button>
                   {/* title */}
-                  <span className="text-sm text-gray-500 font-light">
+                  <span className="text-sm text-gray-500 font-normal">
                       홈으로
                   </span>
 
@@ -2183,7 +2183,7 @@ export default function Index({ params }: any) {
                       </div>
 
                       <div className="flex flex-row items-center justify-end  gap-2">
-                          <span className="text-2xl xl:text-4xl font-light text-[#409192]">
+                          <span className="text-2xl xl:text-4xl font-normal text-[#409192]">
                               {Number(balance).toFixed(2)}
                           </span>
                           {' '}
@@ -2207,7 +2207,7 @@ export default function Index({ params }: any) {
                     className="w-6 h-6"
                   />
 
-                  <div className="text-xl font-light">
+                  <div className="text-xl font-normal">
                     구매신청 목록
                   </div>
 
@@ -2275,7 +2275,7 @@ export default function Index({ params }: any) {
                             
                             <div className="flex flex-col gap-2">
 
-                              <div className="text-lg font-light text-zinc-500 ">
+                              <div className="text-lg font-normal text-zinc-500 ">
                                 {
                                   user && user.nickname && user.nickname
                                 }
@@ -2354,7 +2354,7 @@ export default function Index({ params }: any) {
 
 
                               <div className="flex flex-row items-center gap-2">
-                                <span className="text-xl font-light text-[#409192]">
+                                <span className="text-xl font-normal text-[#409192]">
                                   {Number(escrowBalance).toFixed(2)}
                                 </span>
                                 <span className="text-sm">USDT</span>
@@ -2402,7 +2402,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Total}</div>
-                      <div className="text-xl font-light text-zinc-500">
+                      <div className="text-xl font-normal text-zinc-500">
                         {buyOrders.length} 
                       </div>
                     </div>
@@ -2414,7 +2414,7 @@ export default function Index({ params }: any) {
                       <div className="text-sm">
                         {Buy_Order_Accept}
                       </div>
-                      <div className="text-xl font-light text-white">
+                      <div className="text-xl font-normal text-white">
                         {buyOrders.filter((item) => item.status === 'accepted').length}
                       </div>
                     </div>
@@ -2422,7 +2422,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Trades}</div>
-                      <div className="text-xl font-light text-zinc-500">
+                      <div className="text-xl font-normal text-zinc-500">
 
                         {
                           buyOrders.filter((item) => item.status === 'accepted' || item.status === 'paymentRequested').length
@@ -2435,7 +2435,7 @@ export default function Index({ params }: any) {
                     {/* buy order status */}
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Buy_Order_Opened}</div>
-                      <div className="text-xl font-light text-zinc-500">
+                      <div className="text-xl font-normal text-zinc-500">
                         {totalCount}
                       </div>
                     </div>
@@ -2456,7 +2456,7 @@ export default function Index({ params }: any) {
                     <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                       <thead
-                        className="bg-yellow-500 text-zinc-900 font-light text-sm"
+                        className="bg-yellow-500 text-zinc-900 font-normal text-sm"
                       >
                         <tr>
                           <th className="p-2">{Buy_Order_Opened}</th>
@@ -2538,7 +2538,7 @@ export default function Index({ params }: any) {
                                 */}
                                 <div className="flex flex-row gap-2 items-center justify-center">
 
-                                  <div className="text-lg text-yellow-500 font-light">
+                                  <div className="text-lg text-yellow-500 font-normal">
                                     {
                                       //item.walletAddress === address ? 'Me' : item.tradeId ? item.tradeId : ''
 
@@ -2548,7 +2548,7 @@ export default function Index({ params }: any) {
 
                                     }
                                   </div>
-                                  <div className="text-xs font-light text-white">
+                                  <div className="text-xs font-normal text-white">
                                     {item.walletAddress === address ? 'Me' : item?.nickname}
                                   </div>
 
@@ -2582,13 +2582,13 @@ export default function Index({ params }: any) {
 
                             <td className="p-2">
                               <div className="flex flex-row gap-2 items-center justify-center">
-                                <div className="text-xs font-light text-white">
+                                <div className="text-xs font-normal text-white">
                                   {item.seller?.bankInfo?.bankName}
                                 </div>
-                                <div className="text-xs font-light text-white">
+                                <div className="text-xs font-normal text-white">
                                   {item.seller?.bankInfo?.accountNumber}
                                 </div>
-                                <div className="text-xs font-light text-white">
+                                <div className="text-xs font-normal text-white">
                                   {item.seller?.bankInfo?.accountHolder}
                                 </div>
                               </div>
@@ -2601,7 +2601,7 @@ export default function Index({ params }: any) {
 
                                   item.status === 'paymentConfirmed' ? (
 
-                                    <div className=" text-green-500 text-xl font-light">
+                                    <div className=" text-green-500 text-xl font-normal">
                                       {item.krwAmount}
                                     </div>
 
@@ -2629,7 +2629,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-row items-center gap-2 justify-center">
                                 {/* status */}
                                 {item.status === 'ordered' && (
-                                  <div className="text-sm text-yellow-500 font-light">
+                                  <div className="text-sm text-yellow-500 font-normal">
                                     {Buy_Order_Opened}
                                   </div>
                                 )}
@@ -2745,11 +2745,11 @@ export default function Index({ params }: any) {
                                 {/* if status is accepted, show payment request button */}
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-row gap-2 items-center justify-center">
-                                    <span className="text-sm font-light text-white">
+                                    <span className="text-sm font-normal text-white">
                                       {item.seller?.nickname}
                                     </span>
 
-                                    <span className="text-sm font-light text-yellow-500">
+                                    <span className="text-sm font-normal text-yellow-500">
                                       {Completed}
                                     </span>
 
@@ -3293,7 +3293,7 @@ export default function Index({ params }: any) {
                                   />
 
 
-                                  <p className="text-sm font-light text-green-500 ">
+                                  <p className="text-sm font-normal text-green-500 ">
                                     {item.tradeId}
                                   </p>
 
@@ -3431,10 +3431,10 @@ export default function Index({ params }: any) {
 
                                 <div className="mt-2 flex flex-row items-start gap-2">
 
-                                  <p className="text-xl font-light text-zinc-500">
+                                  <p className="text-xl font-normal text-zinc-500">
                                     {item.usdtAmount}{' '}USDT
                                   </p>
-                                  <p className="text-lg font-light text-zinc-500">{Rate}: {
+                                  <p className="text-lg font-normal text-zinc-500">{Rate}: {
 
                                     Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -3472,7 +3472,7 @@ export default function Index({ params }: any) {
                                   <div className="flex flex-col gap-2 items-start">
                                     <div className="flex items-center space-x-2">{Buyer}:</div>
 
-                                    <div className="text-sm font-light">
+                                    <div className="text-sm font-normal">
                                       {item.walletAddress === address ? 'Me' : item.nickname}
                                     </div>
                                     <div className="text-lg text-green-500">
@@ -3540,7 +3540,7 @@ export default function Index({ params }: any) {
                                           height: '32px',
                                       }}
                                     />
-                                    <p className="text-sm text-red-500 font-light">
+                                    <p className="text-sm text-red-500 font-normal">
                                       {Buyer}: {
                                         address && item?.buyer?.walletAddress === address ? Me :
                                         address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
@@ -3571,7 +3571,7 @@ export default function Index({ params }: any) {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-xl text-green-500 font-light">
+                                  <p className="text-xl text-green-500 font-normal">
                                     {Seller}: {
                                       item.seller?.walletAddress === address ? Me :
                                       item.seller?.nickname.substring(0, 1) + '***'
@@ -3716,7 +3716,7 @@ export default function Index({ params }: any) {
                               {/* if status is accepted, show payment request button */}
                               {item.status === 'paymentConfirmed' && (
                                 <div className="flex flex-col gap-1">
-                                  <span className="text-sm font-light text-green-500">
+                                  <span className="text-sm font-normal text-green-500">
                                     {Completed}
                                   </span>
                                   <span>{
@@ -4134,7 +4134,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

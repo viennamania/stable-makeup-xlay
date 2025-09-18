@@ -365,7 +365,7 @@ export default function SettingsPage() {
                 */}
         
                 <div className="flex justify-start space-x-4 mb-10">
-                    <button onClick={() => router.push('/')} className="text-zinc-100 font-light underline">Go Home</button>
+                    <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
                 </div>
 
 
@@ -373,7 +373,7 @@ export default function SettingsPage() {
 
                     <div className='flex flex-row items-center space-x-4'>
                         <GearSetupIcon />
-                        <div className="text-2xl font-light">Profile Settings</div>
+                        <div className="text-2xl font-normal">Profile Settings</div>
 
                         {!address && (
                             <ConnectButton
@@ -456,7 +456,7 @@ export default function SettingsPage() {
                                     My Profile Picture
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     <Uploader
                                         lang='en'
                                         walletAddress={address}
@@ -475,7 +475,7 @@ export default function SettingsPage() {
                                    My Nickname
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     {nickname}
                                 </div>
 
@@ -520,7 +520,7 @@ export default function SettingsPage() {
 
                                 <input
                                     disabled={!address}
-                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-light"
+                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-normal"
                                     placeholder="Enter your nickname"
                                     
                                     //value={nickname}
@@ -549,8 +549,8 @@ export default function SettingsPage() {
 
                                 />
                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                    <div className="text-xs font-light">5-10 characters</div>
-                                    <div className="text-xs font-light">alphanumeric lowercase</div>
+                                    <div className="text-xs font-normal">5-10 characters</div>
+                                    <div className="text-xs font-normal">alphanumeric lowercase</div>
                                 </div>
                                 <button
                                     disabled={!address}
@@ -577,7 +577,7 @@ export default function SettingsPage() {
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     {userCode}
                                 </div>
 
@@ -616,15 +616,15 @@ export default function SettingsPage() {
                                     Seller
                                 </div>
 
-                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     
-                                    <div className="text-lg font-light">
+                                    <div className="text-lg font-normal">
                                         {seller?.bankInfo?.bankName}
                                     </div>
-                                    <div className="text-lg font-light">
+                                    <div className="text-lg font-normal">
                                         {seller?.bankInfo?.accountNumber}
                                     </div>
-                                    <div className="text-lg font-light">
+                                    <div className="text-lg font-normal">
                                         {seller?.bankInfo?.accountHolder}
                                     </div>
 
@@ -662,12 +662,12 @@ export default function SettingsPage() {
                                         Seller
                                     </div>
 
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                         Not a seller
                                     </div>
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                             Applying...
                                         </div>
                                     ) : (
@@ -694,7 +694,7 @@ export default function SettingsPage() {
                                                                         
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                         placeholder="Enter your bank name"
                                         value={bankName}
                                         type='text'
@@ -704,7 +704,7 @@ export default function SettingsPage() {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                         placeholder="Enter your account number"
                                         value={accountNumber}
                                         type='number'
@@ -719,7 +719,7 @@ export default function SettingsPage() {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                         placeholder="Enter your account holder"
                                         value={accountHolder}
                                         type='text'
@@ -729,7 +729,7 @@ export default function SettingsPage() {
                                     />
                                 </div>
 
-                                <div className="text-xs font-light">
+                                <div className="text-xs font-normal">
                                     To become a seller, you need to send 1 USDT to the contract address
                                 </div>
 

@@ -1510,7 +1510,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="rounded-lg"
                   />
-                  <div className="text-2xl font-light">
+                  <div className="text-2xl font-normal">
                     {Sell_USDT}
                   </div>
 
@@ -1525,7 +1525,7 @@ export default function Index({ params }: any) {
                     <div className="flex flex-col gap-2 items-start">
                       <div className="text-sm">{My_Balance}</div>
                       <div className="flex flex-row items-end justify-center  gap-2">
-                        <span className="text-4xl font-light text-white">
+                        <span className="text-4xl font-normal text-white">
                           {Number(balance).toFixed(2)}
                         </span>
                         <span className="text-lg">USDT</span>
@@ -1590,7 +1590,7 @@ export default function Index({ params }: any) {
                               }}
                             />
                             
-                            <div className="text-lg font-light text-white ">
+                            <div className="text-lg font-normal text-white ">
                               {
                                 user && user.nickname ? user.nickname : Anonymous
                               }
@@ -1650,7 +1650,7 @@ export default function Index({ params }: any) {
                         </div>
 
                         <div className="flex flex-row items-end justify-center  gap-2">
-                          <span className="text-4xl font-light text-white">
+                          <span className="text-4xl font-normal text-white">
                             {Number(escrowBalance).toFixed(2)}
                           </span>
                           <span className="text-lg">USDT</span>
@@ -1739,7 +1739,7 @@ export default function Index({ params }: any) {
                   ) : (
                     <>
                       {user && (
-                        <div className="text-xl font-light text-white">
+                        <div className="text-xl font-normal text-white">
                          
                           <button
                             onClick={() => {
@@ -1810,7 +1810,7 @@ export default function Index({ params }: any) {
                                 width={40}
                                 height={40}
                               />
-                              <h2 className="text-lg font-light text-white">{Order}</h2>
+                              <h2 className="text-lg font-normal text-white">{Order}</h2>
                             </div>
 
                             {/* check box for private sale */}
@@ -1981,7 +1981,7 @@ export default function Index({ params }: any) {
                               </div>
 
                               {krwAmount > 0 && (
-                                <div className="text-lg font-light text-zinc-400">
+                                <div className="text-lg font-normal text-zinc-400">
                                   {Rate}: {
 
                                     // currency format
@@ -2206,7 +2206,7 @@ export default function Index({ params }: any) {
                                     width={40}
                                     height={40}
                                   />
-                                  <h2 className="text-lg font-light text-white">{Order}</h2>
+                                  <h2 className="text-lg font-normal text-white">{Order}</h2>
                                 </div>
   
                                 {/* check box for private sale */}
@@ -2430,7 +2430,7 @@ export default function Index({ params }: any) {
                       {/*
                       <div className="flex flex-col gap-2 items-center">
                         <div className="text-sm">{Total}</div>
-                        <div className="text-xl font-light text-white">
+                        <div className="text-xl font-normal text-white">
                           {sellOrders.length}
                         </div>
                       </div>
@@ -2438,7 +2438,7 @@ export default function Index({ params }: any) {
 
                       <div className="flex flex-col gap-2 items-center">
                         <div className="text-sm">{Orders}</div>
-                        <div className="text-xl font-light text-white">
+                        <div className="text-xl font-normal text-white">
                           {sellOrders.filter((item) => item.status === 'ordered').length}
                         </div>
                       </div>
@@ -2446,7 +2446,7 @@ export default function Index({ params }: any) {
                       {/* completed trades */}
                       <div className="flex flex-col gap-2 items-center">
                         <div className="text-sm">{Completed}</div>
-                        <div className="text-xl font-light text-white">
+                        <div className="text-xl font-normal text-white">
                           {sellOrders.filter((item) => item.status === 'paymentConfirmed').length}
                         </div>
                       </div>
@@ -2454,13 +2454,13 @@ export default function Index({ params }: any) {
                       {/* cancelled trades */}
                       <div className="flex flex-col gap-2 items-center">
                         <div className="text-sm">{Cancelled}</div>
-                        <div className="text-xl font-light text-white">
+                        <div className="text-xl font-normal text-white">
                           {sellOrders.filter((item) => item.status === 'cancelled').length}
                         </div>
                       </div>
                       <div className="flex flex-col gap-2 items-center">
                         <div className="text-sm">{Trades}</div>
-                        <div className="text-4xl font-light text-white">
+                        <div className="text-4xl font-normal text-white">
                           {
                             //sellOrders.filter((item) => item.status === 'accepted').length
                             sellOrders.filter((item) => item.status === 'accepted' || item.status === 'paymentRequested').length
@@ -2547,12 +2547,12 @@ export default function Index({ params }: any) {
                                   )}
                               </td>
                               
-                              <td className="text-blue-500 text-lg font-light">
+                              <td className="text-blue-500 text-lg font-normal">
                                 {item.tradeId}
                               </td>
                               
                               
-                              <td className="text-left text-lg font-light">
+                              <td className="text-left text-lg font-normal">
 
                                 {item.acceptedAt && (
                                   new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -2579,10 +2579,10 @@ export default function Index({ params }: any) {
                               <td className=" flex flex-col items-start justify-center gap-1 mt-2 ">
 
                                 <div className="flex flex-row gap-1">
-                                  <span className="text-lg text-yellow-500 font-light">
+                                  <span className="text-lg text-yellow-500 font-normal">
                                     {item.buyer?.depositBankName && item.buyer?.depositBankName}
                                   </span>
-                                  <span className="text-lg text-yellow-500 font-light">
+                                  <span className="text-lg text-yellow-500 font-normal">
                                     {item.buyer?.depositName ? item.buyer?.depositName : item.tradeId}
                                   </span>
                                 </div>
@@ -2593,7 +2593,7 @@ export default function Index({ params }: any) {
 
                               <td className="p-2">
                                 <div className="flex flex-col gap-1">
-                                  <span className="text-lg text-yellow-500 font-light">
+                                  <span className="text-lg text-yellow-500 font-normal">
                                     {Number(item.krwAmount)?.toLocaleString('ko-KR', {
                                       style: 'currency',
                                       currency: 'KRW',
@@ -2615,7 +2615,7 @@ export default function Index({ params }: any) {
                                 </div>
                               </td>
 
-                              <td className="text-lg text-yellow-500 font-light">
+                              <td className="text-lg text-yellow-500 font-normal">
                                 {item.status === 'paymentConfirmed' && (
                                   Number(item.krwAmount)?.toLocaleString('ko-KR', {
                                     style: 'currency',
@@ -2688,7 +2688,7 @@ export default function Index({ params }: any) {
 
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-col gap-1">
-                                    <span className="text-lg font-light text-green-500">
+                                    <span className="text-lg font-normal text-green-500">
                                       {Completed}
                                     </span>
                                     <span>{
@@ -2757,7 +2757,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex flex-col gap-1 mt-1 mb-1">
 
-                                    <span className="text-sm font-light text-yellow-500">{Escrow_Completed}</span>
+                                    <span className="text-sm font-normal text-yellow-500">{Escrow_Completed}</span>
 
                                     <div className="flex flex-row gap-1">
 
@@ -3059,7 +3059,7 @@ export default function Index({ params }: any) {
                                 )}
 
 
-                                <p className="text-xl font-light text-green-500 ">
+                                <p className="text-xl font-normal text-green-500 ">
                                   {TID}: {item.tradeId}
                                 </p>
 
@@ -3079,7 +3079,7 @@ export default function Index({ params }: any) {
                                   height={50}
                                 />
 
-                                <p className="text-xl font-light text-green-500 ">
+                                <p className="text-xl font-normal text-green-500 ">
                                   {TID}: {item.tradeId}
                                 </p>
                               </div>
@@ -3133,9 +3133,9 @@ export default function Index({ params }: any) {
 
                               <div className="flex flex-row items-start gap-2">
 
-                                <p className="text-lg font-light text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-lg font-normal text-white">{item.usdtAmount} USDT</p>
 
-                                <p className="text-lg font-light text-white">{Rate}: {
+                                <p className="text-lg font-normal text-white">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -3165,7 +3165,7 @@ export default function Index({ params }: any) {
                        
 
                             
-                            <div className="mt-4 flex text-lg font-light mb-2">
+                            <div className="mt-4 flex text-lg font-normal mb-2">
                               {
    
 
@@ -3265,7 +3265,7 @@ export default function Index({ params }: any) {
                               && (
                                 <div className="w-full mt-4 mb-2 flex flex-col gap-2 items-start ">
 
-                                  <p className="text-sm text-green-500 font-light">
+                                  <p className="text-sm text-green-500 font-normal">
                                     {Buyer}: {
                                       item?.buyer?.walletAddress === address ? item?.buyer?.nickname + ' :' + Me :
                                     
@@ -3513,7 +3513,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

@@ -464,7 +464,7 @@ export default function SendUsdt() {
         */}
 
         <div className="flex justify-start space-x-4 mb-10">
-            <button onClick={() => router.push('/')} className="text-zinc-100 font-light underline">Go Home</button>
+            <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
         </div>
         
 
@@ -489,7 +489,7 @@ export default function SendUsdt() {
                 />
               </div>
 
-              <div className="text-2xl font-light">Send USDT</div>
+              <div className="text-2xl font-normal">Send USDT</div>
 
 
 
@@ -537,7 +537,7 @@ export default function SendUsdt() {
             </div>
 
               {/* goto buy usdt page */}
-              <div className="text-sm font-light text-zinc-100 mt-2 w-full text-right">
+              <div className="text-sm font-normal text-zinc-100 mt-2 w-full text-right">
    
                 <a
                   href="/buy-usdt"
@@ -552,11 +552,11 @@ export default function SendUsdt() {
             <div className="w-full flex flex-col gap-2 items-start">
               <div className="text-sm">My Balance</div>
               <div className='w-full flex flex-row items-center justify-between'>
-                <div className="text-5xl font-light text-white">
+                <div className="text-5xl font-normal text-white">
                   {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                 </div>
 
-                <div className="text-xs font-light text-white">
+                <div className="text-xs font-normal text-white">
                   {/* check box for receiver address input box */}
                   <input
                     type="checkbox"
@@ -585,7 +585,7 @@ export default function SendUsdt() {
                 disabled={sending}
                 type="number"
                 //placeholder="Enter amount"
-                className="w-full p-2 border border-gray-300 rounded text-black text-5xl font-light "
+                className="w-full p-2 border border-gray-300 rounded text-black text-5xl font-normal "
                 
                 value={amount}
 
@@ -628,7 +628,7 @@ export default function SendUsdt() {
 
                     className="
                       
-                      w-full p-2 border border-gray-300 rounded text-black text-2xl font-light "
+                      w-full p-2 border border-gray-300 rounded text-black text-2xl font-normal "
                       
                     value={
                       recipient?.nickname
@@ -691,7 +691,7 @@ export default function SendUsdt() {
                   disabled={true}
                   type="text"
                   placeholder="User wallet address"
-                  className="w-full p-2 border border-gray-300 rounded text-white text-sm xl:text-lg font-light"
+                  className="w-full p-2 border border-gray-300 rounded text-white text-sm xl:text-lg font-normal"
                   value={recipient?.walletAddress}
                   onChange={(e) => {
   
@@ -730,7 +730,7 @@ export default function SendUsdt() {
                     disabled={sending}
                     type="text"
                     placeholder="Enter wallet address"
-                    className="w-full p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-2xl font-light"
+                    className="w-full p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-2xl font-normal"
                     value={recipient.walletAddress}
                     onChange={(e) => setRecipient({
                       ...recipient,
@@ -794,7 +794,7 @@ export default function SendUsdt() {
               <button
                 disabled={!address || !recipient?.walletAddress || !amount || sending}
                 onClick={sendUsdt}
-                className={`mt-10 w-full p-2 rounded-lg text-xl font-light
+                className={`mt-10 w-full p-2 rounded-lg text-xl font-normal
 
                     ${
                     !address || !recipient?.walletAddress || !amount || sending
@@ -807,7 +807,7 @@ export default function SendUsdt() {
                   Send
               </button>
 
-              <div className="w-full flex flex-row gap-2 text-xl font-light">
+              <div className="w-full flex flex-row gap-2 text-xl font-normal">
 
                 {/* sending rotate animation with white color*/}
                 {sending && (

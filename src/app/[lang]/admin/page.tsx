@@ -1318,8 +1318,8 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">구매주문</h2>
-                  <p className="text-lg text-red-500 font-light">
+                  <h2 className="text-lg font-normal">구매주문</h2>
+                  <p className="text-lg text-red-500 font-normal">
                     {totalSummary.totalNumberOfBuyOrders}
                   </p>
                   {totalSummary.totalNumberOfBuyOrders > 0 && (
@@ -1364,7 +1364,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                    <h2 className="text-lg font-light">최근 구매주문</h2>
+                    <h2 className="text-lg font-normal">최근 구매주문</h2>
                   </div>
 
                   <table className="min-w-full min-h-[400px] align-top
@@ -1378,7 +1378,7 @@ export default function Index({ params }: any) {
                       className="bg-gray-100
                         text-gray-600
                         text-sm
-                        font-light
+                        font-normal
                         uppercase
                         border-b
                       "
@@ -1436,7 +1436,7 @@ export default function Index({ params }: any) {
                                   width={16}
                                   height={16}
                                 />
-                                <span className="text-lg text-[#409192] font-light"
+                                <span className="text-lg text-[#409192] font-normal"
                                   style={{ fontFamily: "monospace" }}
                                 >
                                   {
@@ -1444,12 +1444,12 @@ export default function Index({ params }: any) {
                                   }
                                 </span>
                               </div>
-                              <span className="text-lg text-yellow-600 font-light"
+                              <span className="text-lg text-yellow-600 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                               </span>
-                              <span className="text-lg text-zinc-600 font-light"
+                              <span className="text-lg text-zinc-600 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.rate).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1473,7 +1473,7 @@ export default function Index({ params }: any) {
                                   );
                                 }}
                                 className={`
-                                  text-sm font-light
+                                  text-sm font-normal
                                   bg-gray-700 text-white
                                   px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80
@@ -1484,19 +1484,19 @@ export default function Index({ params }: any) {
                               >
 
                                 {trade.status === "ordered" ? (
-                                  <span className="text-white font-light">
+                                  <span className="text-white font-normal">
                                     구매주문
                                   </span>
                                 ) : trade.status === "accepted" ? (
-                                  <span className="text-white font-light">
+                                  <span className="text-white font-normal">
                                     거래시작
                                   </span>
                                 ) : trade.status === "paymentRequested" ? (
-                                  <span className="text-white font-light">
+                                  <span className="text-white font-normal">
                                     결제요청
                                   </span>
                                 ) : (
-                                  <span className="text-white font-light">
+                                  <span className="text-white font-normal">
                                     {trade.status}
                                   </span>
                                 )}
@@ -1541,7 +1541,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">청산주문</h2>
+                  <h2 className="text-lg font-normal">청산주문</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfSellOrders}
                   </p>
@@ -1577,7 +1577,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                    <h2 className="text-lg font-light">최근 청산주문</h2>
+                    <h2 className="text-lg font-normal">최근 청산주문</h2>
                   </div>
 
                   <table className="min-w-full
@@ -1591,7 +1591,7 @@ export default function Index({ params }: any) {
                       className="bg-gray-100
                         text-gray-600
                         text-sm
-                        font-light
+                        font-normal
                         uppercase
                         border-b
                       "
@@ -1648,7 +1648,7 @@ export default function Index({ params }: any) {
                                 );
                               }}
                               className={`
-                                text-sm font-light
+                                text-sm font-normal
                                 bg-gray-700 text-white
                                 px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80
@@ -1659,19 +1659,19 @@ export default function Index({ params }: any) {
                             >
 
                               {trade.status === "ordered" ? (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   구매주문
                                 </span>
                               ) : trade.status === "accepted" ? (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   거래시작
                                 </span>
                               ) : trade.status === "paymentRequested" ? (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   결제요청
                                 </span>
                               ) : (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   {trade.status}
                                 </span>
                               )}
@@ -1707,7 +1707,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">거래내역</h2>
+                  <h2 className="text-lg font-normal">거래내역</h2>
                 </div>
 
                 <div className="w-full flex flex-row items-center justify-end gap-2">
@@ -1728,8 +1728,8 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-light">총 거래금액(원)</h2>
-                    <p className="text-lg text-yellow-600 font-light"
+                    <h2 className="text-lg font-normal">총 거래금액(원)</h2>
+                    <p className="text-lg text-yellow-600 font-normal"
                       style={{ fontFamily: "monospace" }}
                     >
                       {
@@ -1739,7 +1739,7 @@ export default function Index({ params }: any) {
                   </div>
 
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-light">총 거래량(USDT)</h2>
+                    <h2 className="text-lg font-normal">총 거래량(USDT)</h2>
                     <div className="flex flex-row items-center justify-center gap-1">
                       <Image
                         src="/icon-tether.png"
@@ -1748,7 +1748,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-light"
+                      <span className="text-lg text-[#409192] font-normal"
                         style={{ fontFamily: "monospace" }}
                       >
                         {Number(totalSummary.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1763,8 +1763,8 @@ export default function Index({ params }: any) {
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                 
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-light">총 결제금액(원)</h2>
-                    <p className="text-lg text-yellow-600 font-light"
+                    <h2 className="text-lg font-normal">총 결제금액(원)</h2>
+                    <p className="text-lg text-yellow-600 font-normal"
                       style={{ fontFamily: "monospace" }}
                     >
                       {
@@ -1773,7 +1773,7 @@ export default function Index({ params }: any) {
                     </p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-light">총 결제량(USDT)</h2>
+                    <h2 className="text-lg font-normal">총 결제량(USDT)</h2>
                     <div className="flex flex-row items-center justify-center gap-1">
                       <Image
                         src="/icon-tether.png"
@@ -1782,7 +1782,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-light"
+                      <span className="text-lg text-[#409192] font-normal"
                         style={{ fontFamily: "monospace" }}
                       >
                         {
@@ -1804,7 +1804,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                    <h2 className="text-lg font-light">총 거래수</h2>
+                    <h2 className="text-lg font-normal">총 거래수</h2>
                     <p className="text-lg text-zinc-500">
                       {totalSummary.totalNumberOfTrades}
                     </p>
@@ -1830,7 +1830,7 @@ export default function Index({ params }: any) {
                       className="bg-gray-100
                         text-gray-600
                         text-sm
-                        font-light
+                        font-normal
                         uppercase
                         border-b
                       "
@@ -1903,13 +1903,13 @@ export default function Index({ params }: any) {
                                   width={16}
                                   height={16}
                                 />
-                                <span className="text-lg text-[#409192] font-light"
+                                <span className="text-lg text-[#409192] font-normal"
                                 style={{ fontFamily: "monospace" }}
                                 >
                                   {Number(trade.usdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                 </span>
                               </div>
-                              <span className="text-lg text-yellow-600 font-light"
+                              <span className="text-lg text-yellow-600 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1936,13 +1936,13 @@ export default function Index({ params }: any) {
                                   width={16}
                                   height={16}
                                 />
-                                <span className="text-lg text-[#409192] font-light"
+                                <span className="text-lg text-[#409192] font-normal"
                                   style={{ fontFamily: "monospace" }}
                                 >
                                   {Number(trade.settlement?.settlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                 </span>
                               </div>
-                              <span className="text-lg text-yellow-600 font-light"
+                              <span className="text-lg text-yellow-600 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.settlement?.settlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -2001,7 +2001,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">청산관리</h2>
+                  <h2 className="text-lg font-normal">청산관리</h2>
                 </div>
 
                 <div className="w-full flex flex-row items-center justify-end gap-2">
@@ -2022,7 +2022,7 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-light">총 거래금액(원)</h2>
+                    <h2 className="text-lg font-normal">총 거래금액(원)</h2>
                     <p className="text-lg text-zinc-500">
                       {
                         !totalSummary.totalClearanceAmountKrw ? "0" :
@@ -2031,7 +2031,7 @@ export default function Index({ params }: any) {
                   </div>
 
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-light">총 거래량(USDT)</h2>
+                    <h2 className="text-lg font-normal">총 거래량(USDT)</h2>
                     <p className="text-lg text-zinc-500">
                       {
                         !totalSummary.totalClearanceAmountUsdt ? "0" :
@@ -2050,7 +2050,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                    <h2 className="text-lg font-light">총 거래수</h2>
+                    <h2 className="text-lg font-normal">총 거래수</h2>
                     <p className="text-lg text-zinc-500">
                       {totalSummary.totalNumberOfClearances}
                     </p>
@@ -2076,7 +2076,7 @@ export default function Index({ params }: any) {
                       className="bg-gray-100
                         text-gray-600
                         text-sm
-                        font-light
+                        font-normal
                         uppercase
                         border-b
                       "
@@ -2198,7 +2198,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-7 h-7"
                   />
-                  <h2 className="text-lg font-light">가맹점</h2>
+                  <h2 className="text-lg font-normal">가맹점</h2>
 
                 </div>
 
@@ -2222,7 +2222,7 @@ export default function Index({ params }: any) {
                 <div className="flex flex-row items-center justify-start gap-2">
                   {/* dot */}
                   <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                  <h2 className="text-lg font-light">총 가맹점수</h2>
+                  <h2 className="text-lg font-normal">총 가맹점수</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfStores} 개
                   </p>
@@ -2248,7 +2248,7 @@ export default function Index({ params }: any) {
                     className="bg-gray-100
                       text-gray-600
                       text-sm
-                      font-light
+                      font-normal
                       uppercase
                       border-b
                     "
@@ -2346,7 +2346,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">구매회원</h2>
+                  <h2 className="text-lg font-normal">구매회원</h2>
                 </div>
 
                 <div className="w-full flex flex-row items-center justify-end gap-2">
@@ -2370,7 +2370,7 @@ export default function Index({ params }: any) {
                 <div className="flex flex-row items-center justify-start gap-2">
                   {/* dot */}
                   <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                  <h2 className="text-lg font-light">총 회원수</h2>
+                  <h2 className="text-lg font-normal">총 회원수</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfBuyers} 명
                   </p>
@@ -2396,7 +2396,7 @@ export default function Index({ params }: any) {
                     className="bg-gray-100
                       text-gray-600
                       text-sm
-                      font-light
+                      font-normal
                       uppercase
                       border-b
                     "
@@ -2513,7 +2513,7 @@ export default function Index({ params }: any) {
 
                         <div className="flex flex-row gap-2 justify-center items-center">
                           
-                          <span className="text-3xl font-light text-zinc-800">
+                          <span className="text-3xl font-normal text-zinc-800">
                             {nickname}
                           </span>
                           
@@ -2862,7 +2862,7 @@ function Header() {
       />
 
       
-      <h1 className="text-2xl md:text-6xl font-light md:font-bold tracking-tighter mb-6 text-zinc-100">
+      <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 text-zinc-100">
         thirdweb SDK
         <span className="text-zinc-300 inline-block mx-1"> + </span>
         <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
@@ -2968,7 +2968,7 @@ function ArticleCard(props: {
       </div>
 
       <article>
-        <h2 className="text-lg font-light mb-2">{props.title}</h2>
+        <h2 className="text-lg font-normal mb-2">{props.title}</h2>
         <p className="text-sm text-zinc-400">{props.description}</p>
       </article>
     </a>

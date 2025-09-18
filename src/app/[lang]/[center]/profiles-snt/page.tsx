@@ -796,7 +796,7 @@ export default function SettingsPage({ params }: any) {
                             :
                             '/' + params.lang + '/' + params.center
                         ) }
-                        className="text-zinc-100 font-light underline"
+                        className="text-zinc-100 font-normal underline"
                     >
                         {Go_Home}
                     </button>
@@ -807,7 +807,7 @@ export default function SettingsPage({ params }: any) {
 
                     <div className='flex flex-row items-center space-x-4'>
                         <GearSetupIcon />
-                        <div className="text-2xl font-light">
+                        <div className="text-2xl font-normal">
                             {Profile_Settings}
                         </div>
 
@@ -866,7 +866,7 @@ export default function SettingsPage({ params }: any) {
                                     나의 아이디
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     {nickname}
                                 </div>
 
@@ -907,7 +907,7 @@ export default function SettingsPage({ params }: any) {
 
                                 <input
                                     disabled={!address}
-                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-light"
+                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-normal"
                                     placeholder={Enter_your_nickname}
                                     
                                     //value={nickname}
@@ -935,7 +935,7 @@ export default function SettingsPage({ params }: any) {
 
                                 />
                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                    <span className='text-xs font-light'>
+                                    <span className='text-xs font-normal'>
                                         {Nickname_should_be_5_10_characters}
                                     </span>
                                 </div>
@@ -962,7 +962,7 @@ export default function SettingsPage({ params }: any) {
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}
@@ -983,7 +983,7 @@ export default function SettingsPage({ params }: any) {
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     {userCode}
                                 </div>
 
@@ -1027,9 +1027,9 @@ export default function SettingsPage({ params }: any) {
                                     구매자 은행정보
                                 </div>
 
-                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                     
-                                    <div className="text-lg font-light">
+                                    <div className="text-lg font-normal">
                                         
                                         
                                         {
@@ -1057,10 +1057,10 @@ export default function SettingsPage({ params }: any) {
 
 
                                     </div>
-                                    <div className="text-lg font-light">
+                                    <div className="text-lg font-normal">
                                         {buyer?.bankInfo?.accountNumber}
                                     </div>
-                                    <div className="text-lg font-light">
+                                    <div className="text-lg font-normal">
                                         {buyer?.bankInfo?.accountHolder}
                                     </div>
 
@@ -1094,7 +1094,7 @@ export default function SettingsPage({ params }: any) {
                                         <div className="w-full flex flex-row gap-2 items-center justify-start">
                                             {/* dot */}
                                             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                                            <span className="text-sm font-light text-gray-200">
+                                            <span className="text-sm font-normal text-gray-200">
                                                 구매자 가상계좌 정보
                                             </span>
                                         </div>
@@ -1102,11 +1102,11 @@ export default function SettingsPage({ params }: any) {
                                         {buyer?.bankInfo?.virtualAccount ? (
                                             <div className='flex flex-col gap-2 items-center justify-between'>
 
-                                                <span className='text-lg font-light text-gray-200'>
+                                                <span className='text-lg font-normal text-gray-200'>
                                                     은행: 농협
                                                 </span>
                                                 <div className="flex flex-row gap-2 items-center justify-between">
-                                                    <span className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                                    <span className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                                         게좌번호:{' '}{
                                                             buyer.bankInfo.virtualAccount
                                                         }
@@ -1123,7 +1123,7 @@ export default function SettingsPage({ params }: any) {
                                                     </button>
                                                 </div>
                                                 {/*
-                                                <span className='text-sm font-light text-gray-200'>
+                                                <span className='text-sm font-normal text-gray-200'>
                                                     예금주: 스타디움엑스 (가상)
                                                 </span>
                                                 */}
@@ -1131,7 +1131,7 @@ export default function SettingsPage({ params }: any) {
                                                 <div className='mt-5 flex flex-row gap-2 items-center justify-between'>
   
                                                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                                                    <span className='text-sm font-light text-gray-200'>
+                                                    <span className='text-sm font-normal text-gray-200'>
                                                         가상계좌는 입금전용이며 출금은 지갑에서 가능합니다.
                                                     </span>
                                                 </div>
@@ -1139,7 +1139,7 @@ export default function SettingsPage({ params }: any) {
                                             </div>
                                         ) : (
                                             <div className='flex flex-row gap-2 items-center justify-between'>
-                                                <span className='text-sm font-light text-gray-200'>
+                                                <span className='text-sm font-normal text-gray-200'>
                                                 구매자 가상계좌 정보가 없습니다.
                                                 </span>
                                             </div>
@@ -1159,7 +1159,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className="w-full flex flex-row gap-2 items-center justify-start">
                                                 {/* dot */}
                                                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                                                <span className="text-sm font-light text-gray-200">
+                                                <span className="text-sm font-normal text-gray-200">
                                                     구매자 가상계좌 발급하기
                                                 </span>
                                             </div>
@@ -1177,7 +1177,7 @@ export default function SettingsPage({ params }: any) {
 
                                                 <select
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-light bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                                     value={buyer?.bankInfo?.bankName}
                                                     onChange={(e) => {
@@ -1264,7 +1264,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-light bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="계좌번호"
@@ -1287,7 +1287,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-light bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="예금주"
@@ -1312,7 +1312,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-light bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="생년월일(6자리)"
@@ -1337,7 +1337,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <select
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-light bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                                     value={buyer?.bankInfo?.gender}
 
@@ -1363,7 +1363,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-light bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="전화번호"
@@ -1389,7 +1389,7 @@ export default function SettingsPage({ params }: any) {
                                             {/* error message */}
                                             {errorMsgForSetSeller && (
                                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                                    <span className='text-sm font-light text-red-500'>
+                                                    <span className='text-sm font-normal text-red-500'>
                                                         {errorMsgForSetSeller}
                                                     </span>
                                                 </div>
@@ -1420,7 +1420,7 @@ export default function SettingsPage({ params }: any) {
                                                     ? 'bg-gray-500 text-zinc-100'
                                                     : 'bg-blue-500 text-zinc-100'}
 
-                                                    p-2 rounded-lg text-sm font-light
+                                                    p-2 rounded-lg text-sm font-normal
                                                     w-full mt-5
                                                 `}
                                                 onClick={() => {
@@ -1464,7 +1464,7 @@ export default function SettingsPage({ params }: any) {
                                         
                                         ${isSendedOtp && 'hidden'}
 
-                                        w-32 p-2 rounded-lg text-sm font-light
+                                        w-32 p-2 rounded-lg text-sm font-normal
 
                                             ${
                                             !address || isSendingOtp
@@ -1481,7 +1481,7 @@ export default function SettingsPage({ params }: any) {
                                         <input
                                         type="text"
                                         placeholder={Enter_OTP}
-                                        className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-light"
+                                        className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-normal"
                                         value={otp}
                                         onChange={(e) => setOtp(e.target.value)}
                                         />
@@ -1489,7 +1489,7 @@ export default function SettingsPage({ params }: any) {
                                         <button
                                         disabled={!otp || isVerifingOtp}
                                         onClick={verifyOtp}
-                                        className={`w-32 p-2 rounded-lg text-sm font-light
+                                        className={`w-32 p-2 rounded-lg text-sm font-normal
 
                                             ${
                                             !otp || isVerifingOtp
@@ -1532,13 +1532,13 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     {!seller && (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                             {Not_a_seller}
                                         </div>
                                     )}
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                             {Applying}...
                                         </div>
                                     ) : (
@@ -1558,7 +1558,7 @@ export default function SettingsPage({ params }: any) {
                                                 ${!verifiedOtp ? 'bg-gray-300 text-gray-400'
                                                 : 'bg-green-500 text-zinc-100'}
 
-                                                p-2 rounded-lg text-sm font-light
+                                                p-2 rounded-lg text-sm font-normal
                                             `}
                                         >
                                             {Apply}
@@ -1572,7 +1572,7 @@ export default function SettingsPage({ params }: any) {
                                                                         
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_bank_name}
                                         value={bankName}
                                         type='text'
@@ -1582,7 +1582,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_account_number}
                                         value={accountNumber}
                                         type='number'
@@ -1597,7 +1597,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_account_holder}
                                         value={accountHolder}
                                         type='text'
@@ -1634,7 +1634,7 @@ export default function SettingsPage({ params }: any) {
                                         
                                         ${isSendedOtp && 'hidden'}
 
-                                        w-32 p-2 rounded-lg text-sm font-light
+                                        w-32 p-2 rounded-lg text-sm font-normal
 
                                             ${
                                             !address || isSendingOtp
@@ -1651,7 +1651,7 @@ export default function SettingsPage({ params }: any) {
                                         <input
                                         type="text"
                                         placeholder={Enter_OTP}
-                                        className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-light"
+                                        className=" w-40 p-2 border border-gray-300 rounded text-black text-sm font-normal"
                                         value={otp}
                                         onChange={(e) => setOtp(e.target.value)}
                                         />
@@ -1659,7 +1659,7 @@ export default function SettingsPage({ params }: any) {
                                         <button
                                         disabled={!otp || isVerifingOtp}
                                         onClick={verifyOtp}
-                                        className={`w-32 p-2 rounded-lg text-sm font-light
+                                        className={`w-32 p-2 rounded-lg text-sm font-normal
 
                                             ${
                                             !otp || isVerifingOtp
@@ -1716,7 +1716,7 @@ export default function SettingsPage({ params }: any) {
                                         Update USDT Price
                                     </div>
 
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-light">
+                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
                                         1 USDT = {usdtPrice} KRW
                                     </div>
 
@@ -1736,7 +1736,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-col gap-2 items-center justify-between'>
 
                                         <input 
-                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-light"
+                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
                                             placeholder="Enter USDT Price"
                                             type='number'
                                             value={editUsdtPrice}
@@ -1749,7 +1749,7 @@ export default function SettingsPage({ params }: any) {
 
                                             className={`
                                                 ${editingUsdtPrice ? 'bg-gray-300 text-gray-400' : 'bg-green-500 text-zinc-100'}
-                                                p-2 rounded-lg text-sm font-light
+                                                p-2 rounded-lg text-sm font-normal
                                             `}
 
                                             onClick={async () => {

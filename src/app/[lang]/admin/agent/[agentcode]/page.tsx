@@ -2175,7 +2175,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-7 h-7"
                   />
-                  <h2 className="text-lg font-light">총 가맹점수</h2>
+                  <h2 className="text-lg font-normal">총 가맹점수</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfStores} 개
                   </p>
@@ -2238,7 +2238,7 @@ export default function Index({ params }: any) {
                 <div className="flex flex-row items-center justify-start gap-2">
                   {/* dot */}
                   <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                  <h2 className="text-lg font-light">최근 등록 가맹점</h2>
+                  <h2 className="text-lg font-normal">최근 등록 가맹점</h2>
                 </div>
                 <table className="min-w-full
                   border-collapse
@@ -2251,7 +2251,7 @@ export default function Index({ params }: any) {
                     className="bg-gray-100
                       text-gray-600
                       text-sm
-                      font-light
+                      font-normal
                       uppercase
                       border-b
                     "
@@ -2366,7 +2366,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">총 회원수</h2>
+                  <h2 className="text-lg font-normal">총 회원수</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfBuyers} 명
                   </p>
@@ -2431,7 +2431,7 @@ export default function Index({ params }: any) {
                 <div className="flex flex-row items-center justify-start gap-2">
                   {/* dot */}
                   <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                  <h2 className="text-lg font-light">최근 구매회원</h2>
+                  <h2 className="text-lg font-normal">최근 구매회원</h2>
                 </div>
                 <table className="min-w-full
                   border-collapse
@@ -2444,7 +2444,7 @@ export default function Index({ params }: any) {
                     className="bg-gray-100
                       text-gray-600
                       text-sm
-                      font-light
+                      font-normal
                       uppercase
                       border-b
                     "
@@ -2509,7 +2509,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">총 거래수</h2>
+                  <h2 className="text-lg font-normal">총 거래수</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfTrades}
                   </p>
@@ -2573,14 +2573,14 @@ export default function Index({ params }: any) {
                 
                   <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-light">총 거래금액(원)</h2>
+                      <h2 className="text-lg font-normal">총 거래금액(원)</h2>
                       <p className="text-lg text-zinc-500">
                         {Number(totalSummary.totalBuyAmountKrw)?.toLocaleString()} 원
                       </p>
                     </div>
 
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-light">총 거래량(USDT)</h2>
+                      <h2 className="text-lg font-normal">총 거래량(USDT)</h2>
                       <p className="text-lg text-zinc-500">
                         {Number(totalSummary.totalUsdtAmount)?.toLocaleString()} USDT
                       </p>
@@ -2593,13 +2593,13 @@ export default function Index({ params }: any) {
                   <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                   
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-light">총 결제금액(원)</h2>
+                      <h2 className="text-lg font-normal">총 결제금액(원)</h2>
                       <p className="text-lg text-zinc-500">
                         {Number(totalSummary.totalSettlementAmountKRW)?.toLocaleString()} 원
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-light">총 결제량(USDT)</h2>
+                      <h2 className="text-lg font-normal">총 결제량(USDT)</h2>
                       <p className="text-lg text-zinc-500">
                         {Number(totalSummary.totalSettlementAmount)?.toLocaleString()} USDT
                       </p>
@@ -2613,13 +2613,13 @@ export default function Index({ params }: any) {
                 <div className="flex flex-row items-center justify-center gap-2 mt-4">
                   <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-light">총 수수료금액(원)</h2>
+                      <h2 className="text-lg font-normal">총 수수료금액(원)</h2>
                       <p className="text-lg text-zinc-500">
                         {Number(totalSummary.totalAgentFeeAmountKRW)?.toLocaleString()} 원
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-light">총 수수료량(USDT)</h2>
+                      <h2 className="text-lg font-normal">총 수수료량(USDT)</h2>
                       <p className="text-lg text-zinc-500">
                         {Number(totalSummary.totalAgentFeeAmount)?.toLocaleString()} USDT
                       </p>
@@ -2639,7 +2639,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                    <h2 className="text-lg font-light">최근 거래</h2>
+                    <h2 className="text-lg font-normal">최근 거래</h2>
                   </div>
 
                   <table className="min-w-full
@@ -2653,7 +2653,7 @@ export default function Index({ params }: any) {
                       className="bg-gray-100
                         text-gray-600
                         text-sm
-                        font-light
+                        font-normal
                         uppercase
                         border-b
                       "
@@ -2779,7 +2779,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="w-6 h-6"
                   />
-                  <h2 className="text-lg font-light">총 구매주문수</h2>
+                  <h2 className="text-lg font-normal">총 구매주문수</h2>
                   <p className="text-lg text-zinc-500">
                     {totalSummary.totalNumberOfBuyOrders}
                   </p>
@@ -2844,7 +2844,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-start gap-2">
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
-                    <h2 className="text-lg font-light">최근 구매주문</h2>
+                    <h2 className="text-lg font-normal">최근 구매주문</h2>
                   </div>
 
                   <table className="min-w-full
@@ -2858,7 +2858,7 @@ export default function Index({ params }: any) {
                       className="bg-gray-100
                         text-gray-600
                         text-sm
-                        font-light
+                        font-normal
                         uppercase
                         border-b
                       "
@@ -2915,7 +2915,7 @@ export default function Index({ params }: any) {
                                 );
                               }}
                               className={`
-                                text-sm font-light
+                                text-sm font-normal
                                 bg-gray-700 text-white
                                 px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80
@@ -2926,19 +2926,19 @@ export default function Index({ params }: any) {
                             >
 
                               {trade.status === "ordered" ? (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   구매주문
                                 </span>
                               ) : trade.status === "accepted" ? (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   거래시작
                                 </span>
                               ) : trade.status === "paymentRequested" ? (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   결제요청
                                 </span>
                               ) : (
-                                <span className="text-white font-light">
+                                <span className="text-white font-normal">
                                   {trade.status}
                                 </span>
                               )}
@@ -2947,21 +2947,21 @@ export default function Index({ params }: any) {
                               
                                 {/*
                               {trade.status === "ordered" ? (
-                                <span className="text-red-500 font-light
+                                <span className="text-red-500 font-normal
                                   bg-red-100/50
                                   px-2 py-1 rounded-lg
                                 ">
                                   구매주문
                                 </span>
                               ) : trade.status === "accepted" ? (
-                              <span className="text-green-500 font-light
+                              <span className="text-green-500 font-normal
                                 bg-green-100/50
                                 px-2 py-1 rounded-lg
                               ">
                                   거래시작
                                 </span>
                               ) : trade.status === "paymentRequested" ? (
-                                <span className="text-yellow-500 font-light
+                                <span className="text-yellow-500 font-normal
                                   bg-yellow-100/50
                                   px-2 py-1 rounded-lg
                                 ">
@@ -3060,7 +3060,7 @@ export default function Index({ params }: any) {
 
                         <div className="flex flex-row gap-2 justify-center items-center">
                           
-                          <span className="text-3xl font-light text-zinc-800">
+                          <span className="text-3xl font-normal text-zinc-800">
                             {user?.nickname}
                           </span>
                           
@@ -3349,7 +3349,7 @@ const UserHomePage = (
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4">
-      <h1 className="text-2xl font-light">회원 홈페이지</h1>
+      <h1 className="text-2xl font-normal">회원 홈페이지</h1>
       
       {/* iframe */}
       <iframe
@@ -3399,7 +3399,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

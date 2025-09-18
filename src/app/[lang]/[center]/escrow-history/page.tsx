@@ -1094,7 +1094,7 @@ export default function Index({ params }: any) {
                             height={20}
                             className="rounded-full"
                         />
-                        <span className="ml-2 text-sm text-gray-500 font-light">
+                        <span className="ml-2 text-sm text-gray-500 font-normal">
                             돌아가기
                         </span>
                     </button>
@@ -1140,7 +1140,7 @@ export default function Index({ params }: any) {
                 {address && !loadingUser && (
                     <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                        <span className="text-lg text-gray-500 font-light">
+                        <span className="text-lg text-gray-500 font-normal">
                         {user?.nickname || "프로필"}
                         </span>
 
@@ -1161,7 +1161,7 @@ export default function Index({ params }: any) {
                     className="w-10 h-10 rounded-full"
                 />
 
-                <div className="text-xl font-light">
+                <div className="text-xl font-normal">
                 가맹점{' '}{
                     store && store.storeName + " (" + store.storecode + ")"
                 }{' '}보유량 관리
@@ -1186,7 +1186,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-zinc-600 font-light">
+                  <span className="text-lg text-zinc-600 font-normal">
                     현재 보유량
                   </span>
                 </div>
@@ -1199,7 +1199,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-xl text-[#409192] font-light"
+                  <span className="text-xl text-[#409192] font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1222,13 +1222,13 @@ export default function Index({ params }: any) {
                 
                     {escrowHistory && escrowHistory.length > 0
                       ? (
-                        <span className="text-lg text-zinc-600 font-light">
+                        <span className="text-lg text-zinc-600 font-normal">
                         
 
                         {new Date(escrowHistory[0].date).toLocaleDateString('ko-KR')} 보유량
                         </span>
                       ) : (
-                        <span className="text-lg text-zinc-600 font-light">
+                        <span className="text-lg text-zinc-600 font-normal">
                           보유량
                         </span>
                       )
@@ -1244,7 +1244,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-xl text-[#409192] font-light"
+                  <span className="text-xl text-[#409192] font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1272,7 +1272,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-light">
+                <div className="text-xl font-normal">
                   보유량 변동 내역(USDT)
                 </div>
 
@@ -1287,19 +1287,19 @@ export default function Index({ params }: any) {
 
                 <thead className="bg-zinc-200">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-light text-zinc-600">
+                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-600">
                       날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
                       입금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
                       출금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
                       처리전 보유량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-light text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
                       처리후 보유량(USDT)
                     </th>
 
@@ -1315,7 +1315,7 @@ export default function Index({ params }: any) {
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
 
-                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1325,7 +1325,7 @@ export default function Index({ params }: any) {
                         }
                       </td>
 
-                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1335,7 +1335,7 @@ export default function Index({ params }: any) {
                         }
                       </td>
 
-                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1344,7 +1344,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-light text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1434,7 +1434,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>

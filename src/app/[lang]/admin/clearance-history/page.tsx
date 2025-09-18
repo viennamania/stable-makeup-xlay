@@ -2663,7 +2663,7 @@ export default function Index({ params }: any) {
                   height={35}
                   className="w-4 h-4"
                 />
-                <div className="text-sm font-light">
+                <div className="text-sm font-normal">
                   청산관리
                 </div>
               </div>
@@ -2714,7 +2714,7 @@ export default function Index({ params }: any) {
                 className="w-6 h-6"
               />
 
-              <div className="text-xl font-light">
+              <div className="text-xl font-normal">
                 청산관리
               </div>
 
@@ -2752,7 +2752,7 @@ export default function Index({ params }: any) {
 
                   <span className="
                     w-32
-                    text-sm font-light">
+                    text-sm font-normal">
                     가맹점선택
                   </span>
 
@@ -2929,7 +2929,7 @@ export default function Index({ params }: any) {
             <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-5">
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산수(건)</div>
-                <div className="text-xl font-light text-zinc-500">
+                <div className="text-xl font-normal text-zinc-500">
                   {buyOrderStats.totalCount ?.toLocaleString()}
                 </div>
               </div>
@@ -2944,7 +2944,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <div className="text-xl font-light text-[#409192]"
+                  <div className="text-xl font-normal text-[#409192]"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {buyOrderStats.totalUsdtAmount?.toLocaleString()}
@@ -2955,7 +2955,7 @@ export default function Index({ params }: any) {
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산금액(원)</div>
                 <div className="flex flex-row items-center justify-center gap-1">
-                  <div className="text-xl font-light text-yellow-600"
+                  <div className="text-xl font-normal text-yellow-600"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {buyOrderStats.totalKrwAmount?.toLocaleString()}
@@ -2996,7 +2996,7 @@ export default function Index({ params }: any) {
                   )}
 
 
-                  <p className="text-lg text-red-500 font-light">
+                  <p className="text-lg text-red-500 font-normal">
                     {
                     totalNumberOfBuyOrders
                     }
@@ -3054,7 +3054,7 @@ export default function Index({ params }: any) {
                     />
                   )}
 
-                  <p className="text-lg text-yellow-500 font-light">
+                  <p className="text-lg text-yellow-500 font-normal">
                     {
                     totalNumberOfClearanceOrders
                     }
@@ -3089,7 +3089,7 @@ export default function Index({ params }: any) {
                   <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-light"
+                      className="bg-zinc-800 text-white text-sm font-normal"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}
@@ -3152,7 +3152,7 @@ export default function Index({ params }: any) {
                                   navigator.clipboard.writeText(item.tradeId);
                                   toast.success('거래번호가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-light
+                                className="text-sm text-zinc-500 font-normal
                                   hover:text-blue-600 cursor-pointer
                                   hover:underline"
                                 title="거래번호 복사"
@@ -3161,7 +3161,7 @@ export default function Index({ params }: any) {
                               </button>
 
                               <div className="flex flex-col gap-2 items-center justify-center">
-                                <span className="text-sm text-zinc-500 font-light">
+                                <span className="text-sm text-zinc-500 font-normal">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('ko-KR', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -3172,7 +3172,7 @@ export default function Index({ params }: any) {
                                   })}
                                 </span>
                                 {/*
-                                <span className="text-sm text-zinc-500 font-light">
+                                <span className="text-sm text-zinc-500 font-normal">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('en-US', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -3185,7 +3185,7 @@ export default function Index({ params }: any) {
                                 */}
                               </div>
 
-                              <span className="text-sm text-zinc-500 font-light">
+                              <span className="text-sm text-zinc-500 font-normal">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
@@ -3264,7 +3264,7 @@ export default function Index({ params }: any) {
                                     navigator.clipboard.writeText(item.walletAddress);
                                     toast.success('지갑주소가 클립보드에 복사되었습니다.');
                                   }}
-                                  className="text-sm text-zinc-400 font-light hover:text-blue-500 cursor-pointer"
+                                  className="text-sm text-zinc-400 font-normal hover:text-blue-500 cursor-pointer"
                                   title="지갑주소 복사"
                                 >
                                   {item?.buyer?.walletAddress ? (
@@ -3293,7 +3293,7 @@ export default function Index({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                   />
-                                  <span className="text-lg text-[#409192] font-light"
+                                  <span className="text-lg text-[#409192] font-normal"
                                     style={{
                                       fontFamily: 'monospace',
                                       }}
@@ -3303,7 +3303,7 @@ export default function Index({ params }: any) {
                                 </div>
                                 
                                 <div className="flex flex-row items-center gap-1">
-                                  <span className="text-lg text-yellow-600 font-light"
+                                  <span className="text-lg text-yellow-600 font-normal"
                                     style={{
                                       fontFamily: 'monospace',
                                     }}
@@ -3314,7 +3314,7 @@ export default function Index({ params }: any) {
 
 
                               </div>
-                              <span className="text-sm text-zinc-500 font-light"
+                              <span className="text-sm text-zinc-500 font-normal"
                                 style={{
                                   fontFamily: 'monospace',
                                 }}
@@ -3333,12 +3333,12 @@ export default function Index({ params }: any) {
                               {item?.buyer?.nickname ? (
                                 <div className="flex flex-col items-start justify-center gap-1">
 
-                                  <span className="text-lg text-zinc-400 font-light">
+                                  <span className="text-lg text-zinc-400 font-normal">
                                     {item.buyer?.depositBankName}
                                   </span>
 
                                   <button
-                                    className="text-lg text-zinc-400 font-light hover:text-blue-500 underline"
+                                    className="text-lg text-zinc-400 font-normal hover:text-blue-500 underline"
                                     onClick={() => {
                                       navigator.clipboard.writeText(item.buyer?.depositBankAccountNumber);
                                       alert('계좌번호가 클립보드에 복사되었습니다.');
@@ -3348,18 +3348,18 @@ export default function Index({ params }: any) {
                                   </button>
 
 
-                                  <span className="text-lg text-zinc-400 font-light">
+                                  <span className="text-lg text-zinc-400 font-normal">
                                     {item.buyer?.depositName}
                                   </span>
 
                                 </div>
                               ) : (
                                 <div className="flex flex-col items-start justify-center gap-1">
-                                  <span className="text-lg text-zinc-400 font-light">
+                                  <span className="text-lg text-zinc-400 font-normal">
                                     {item.seller?.bankInfo?.bankName}
                                   </span>
                                   <button
-                                    className="text-lg text-zinc-400 font-light hover:text-blue-500"
+                                    className="text-lg text-zinc-400 font-normal hover:text-blue-500"
                                     onClick={() => {
                                       navigator.clipboard.writeText(item.seller?.bankInfo?.accountNumber);
                                       alert('계좌번호가 클립보드에 복사되었습니다.');
@@ -3367,7 +3367,7 @@ export default function Index({ params }: any) {
                                   >
                                     {item.seller?.bankInfo?.accountNumber}
                                   </button>
-                                  <span className="text-lg text-zinc-400 font-light">
+                                  <span className="text-lg text-zinc-400 font-normal">
                                     {item.seller?.bankInfo?.accountHolder}
                                     </span>
                                 </div>
@@ -3380,17 +3380,17 @@ export default function Index({ params }: any) {
                             <div className="flex flex-col mr-2 items-center justify-end gap-2">
 
                                 {item?.autoConfirmPayment ? (
-                                  <span className="text-sm text-green-500 font-light">
+                                  <span className="text-sm text-green-500 font-normal">
                                     자동처리
                                   </span>
                                 ) : (
-                                  <span className="text-sm text-red-500 font-light">
+                                  <span className="text-sm text-red-500 font-normal">
                                     수동처리
                                   </span>
                                 )}
                               
                                 <div className="flex flex-row items-center gap-1">
-                                  <div className="text-yellow-600 text-lg font-light"
+                                  <div className="text-yellow-600 text-lg font-normal"
                                     style={{
                                       fontFamily: 'monospace',
                                     }}
@@ -3413,7 +3413,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-row items-center gap-2">
                                 {/* status */}
                                 {item.status === 'ordered' && (
-                                  <div className="text-sm text-yellow-500 font-light">
+                                  <div className="text-sm text-yellow-500 font-normal">
                                     {Buy_Order_Opened}
                                   </div>
                                 )}
@@ -3530,11 +3530,11 @@ export default function Index({ params }: any) {
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-row gap-1 items-start justify-start">
 
-                                    <span className="text-sm font-light text-green-500">
+                                    <span className="text-sm font-normal text-green-500">
                                       {Completed}
                                     </span>
                                     {/*
-                                    <span className="text-sm font-light text-white">
+                                    <span className="text-sm font-normal text-white">
                                       {item.seller?.nickname}
                                     </span>
                                     */}
@@ -3571,7 +3571,7 @@ export default function Index({ params }: any) {
                               && item?.transactionHash !== '0x'
                               && (
                                 <button
-                                  className="text-sm text-blue-600 font-light
+                                  className="text-sm text-blue-600 font-normal
                                     border border-blue-600 rounded-lg p-2
                                     bg-blue-100
                                     w-full text-center
@@ -3628,7 +3628,7 @@ export default function Index({ params }: any) {
                               && item?.settlement?.txid !== '0x'
                               && (
                                 <button
-                                  className="text-sm text-blue-600 font-light
+                                  className="text-sm text-blue-600 font-normal
                                     border border-blue-600 rounded-lg p-2
                                     bg-blue-100
                                     w-full text-center
@@ -3939,7 +3939,7 @@ export default function Index({ params }: any) {
 
                           <td className="text-zinc-500 p-2">
                             <div className="flex flex-col gap-2 items-center justify-center">
-                              <span className="text-sm font-light text-zinc-500">
+                              <span className="text-sm font-normal text-zinc-500">
                                 {
                                   item.seller?.nickname
                                 }
@@ -3955,7 +3955,7 @@ export default function Index({ params }: any) {
                                   className="w-5 h-5"
                                 />
                                 <button
-                                  className="text-sm text-zinc-500 font-light
+                                  className="text-sm text-zinc-500 font-normal
                                     hover:text-blue-500
                                     hover:underline
                                     cursor-pointer
@@ -4294,7 +4294,7 @@ export default function Index({ params }: any) {
                                 />
 
 
-                                <p className="text-sm font-light text-green-500 ">
+                                <p className="text-sm font-normal text-green-500 ">
                                   {item.tradeId}
                                 </p>
 
@@ -4432,10 +4432,10 @@ export default function Index({ params }: any) {
 
                               <div className="mt-2 flex flex-row items-start gap-2">
 
-                                <p className="text-xl font-light text-zinc-500">
+                                <p className="text-xl font-normal text-zinc-500">
                                   {item.usdtAmount}{' '}USDT
                                 </p>
-                                <p className="text-lg font-light text-zinc-500">{Rate}: {
+                                <p className="text-lg font-normal text-zinc-500">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(3)
 
@@ -4473,7 +4473,7 @@ export default function Index({ params }: any) {
                                 <div className="flex flex-col gap-2 items-start">
                                   <div className="flex items-center space-x-2">{Buyer}:</div>
 
-                                  <div className="text-sm font-light">
+                                  <div className="text-sm font-normal">
                                     {item.nickname}
                                   </div>
                                   <div className="text-lg text-green-500">
@@ -4541,7 +4541,7 @@ export default function Index({ params }: any) {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-sm text-red-500 font-light">
+                                  <p className="text-sm text-red-500 font-normal">
                                     {Buyer}: {
                                       address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
                                     }
@@ -4571,7 +4571,7 @@ export default function Index({ params }: any) {
                                       height: '32px',
                                   }}
                                 />
-                                <p className="text-xl text-green-500 font-light">
+                                <p className="text-xl text-green-500 font-normal">
                                   {Seller}: {
                                     item.seller?.nickname
                                   }
@@ -4715,7 +4715,7 @@ export default function Index({ params }: any) {
                             {/* if status is accepted, show payment request button */}
                             {item.status === 'paymentConfirmed' && (
                               <div className="flex flex-col gap-1">
-                                <span className="text-sm font-light text-green-500">
+                                <span className="text-sm font-normal text-green-500">
                                   {Completed}
                                 </span>
                                 <span>{
@@ -5151,7 +5151,7 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-light text-black ">Iskan9</h2>
+          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
           <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
