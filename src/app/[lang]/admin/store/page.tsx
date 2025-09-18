@@ -2651,6 +2651,10 @@ export default function Index({ params }: any) {
                             <span className="text-center">
                               블랙회원수(명)
                             </span>
+                            {/* maxPaymentAmountKRW */}
+                            <span className="text-center">
+                              1회 최대결제금액(원)
+                            </span>
                           </div>
                         </th>
                         {/*
@@ -2926,6 +2930,12 @@ export default function Index({ params }: any) {
                                 </span>
                               </div>
                               
+                              <span className="text-lg text-yellow-600">
+                                {
+                                  item.maxPaymentAmountKRW ? Number(item.maxPaymentAmountKRW.toFixed(0)).toLocaleString('ko-KR') : 0
+                                }
+                              </span>
+
                               <button
                                 onClick={() => {
                                   router.push(
