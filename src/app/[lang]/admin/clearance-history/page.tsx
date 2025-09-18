@@ -2922,7 +2922,7 @@ export default function Index({ params }: any) {
 
           <div className="flex flex-col xl:flex-row items-center justify-between gap-2
             w-full
-            bg-zinc-100/50
+            bg-zinc-200
             p-4 rounded-lg shadow-md
             ">
 

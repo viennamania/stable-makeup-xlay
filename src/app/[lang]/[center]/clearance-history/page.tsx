@@ -3649,7 +3649,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
               <div className="flex flex-col xl:flex-row items-center justify-end gap-2
                 w-full
-                bg-zinc-100/50
+                bg-zinc-200
                 p-4 rounded-lg shadow-md
                 ">
 
