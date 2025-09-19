@@ -1947,9 +1947,9 @@ export default function Index({ params }: any) {
                         {/*
                         <th className="p-2">통장수</th>
                         */}
-                        <th className="p-2">거래수<br/>금액(원)<br/>거래수량(USDT)</th>
+                        <th className="p-2">거래수<br/>거래량(USDT)<br/>거래금액(원)</th>
 
-                        <th className="p-2">결제수<br/>결제수수료(원)<br/>결제수수료수량(USDT)</th>
+                        <th className="p-2">결제수<br/>결제수수료량(USDT)<br/>결제수수료금액(원)</th>
                         {/*
                         <th className="p-2">
                           청산건수<br/>청산금액(원)<br/>청산수량(USDT)
@@ -2165,26 +2165,28 @@ export default function Index({ params }: any) {
                                   <span className="text-sm text-gray-500">
                                     {
                                       item.totalPaymentConfirmedCount ? item.totalPaymentConfirmedCount : 0
-                                    }{' '}건
+                                    }
                                   </span>
                                 </div>
 
                                 <div className="flex flex-col items-start gap-2">
 
+
                                   <span className="text-lg text-gray-500 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
-                                      Number(item.totalKrwAmount ? item.totalKrwAmount : 0)
-                                      ?.toLocaleString('ko-KR')
-                                    }{' '}원
+                                      (item.totalUsdtAmount ? item.totalUsdtAmount : 0)
+                                      .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                    }
                                   </span>
                                   <span className="text-lg text-gray-500 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
-                                      (item.totalUsdtAmount ? item.totalUsdtAmount : 0)?.toLocaleString('us-US')
-                                    }{' '}USDT
+                                      Number(item.totalKrwAmount ? item.totalKrwAmount : 0)
+                                      .toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                    }
                                   </span>
 
                                 </div>
@@ -2235,27 +2237,30 @@ export default function Index({ params }: any) {
                                   <span className="text-sm text-gray-500">
                                     {
                                       item.totalSettlementCount ? item.totalSettlementCount : 0
-                                    }{' '}건
+                                    }
                                   </span>
                                 </div>
 
                                 <div className="flex flex-col items-start gap-2">
 
+
+                                  <span className="text-lg text-gray-500 font-normal"
+                                    style={{ fontFamily: 'monospace' }}
+                                  >
+                                    {
+                                      Number(item.totalFeeAmount ? item.totalFeeAmount : 0)
+                                      .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                    }
+                                  </span>
                                   <span className="text-lg text-gray-500 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
                                       Number(item.totalFeeAmountKRW ? item.totalFeeAmountKRW : 0)
-                                        ?.toLocaleString('ko-KR')
-                                    }{' '}원
+                                      .toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                    }
                                   </span>
-                                  <span className="text-lg text-gray-500 font-normal"
-                                    style={{ fontFamily: 'monospace' }}
-                                  >
-                                    {
-                                      (item.totalFeeAmount ? item.totalFeeAmount : 0)?.toLocaleString('us-US')
-                                    }{' '}USDT
-                                  </span>
+
 
                                 </div>
 
