@@ -1487,15 +1487,24 @@ export default function SettingsPage({ params }: any) {
 
 
                                         {!fetchingAgent && agent && agent.adminWalletAddress ? (
-                                        <button
-                                            onClick={() => {
-                                            navigator.clipboard.writeText(agent.adminWalletAddress);
-                                            toast.success(Copied_Wallet_Address);
-                                            } }
-                                            className="text-lg text-zinc-500 underline font-normal"
-                                        >
-                                            {agent && agent.adminWalletAddress.substring(0, 6)}...{agent && agent.adminWalletAddress.substring(agent.adminWalletAddress.length - 4)}
-                                        </button>
+                                            <div className='flex flex-row items-center justify-center gap-1'>
+                                                <Image
+                                                    src="/icon-shield.png"
+                                                    alt="Shield"
+                                                    width={20}
+                                                    height={20}
+                                                    className="w-5 h-5"
+                                                />
+                                                <button
+                                                    onClick={() => {
+                                                    navigator.clipboard.writeText(agent.adminWalletAddress);
+                                                    toast.success(Copied_Wallet_Address);
+                                                    } }
+                                                    className="text-lg text-zinc-500 underline font-normal"
+                                                >
+                                                    {agent && agent.adminWalletAddress.substring(0, 6)}...{agent && agent.adminWalletAddress.substring(agent.adminWalletAddress.length - 4)}
+                                                </button>
+                                            </div>
                                         ) : (
                                             <div className='flex flex-col items-center justify-center gap-2'>
                                                 <div className="flex flex-row items-center justify-start gap-2">
@@ -1607,15 +1616,24 @@ export default function SettingsPage({ params }: any) {
                                         <span className="text-lg text-blue-500 font-normal">
                                             {agent?.agentFeeWalletAddress 
                                                 ? (
-                                                    <button
-                                                        onClick={() => {
-                                                            navigator.clipboard.writeText(agent.agentFeeWalletAddress);
-                                                            toast.success(Copied_Wallet_Address);
-                                                        } }
-                                                        className="text-lg text-zinc-500 underline"
-                                                    >
-                                                        {agent.agentFeeWalletAddress.substring(0, 6)}...{agent.agentFeeWalletAddress.substring(agent.agentFeeWalletAddress.length - 4)}
-                                                    </button>
+                                                    <div className='flex flex-row items-center justify-center gap-1'>
+                                                        <Image
+                                                            src="/icon-shield.png"
+                                                            alt="Shield"
+                                                            width={20}
+                                                            height={20}
+                                                            className="w-5 h-5"
+                                                        />
+                                                        <button
+                                                            onClick={() => {
+                                                                navigator.clipboard.writeText(agent.agentFeeWalletAddress);
+                                                                toast.success(Copied_Wallet_Address);
+                                                            } }
+                                                            className="text-lg text-zinc-500 underline"
+                                                        >
+                                                            {agent.agentFeeWalletAddress.substring(0, 6)}...{agent.agentFeeWalletAddress.substring(agent.agentFeeWalletAddress.length - 4)}
+                                                        </button>
+                                                    </div>
                                                 )
                                                 : "에이전 수수료 수납용 USDT지갑이 설정되지 않았습니다."
                                             }
