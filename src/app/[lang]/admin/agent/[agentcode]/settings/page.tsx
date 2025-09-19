@@ -1206,7 +1206,7 @@ export default function SettingsPage({ params }: any) {
                                         className="w-6 h-6 rounded-full object-cover"
                                     />
 
-                                    <div className="text-lg font-normal">
+                                    <div className="text-lg font-normal text-zinc-200">
                                     에이전트 기본 정보
                                     </div>
                                 </div>                                
@@ -1217,7 +1217,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className="flex flex-row items-center gap-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg">
+                                        <span className="text-lg text-zinc-200">
                                             에이전트 코드
                                         </span>
                                         <span className="text-xl text-blue-500 font-normal">
@@ -1233,7 +1233,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className="flex flex-row items-center gap-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg">
+                                        <span className="text-lg text-zinc-200">
                                             에이전트 이름
                                         </span>
                                         <span className="text-xl text-blue-500 font-normal">
@@ -1280,7 +1280,7 @@ export default function SettingsPage({ params }: any) {
                                         <div className="flex flex-row items-center gap-2">
                                             {/* dot */}
                                             <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                            <span className="text-lg">
+                                            <span className="text-lg text-zinc-200">
                                                 {nicknameEdit ? "에이전트 이름 수정" : "에이전트 이름 설정"}
                                             </span>
                                         </div>
@@ -1347,7 +1347,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className="w-full flex flex-row items-center justify-start gap-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg">
+                                        <span className="text-lg text-zinc-200">
                                             에이전트 설명
                                         </span>
                                     </div>
@@ -1396,7 +1396,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className="w-full flex flex-row items-center gap-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg">
+                                        <span className="text-lg text-zinc-200">
                                             에이전트 로고
                                         </span>
                                     </div>
@@ -1436,7 +1436,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-500 font-normal">
+                                    <span className="text-lg text-zinc-200 font-normal">
                                         에이전트 관리자 설정
                                     </span>
                                 </div>
@@ -1448,7 +1448,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <div className='w-full flex flex-row items-center justify-start gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg">
+                                        <span className="text-lg text-zinc-200">
                                             에이전트 관리자 홈페이지
                                         </span>
                                     </div>
@@ -1476,7 +1476,7 @@ export default function SettingsPage({ params }: any) {
                     
                                     <div className='w-full flex flex-row items-center justify-start gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg">
+                                        <span className="text-lg text-zinc-200">
                                             에이전트 관리자 지갑주소(EOA)
                                         </span>
                                     </div>
@@ -1598,7 +1598,7 @@ export default function SettingsPage({ params }: any) {
                                         
                                         <div className='w-full flex flex-row items-center justify-start gap-2'>
                                             <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                            <span className="text-lg">
+                                            <span className="text-lg text-zinc-200">
                                                 에이전트 수수료 수납용 USDT지갑주소(EOA)
                                             </span>
                                         </div>
@@ -1670,7 +1670,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-500 font-normal">
+                                    <span className="text-lg text-zinc-200 font-normal">
                                         환율 설정
                                     </span>
                                 </div>
@@ -1678,7 +1678,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-full flex flex-row items-center justify-start gap-2'>
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-500 font-normal">
+                                    <span className="text-lg text-zinc-200 font-normal">
                                         USDT-KRW 환율
                                     </span>
                                     <span className="text-xl text-blue-500 font-normal">
@@ -1733,7 +1733,7 @@ export default function SettingsPage({ params }: any) {
 
                             <div className="w-full flex flex-row items-center justify-start gap-2">
                                 <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                <span className="text-lg">
+                                <span className="text-lg text-zinc-200">
                                     에이전트 수수료율
                                 </span>
                                 <span className="text-xl text-blue-500 font-normal">
