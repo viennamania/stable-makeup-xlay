@@ -2505,7 +2505,7 @@ export default function Index({ params }: any) {
                             value={depositBankName || ''}
                             onChange={(e) => setDepositBankName(e.target.value)}
                             placeholder="입금자은행명"
-                            className=" text-sm font-normal bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
+                            className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
                           />
                         </div>
 
@@ -2522,7 +2522,7 @@ export default function Index({ params }: any) {
                             value={depositBankAccountNumber || ''}
                             onChange={(e) => setDepositBankAccountNumber(e.target.value)}
                             placeholder="입금자계좌번호"
-                            className=" text-sm font-normal bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
+                            className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
                           />
                         </div>
 
@@ -2543,7 +2543,7 @@ export default function Index({ params }: any) {
                             value={depositName || ''}
                             onChange={(e) => setDepositName(e.target.value)}
                             placeholder="입금자명"
-                            className=" text-sm font-normal bg-zinc-200 text-zinc-600 px-4 py-2 rounded-md border border-zinc-100"
+                            className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
                           />
                         </div>
 

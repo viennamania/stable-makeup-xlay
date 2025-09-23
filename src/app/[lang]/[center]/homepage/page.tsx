@@ -2902,7 +2902,7 @@ const fetchBuyOrders = async () => {
                               지갑주소
                             </span>
                             <button
-                                className="text-lg text-zinc-600 underline"
+                                className="text-lg text-zinc-100 underline"
                                 onClick={() => {
                                     navigator.clipboard.writeText(address);
                                     toast.success(Copied_Wallet_Address);
@@ -5560,7 +5560,7 @@ const fetchBuyOrders = async () => {
                                           <div className="text-lg text-[#409192] font-normal">
                                             {item?.userStats?.totalPaymentConfirmedCount}
                                           </div>
-                                          <span className="text-sm text-gray-500">회 구매</span>
+                                          <span className="text-sm text-zinc-100">회 구매</span>
                                         </div>
 
                                         {item?.userStats?.totalPaymentConfirmedCount > 5 && (

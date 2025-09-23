@@ -806,7 +806,7 @@ export default function SendUsdt({ params }: any) {
                     />
                 </button>
                 {/* title */}
-                <span className="text-sm text-gray-500 font-normal">
+                <span className="text-sm text-zinc-100 font-normal">
                     돌아가기
                 </span>
             </div>
@@ -867,7 +867,7 @@ export default function SendUsdt({ params }: any) {
                     <div className="flex flex-row items-center justify-center gap-2">
 
                         <button
-                            className="text-lg text-zinc-600 underline"
+                            className="text-lg text-zinc-100 underline"
                             onClick={() => {
                                 navigator.clipboard.writeText(address);
                                 toast.success(Copied_Wallet_Address);
@@ -934,7 +934,7 @@ export default function SendUsdt({ params }: any) {
 
             <div className='w-full  flex flex-col gap-5 border border-gray-300 p-4 rounded-lg'>
 
-              <span className='text-sm text-gray-500'>
+              <span className='text-sm text-zinc-100'>
                 환전할 포인트 수량을 입력하세요.
               </span>
 
@@ -981,12 +981,12 @@ export default function SendUsdt({ params }: any) {
                     height={20}
                     className="w-6 h-6"
                   />
-                  <span className='text-sm text-gray-500'>
+                  <span className='text-sm text-zinc-100'>
                     환전할 포인트 수량(MKRW): {burnAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </span>
                 </div>
 
-                <span className='text-sm text-gray-500'>
+                <span className='text-sm text-zinc-100'>
                   환전 비율: {exchangeRate.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </span>
 
@@ -998,7 +998,7 @@ export default function SendUsdt({ params }: any) {
                     height={20}
                     className="w-6 h-6"
                   />
-                  <span className='text-sm text-gray-500'>
+                  <span className='text-sm text-zinc-100'>
                     환전될 테더 수량(USDT): {
                     Number(burnAmount / exchangeRate).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </span>
@@ -1135,7 +1135,7 @@ export default function SendUsdt({ params }: any) {
                                   <span className="text-sm">
                                     {new Date(transfer.transferData.timestamp).toLocaleTimeString()}
                                   </span>
-                                  <span className="text-xs text-gray-500">
+                                  <span className="text-xs text-zinc-100">
                                     {new Date(transfer.transferData.timestamp).toLocaleDateString()}
                                   </span>
                                 </div>

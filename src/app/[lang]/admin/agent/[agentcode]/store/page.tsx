@@ -1960,7 +1960,7 @@ export default function Index({ params }: any) {
                                     </span>
                                     
                                     {/*
-                                    <span className="text-sm text-gray-500">
+                                    <span className="text-sm text-zinc-100">
                                       {item.storecode}
                                     </span>
                                     */}
@@ -1970,7 +1970,7 @@ export default function Index({ params }: any) {
                                         navigator.clipboard.writeText(item.storecode);
                                         toast.success('가맹점 코드가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-gray-500 hover:text-blue-500
+                                      className="text-sm text-zinc-100 hover:text-blue-500
                                       hover:underline"
                                     >
                                       {item.storecode}
@@ -2010,7 +2010,7 @@ export default function Index({ params }: any) {
          
                           <td className="p-2">
                             <div className="flex flex-col items-center justify-center gap-2">
-                              <span className="text-lg text-gray-500">
+                              <span className="text-lg text-zinc-100">
                                 {
                                   item.totalBuyerCount ? item.totalBuyerCount : 0
                                 }{' '}명
@@ -2074,7 +2074,7 @@ export default function Index({ params }: any) {
 
                               <div className="flex flex-col items-center justify-center gap-2">
 
-                                <span className="text-xl text-gray-500 font-normal">
+                                <span className="text-xl text-zinc-100 font-normal">
                                   {
                                     item.agentFeePercent ? item.agentFeePercent : 0.00
                                   }%
@@ -2120,7 +2120,7 @@ export default function Index({ params }: any) {
       
                                 <div className="w-full flex flex-row items-center justify-center gap-2
                                 border-b border-gray-300 pb-2">
-                                  <span className="text-sm text-gray-500">
+                                  <span className="text-sm text-zinc-100">
                                     {
                                       item.totalPaymentConfirmedCount ? item.totalPaymentConfirmedCount : 0
                                     }
@@ -2177,7 +2177,7 @@ export default function Index({ params }: any) {
 
                               <div className="w-full flex flex-row items-center justify-center gap-2
                               border-b border-gray-300 pb-2">
-                                <span className="text-sm text-gray-500">
+                                <span className="text-sm text-zinc-100">
                                   {
                                     item.totalSettlementCount ? item.totalSettlementCount : 0
                                   }
@@ -2266,7 +2266,7 @@ export default function Index({ params }: any) {
                   {allStore?.map((item, index) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4">
                       <h2 className="text-lg font-normal">{item.storeName}</h2>
-                      <p className="text-sm text-gray-500">{item.storeDescription}</p>
+                      <p className="text-sm text-zinc-100">{item.storeDescription}</p>
                     </div>
                   ))}
 

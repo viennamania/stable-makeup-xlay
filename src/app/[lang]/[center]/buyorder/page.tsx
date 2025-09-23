@@ -3060,7 +3060,7 @@ const fetchBuyOrders = async () => {
             height={200}
           />
 
-          <div className="text-lg text-gray-500">가맹점 정보를 불러오는 중</div>
+          <div className="text-lg text-zinc-100">가맹점 정보를 불러오는 중</div>
         </div>
       </main>
     );
@@ -3075,7 +3075,7 @@ const fetchBuyOrders = async () => {
             width={200}
             height={200}
           />
-          <div className="text-lg text-gray-500">가맹점 정보가 없습니다.</div>
+          <div className="text-lg text-zinc-100">가맹점 정보가 없습니다.</div>
           <div className="text-sm text-gray-400">가맹점 홈페이지로 이동해주세요.</div>
 
           {/* table of storeList */}
@@ -3993,7 +3993,7 @@ const fetchBuyOrders = async () => {
                               className="w-6 h-6"
                           />
                           <button
-                              className="text-lg text-zinc-600 underline"
+                              className="text-lg text-zinc-100 underline"
                               onClick={() => {
                                   navigator.clipboard.writeText(address);
                                   toast.success(Copied_Wallet_Address);
@@ -4385,7 +4385,7 @@ const fetchBuyOrders = async () => {
                     />
                   </div>
 
-                  <span className="text-sm text-gray-500">~</span>
+                  <span className="text-sm text-zinc-100">~</span>
 
                   <div className="flex flex-row items-center gap-2">
                     <Image
@@ -4817,7 +4817,7 @@ const fetchBuyOrders = async () => {
               ">
                 <button
                   className={`
-                    ${paymentRequestedCount > 0 ? 'bg-red-500 text-white' : 'bg-gray-300 text-gray-500'}
+                    ${paymentRequestedCount > 0 ? 'bg-red-500 text-white' : 'bg-gray-300 text-zinc-100'}
                     text-sm px-4 py-2 rounded-lg hover:bg-red-600
                   `}
                   onClick={() => {
@@ -8516,10 +8516,10 @@ const fetchBuyOrders = async () => {
 
 
           <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-            <div className="text-sm text-zinc-600">
+            <div className="text-sm text-zinc-100">
               © 2025 X-Ray. All rights reserved.
             </div>
-            <div className="text-sm text-zinc-600">
+            <div className="text-sm text-zinc-100">
               <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                 이용약관
               </a>

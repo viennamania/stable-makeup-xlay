@@ -1069,7 +1069,7 @@ export default function SettingsPage({ params }: any) {
                             {/* wallet address */}
                             {address && (
                                 <div className='flex flex-row items-center justify-between gap-2'>
-                                    <span className="text-lg text-gray-500 ">
+                                    <span className="text-lg text-zinc-100 ">
                                         {address.slice(0, 6)}...{address.slice(-4)}
                                     </span>
                                     {/* 복사 버튼 */}
@@ -1181,7 +1181,7 @@ export default function SettingsPage({ params }: any) {
                                             {/* table body */}
                                             {transfers.map((transfer: any) => (
                                                 <div key={transfer._id} className='w-full flex flex-row gap-2 items-center justify-between'>
-                                                    <span className={` w-24 text-sm text-gray-500 `}>
+                                                    <span className={` w-24 text-sm text-zinc-100 `}>
                                                         {
                                                             //new Date(transfer.transferData.timestamp)?.toLocaleString()
 
@@ -1210,10 +1210,10 @@ export default function SettingsPage({ params }: any) {
 
                                                         }
                                                     </span>
-                                                    <span className={`text-sm text-gray-500 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
+                                                    <span className={`text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
                                                         {transfer.sendOrReceive === 'send' ? '송금' : '수신'}
                                                     </span>
-                                                    <span className={`w-20 text-right text-sm text-gray-500 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
+                                                    <span className={`w-20 text-right text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
                                                         {transfer.sendOrReceive === 'send' ? '-' : '+'} {transfer.transferData.value / 10 ** 6}
                                                     </span>
                                                 </div>
@@ -1288,7 +1288,7 @@ export default function SettingsPage({ params }: any) {
                                                     disabled={sending}
                                                     onClick={() => setAmount(0)}
                                                     className="w-20 text-sm
-                                                    p-2 bg-gray-300 text-gray-500 rounded"
+                                                    p-2 bg-gray-300 text-zinc-100 rounded"
 
                                                 >
                                                     초기화
@@ -1299,7 +1299,7 @@ export default function SettingsPage({ params }: any) {
                                                     disabled={sending}
                                                     onClick={() => setAmount(balance)}
                                                     className="w-20 text-sm
-                                                    p-2 bg-gray-300 text-gray-500 rounded"
+                                                    p-2 bg-gray-300 text-zinc-100 rounded"
                                                 >
                                                     최대
                                                 </button>

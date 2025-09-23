@@ -2887,7 +2887,7 @@ const [tradeSummary, setTradeSummary] = useState({
             height={200}
           />
 
-          <div className="text-lg text-gray-500">가맹점 정보를 불러오는 중...</div>
+          <div className="text-lg text-zinc-100">가맹점 정보를 불러오는 중...</div>
         </div>
       </main>
     );
@@ -2902,7 +2902,7 @@ const [tradeSummary, setTradeSummary] = useState({
             width={200}
             height={200}
           />
-          <div className="text-lg text-gray-500">가맹점 정보가 없습니다.</div>
+          <div className="text-lg text-zinc-100">가맹점 정보가 없습니다.</div>
           <div className="text-sm text-gray-400">가맹점 홈페이지로 이동해주세요.</div>
 
           {/* table of storeList */}
@@ -3680,7 +3680,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                 USDT지갑
                               </span>
                               <button
-                                  className="text-lg text-zinc-600 underline"
+                                  className="text-lg text-zinc-100 underline"
                                   onClick={() => {
                                       navigator.clipboard.writeText(address);
                                       toast.success(Copied_Wallet_Address);
@@ -6260,10 +6260,10 @@ const [tradeSummary, setTradeSummary] = useState({
             
 
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                   이용약관
                 </a>

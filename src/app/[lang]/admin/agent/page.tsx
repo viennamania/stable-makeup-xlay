@@ -1308,7 +1308,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-gray-500">{address}</div>
+        <div className="text-lg text-zinc-100">{address}</div>
 
               {/* logout button */}
               <button
@@ -1993,7 +1993,7 @@ export default function Index({ params }: any) {
                                   </span>
                                   
                                   {/*
-                                  <span className="text-sm text-gray-500">
+                                  <span className="text-sm text-zinc-100">
                                     {item.agentcode}
                                   </span>
                                   */}
@@ -2003,7 +2003,7 @@ export default function Index({ params }: any) {
                                       navigator.clipboard.writeText(item.agentcode);
                                       toast.success('에이전트 코드가 복사되었습니다.');
                                     }}
-                                    className="text-sm text-gray-500 hover:text-blue-500
+                                    className="text-sm text-zinc-100 hover:text-blue-500
                                     hover:underline"
                                   >
                                     {item.agentcode}
@@ -2053,7 +2053,7 @@ export default function Index({ params }: any) {
                                       navigator.clipboard.writeText(item.adminWalletAddress || '');
                                       toast.success('관리자 지갑주소가 복사되었습니다.');
                                     }}
-                                    className="text-sm text-gray-500 hover:text-blue-500
+                                    className="text-sm text-zinc-100 hover:text-blue-500
                                     hover:underline"
                                   >
                                       {item.adminWalletAddress.slice(0, 8) + '...' + item.adminWalletAddress.slice(-8)}
@@ -2071,7 +2071,7 @@ export default function Index({ params }: any) {
                                       navigator.clipboard.writeText(item?.agentFeeWalletAddress || '');
                                       toast.success('수수료 수납용 USDT지갑 주소가 복사되었습니다.');
                                     }}
-                                    className="text-sm text-gray-500 hover:text-blue-500
+                                    className="text-sm text-zinc-100 hover:text-blue-500
                                     hover:underline"
                                   >
                                     {item.agentFeeWalletAddress.slice(0, 8) + '...' + item.agentFeeWalletAddress.slice(-8)}
@@ -2114,7 +2114,7 @@ export default function Index({ params }: any) {
                           
                           <td className="p-2">
                             <div className="flex flex-col items-center justify-center gap-2">
-                              <span className="text-sm text-gray-500">
+                              <span className="text-sm text-zinc-100">
                                 {item.totalStoreCount ? item.totalStoreCount : 0}개
                               </span>
                               {/* 가맹점 관리 버튼 */}
@@ -2135,7 +2135,7 @@ export default function Index({ params }: any) {
                           {/*
                           <td className="p-2">
                             <div className="flex flex-col items-center gap-2">
-                              <span className="text-sm text-gray-500">
+                              <span className="text-sm text-zinc-100">
                                 {
                                   item.totalBankAccountCount ? item.totalBankAccountCount : 0
                                 }{' '}개
@@ -2162,7 +2162,7 @@ export default function Index({ params }: any) {
 
 
                                 <div className="flex flex-row items-start gap-2">
-                                  <span className="text-sm text-gray-500">
+                                  <span className="text-sm text-zinc-100">
                                     {
                                       item.totalPaymentConfirmedCount ? item.totalPaymentConfirmedCount : 0
                                     }
@@ -2172,7 +2172,7 @@ export default function Index({ params }: any) {
                                 <div className="flex flex-col items-start gap-2">
 
 
-                                  <span className="text-lg text-gray-500 font-normal"
+                                  <span className="text-lg text-zinc-100 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2180,7 +2180,7 @@ export default function Index({ params }: any) {
                                       .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                     }
                                   </span>
-                                  <span className="text-lg text-gray-500 font-normal"
+                                  <span className="text-lg text-zinc-100 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2234,7 +2234,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-col items-center  justify-center gap-2">
 
                                 <div className="flex flex-row items-start gap-2">
-                                  <span className="text-sm text-gray-500">
+                                  <span className="text-sm text-zinc-100">
                                     {
                                       item.totalSettlementCount ? item.totalSettlementCount : 0
                                     }
@@ -2244,7 +2244,7 @@ export default function Index({ params }: any) {
                                 <div className="flex flex-col items-start gap-2">
 
 
-                                  <span className="text-lg text-gray-500 font-normal"
+                                  <span className="text-lg text-zinc-100 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2252,7 +2252,7 @@ export default function Index({ params }: any) {
                                       .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                     }
                                   </span>
-                                  <span className="text-lg text-gray-500 font-normal"
+                                  <span className="text-lg text-zinc-100 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2279,7 +2279,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-col items-start gap-2">
 
                                 <div className="flex flex-row items-start gap-2">
-                                  <span className="text-sm text-gray-500">
+                                  <span className="text-sm text-zinc-100">
                                     {
                                       item.totalPaymentConfirmedClearanceCount ? item.totalPaymentConfirmedClearanceCount : 0
                                     }{' '}건
@@ -2287,7 +2287,7 @@ export default function Index({ params }: any) {
                                 </div>
 
                                 <div className="flex flex-col items-start gap-2">
-                                  <span className="text-lg text-gray-500 font-normal"
+                                  <span className="text-lg text-zinc-100 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2295,7 +2295,7 @@ export default function Index({ params }: any) {
                                         ?.toLocaleString('ko-KR')
                                     }{' '}원
                                   </span>
-                                  <span className="text-lg text-gray-500 font-normal"
+                                  <span className="text-lg text-zinc-100 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2357,7 +2357,7 @@ export default function Index({ params }: any) {
                   {allAgent?.map((item, index) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4">
                       <h2 className="text-lg font-normal">{item.agentName}</h2>
-                      <p className="text-sm text-gray-500">{item.agentDescription}</p>
+                      <p className="text-sm text-zinc-100">{item.agentDescription}</p>
                     </div>
                   ))}
 

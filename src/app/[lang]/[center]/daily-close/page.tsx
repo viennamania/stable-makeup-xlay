@@ -1032,7 +1032,7 @@ export default function Index({ params }: any) {
       <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
         <div className="py-0 w-full">
           <h1 className="text-2xl font-bold text-red-500">잘못된 접근입니다.</h1>
-          <p className="text-gray-500">올바른 상점 코드를 입력해주세요.</p>
+          <p className="text-zinc-100">올바른 상점 코드를 입력해주세요.</p>
         </div>
       </main>
     );
@@ -1585,7 +1585,7 @@ export default function Index({ params }: any) {
             {/*
             <div className="w-full flex flex-col items-start justify-start gap-2 mt-4">
 
-              <h2 className="text-lg font-normal text-zinc-600">
+              <h2 className="text-lg font-normal text-zinc-100">
                 에스크로 입출금 내역
               </h2>
 
@@ -1593,19 +1593,19 @@ export default function Index({ params }: any) {
 
                 <thead className="bg-zinc-200">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
                       날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       에스크로 출금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       에스크로 입금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       처리전 잔고(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       처리후 잔고(USDT)
                     </th>
 
@@ -1672,26 +1672,26 @@ export default function Index({ params }: any) {
 
                   <thead className="bg-zinc-200">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-normal text-zinc-600">
+                      <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
                         날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">P2P 거래금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제수(건)/미결제수(건)</th>
                       */}
                       
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">결제금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제금액(원)</th>
 
                       {/* escrow withdraw */}
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                         보유량(USDT) 출금처리
                       </th>
 
@@ -1810,10 +1810,10 @@ export default function Index({ params }: any) {
 
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                   이용약관
                 </a>

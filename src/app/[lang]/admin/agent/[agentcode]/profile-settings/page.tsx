@@ -567,7 +567,7 @@ export default function SettingsPage({ params }: any) {
                 setNicknameEdit(false);
                 setEditedNickname('');
 
-                toast.success('아이디이 저장되었습니다');
+                toast.success('아이디가 저장되었습니다');
 
             } else {
 
@@ -613,7 +613,7 @@ export default function SettingsPage({ params }: any) {
                 setNicknameEdit(false);
                 setEditedNickname('');
 
-                toast.success('아이디이 저장되었습니다');
+                toast.success('아이디가 저장되었습니다');
 
             } else {
                 toast.error('아이디 저장에 실패했습니다');
@@ -1028,13 +1028,13 @@ export default function SettingsPage({ params }: any) {
 
                 {params.agentcode && (
                     <div className="w-full flex flex-row items-center justify-center gap-2 bg-black/10 p-2 rounded-lg mb-4">
-                        <span className="text-sm text-zinc-500">
+                        <span className="text-sm text-zinc-100">
                         {params.agentcode}
                         </span>
                     </div>
                 )}
         
-                <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-500 text-lg"
+                <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-100 text-lg"
                 >
                     {/* go back button */}
                     <div className="w-full flex justify-start items-center gap-2">
@@ -1050,65 +1050,16 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-normal">
+                        <span className="text-sm text-zinc-100 font-normal">
                             돌아가기
                         </span>
                     </div>
 
-                    {!address && (
-                        <ConnectButton
-                        client={client}
-                        wallets={wallets}
-
-                        /*
-                        accountAbstraction={{
-                            chain: arbitrum,
-                            sponsorGas: true
-                        }}
-                        */
-                        
-                        theme={"light"}
-
-                        // button color is dark skyblue convert (49, 103, 180) to hex
-                        connectButton={{
-                            style: {
-                                backgroundColor: "#3167b4", // dark skyblue
-                                color: "#f3f4f6", // gray-300
-                                padding: "2px 10px",
-                                borderRadius: "10px",
-                                fontSize: "14px",
-                                width: "60x",
-                                height: "38px",
-                            },
-                            label: "X-Ray 로그인",
-                        }}
-
-                        connectModal={{
-                            size: "wide", 
-                            //size: "compact",
-                            titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                            showThirdwebBranding: false,
-                        }}
-
-                        locale={"ko_KR"}
-                        //locale={"en_US"}
-                        />
-                    )}
 
                     {address && (
                         <div className="w-full flex-col items-end justify-center gap-2">
 
                             <div className="flex flex-row items-center justify-center gap-2">
-
-                                <button
-                                    className="text-lg text-zinc-600 underline"
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(address);
-                                        toast.success(Copied_Wallet_Address);
-                                    } }
-                                >
-                                    {address.substring(0, 6)}...{address.substring(address.length - 4)}
-                                </button>
                                 
                                 <Image
                                     src="/icon-shield.png"
@@ -1117,6 +1068,16 @@ export default function SettingsPage({ params }: any) {
                                     height={100}
                                     className="w-6 h-6"
                                 />
+                                <button
+                                    className="text-lg text-zinc-100 underline"
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(address);
+                                        toast.success(Copied_Wallet_Address);
+                                    } }
+                                >
+                                    {address.substring(0, 6)}...{address.substring(address.length - 4)}
+                                </button>
+
 
                             </div>
 
@@ -1135,7 +1096,7 @@ export default function SettingsPage({ params }: any) {
 
 
 
-                <div className="flex flex-col items-start justify-center space-y-4">
+                <div className="flex flex-col items-start justify-center gap-4 mt-4">
 
                     <div className='flex flex-row items-center space-x-4'>
                         <Image
@@ -1156,32 +1117,6 @@ export default function SettingsPage({ params }: any) {
                             
                         </div>
 
-
-                        {/* check box for Native Wallet */}
-                        {false && address && (
-                            <div className="flex flex-row items-center gap-2">
-                            <input
-                                disabled={true}
-                                type="checkbox"
-                                checked={
-                                activeWallet === inAppConnectWallet
-                                }
-                                onChange={(e) => 
-                                    //e.target.checked ? setActiveAccount(inAppConnectWallet) : setActiveAccount(smartConnectWallet)
-                                    e.target.checked ?
-                                    // URL params is "pro"
-                                    router.push(window.location.pathname)
-                                    :
-                                    router.push(window.location.pathname + "?wallet=smart")
-                                } 
-                                className="w-5 h-5"
-                            />
-                            <label className="text-sm text-zinc-400">Pro Wallet</label>
-                            </div>
-                        )}
-
-
-
                     </div>
 
 
@@ -1196,13 +1131,13 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg">
+                                    <span className="text-lg text-zinc-100">
                                         나의 아이디
                                     </span>
                                 </div>
 
 
-                                <span className="text-xl font-normal text-zinc-500">
+                                <span className="text-xl font-normal text-zinc-100">
                                     {nickname}
                                 </span>
 
@@ -1241,7 +1176,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg">
+                                    <span className="text-lg text-zinc-100">
                                         {nicknameEdit ? "내 아이디 수정" : "내 아이디 설정"}
                                     </span>
                                 </div>
@@ -1262,11 +1197,12 @@ export default function SettingsPage({ params }: any) {
                                             // check if the value is alphanumeric and lowercase
 
                                             if (!/^[a-z0-9]*$/.test(e.target.value)) {
-                                                toast.error(Nickname_should_be_alphanumeric_lowercase);
+                                                //toast.error(Nickname_should_be_alphanumeric_lowercase);
+                                                alert(Nickname_should_be_alphanumeric_lowercase);
                                                 return;
                                             }
                                             if ( e.target.value.length > 10) {
-                                                toast.error(Nickname_should_be_at_least_5_characters_and_at_most_10_characters);
+                                                alert(Nickname_should_be_at_least_5_characters_and_at_most_10_characters);
                                                 return;
                                             }
 
@@ -1278,7 +1214,7 @@ export default function SettingsPage({ params }: any) {
 
                                     />
                                     <div className='flex flex-row gap-2 items-center justify-between'>
-                                        <span className='text-xs font-normal'>
+                                        <span className='text-xs font-normal text-zinc-100'>
                                             {Nickname_should_be_5_10_characters}
                                         </span>
                                     </div>
@@ -1374,14 +1310,14 @@ export default function SettingsPage({ params }: any) {
 
                                 <div className="flex flex-col xl:flex-row p-2 gap-2">
                                     
-                                    <span className="text-lg text-zinc-500 font-normal">
+                                    <span className="text-lg text-zinc-100 font-normal">
                                         {seller?.bankInfo?.bankName}
                                     </span>
 
-                                    <span className="text-lg text-zinc-500 font-normal">
+                                    <span className="text-lg text-zinc-100 font-normal">
                                         {seller?.bankInfo?.accountNumber}
                                     </span>
-                                    <span className="text-lg text-zinc-500 font-normal">
+                                    <span className="text-lg text-zinc-100 font-normal">
                                         {seller?.bankInfo?.accountHolder}
                                     </span>
 
@@ -1431,7 +1367,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     {!seller && (
-                                        <div className="text-lg text-zinc-500">
+                                        <div className="text-lg text-zinc-100">
                                             {Not_a_seller}
                                         </div>
                                     )}

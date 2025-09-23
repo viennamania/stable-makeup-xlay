@@ -1681,7 +1681,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-gray-500 font-normal">
+                            <span className="ml-2 text-sm text-zinc-100 font-normal">
                                 돌아가기
                             </span>
                         </button>
@@ -1726,7 +1726,7 @@ export default function SettingsPage({ params }: any) {
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-lg text-gray-500 font-normal">
+                            <span className="text-lg text-zinc-100 font-normal">
                             {user?.nickname || "프로필"}
                             </span>
 
@@ -2965,7 +2965,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-full flex flex-row items-center justify-start gap-2'>
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-600">
+                                    <span className="text-lg text-zinc-100">
                                         판매자 보유금 수량(USDT)
                                     </span>
                                 </div>

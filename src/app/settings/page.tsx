@@ -381,7 +381,7 @@ export default function SettingsPage() {
                                     }}
                                     className={`
                                         p-2 text-zinc-100 rounded
-                                        ${!address || !agreementCopy ? 'bg-gray-300 text-gray-500' : 'bg-blue-500'}
+                                        ${!address || !agreementCopy ? 'bg-gray-300 text-zinc-100' : 'bg-blue-500'}
                                     `}
                                     >
                                     Copy

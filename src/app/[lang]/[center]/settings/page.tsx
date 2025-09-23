@@ -1120,7 +1120,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-normal">
+                        <span className="text-sm text-zinc-100 font-normal">
                             돌아가기
                         </span>
                     </div>

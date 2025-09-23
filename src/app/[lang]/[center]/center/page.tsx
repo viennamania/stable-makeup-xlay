@@ -1592,7 +1592,7 @@ export default function Index({ params }: any) {
             width={200}
             height={200}
           />
-          <div className="text-lg text-gray-500">가맹점 정보를 불러오는 중...</div>
+          <div className="text-lg text-zinc-100">가맹점 정보를 불러오는 중...</div>
         </div>
       ) : !store ? (
         <div className="py-0 w-full flex flex-col items-center justify-center gap-4">
@@ -1602,7 +1602,7 @@ export default function Index({ params }: any) {
             width={200}
             height={200}
           />
-          <div className="text-lg text-gray-500">가맹점 정보가 없습니다.</div>
+          <div className="text-lg text-zinc-100">가맹점 정보가 없습니다.</div>
           <div className="text-sm text-gray-400">가맹점 홈페이지로 이동해주세요.</div>  
           <div className="w-full max-w-2xl">
             <table className="w-full table-auto border-collapse
@@ -1654,7 +1654,7 @@ export default function Index({ params }: any) {
             width={200}
             height={200}
           />
-          <div className="text-lg text-gray-500">로그인이 필요합니다.</div>
+          <div className="text-lg text-zinc-100">로그인이 필요합니다.</div>
           <div className="text-sm text-gray-400">로그인 후 가맹점 정보를 확인하세요.</div>
           <ConnectButton
             client={client}
@@ -3070,7 +3070,7 @@ export default function Index({ params }: any) {
 
                               {address && (
                                 <span className="text-sm text-red-500">
-                                  아이디이 설정되지 않았습니다.<br/>
+                                  아이디가 설정되지 않았습니다.<br/>
                                   거래를 시작하려면 아이디를 설정해야 합니다.
                                 </span>
                               )}
@@ -3165,10 +3165,10 @@ export default function Index({ params }: any) {
 
        
         <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-          <div className="text-sm text-zinc-600">
+          <div className="text-sm text-zinc-100">
             © 2025 X-Ray. All rights reserved.
           </div>
-          <div className="text-sm text-zinc-600">
+          <div className="text-sm text-zinc-100">
             <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
               이용약관
             </a>

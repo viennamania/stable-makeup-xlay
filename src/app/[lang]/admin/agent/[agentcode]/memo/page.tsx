@@ -566,7 +566,7 @@ export default function SettingsPage({ params }: any) {
                 setNicknameEdit(false);
                 setEditedNickname('');
 
-                toast.success('아이디이 저장되었습니다');
+                toast.success('아이디가 저장되었습니다');
 
             } else {
 
@@ -605,7 +605,7 @@ export default function SettingsPage({ params }: any) {
                 setNicknameEdit(false);
                 setEditedNickname('');
 
-                toast.success('아이디이 저장되었습니다');
+                toast.success('아이디가 저장되었습니다');
 
             } else {
                 toast.error('아이디 저장에 실패했습니다');
@@ -982,7 +982,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-gray-500 font-normal">
+                        <span className="text-sm text-zinc-100 font-normal">
                             돌아가기
                         </span>
                     </div>

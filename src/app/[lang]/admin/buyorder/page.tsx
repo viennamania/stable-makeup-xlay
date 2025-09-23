@@ -3140,7 +3140,7 @@ const fetchBuyOrders = async () => {
             height={200}
           />
 
-          <div className="text-lg text-gray-500">회원 정보를 불러오는 중</div>
+          <div className="text-lg text-zinc-100">회원 정보를 불러오는 중</div>
         </div>
       </main>
     );
@@ -3153,7 +3153,7 @@ const fetchBuyOrders = async () => {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-gray-500">{address}</div>
+        <div className="text-lg text-zinc-100">{address}</div>
 
 
 
@@ -3525,7 +3525,7 @@ const fetchBuyOrders = async () => {
                           className="w-6 h-6"
                       />
                       <button
-                          className="text-lg text-zinc-600 underline"
+                          className="text-lg text-zinc-100 underline"
                           onClick={() => {
                               navigator.clipboard.writeText(address);
                               toast.success(Copied_Wallet_Address);
@@ -3679,7 +3679,7 @@ const fetchBuyOrders = async () => {
                   />
                 </div>
 
-                <span className="text-sm text-gray-500">~</span>
+                <span className="text-sm text-zinc-100">~</span>
 
                 <div className="flex flex-row items-center gap-2">
                   <Image

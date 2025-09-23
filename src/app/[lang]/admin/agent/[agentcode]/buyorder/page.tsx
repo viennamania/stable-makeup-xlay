@@ -2616,7 +2616,7 @@ const fetchBuyOrders = async () => {
               height={100}
               className="rounded-lg w-40 h-40"
             />
-            <span className="text-lg text-gray-500 ml-2">
+            <span className="text-lg text-zinc-100 ml-2">
               에이전트 정보를 불러오는 중...
             </span>
           </div>
@@ -2641,7 +2641,7 @@ const fetchBuyOrders = async () => {
               className="rounded-lg w-20 h-20"
             />
             <div className="flex flex-row items-center justify-center gap-2">
-              <span className="text-lg text-gray-500 ml-2">
+              <span className="text-lg text-zinc-100 ml-2">
                 에이전트 정보를 찾을 수 없습니다.
               </span>   
             </div> 
@@ -2710,7 +2710,7 @@ const fetchBuyOrders = async () => {
                 height={30}
                 className="rounded-lg w-6 h-6"
               />
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-zinc-100">
                 에이전트 목록을 확인하고, 원하는 에이전트를 선택하여 거래를 시작하세요.
               </span>
             </div>
@@ -2758,7 +2758,7 @@ const fetchBuyOrders = async () => {
                     <span className="text-sm text-[#3167b4] font-bold">
                       {agent?.agentName || "에이전트 이름"}
                     </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-zinc-100">
                       {agent?.agentcode || "에이전트 코드"}
                     </span>
                   </div>
@@ -3005,7 +3005,7 @@ const fetchBuyOrders = async () => {
                 <span className="text-sm text-[#3167b4] font-bold">
                   {agent?.agentName || "에이전트 이름"}
                 </span>
-                <span className="text-xs text-gray-500">
+                <span className="text-xs text-zinc-100">
                   {agent?.agentcode || "에이전트 코드"}
                 </span>
               </div>
@@ -3062,7 +3062,7 @@ const fetchBuyOrders = async () => {
               height={100}
               className="rounded-lg w-20 h-20"
             />
-            <span className="text-lg text-gray-500 ml-2">
+            <span className="text-lg text-zinc-100 ml-2">
               에이전트 관리자가 아닙니다. 회원가입한후 센터에 문의하세요.
             </span>
 
@@ -3483,7 +3483,7 @@ const fetchBuyOrders = async () => {
                             className="w-6 h-6"
                         />
                         <button
-                            className="text-lg text-zinc-600 underline"
+                            className="text-lg text-zinc-100 underline"
                             onClick={() => {
                                 navigator.clipboard.writeText(address);
                                 toast.success(Copied_Wallet_Address);

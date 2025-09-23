@@ -1697,7 +1697,7 @@ export default function Index({ params }: any) {
                 </button>
 
                 {/* title */}
-                <span className="text-sm text-gray-500 font-normal">
+                <span className="text-sm text-zinc-100 font-normal">
                     돌아가기
                 </span>
             </div>
@@ -1750,7 +1750,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="rounded-full"
                       />
-                      <span className="text-sm text-zinc-600">
+                      <span className="text-sm text-zinc-100">
                         {user?.nickname || "프로필"}
                       </span>
                     </div>
@@ -1810,7 +1810,7 @@ export default function Index({ params }: any) {
                           className="w-6 h-6"
                       />
                       <button
-                          className="text-lg text-zinc-600 underline"
+                          className="text-lg text-zinc-100 underline"
                           onClick={() => {
                               navigator.clipboard.writeText(store?.sellerWalletAddress || "");
                               toast.success(Copied_Wallet_Address);
@@ -1871,7 +1871,7 @@ export default function Index({ params }: any) {
                           className="w-6 h-6"
                       />
                       <button
-                          className="text-lg text-zinc-600 underline"
+                          className="text-lg text-zinc-100 underline"
                           onClick={() => {
                               navigator.clipboard.writeText(address || "");
                               toast.success(Copied_Wallet_Address);
@@ -2000,7 +2000,7 @@ export default function Index({ params }: any) {
                                   className="w-6 h-6"
                               />
                               <button
-                                  className="text-lg text-zinc-600 underline"
+                                  className="text-lg text-zinc-100 underline"
                                   onClick={() => {
                                       navigator.clipboard.writeText(store?.settlementWalletAddress || "");
                                       toast.success(Copied_Wallet_Address);
@@ -2633,7 +2633,7 @@ export default function Index({ params }: any) {
                         />
                       </div>
 
-                      <span className="text-sm text-gray-500">~</span>
+                      <span className="text-sm text-zinc-100">~</span>
 
                       <div className="flex flex-row items-center gap-2">
                         <Image
@@ -2782,7 +2782,7 @@ export default function Index({ params }: any) {
                         `}>
 
                               {/* monospace font */}
-                              <td className="p-2 text-lg text-zinc-600 font-normal"
+                              <td className="p-2 text-lg text-zinc-100 font-normal"
                                 style={{
                                   fontFamily: 'monospace',
                                 }}
@@ -2796,7 +2796,7 @@ export default function Index({ params }: any) {
                               <td className="p-2">
 
                                 <div className="flex flex-col items-center justify-center gap-1">
-                                  <span className="text-lg text-zinc-600 font-normal">
+                                  <span className="text-lg text-zinc-100 font-normal">
                                     {new Date(item.createdAt).toLocaleString()}
                                   </span>
   
@@ -2831,11 +2831,11 @@ export default function Index({ params }: any) {
 
 
                                     {item?.buyer?.nickname ? (
-                                      <span className="text-lg text-zinc-600">
+                                      <span className="text-lg text-zinc-100">
                                         {item.buyer?.nickname}
                                       </span>
                                     ) : (
-                                      <span className="text-lg text-zinc-600">
+                                      <span className="text-lg text-zinc-100">
                                         {item.nickname || '익명'}
                                       </span>
                                     )}
@@ -2871,7 +2871,7 @@ export default function Index({ params }: any) {
                                       height={20}
                                       className="w-5 h-5 rounded-full"
                                     />
-                                    <span className="text-lg text-zinc-600">
+                                    <span className="text-lg text-zinc-100">
                                       {item?.seller?.nickname || '익명'}
                                     </span>
                                   </div>
@@ -2951,26 +2951,26 @@ export default function Index({ params }: any) {
                                     */}
 
 
-                                    <span className="text-sm text-zinc-600">
+                                    <span className="text-sm text-zinc-100">
                                       {item.buyer?.depositBankName}
                                     </span>
-                                    <span className="text-sm text-zinc-600">
+                                    <span className="text-sm text-zinc-100">
                                       {item.buyer?.depositBankAccountNumber}
                                     </span>
-                                    <span className="text-sm text-zinc-600">
+                                    <span className="text-sm text-zinc-100">
                                       {item.buyer?.depositName}
                                     </span>
 
                                   </div>
                                 ) : (
                                   <div className="w-36 flex flex-col items-start justify-center gap-1">
-                                    <span className="text-sm text-zinc-600">
+                                    <span className="text-sm text-zinc-100">
                                       {item.seller?.bankInfo?.bankName}
                                     </span>
-                                    <span className="text-sm text-zinc-600">
+                                    <span className="text-sm text-zinc-100">
                                       {item.seller?.bankInfo?.accountNumber}
                                       </span>
-                                    <span className="text-sm text-zinc-600">
+                                    <span className="text-sm text-zinc-100">
                                       {item.seller?.bankInfo?.accountHolder}
                                       </span>
                                   </div>
@@ -4069,10 +4069,10 @@ export default function Index({ params }: any) {
 
 
           <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-            <div className="text-sm text-zinc-600">
+            <div className="text-sm text-zinc-100">
               © 2025 X-Ray. All rights reserved.
             </div>
-            <div className="text-sm text-zinc-600">
+            <div className="text-sm text-zinc-100">
               <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                 이용약관
               </a>

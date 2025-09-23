@@ -1622,7 +1622,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-gray-500 font-normal">
+                            <span className="ml-2 text-sm text-zinc-100 font-normal">
                                 돌아가기
                             </span>
                         </button>
@@ -1667,7 +1667,7 @@ export default function SettingsPage({ params }: any) {
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-lg text-gray-500 font-normal">
+                            <span className="text-lg text-zinc-100 font-normal">
                             {user?.nickname || "프로필"}
                             </span>
 

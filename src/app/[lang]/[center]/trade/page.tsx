@@ -2109,7 +2109,7 @@ export default function Index({ params }: any) {
                       />
                   </button>
                   {/* title */}
-                  <span className="text-sm text-gray-500 font-normal">
+                  <span className="text-sm text-zinc-100 font-normal">
                       홈으로
                   </span>
 
@@ -2163,7 +2163,7 @@ export default function Index({ params }: any) {
                       <div className="flex flex-row items-center justify-center gap-2">
 
                           <button
-                              className="text-lg text-zinc-600 underline"
+                              className="text-lg text-zinc-100 underline"
                               onClick={() => {
                                   navigator.clipboard.writeText(address);
                                   toast.success(Copied_Wallet_Address);

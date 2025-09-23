@@ -868,7 +868,7 @@ export default function Index({ params }: any) {
                       <div className="hidden flex-row items-center justify-center gap-2">
 
                           <button
-                              className="text-lg text-zinc-600 underline"
+                              className="text-lg text-zinc-100 underline"
                               onClick={() => {
                                   navigator.clipboard.writeText(address);
                                   toast.success(Copied_Wallet_Address);

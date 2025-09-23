@@ -208,7 +208,7 @@ const P2PTable = () => {
               <td className="px-4 py-2">
                 <span className={`inline-block w-2 h-2 rounded-full ${item.trades > 300 ? 'bg-green-500' : 'bg-gray-300'}`}></span>
                 <span className="ml-2">{item.advertiser}</span>
-                <span className="ml-2 text-gray-500">{item.trades} trades</span>
+                <span className="ml-2 text-zinc-100">{item.trades} trades</span>
               </td>
               <td className="px-4 py-2">{item.price} KRW</td>
               <td className="px-4 py-2">{item.limit} <br /> {item.available}</td>

@@ -1124,7 +1124,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-gray-500 font-normal">
+                            <span className="ml-2 text-sm text-zinc-100 font-normal">
                                 돌아가기
                             </span>
                         </button>

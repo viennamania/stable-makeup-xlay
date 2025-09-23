@@ -2383,7 +2383,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-gray-500">{address}</div>
+        <div className="text-lg text-zinc-100">{address}</div>
 
               {/* logout button */}
               <button
@@ -3246,7 +3246,7 @@ export default function Index({ params }: any) {
   
                           <td className="p-2">
                             <div className="flex flex-col gap-1">
-                              <span className="text-lg text-zinc-600">
+                              <span className="text-lg text-zinc-100">
                                 {item?.buyer?.nickname ?
                                   item?.buyer?.nickname
                                   : item?.nickname || '익명'}

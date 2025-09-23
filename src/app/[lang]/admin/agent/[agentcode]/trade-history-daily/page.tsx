@@ -1349,7 +1349,7 @@ export default function Index({ params }: any) {
                     />
                   </div>
 
-                  <span className="text-sm text-gray-500">~</span>
+                  <span className="text-sm text-zinc-100">~</span>
 
                   <div className="flex flex-row items-center gap-2">
                     <Image
@@ -1469,27 +1469,27 @@ export default function Index({ params }: any) {
 
                   <thead className="bg-zinc-200">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-normal text-zinc-600">
+                      <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
                         날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">P2P 거래금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제수(건)/미결제수(건)</th>
                       */}
                       
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">AG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">AG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">AG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">AG 수수료금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">PG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">PG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">PG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">PG 수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">결제금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제금액(원)</th>
                       */}
 
 
@@ -1584,10 +1584,10 @@ export default function Index({ params }: any) {
 
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                   이용약관
                 </a>

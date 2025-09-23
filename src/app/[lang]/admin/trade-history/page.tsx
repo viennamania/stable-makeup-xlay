@@ -2656,7 +2656,7 @@ const fetchBuyOrders = async () => {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-gray-500">{address}</div>
+        <div className="text-lg text-zinc-100">{address}</div>
 
               {/* logout button */}
               <button

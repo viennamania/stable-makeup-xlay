@@ -1150,7 +1150,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-gray-500">{address}</div>
+        <div className="text-lg text-zinc-100">{address}</div>
 
               {/* logout button */}
               <button
@@ -1579,7 +1579,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-zinc-600 font-normal">
+                  <span className="text-lg text-zinc-100 font-normal">
                     현재 보유량
                   </span>
                 </div>
@@ -1614,13 +1614,13 @@ export default function Index({ params }: any) {
                 
                     {escrowHistory && escrowHistory.length > 0
                       ? (
-                        <span className="text-lg text-zinc-600 font-normal">
+                        <span className="text-lg text-zinc-100 font-normal">
                         
 
                         {new Date(escrowHistory[0].date).toLocaleDateString('ko-KR')} 보유량
                         </span>
                       ) : (
-                        <span className="text-lg text-zinc-600 font-normal">
+                        <span className="text-lg text-zinc-100 font-normal">
                           보유량
                         </span>
                       )
@@ -1801,19 +1801,19 @@ export default function Index({ params }: any) {
 
                 <thead className="bg-zinc-200">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
                       날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       입금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       출금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       처리전 보유량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       처리후 보유량(USDT)
                     </th>
 
@@ -1882,10 +1882,10 @@ export default function Index({ params }: any) {
 
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                   이용약관
                 </a>

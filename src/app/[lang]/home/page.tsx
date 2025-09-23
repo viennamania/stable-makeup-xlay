@@ -2838,7 +2838,7 @@ const fetchBuyOrders = async () => {
                               USDT지갑
                             </span>
                             <button
-                                className="text-lg text-zinc-600 underline"
+                                className="text-lg text-zinc-100 underline"
                                 onClick={() => {
                                     navigator.clipboard.writeText(address);
                                     toast.success(Copied_Wallet_Address);

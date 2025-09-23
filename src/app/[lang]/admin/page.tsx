@@ -1019,7 +1019,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-gray-500">{address}</div>
+        <div className="text-lg text-zinc-100">{address}</div>
 
 
             {/* 회원가입한후 가맹점 관리자 등록신청을 하세요 */}
@@ -1449,7 +1449,7 @@ export default function Index({ params }: any) {
                               >
                                 {Number(trade.krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                               </span>
-                              <span className="text-lg text-zinc-600 font-normal"
+                              <span className="text-lg text-zinc-100 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.rate).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -2619,7 +2619,7 @@ export default function Index({ params }: any) {
                           {/* 아이디를 설정해야 거래를 시작할 수 있습니다. */}
                           {address && (
                             <span className="text-sm text-red-500">
-                              아이디이 설정되지 않았습니다.<br/>
+                              아이디가 설정되지 않았습니다.<br/>
                               거래를 시작하려면 아이디를 설정해야 합니다.
                             </span>
                           )}

@@ -1057,7 +1057,7 @@ export default function Index({ params }: any) {
       <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
         <div className="py-0 w-full">
           <h1 className="text-2xl font-bold text-red-500">잘못된 접근입니다.</h1>
-          <p className="text-gray-500">올바른 상점 코드를 입력해주세요.</p>
+          <p className="text-zinc-100">올바른 상점 코드를 입력해주세요.</p>
         </div>
       </main>
     );
@@ -1094,7 +1094,7 @@ export default function Index({ params }: any) {
                             height={20}
                             className="rounded-full"
                         />
-                        <span className="ml-2 text-sm text-gray-500 font-normal">
+                        <span className="ml-2 text-sm text-zinc-100 font-normal">
                             돌아가기
                         </span>
                     </button>
@@ -1140,7 +1140,7 @@ export default function Index({ params }: any) {
                 {address && !loadingUser && (
                     <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                        <span className="text-lg text-gray-500 font-normal">
+                        <span className="text-lg text-zinc-100 font-normal">
                         {user?.nickname || "프로필"}
                         </span>
 
@@ -1186,7 +1186,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-zinc-600 font-normal">
+                  <span className="text-lg text-zinc-100 font-normal">
                     현재 보유량
                   </span>
                 </div>
@@ -1222,13 +1222,13 @@ export default function Index({ params }: any) {
                 
                     {escrowHistory && escrowHistory.length > 0
                       ? (
-                        <span className="text-lg text-zinc-600 font-normal">
+                        <span className="text-lg text-zinc-100 font-normal">
                         
 
                         {new Date(escrowHistory[0].date).toLocaleDateString('ko-KR')} 보유량
                         </span>
                       ) : (
-                        <span className="text-lg text-zinc-600 font-normal">
+                        <span className="text-lg text-zinc-100 font-normal">
                           보유량
                         </span>
                       )
@@ -1287,19 +1287,19 @@ export default function Index({ params }: any) {
 
                 <thead className="bg-zinc-200">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
                       날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       입금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       출금량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       처리전 보유량(USDT)
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-600">
+                    <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">
                       처리후 보유량(USDT)
                     </th>
 
@@ -1368,10 +1368,10 @@ export default function Index({ params }: any) {
 
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-600">
+              <div className="text-sm text-zinc-100">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
                   이용약관
                 </a>
