@@ -1271,7 +1271,7 @@ const fetchBuyOrders = async () => {
 
 
 
-            <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-500 text-lg"
+            <div className="w-full flex flex-row gap-2 items-center justify-start  text-lg"
             >
                 {/* go back button */}
                 <div className="w-full flex justify-start items-center gap-2">
@@ -1345,7 +1345,10 @@ const fetchBuyOrders = async () => {
 
 
 
-            <div className='flex flex-row items-center justify-start gap-2'>
+            <div className='
+              mt-4 mb-2
+              w-full
+              flex flex-row items-center justify-start gap-2'>
                 <Image
                     src={store?.storeLogo || "/icon-store.png"}
                     alt="Store Logo"
@@ -1377,7 +1380,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
+                  <span className="text-lg font-normal ">
                     가맹점 보유수량(USDT)
                   </span>
                 </div>
@@ -1409,14 +1412,19 @@ const fetchBuyOrders = async () => {
             <div className="flex flex-row items-center justify-between gap-2 mt-4">
               
               <div className="flex flex-col items-start justify-start gap-2 w-full">
-                <label className="text-sm text-zinc-500 font-normal">
+                <label className="text-sm  font-normal">
                   에스크로 입금 금액(USDT)
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   value={depositEscrowAmount}
                   onChange={(e) => setDepositEscrowAmount(Number(e.target.value))}
-                  className="w-full p-2 border border-zinc-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2
+                  bg-zinc-600 border border-zinc-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-blue-500
+                  "
+                  min={0}
+                  step={0.001}
                 />
               </div>
 
@@ -1424,7 +1432,7 @@ const fetchBuyOrders = async () => {
                 onClick={() => depositEscrow(depositEscrowAmount)}
                 disabled={depositEscrowAmount <= 0}
                 className={`
-                  ${depositEscrowAmount <= 0 ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}
+                  ${depositEscrowAmount <= 0 ? "bg-zinc-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 cursor-pointer"}
                   w-72 h-10 flex items-center justify-center
                    font-normal py-2 px-4 rounded-md transition duration-200 ease-in-out
                 `}
@@ -1441,9 +1449,10 @@ const fetchBuyOrders = async () => {
                 에스크로 입출금 내역
               </h2>
 
-              <table className="w-full table-auto border-collapse border border-zinc-800 rounded-md">
+              <table className="w-full
+                table-auto border-collapse border border-zinc-800 rounded-md">
 
-                <thead className="bg-zinc-200">
+                <thead className="bg-zinc-800">
                   <tr>
                     <th className="px-4 py-2 text-left text-sm font-normal ">
                       날짜
@@ -1470,8 +1479,9 @@ const fetchBuyOrders = async () => {
                   {
                   escrowHistory && escrowHistory.length > 0 &&
                   escrowHistory.map((escrow, index) => (
-                    <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                      <td className="px-4 py-2 text-sm text-zinc-700">
+                    <tr key={index} className="border-b
+                      bg-zinc-700 border-zinc-300 hover:bg-zinc-600">
+                      <td className="px-4 py-2 text-sm">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
                       <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
@@ -1524,9 +1534,10 @@ const fetchBuyOrders = async () => {
                 에스크로 출금처리
               </h2>
 
-                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
+                <table className=" w-full
+                table-auto border-collapse border border-zinc-800 rounded-md">
 
-                  <thead className="bg-zinc-200">
+                  <thead className="bg-zinc-800">
                     <tr>
                       <th className="px-4 py-2 text-left text-sm font-normal ">
                         날짜
@@ -1566,12 +1577,13 @@ const fetchBuyOrders = async () => {
                       {new Date(order.date).toLocaleDateString('ko-KR') !== new Date().toLocaleDateString('ko-KR') && (
                       
 
-                        <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                          <td className="px-4 py-2 text-sm text-zinc-700">
+                        <tr key={index} className="border-b
+                          bg-zinc-700 border-zinc-300 hover:bg-zinc-600">
+                          <td className="px-4 py-2 text-sm ">
                             {new Date(order.date).toLocaleDateString('ko-KR')}
                           </td>
                           {/* align right */}
-                          <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                          <td className="px-4 py-2 text-sm  text-right">
                             {order.totalCount ? order.totalCount.toLocaleString() : 0}
                           </td>
 
@@ -1588,7 +1600,7 @@ const fetchBuyOrders = async () => {
                           </td>
 
                           {/*
-                          <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                          <td className="px-4 py-2 text-sm  text-right">
                             {order.totalSettlementCount ? order.totalSettlementCount.toLocaleString() : 0}
                             {' / '}
                             {(order.totalCount || 0) - (order.totalSettlementCount || 0)}
@@ -1665,7 +1677,7 @@ const fetchBuyOrders = async () => {
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colSpan={4} className="px-4 py-2 text-sm text-zinc-500">
+                      <td colSpan={4} className="px-4 py-2 text-sm ">
                         
                       </td>
                     </tr>

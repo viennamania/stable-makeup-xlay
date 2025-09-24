@@ -1102,57 +1102,11 @@ export default function Index({ params }: any) {
                 </div>
 
 
-
-                {!address && (
-                <ConnectButton
-                    client={client}
-                    wallets={wallets}
-                    chain={arbitrum}
-                    theme={"light"}
-
-                    // button color is dark skyblue convert (49, 103, 180) to hex
-                    connectButton={{
-                        style: {
-                            backgroundColor: "#3167b4", // dark skyblue
-                            color: "#f3f4f6", // gray-300
-                            padding: "2px 10px",
-                            borderRadius: "10px",
-                            fontSize: "14px",
-                            width: "60x",
-                            height: "38px",
-                        },
-                        label: "X-Ray 로그인",
-                    }}
-
-                    connectModal={{
-                    size: "wide", 
-                    //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                    showThirdwebBranding: false,
-                    }}
-
-                    locale={"ko_KR"}
-                    //locale={"en_US"}
-                />
-                )}
-
-                {/*
-                {address && !loadingUser && (
-                    <div className="w-full flex flex-row items-center justify-end gap-2">
-
-                        <span className="text-lg  font-normal">
-                        {user?.nickname || "프로필"}
-                        </span>
-
-                    </div>
-                )}
-                */}
-
             </div>
 
 
 
-            <div className='flex flex-row items-center justify-start gap-2'>
+            <div className='w-full flex flex-row items-center gap-4 mt-4 mb-2'>
                 <Image
                     src={store?.storeLogo || "/icon-store.png"}
                     alt="Store Logo"
