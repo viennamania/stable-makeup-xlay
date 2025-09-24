@@ -6235,6 +6235,12 @@ const fetchBuyOrders = async () => {
 
 
 
+          
+        </div>
+
+
+
+
 
         {/*
         <Modal isOpen={isModalOpen} onClose={closeModal}>
