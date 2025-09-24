@@ -1031,7 +1031,7 @@ export default function Index({ params }: any) {
     return (
       <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
         <div className="py-0 w-full">
-          <h1 className="text-2xl font-bold text-red-500">잘못된 접근입니다.</h1>
+          <h1 className="text-2xl font-bold text-red-400">잘못된 접근입니다.</h1>
           <p className="text-zinc-100">올바른 상점 코드를 입력해주세요.</p>
         </div>
       </main>
@@ -1365,7 +1365,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-normal"
+                      <span className="text-lg text-green-400 font-normal"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1444,7 +1444,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-normal"
+                  <span className="text-lg text-green-400 font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1455,7 +1455,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-normal"
+                  <span className="text-lg text-yellow-500 font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1495,7 +1495,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-normal"
+                  <span className="text-lg text-green-400 font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1506,7 +1506,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-normal"
+                  <span className="text-lg text-yellow-500 font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1545,7 +1545,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-[#409192] font-normal"
+                  <span className="text-lg text-green-400 font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1556,7 +1556,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-600 font-normal"
+                  <span className="text-lg text-yellow-500 font-normal"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1620,7 +1620,7 @@ export default function Index({ params }: any) {
                       <td className="px-4 py-2 text-sm text-zinc-700">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1629,7 +1629,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1638,7 +1638,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1647,7 +1647,7 @@ export default function Index({ params }: any) {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1717,12 +1717,12 @@ export default function Index({ params }: any) {
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -1736,14 +1736,14 @@ export default function Index({ params }: any) {
                           </td>
                           */}
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalAgentFeeAmount
                               + order.totalFeeAmount
                             ).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalAgentFeeAmountKRW
@@ -1751,12 +1751,12 @@ export default function Index({ params }: any) {
                             ).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
-                          <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
-                          <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
                             {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -1765,7 +1765,7 @@ export default function Index({ params }: any) {
 
                           <td className="px-4 py-2 text-sm text-blue-600 font-normal text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
-                              <span className="text-[#409192]"
+                              <span className="text-green-400"
                                 style={{ fontFamily: 'monospace' }}
                               >
                                 {Number(order.totalEscrowWithdrawAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
@@ -1814,15 +1814,15 @@ export default function Index({ params }: any) {
                 © 2025 X-Ray. All rights reserved.
               </div>
               <div className="text-sm text-zinc-100">
-                <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
+                <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
                   이용약관
                 </a>
                 {' | '}
-                <a href={`/${params.lang}/privacy-policy`} className="text-blue-500 hover:underline">
+                <a href={`/${params.lang}/privacy-policy`} className="text-blue-400 hover:underline">
                   개인정보처리방침
                 </a>
                 {' | '}
-                <a href={`/${params.lang}/contact`} className="text-blue-500 hover:underline">
+                <a href={`/${params.lang}/contact`} className="text-blue-400 hover:underline">
                   고객센터
                 </a>
               </div>
@@ -1877,12 +1877,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -1898,15 +1898,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -1918,7 +1918,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -1927,7 +1927,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

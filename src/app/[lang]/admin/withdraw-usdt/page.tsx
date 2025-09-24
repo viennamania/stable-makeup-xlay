@@ -768,7 +768,7 @@ export default function SendUsdt({ params }: any) {
                     </div>
 
                     <div className="flex flex-row items-center justify-end  gap-2">
-                        <span className="text-2xl xl:text-4xl font-normal text-[#409192]"
+                        <span className="text-2xl xl:text-4xl font-normal text-green-400"
                           style={{ fontFamily: 'monospace' }}
                         >
                             {Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1003,7 +1003,7 @@ export default function SendUsdt({ params }: any) {
                           {/* dot icon */}
                           <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
 
-                          <div className="text-red-500">
+                          <div className="text-red-400">
                             {This_address_is_not_white_listed}<br />
                             {If_you_are_sure_please_click_the_send_button}
                           </div>

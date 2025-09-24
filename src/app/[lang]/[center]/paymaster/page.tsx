@@ -3901,21 +3901,21 @@ export default function Index({ params }: any) {
         <div className="flex flex-row items-center justify-center gap-2">
           <a
             href="#"
-            className="text-sm text-zinc-500 hover:text-blue-500"
+            className="text-sm text-zinc-500 hover:text-blue-400"
           >
             이용약관
           </a>
           <span className="text-sm text-zinc-500">|</span>
           <a
             href="#"
-            className="text-sm text-zinc-500 hover:text-blue-500"
+            className="text-sm text-zinc-500 hover:text-blue-400"
           >
             개인정보처리방침
           </a>
           <span className="text-sm text-zinc-500">|</span>
           <a
             href="#"
-            className="text-sm text-zinc-500 hover:text-blue-500"
+            className="text-sm text-zinc-500 hover:text-blue-400"
           >
             고객센터
           </a>

@@ -888,7 +888,7 @@ export default function Index({ params }: any) {
                       </div>
 
                       <div className="hidden flex-row items-center justify-end  gap-2">
-                          <span className="text-2xl xl:text-4xl font-normal text-[#409192]">
+                          <span className="text-2xl xl:text-4xl font-normal text-green-400">
                               {Number(balance).toFixed(2)}
                           </span>
                           {' '}
@@ -1205,7 +1205,7 @@ export default function Index({ params }: any) {
                           <div className="flex flex-col gap-2 justify-center items-center">
                             {/* 아이디를 설정해야 거래를 시작할 수 있습니다. */}
                             {address && (
-                              <span className="text-sm text-red-500">
+                              <span className="text-sm text-red-400">
                                 회원아이디가 설정되지 않았습니다.<br/>
                                 거래를 시작하려면 회원아이디를 설정해야 합니다.
                               </span>
@@ -1515,7 +1515,7 @@ function Header() {
       <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 text-zinc-100">
         thirdweb SDK
         <span className="text-zinc-300 inline-block mx-1"> + </span>
-        <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
+        <span className="inline-block -skew-x-6 text-blue-400"> Next.js </span>
       </h1>
 
       <p className="text-zinc-300 text-base">

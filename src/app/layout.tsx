@@ -297,8 +297,8 @@ export default function RootLayout({
                         style={{ objectFit: "cover" }}
                       />
                       <span className={`
-                        ${chain === 'ethereum' ? 'text-blue-500' : 'text-gray-600'}
-                        hover:text-blue-500
+                        ${chain === 'ethereum' ? 'text-blue-400' : 'text-gray-600'}
+                        hover:text-blue-400
                       `}>
                         Ethereum
                       </span>
@@ -317,8 +317,8 @@ export default function RootLayout({
                         style={{ objectFit: "cover" }}
                       />
                       <span className={`
-                        ${chain === 'polygon' ? 'text-blue-500' : 'text-gray-600'}
-                        hover:text-blue-500
+                        ${chain === 'polygon' ? 'text-blue-400' : 'text-gray-600'}
+                        hover:text-blue-400
                       `}>
                         Polygon
                       </span>
@@ -337,8 +337,8 @@ export default function RootLayout({
                         style={{ objectFit: "cover" }}
                       />
                       <span className={`
-                        ${chain === 'bsc' ? 'text-blue-500' : 'text-gray-600'}
-                        hover:text-blue-500
+                        ${chain === 'bsc' ? 'text-blue-400' : 'text-gray-600'}
+                        hover:text-blue-400
                       `}>
                         BSC
                       </span>
@@ -357,8 +357,8 @@ export default function RootLayout({
                         style={{ objectFit: "cover" }}
                       />
                       <span className={`
-                        ${chain === 'arbitrum' ? 'text-blue-500' : 'text-gray-600'}
-                        hover:text-blue-500
+                        ${chain === 'arbitrum' ? 'text-blue-400' : 'text-gray-600'}
+                        hover:text-blue-400
                       `}>
                         Arbitrum
                       </span>

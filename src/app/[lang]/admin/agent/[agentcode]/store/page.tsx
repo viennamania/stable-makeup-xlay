@@ -1594,7 +1594,7 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 P2P 거래량(USDT)</div>
-                  <div className="text-xl font-normal text-[#409192]">
+                  <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
                 </div>
@@ -1602,7 +1602,7 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 P2P 거래금액(원)</div>
-                  <div className="text-xl font-normal text-yellow-600">
+                  <div className="text-xl font-normal text-yellow-500">
                     {tradeSummary.totalKrwAmount?.toLocaleString()}
                   </div>
                 </div>
@@ -1625,14 +1625,14 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제량(USDT)</div>
-                  <div className="text-xl font-normal text-[#409192]">
+                  <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제금액(원)</div>
-                  <div className="text-xl font-normal text-yellow-600">
+                  <div className="text-xl font-normal text-yellow-500">
                     {tradeSummary.totalSettlementAmountKRW?.toLocaleString()}
                   </div>
                 </div>
@@ -1640,14 +1640,14 @@ export default function Index({ params }: any) {
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 수수료수량(USDT)</div>
-                  <div className="text-xl font-normal text-[#409192]">
+                  <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 수수료금액(원)</div>
-                  <div className="text-xl font-normal text-yellow-600">
+                  <div className="text-xl font-normal text-yellow-500">
                     {tradeSummary.totalFeeAmountKRW?.toLocaleString()}
                   </div>
                 </div>
@@ -1930,7 +1930,7 @@ export default function Index({ params }: any) {
                         
                         <tr key={index} className={`
                           ${
-                            index % 2 === 0 ? 'bg-zinc-100' : 'bg-zinc-200'
+                            index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
                           }
                         `}>
 
@@ -1970,7 +1970,7 @@ export default function Index({ params }: any) {
                                         navigator.clipboard.writeText(item.storecode);
                                         toast.success('가맹점 코드가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-zinc-100 hover:text-blue-500
+                                      className="text-sm text-zinc-100 hover:text-blue-400
                                       hover:underline"
                                     >
                                       {item.storecode}
@@ -2035,7 +2035,7 @@ export default function Index({ params }: any) {
                                   }
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-500 hover:underline"
+                                  className="text-sm text-blue-400 hover:underline"
                                 >
                                   새창
                                 </a>
@@ -2058,7 +2058,7 @@ export default function Index({ params }: any) {
                                   }
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-500 hover:underline"
+                                  className="text-sm text-blue-400 hover:underline"
                                 >
                                   새창
                                 </a>
@@ -2089,13 +2089,13 @@ export default function Index({ params }: any) {
                                       toast.success('복사되었습니다');
                                     }
                                   }
-                                  className="text-sm text-blue-500 hover:underline"
+                                  className="text-sm text-blue-400 hover:underline"
                                   >
                                     {item.agentFeeWalletAddress.substring(0, 6) + '...' + item.agentFeeWalletAddress.substring(item.agentFeeWalletAddress.length - 4)
                                     }
                                   </button>
                                 ) : (
-                                  <span className="text-sm text-red-500">
+                                  <span className="text-sm text-red-400">
                                     에이전트 USDT지갑 없음
                                   </span>
                                 )}
@@ -2130,14 +2130,14 @@ export default function Index({ params }: any) {
                                 <div className="flex flex-col items-end gap-2">
 
 
-                                  <span className="text-lg text-[#409192] font-normal"
+                                  <span className="text-lg text-green-400 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
                                       Number(item.totalUsdtAmount ? item.totalUsdtAmount : 0).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                                     }
                                   </span>
-                                  <span className="text-lg text-yellow-600 font-normal"
+                                  <span className="text-lg text-yellow-500 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2188,14 +2188,14 @@ export default function Index({ params }: any) {
 
                                 <div className="w-full flex flex-col items-end gap-2">
                                   
-                                  <span className="text-lg text-[#409192] font-normal"
+                                  <span className="text-lg text-green-400 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
                                       (Number(item.totalSettlementAmount ? item.totalSettlementAmount : 0).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ","))
                                     }
                                   </span>
-                                  <span className="text-xl text-yellow-600 font-bold"
+                                  <span className="text-xl text-yellow-500 font-bold"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2209,14 +2209,14 @@ export default function Index({ params }: any) {
 
                                 <div className="w-full flex flex-col items-end gap-2">
 
-                                  <span className="text-lg text-[#409192] font-normal"
+                                  <span className="text-lg text-green-400 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
                                       Number(item.totalFeeAmount ? item.totalFeeAmount : 0).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                                     }
                                   </span>
-                                  <span className="text-lg text-yellow-600 font-normal"
+                                  <span className="text-lg text-yellow-500 font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2393,12 +2393,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2414,15 +2414,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2434,7 +2434,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2443,7 +2443,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

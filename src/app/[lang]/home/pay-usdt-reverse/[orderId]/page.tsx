@@ -2440,7 +2440,7 @@ export default function Index({ params }: any) {
                           )}
 
                           {item.status === 'cancelled' && (
-                            <span className="text-lg text-red-500">
+                            <span className="text-lg text-red-400">
                               판매자가 거래를 취소했습니다.
                             </span>
                           )}
@@ -3537,21 +3537,21 @@ export default function Index({ params }: any) {
               <div className="flex flex-row items-center justify-center gap-2">
                 <a
                   href="#"
-                  className="text-sm text-zinc-500 hover:text-blue-500"
+                  className="text-sm text-zinc-500 hover:text-blue-400"
                 >
                   이용약관
                 </a>
                 <span className="text-sm text-zinc-500">|</span>
                 <a
                   href="#"
-                  className="text-sm text-zinc-500 hover:text-blue-500"
+                  className="text-sm text-zinc-500 hover:text-blue-400"
                 >
                   개인정보처리방침
                 </a>
                 <span className="text-sm text-zinc-500">|</span>
                 <a
                   href="#"
-                  className="text-sm text-zinc-500 hover:text-blue-500"
+                  className="text-sm text-zinc-500 hover:text-blue-400"
                 >
                   고객센터
                 </a>
@@ -3609,12 +3609,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3630,15 +3630,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3650,7 +3650,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3659,7 +3659,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

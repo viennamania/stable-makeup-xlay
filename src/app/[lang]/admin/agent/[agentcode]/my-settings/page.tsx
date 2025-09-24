@@ -1220,7 +1220,7 @@ export default function SettingsPage({ params }: any) {
                                         <span className="text-lg text-zinc-200">
                                             에이전트 코드
                                         </span>
-                                        <span className="text-xl text-blue-500 font-normal">
+                                        <span className="text-xl text-blue-400 font-normal">
                                             {agent?.agentcode}
                                         </span>
                                     </div>
@@ -1236,7 +1236,7 @@ export default function SettingsPage({ params }: any) {
                                         <span className="text-lg text-zinc-200">
                                             에이전트 이름
                                         </span>
-                                        <span className="text-xl text-blue-500 font-normal">
+                                        <span className="text-xl text-blue-400 font-normal">
                                             {agent?.agentName}
                                         </span>
                                     </div>
@@ -1489,7 +1489,7 @@ export default function SettingsPage({ params }: any) {
                                                     height={20}
                                                     className="w-5 h-5"
                                                     />
-                                                    <span className="text-sm text-red-500">
+                                                    <span className="text-sm text-red-400">
                                                     {agent && agent.agentName}의 에이전트 관리자 설정이 되어 있지 않습니다.
                                                     </span>
                                                 </div>
@@ -1518,7 +1518,7 @@ export default function SettingsPage({ params }: any) {
                                         </div>
 
 
-                                        <span className="text-lg text-blue-500 font-normal">
+                                        <span className="text-lg text-blue-400 font-normal">
                                             {agent?.agentFeeWalletAddress 
                                                 ? (
                                                     <div className='flex flex-row items-center justify-center gap-1'>
@@ -1603,7 +1603,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-500 font-normal">
                                         USDT-KRW 환율(원)
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {
                                         agent?.usdtKRWRate && agent?.usdtKRWRate > 0
                                         ? agent?.usdtKRWRate.toLocaleString()
@@ -1660,7 +1660,7 @@ export default function SettingsPage({ params }: any) {
                                 <span className="text-lg text-zinc-200">
                                     에이전트 수수료율
                                 </span>
-                                <span className="text-xl text-blue-500 font-normal">
+                                <span className="text-xl text-blue-400 font-normal">
                                     {agent?.agentFeePercent || "없음"}%
                                 </span>
                             </div>

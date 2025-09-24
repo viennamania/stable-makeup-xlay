@@ -1498,7 +1498,7 @@ export default function Index({ params }: any) {
                       <td className="px-4 py-2 border">
                         <a
                           href={`/${params.lang}/admin/agent/${agent.agentcode}`}
-                          className="text-blue-500 hover:underline"
+                          className="text-blue-400 hover:underline"
                         >
                           이동하기
                         </a>
@@ -2254,7 +2254,7 @@ export default function Index({ params }: any) {
                                 onClick={() => {
                                   router.push('/' + params.lang + '/admin/agent/' + params.agentcode + '/store/')
                                 }}
-                                className="text-blue-500 hover:underline"
+                                className="text-blue-400 hover:underline"
                               >
                                 {store.storeName}
                               </button>
@@ -2903,7 +2903,7 @@ export default function Index({ params }: any) {
                               
                                 {/*
                               {trade.status === "ordered" ? (
-                                <span className="text-red-500 font-normal
+                                <span className="text-red-400 font-normal
                                   bg-red-100/50
                                   px-2 py-1 rounded-lg
                                 ">
@@ -3072,7 +3072,7 @@ export default function Index({ params }: any) {
                           address
                           && !loadingUser
                           && (
-                            <span className="text-sm text-red-500">
+                            <span className="text-sm text-red-400">
                               아이디가 설정되지 않았습니다.<br/>
                               거래를 시작하려면 아이디를 설정해야 합니다.
                             </span>
@@ -3240,21 +3240,21 @@ export default function Index({ params }: any) {
           <div className="flex flex-row items-center justify-center gap-2">
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-500"
+              className="text-sm text-zinc-500 hover:text-blue-400"
             >
               이용약관
             </a>
             <span className="text-sm text-zinc-500">|</span>
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-500"
+              className="text-sm text-zinc-500 hover:text-blue-400"
             >
               개인정보처리방침
             </a>
             <span className="text-sm text-zinc-500">|</span>
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-500"
+              className="text-sm text-zinc-500 hover:text-blue-400"
             >
               고객센터
             </a>
@@ -3356,12 +3356,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3377,15 +3377,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3397,7 +3397,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3406,7 +3406,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

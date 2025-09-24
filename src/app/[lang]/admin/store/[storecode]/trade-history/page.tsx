@@ -2273,7 +2273,7 @@ const fetchBuyOrders = async () => {
                           
                           <tr key={index} className={`
                             ${
-                              index % 2 === 0 ? 'bg-zinc-100' : 'bg-zinc-200'
+                              index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
 
 
                               //item.walletAddress === address ?
@@ -2341,7 +2341,7 @@ const fetchBuyOrders = async () => {
                                     {item?.nickname}
                                   </div>
 
-                                  <div className="text-sm text-yellow-600 font-normal">
+                                  <div className="text-sm text-yellow-500 font-normal">
                                     {
                                       //item.walletAddress === address ? 'Me' : item.tradeId ? item.tradeId : ''
 
@@ -2365,7 +2365,7 @@ const fetchBuyOrders = async () => {
                                     currency: 'KRW',
                                   })}
                                 </span>
-                                <span className="text-sm text-[#409192] font-normal">
+                                <span className="text-sm text-green-400 font-normal">
                                   {item.usdtAmount}{' '}USDT
                                 </span>
                                 <span className="text-xs text-zinc-500 font-normal">
@@ -2399,7 +2399,7 @@ const fetchBuyOrders = async () => {
 
                                   item.status === 'paymentConfirmed' ? (
 
-                                    <div className=" text-[#409192] text-xl font-normal">
+                                    <div className=" text-green-400 text-xl font-normal">
                                       {item.krwAmount}
                                     </div>
 
@@ -3207,7 +3207,7 @@ const fetchBuyOrders = async () => {
                                     width={20}
                                     height={20}
                                   />
-                                  <p className="text-sm text-red-500">
+                                  <p className="text-sm text-red-400">
                                     {Cancelled_at} {
                                       new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                     }
@@ -3347,7 +3347,7 @@ const fetchBuyOrders = async () => {
                                           height: '32px',
                                       }}
                                     />
-                                    <p className="text-sm text-red-500 font-normal">
+                                    <p className="text-sm text-red-400 font-normal">
                                       {Buyer}: {
                                         address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
                                       }
@@ -3940,12 +3940,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3961,15 +3961,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3981,7 +3981,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3990,7 +3990,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

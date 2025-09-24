@@ -1319,7 +1319,7 @@ export default function Index({ params }: any) {
                     className="w-6 h-6"
                   />
                   <h2 className="text-lg font-normal">구매주문</h2>
-                  <p className="text-lg text-red-500 font-normal">
+                  <p className="text-lg text-red-400 font-normal">
                     {totalSummary.totalNumberOfBuyOrders}
                   </p>
                   {totalSummary.totalNumberOfBuyOrders > 0 && (
@@ -1436,7 +1436,7 @@ export default function Index({ params }: any) {
                                   width={16}
                                   height={16}
                                 />
-                                <span className="text-lg text-[#409192] font-normal"
+                                <span className="text-lg text-green-400 font-normal"
                                   style={{ fontFamily: "monospace" }}
                                 >
                                   {
@@ -1444,7 +1444,7 @@ export default function Index({ params }: any) {
                                   }
                                 </span>
                               </div>
-                              <span className="text-lg text-yellow-600 font-normal"
+                              <span className="text-lg text-yellow-500 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1729,7 +1729,7 @@ export default function Index({ params }: any) {
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <h2 className="text-lg font-normal">총 거래금액(원)</h2>
-                    <p className="text-lg text-yellow-600 font-normal"
+                    <p className="text-lg text-yellow-500 font-normal"
                       style={{ fontFamily: "monospace" }}
                     >
                       {
@@ -1748,7 +1748,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-normal"
+                      <span className="text-lg text-green-400 font-normal"
                         style={{ fontFamily: "monospace" }}
                       >
                         {Number(totalSummary.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1764,7 +1764,7 @@ export default function Index({ params }: any) {
                 
                   <div className="flex flex-col items-center justify-center gap-2">
                     <h2 className="text-lg font-normal">총 결제금액(원)</h2>
-                    <p className="text-lg text-yellow-600 font-normal"
+                    <p className="text-lg text-yellow-500 font-normal"
                       style={{ fontFamily: "monospace" }}
                     >
                       {
@@ -1782,7 +1782,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-[#409192] font-normal"
+                      <span className="text-lg text-green-400 font-normal"
                         style={{ fontFamily: "monospace" }}
                       >
                         {
@@ -1903,13 +1903,13 @@ export default function Index({ params }: any) {
                                   width={16}
                                   height={16}
                                 />
-                                <span className="text-lg text-[#409192] font-normal"
+                                <span className="text-lg text-green-400 font-normal"
                                 style={{ fontFamily: "monospace" }}
                                 >
                                   {Number(trade.usdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                 </span>
                               </div>
-                              <span className="text-lg text-yellow-600 font-normal"
+                              <span className="text-lg text-yellow-500 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1936,13 +1936,13 @@ export default function Index({ params }: any) {
                                   width={16}
                                   height={16}
                                 />
-                                <span className="text-lg text-[#409192] font-normal"
+                                <span className="text-lg text-green-400 font-normal"
                                   style={{ fontFamily: "monospace" }}
                                 >
                                   {Number(trade.settlement?.settlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                 </span>
                               </div>
-                              <span className="text-lg text-yellow-600 font-normal"
+                              <span className="text-lg text-yellow-500 font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.settlement?.settlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -2289,7 +2289,7 @@ export default function Index({ params }: any) {
                                   onClick={() => {
                                     router.push('/' + params.lang + '/admin/store/' + store.storecode + '/settings');
                                   }}
-                                  className="text-blue-500 hover:underline"
+                                  className="text-blue-400 hover:underline"
                                 >
                                   {store.storeName}
                                 </button>
@@ -2618,7 +2618,7 @@ export default function Index({ params }: any) {
                         <div className="flex flex-col gap-2 justify-center items-center">
                           {/* 아이디를 설정해야 거래를 시작할 수 있습니다. */}
                           {address && (
-                            <span className="text-sm text-red-500">
+                            <span className="text-sm text-red-400">
                               아이디가 설정되지 않았습니다.<br/>
                               거래를 시작하려면 아이디를 설정해야 합니다.
                             </span>
@@ -2808,21 +2808,21 @@ export default function Index({ params }: any) {
           <div className="flex flex-row items-center justify-center gap-2">
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-500"
+              className="text-sm text-zinc-500 hover:text-blue-400"
             >
               이용약관
             </a>
             <span className="text-sm text-zinc-500">|</span>
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-500"
+              className="text-sm text-zinc-500 hover:text-blue-400"
             >
               개인정보처리방침
             </a>
             <span className="text-sm text-zinc-500">|</span>
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-500"
+              className="text-sm text-zinc-500 hover:text-blue-400"
             >
               고객센터
             </a>
@@ -2865,7 +2865,7 @@ function Header() {
       <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 text-zinc-100">
         thirdweb SDK
         <span className="text-zinc-300 inline-block mx-1"> + </span>
-        <span className="inline-block -skew-x-6 text-blue-500"> Next.js </span>
+        <span className="inline-block -skew-x-6 text-blue-400"> Next.js </span>
       </h1>
 
       <p className="text-zinc-300 text-base">

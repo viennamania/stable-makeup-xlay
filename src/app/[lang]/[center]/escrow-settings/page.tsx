@@ -1102,7 +1102,7 @@ export default function SettingsPage({ params }: any) {
                             </div>
 
                             <div className="flex flex-row items-center justify-end  gap-2">
-                                <span className="text-2xl xl:text-4xl font-normal text-[#409192]">
+                                <span className="text-2xl xl:text-4xl font-normal text-green-400">
                                     {Number(balance).toFixed(2)}
                                 </span>
                                 {' '}
@@ -1710,7 +1710,7 @@ export default function SettingsPage({ params }: any) {
                                 <span className="text-sm">ETH</span>
                                     {/* if escrow balance is 0, comment this out */}
                                 
-                                <span className="pl-2 text-sm text-red-500">
+                                <span className="pl-2 text-sm text-red-400">
                                     에스크로 지갑에 가스비용(ETH)을 0.1 이상 충전해주세요.
                                 </span>
                             

@@ -519,7 +519,7 @@ export default function SettingsPage({ params }: any) {
 
 
                                 <div className='flex flex-col items-start gap-2'>
-                                    <div className='text-sm text-red-500'>
+                                    <div className='text-sm text-red-400'>
                                         {Wallet_Address_Description1}{' '}{params.center}{' '}{Wallet_Address_Description2}
                                     </div>
                                 </div>

@@ -1914,7 +1914,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     {' '}메모하기{' '}
                                     {store?.memoCount > 0 && (
-                                        <span className="text-red-500 font-normal">
+                                        <span className="text-red-400 font-normal">
                                             ({store?.memoCount})
                                         </span>
                                     )}
@@ -1940,7 +1940,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     {' '}청산관리{' '}
                                     {store?.clearanceCount > 0 && (
-                                        <span className="text-red-500 font-normal">
+                                        <span className="text-red-400 font-normal">
                                             ({store?.clearanceCount})
                                         </span>
                                     )}
@@ -1980,7 +1980,7 @@ export default function SettingsPage({ params }: any) {
                                 <span className="text-lg text-zinc-100">
                                     가맹점 코드
                                 </span>
-                                <span className="text-xl text-blue-500 font-normal">
+                                <span className="text-xl text-blue-400 font-normal">
                                     {store?.storecode}
                                 </span>
                             </div>
@@ -1996,7 +1996,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-100">
                                         가맹점 이름
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {store?.storeName}
                                     </span>
                                 </div>
@@ -2050,7 +2050,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-100">
                                         가맹점 설명
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {store?.storeDescription}
                                     </span>
                                 </div>
@@ -2213,7 +2213,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-100">
                                         에이전트 이름
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {store?.agentName || "없음"}
                                     </span>
                                 </div>
@@ -2223,7 +2223,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-100">
                                         에이전트 코드
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {store?.agentcode || "없음"}
                                     </span>
                                 </div>
@@ -2277,7 +2277,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-100">
                                         에이전트 수수료 지갑
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {store?.agentFeeWalletAddress || "없음"}
                                     </span>
                                 </div>
@@ -2325,7 +2325,7 @@ export default function SettingsPage({ params }: any) {
                                     <span className="text-lg text-zinc-100">
                                         에이전트 수수료율(%)
                                     </span>
-                                    <span className="text-xl text-blue-500 font-normal">
+                                    <span className="text-xl text-blue-400 font-normal">
                                         {store?.agentFeePercent || "없음"}
                                     </span>
                                 </div>
@@ -2462,7 +2462,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                     {store && store.storeName}의 가맹점 관리자 설정이 되어 있지 않습니다.
                                     </span>
                                 </div>
@@ -2529,7 +2529,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                             />
-                                            <span className="text-sm text-red-500">
+                                            <span className="text-sm text-red-400">
                                             {store && store.storeName}의 회원이 없습니다.
                                             <br />
                                             가맹점 홈페이지에서 회원가입 후 가맹점 관리자를 설정하세요.
@@ -2587,7 +2587,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                     {store && store.storeName}의 가맹점 자동결제용 USDT지갑이 설정되지 않았습니다.
                                     </span>
                                 </div>
@@ -2654,7 +2654,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     가맹점 홈페이지에서 회원가입 후 가맹점 자동결제용 USDT지갑을 설정하세요.
@@ -2733,7 +2733,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                             />
-                                            <span className="text-sm text-red-500">
+                                            <span className="text-sm text-red-400">
                                             {store && store.storeName}의 가맹점 PG 수수료 수납용 USDT지갑이 설정되지 않았습니다.
                                             </span>
                                         </div>
@@ -2799,7 +2799,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                             />
-                                            <span className="text-sm text-red-500">
+                                            <span className="text-sm text-red-400">
                                             {store && store.storeName}의 회원이 없습니다.
                                             <br />
                                             가맹점 홈페이지에서 회원가입 후 가맹점 PG 수수료 수납용 USDT지갑을 설정하세요.
@@ -2956,7 +2956,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                     {store && store.storeName}의 P2P 거래소 판매용 USDT지갑이 설정되지 않았습니다.
                                     </span>
                                 </div>
@@ -3026,7 +3026,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     회원가입 후 P2P 거래소 판매용 USDT지갑을 설정하세요.
@@ -3089,7 +3089,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     가맹점 홈페이지에서 회원가입 후 P2P 거래소 판매용 USDT지갑을 설정하세요.
@@ -3123,7 +3123,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                         />
-                                        <span className="text-xl text-[#409192] font-normal">
+                                        <span className="text-xl text-green-400 font-normal">
                                             {store && store.escrowAmountUSDT &&
                                             store.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                             || 0.00}
@@ -3557,7 +3557,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <div className='mt-2 w-full flex flex-col items-center justify-center gap-2'>
                                         {/* button for reset update */}
-                                        <span className="text-sm text-red-500">
+                                        <span className="text-sm text-red-400">
                                             자동입금기능을 사용하지 않을 경우 <br />
                                             아래 버튼을 눌러 초기화 해주세요.
                                         </span>
@@ -3622,7 +3622,7 @@ export default function SettingsPage({ params }: any) {
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
                                         <span className="text-lg text-zinc-100">
                                         결제 URL:{' '}{store && store.paymentUrl
-                                            ? <a href={store.paymentUrl} target="_blank" className="text-blue-500 underline">
+                                            ? <a href={store.paymentUrl} target="_blank" className="text-blue-400 underline">
                                                 {store.paymentUrl}
                                               </a>
                                             : '설정된 결제 URL이 없습니다.'}

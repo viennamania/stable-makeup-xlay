@@ -1828,7 +1828,7 @@ export default function Index({ params }: any) {
                         height={30}
                         className="w-6 h-6"
                       />
-                      <span className="text-2xl xl:text-4xl font-normal text-[#409192]"
+                      <span className="text-2xl xl:text-4xl font-normal text-green-400"
                         style={{ fontFamily: "monospace" }}>
                           {
                             (Number(sellerWalletBalance || 0).toFixed(3))
@@ -1889,7 +1889,7 @@ export default function Index({ params }: any) {
                         height={30}
                         className="w-6 h-6"
                       />
-                      <span className="text-2xl xl:text-4xl font-normal text-[#409192]"
+                      <span className="text-2xl xl:text-4xl font-normal text-green-400"
                         style={{ fontFamily: "monospace" }}>
                           {
                             (Number(balance || 0).toFixed(3))
@@ -1959,7 +1959,7 @@ export default function Index({ params }: any) {
                                 height={30}
                                 className="w-6 h-6"
                               />
-                              <span className="text-2xl xl:text-4xl font-normal text-[#409192]"
+                              <span className="text-2xl xl:text-4xl font-normal text-green-400"
                                 style={{ fontFamily: "monospace" }}>
                                 {store && store.escrowAmountUSDT &&
                                 store.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -2020,7 +2020,7 @@ export default function Index({ params }: any) {
                                     height={30}
                                     className="w-6 h-6"
                                 />
-                                <span className="text-2xl xl:text-4xl font-normal text-[#409192]"
+                                <span className="text-2xl xl:text-4xl font-normal text-green-400"
                                   style={{ fontFamily: "monospace" }}>
                                     {
                                       (Number(settlementWalletBalance || 0).toFixed(3))
@@ -2091,7 +2091,7 @@ export default function Index({ params }: any) {
                           }</p>
                           
                           <div className=" flex flex-row items-center gap-2">
-                            <p className="text-xl text-blue-500 font-bold ">
+                            <p className="text-xl text-blue-400 font-bold ">
                               <input 
                                 type="number"
                                 className=" w-28 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
@@ -2457,14 +2457,14 @@ export default function Index({ params }: any) {
                                 
                                 <div className="flex flex-row items-center gap-2">
 
-                                  <span className="text-xl text-blue-500 font-bold ">
+                                  <span className="text-xl text-blue-400 font-bold ">
                                     매입금액
                                   </span>
 
                                   <input 
                                     type="number"
                                     className="
-                                      text-xl text-blue-500 font-bold
+                                      text-xl text-blue-400 font-bold
                                       w-40 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                                     placeholder={Price}
                                     value={krwAmount}
@@ -2680,7 +2680,7 @@ export default function Index({ params }: any) {
                             <span className="text-sm text-zinc-500">
                               총 매입주문수(건)
                             </span>
-                            <span className="text-xl xl:text-2xl font-normal text-[#409192]">
+                            <span className="text-xl xl:text-2xl font-normal text-green-400">
                               {totalClearanceCount.toLocaleString()}
                             </span>
                           </div>
@@ -2690,7 +2690,7 @@ export default function Index({ params }: any) {
                                   총 매입수량(USDT)
                               </span>
                               <div className="flex flex-row items-center justify-center gap-2">
-                                <span className="text-xl xl:text-2xl font-normal text-[#409192]"
+                                <span className="text-xl xl:text-2xl font-normal text-green-400"
                                   style={{ fontFamily: "monospace" }}>
                                     {
                                       (Number(totalClearanceAmount).toFixed(3))
@@ -2705,7 +2705,7 @@ export default function Index({ params }: any) {
                                   총 매입금액(원)
                               </span>
                               <div className="flex flex-row items-center justify-center gap-2">
-                                <span className="text-xl xl:text-2xl font-normal text-yellow-600"
+                                <span className="text-xl xl:text-2xl font-normal text-yellow-500"
                                   style={{ fontFamily: "monospace" }}>
                                     {
                                       (Number(totalClearanceAmountKRW).toFixed(0))
@@ -2777,7 +2777,7 @@ export default function Index({ params }: any) {
                       {buyOrders.map((item, index) => (
                         <tr key={index} className={`
                           ${
-                            index % 2 === 0 ? 'bg-zinc-100' : 'bg-zinc-200'
+                            index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
                           }
                         `}>
 
@@ -2906,7 +2906,7 @@ export default function Index({ params }: any) {
                                       height={20}
                                       className="w-5 h-5"
                                     />
-                                    <span className="text-xl text-[#409192] font-normal"
+                                    <span className="text-xl text-green-400 font-normal"
                                       style={{
                                         fontFamily: 'monospace',
                                       }}
@@ -2915,7 +2915,7 @@ export default function Index({ params }: any) {
                                     </span>
                                   </div>
 
-                                  <span className="text-xl text-yellow-600 font-normal"
+                                  <span className="text-xl text-yellow-500 font-normal"
                                     style={{
                                       fontFamily: 'monospace',
                                     }}
@@ -2982,7 +2982,7 @@ export default function Index({ params }: any) {
                               <td>
                                 
                                 {item.status === 'paymentConfirmed' && (
-                                  <span className="text-xl text-yellow-600 font-normal">
+                                  <span className="text-xl text-yellow-500 font-normal">
                                     
                                     {Number(item.krwAmount)?.toLocaleString()}
                                   </span>
@@ -3065,7 +3065,7 @@ export default function Index({ params }: any) {
 
                                     <>
                               
-                                    <span className="text-lg text-yellow-600 font-normal">
+                                    <span className="text-lg text-yellow-500 font-normal">
                     
                                       주문 신청중...
                                     </span>
@@ -3080,7 +3080,7 @@ export default function Index({ params }: any) {
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-col items-center justify-center gap-2">
 
-                                    <span className="text-lg font-normal text-[#409192]">
+                                    <span className="text-lg font-normal text-green-400">
                                       {Completed}
                                     </span>
                                     <span>{
@@ -3140,7 +3140,7 @@ export default function Index({ params }: any) {
                                 {item.status === 'accepted' && (
                                   <div className="flex flex-row gap-1">
 
-                                    <span className="text-lg font-normal text-yellow-600">
+                                    <span className="text-lg font-normal text-yellow-500">
                                       주문접수
                                     </span>
 
@@ -3195,7 +3195,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex flex-row gap-1">
 
-                                    <span className="text-lg font-normal text-yellow-600">
+                                    <span className="text-lg font-normal text-yellow-500">
                                       결제요청
                                     </span>
 
@@ -3286,7 +3286,7 @@ export default function Index({ params }: any) {
 
                                 )}
                                 {item.status === 'cancelled' && (
-                                  <span className="text-red-500">{Cancelled}</span>
+                                  <span className="text-red-400">{Cancelled}</span>
                                 )}
 
                                 </div>
@@ -3348,7 +3348,7 @@ export default function Index({ params }: any) {
                                       </button>
                                     </div>
                                   ) : (
-                                    <span className="text-sm text-[#409192]
+                                    <span className="text-sm text-green-400
                                       border border-green-600
                                       rounded-md px-2 py-1">
                                       출금완료
@@ -4073,15 +4073,15 @@ export default function Index({ params }: any) {
               © 2025 X-Ray. All rights reserved.
             </div>
             <div className="text-sm text-zinc-100">
-              <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
+              <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
                 이용약관
               </a>
               {' | '}
-              <a href={`/${params.lang}/privacy-policy`} className="text-blue-500 hover:underline">
+              <a href={`/${params.lang}/privacy-policy`} className="text-blue-400 hover:underline">
                 개인정보처리방침
               </a>
               {' | '}
-              <a href={`/${params.lang}/contact`} className="text-blue-500 hover:underline">
+              <a href={`/${params.lang}/contact`} className="text-blue-400 hover:underline">
                 고객센터
               </a>
             </div>
@@ -4135,12 +4135,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -4156,15 +4156,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -4176,7 +4176,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -4185,7 +4185,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

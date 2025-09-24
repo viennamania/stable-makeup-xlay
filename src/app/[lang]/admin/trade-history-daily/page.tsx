@@ -1798,7 +1798,7 @@ const fetchBuyOrders = async () => {
                         </span>
                       </div>
                     ) : (
-                      <span className="text-sm text-red-500">
+                      <span className="text-sm text-red-400">
                         가맹점 정보가 없습니다.
                       </span>
                     ) : (
@@ -1977,7 +1977,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-xl font-normal text-[#409192]"
+                  <span className="text-xl font-normal text-green-400"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {tradeSummary.totalUsdtAmount
@@ -1990,7 +1990,7 @@ const fetchBuyOrders = async () => {
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 P2P 거래금액(원)</div>
                 <div className="flex flex-row items-center justify-center gap-1">
-                  <span className="text-xl font-normal text-yellow-600"
+                  <span className="text-xl font-normal text-yellow-500"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {tradeSummary.totalKrwAmount?.toLocaleString()}
@@ -2033,7 +2033,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-xl font-normal text-[#409192]"
+                  <span className="text-xl font-normal text-green-400"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {tradeSummary.totalSettlementAmount
@@ -2046,7 +2046,7 @@ const fetchBuyOrders = async () => {
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 결제금액(원)</div>
                 <div className="flex flex-row items-center justify-center gap-1">
-                  <span className="text-xl font-normal text-yellow-600"
+                  <span className="text-xl font-normal text-yellow-500"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {tradeSummary.totalSettlementAmountKRW?.toLocaleString()}
@@ -2069,7 +2069,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xl font-normal text-[#409192]"
+                      <span className="text-xl font-normal text-green-400"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {tradeSummary.totalFeeAmount
@@ -2082,7 +2082,7 @@ const fetchBuyOrders = async () => {
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 PG 수수료금액(원)</div>
                     <div className="w-full flex flex-row items-center justify-end gap-1">
-                      <span className="text-xl font-normal text-yellow-600"
+                      <span className="text-xl font-normal text-yellow-500"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {tradeSummary.totalFeeAmountKRW
@@ -2107,7 +2107,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-xl font-normal text-[#409192]"
+                      <span className="text-xl font-normal text-green-400"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {tradeSummary.totalAgentFeeAmount
@@ -2120,7 +2120,7 @@ const fetchBuyOrders = async () => {
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">총 AG 수수료금액(원)</div>
                     <div className="w-full flex flex-row items-center justify-end gap-1">
-                      <span className="text-xl font-normal text-yellow-600"
+                      <span className="text-xl font-normal text-yellow-500"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {tradeSummary.totalAgentFeeAmountKRW
@@ -2196,7 +2196,7 @@ const fetchBuyOrders = async () => {
                 )}
 
 
-                <p className="text-lg text-red-500 font-normal">
+                <p className="text-lg text-red-400 font-normal">
                   {
                   totalNumberOfBuyOrders
                   }
@@ -2333,12 +2333,12 @@ const fetchBuyOrders = async () => {
                         </td>
 
 
-                        <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         </td>
-                        <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -2353,35 +2353,35 @@ const fetchBuyOrders = async () => {
                         
 
 
-                        <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         </td>
-                        <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         </td>
 
 
-                        <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalAgentFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         </td>
-                        <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalAgentFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         </td>
 
-                        <td className="px-4 py-2 text-sm text-[#409192] font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                         </td>
-                        <td className="px-4 py-2 text-sm text-yellow-600 font-normal text-right"
+                        <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {Number(order.totalFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -2413,15 +2413,15 @@ const fetchBuyOrders = async () => {
                 © 2025 X-Ray. All rights reserved.
               </div>
               <div className="text-sm text-zinc-100">
-                <a href={`/${params.lang}/terms-of-service`} className="text-blue-500 hover:underline">
+                <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
                   이용약관
                 </a>
                 {' | '}
-                <a href={`/${params.lang}/privacy-policy`} className="text-blue-500 hover:underline">
+                <a href={`/${params.lang}/privacy-policy`} className="text-blue-400 hover:underline">
                   개인정보처리방침
                 </a>
                 {' | '}
-                <a href={`/${params.lang}/contact`} className="text-blue-500 hover:underline">
+                <a href={`/${params.lang}/contact`} className="text-blue-400 hover:underline">
                   고객센터
                 </a>
               </div>
@@ -2476,12 +2476,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2497,15 +2497,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2517,7 +2517,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2526,7 +2526,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

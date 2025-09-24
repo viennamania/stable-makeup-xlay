@@ -352,7 +352,7 @@ const CenterConsole = () => {
 
               <div className="
               flex flex-col items-end justify-center
-              text-lg font-normal text-[#409192]"
+              text-lg font-normal text-green-400"
               style={{ fontFamily: "monospace" }}
               >
                 {Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -384,7 +384,7 @@ const CenterConsole = () => {
             <div className="flex flex-col gap-2 justify-center items-center">
               {/* if pol balance is 0, comment out the text */}
               {nativeBalance < 0.0001 && (
-                <p className="text-sm text-red-500">
+                <p className="text-sm text-red-400">
                   가스비용이 부족합니다.<br/>가스비용이 부족하면<br/>입금은 가능하지만<br/>출금은 불가능합니다.
                 </p>
               )}

@@ -1389,7 +1389,7 @@ export default function SettingsPage({ params }: any) {
                                             {/* error message */}
                                             {errorMsgForSetSeller && (
                                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                                    <span className='text-sm font-normal text-red-500'>
+                                                    <span className='text-sm font-normal text-red-400'>
                                                         {errorMsgForSetSeller}
                                                     </span>
                                                 </div>

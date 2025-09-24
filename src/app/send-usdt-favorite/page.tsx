@@ -771,7 +771,7 @@ export default function SendUsdt() {
                         {/* dot icon */}
                         <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
 
-                        <div className="text-red-500">
+                        <div className="text-red-400">
                           This address is not white listed. <br />
                           If you are sure, please click the send button.
                         </div>

@@ -2628,7 +2628,7 @@ export default function Index({ params }: any) {
                 )}
 
 
-                <p className="text-lg text-red-500 font-normal">
+                <p className="text-lg text-red-400 font-normal">
                   {
                   totalNumberOfBuyOrders
                   }
@@ -2791,7 +2791,7 @@ export default function Index({ params }: any) {
                         
                         <tr key={index} className={`
                           ${
-                            index % 2 === 0 ? 'bg-zinc-100' : 'bg-zinc-200'
+                            index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
                           }
                         `}>
 
@@ -3002,7 +3002,7 @@ export default function Index({ params }: any) {
                                     판매자확정
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                  <span className="text-sm text-red-500">
+                                  <span className="text-sm text-red-400">
                                     결제요청
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
@@ -3010,7 +3010,7 @@ export default function Index({ params }: any) {
                                     결제완료
                                   </span>
                                 ) : item?.buyOrderStatus === 'cancelled' ? (
-                                  <span className="text-sm text-red-500">
+                                  <span className="text-sm text-red-400">
                                     거래취소
                                   </span>
                                 ) : ''
@@ -3030,7 +3030,7 @@ export default function Index({ params }: any) {
                                {/*
                                <div className="w-full flex flex-col items-center justify-center gap-2">
  
-                                 <span className="text-lg text-[#409192]"
+                                 <span className="text-lg text-green-400"
                                    style={{ fontFamily: 'monospace' }}
                                  >
                                    {usdtBalance[index] ?
@@ -3305,12 +3305,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3326,15 +3326,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3346,7 +3346,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3355,7 +3355,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

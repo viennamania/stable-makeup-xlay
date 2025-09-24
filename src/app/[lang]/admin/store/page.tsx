@@ -2291,7 +2291,7 @@ export default function Index({ params }: any) {
 
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">검색수량</div>
+                  <div className="text-sm text-zinc-500">검색수량</div>
                   <div className="flex flex-row items-center gap-2 text-lg font-normal text-zinc-500">
                     {
 
@@ -2511,7 +2511,7 @@ export default function Index({ params }: any) {
                   )}
 
 
-                  <p className="text-lg text-red-500 font-normal">
+                  <p className="text-lg text-red-400 font-normal">
                     {
                     totalNumberOfBuyOrders
                     }
@@ -2788,14 +2788,15 @@ export default function Index({ params }: any) {
                     </thead>
 
                     {/* if my trading, then tr has differenc color */}
+                    {/* dark mode tr even: bg-zinc-700 odd: bg-zinc-600 */}
                     <tbody>
 
                       {allStore?.map((item, index) => (
 
-                        
+
                         <tr key={index} className={`
                           ${
-                            index % 2 === 0 ? 'bg-zinc-100' : 'bg-zinc-200'
+                            index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
                           }
                         `}>
 
@@ -2827,7 +2828,7 @@ export default function Index({ params }: any) {
 
                                   />
                                   <div className="flex flex-col items-start justify-center gap-1">
-                                    <span className="text-sm font-bold text-gray-700">
+                                    <span className="text-sm font-bold text-zinc-100">
                                       {item.storeName.length > 8 ? item.storeName.slice(0, 8) + '...' : item.storeName}
                                     </span>
                                     <button
@@ -2835,7 +2836,7 @@ export default function Index({ params }: any) {
                                         navigator.clipboard.writeText(item.storecode);
                                         toast.success('가맹점 코드가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-zinc-100 hover:text-blue-500
+                                      className="text-sm text-zinc-100 hover:text-blue-400
                                       hover:underline"
                                     >
                                       {item.storecode}
@@ -2923,14 +2924,14 @@ export default function Index({ params }: any) {
                                     item.totalBuyerCount ? item.totalBuyerCount : 0
                                   }{' '}명
                                 </span>
-                                <span className="text-lg text-red-500">
+                                <span className="text-lg text-red-400">
                                   {
                                     item.totalBlackBuyerCount ? item.totalBlackBuyerCount : 0
                                   }{' '}명
                                 </span>
                               </div>
                               
-                              <span className="text-lg text-yellow-600">
+                              <span className="text-lg text-yellow-500">
                                 {
                                   item.maxPaymentAmountKRW ? Number(item.maxPaymentAmountKRW.toFixed(0)).toLocaleString('ko-KR') : 0
                                 }
@@ -2994,7 +2995,7 @@ export default function Index({ params }: any) {
                                     toast.success('복사되었습니다');
                                   }
                                 }
-                                className="text-sm text-blue-500 hover:underline"
+                                className="text-sm text-blue-400 hover:underline"
                                 >
                                   회원 복사
                                 </button>
@@ -3005,7 +3006,7 @@ export default function Index({ params }: any) {
                                   }
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-500 hover:underline"
+                                  className="text-sm text-blue-400 hover:underline"
                                 >
                                   회원용 홈페이지
                                 </a>
@@ -3018,7 +3019,7 @@ export default function Index({ params }: any) {
                                     toast.success('복사되었습니다');
                                   }
                                 }
-                                className="text-sm text-blue-500 hover:underline"
+                                className="text-sm text-blue-400 hover:underline"
                                 >
                                   관리자 복사
                                 </button>
@@ -3029,7 +3030,7 @@ export default function Index({ params }: any) {
                                   }
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-500 hover:underline"
+                                  className="text-sm text-blue-400 hover:underline"
                                 >
                                   관리자용 홈페이지
                                 </a>
@@ -3053,17 +3054,20 @@ export default function Index({ params }: any) {
                                 {/* 판매자 통장 */}
                                 {item?.bankInfo ? (
                                   <div className="flex flex-col xl:flex-row items-center gap-2">
-                                  {
-                                    item?.bankInfo?.bankName
-                                  }
-                                  {' '}
-                                  {
-                                    item?.bankInfo?.accountHolder
-                                  }
+                                    <span className="text-sm text-zinc-100">
+                                      {
+                                        item?.bankInfo?.bankName
+                                      }
+                                    </span>
+                                    <span className="text-sm text-zinc-100">
+                                      {
+                                        item?.bankInfo?.accountHolder
+                                      }
+                                  </span>
                                   </div>
                                 ) : (
                                   <div className="flex flex-col xl:flex-row items-center gap-2">
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                       판매자 원화통장 없음
                                     </span>
                                     {/*
@@ -3096,13 +3100,13 @@ export default function Index({ params }: any) {
                                         toast.success('복사되었습니다');
                                       }
                                     }
-                                    className="text-sm text-blue-500 hover:underline"
+                                    className="text-sm text-blue-400 hover:underline"
                                     >
                                       {item.sellerWalletAddress.substring(0, 6) + '...' + item.sellerWalletAddress.substring(item.sellerWalletAddress.length - 4)
                                       }
                                     </button>
                                   ) : (
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                       판매자 USDT지갑 없음
                                     </span>
                                   )
@@ -3136,7 +3140,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex flex-col items-end gap-2">
 
-                                    <span className="text-sm text-yellow-600"
+                                    <span className="text-sm text-yellow-500"
                                       style={{ fontFamily: 'monospace' }}
                                     >
                                       {
@@ -3152,7 +3156,7 @@ export default function Index({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-sm text-[#409192]"
+                                      <span className="text-sm text-green-400"
                                         style={{ fontFamily: 'monospace' }}
                                       >
                                         {
@@ -3208,7 +3212,7 @@ export default function Index({ params }: any) {
                                           toast.success('복사되었습니다');
                                         }
                                       }
-                                      className="text-sm text-blue-500 hover:underline"
+                                      className="text-sm text-blue-400 hover:underline"
                                       >
                                         {item.settlementFeeWalletAddress.substring(0, 6) + '...'
                                         }
@@ -3224,7 +3228,7 @@ export default function Index({ params }: any) {
                                     </div>
 
                                   ) : (
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                       가맹점 수수료 USDT지갑 없음
                                     </span>
                                   )}
@@ -3242,13 +3246,13 @@ export default function Index({ params }: any) {
                                       }
                                     }
                                     // underline text
-                                    className="text-sm text-blue-500 hover:underline"
+                                    className="text-sm text-blue-400 hover:underline"
                                     >
                                       {item.agentFeeWalletAddress?.substring(0, 6) + '...'
                                       }
                                     </button>
                                   ) : (
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                       에이전트 USDT지갑 없음
                                     </span>
                                   )}
@@ -3287,7 +3291,7 @@ export default function Index({ params }: any) {
                                 <div className="w-full flex flex-row items-start justify-center gap-2">
 
                                   <div className="w-full flex flex-col items-end gap-2">
-                                    <span className="text-sm text-yellow-600"
+                                    <span className="text-sm text-yellow-500"
                                       style={{ fontFamily: 'monospace' }}
                                     >
                                       {
@@ -3303,7 +3307,7 @@ export default function Index({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-sm text-[#409192]"
+                                      <span className="text-sm text-green-400"
                                         style={{ fontFamily: 'monospace' }}
                                       >
                                         {
@@ -3317,7 +3321,7 @@ export default function Index({ params }: any) {
 
                                   <div className="w-full flex flex-col items-end gap-2">
 
-                                    <span className="text-sm text-yellow-600"
+                                    <span className="text-sm text-yellow-500"
                                       style={{ fontFamily: 'monospace' }}
                                     >
                                       {
@@ -3333,7 +3337,7 @@ export default function Index({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-sm text-[#409192]"
+                                      <span className="text-sm text-green-400"
                                         style={{ fontFamily: 'monospace' }}
                                       >
                                         {
@@ -3343,7 +3347,7 @@ export default function Index({ params }: any) {
                                       </span>
                                     </div>
 
-                                    <span className="text-sm text-yellow-600"
+                                    <span className="text-sm text-yellow-500"
                                       style={{ fontFamily: 'monospace' }}
                                     >
                                       {
@@ -3359,7 +3363,7 @@ export default function Index({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-sm text-[#409192]"
+                                      <span className="text-sm text-green-400"
                                         style={{ fontFamily: 'monospace' }}
                                       >
                                         {
@@ -3432,7 +3436,7 @@ export default function Index({ params }: any) {
 
                                   <div className="w-full flex flex-col items-end justify-center gap-2">
                         
-                                    <span className="text-sm text-yellow-600"
+                                    <span className="text-sm text-yellow-500"
                                       style={{ fontFamily: 'monospace' }}
                                     >
                                       {
@@ -3448,7 +3452,7 @@ export default function Index({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-sm text-[#409192]"
+                                      <span className="text-sm text-green-400"
                                         style={{ fontFamily: 'monospace' }}
                                       >
                                         {
@@ -3512,7 +3516,7 @@ export default function Index({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                   />
-                                  <span className="text-xl text-[#409192]"
+                                  <span className="text-xl text-green-400"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {item?.escrowAmountUSDT ? item?.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}
@@ -3530,13 +3534,13 @@ export default function Index({ params }: any) {
                                         );
                                         toast.success('결제용 USDT지갑주소가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-blue-500 hover:underline"
+                                      className="text-sm text-blue-400 hover:underline"
                                     >
                                       { item.settlementWalletAddress.substring(0, 6) + '...' + item.settlementWalletAddress.substring(item.settlementWalletAddress.length - 4)
                                       }
                                     </button>
                                   ) : (
-                                    <span className="text-sm text-red-500">
+                                    <span className="text-sm text-red-400">
                                       결제용 USDT지갑 없음
                                     </span>
                                   )}
@@ -3551,14 +3555,14 @@ export default function Index({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                   />
-                                  <span className="text-lg text-[#409192]"
+                                  <span className="text-lg text-green-400"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {item?.usdtBalance ? item?.usdtBalance.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}
                                   </span>
                                 </div>
 
-                                <span className="text-lg text-[#409192]"
+                                <span className="text-lg text-green-400"
                                   style={{ fontFamily: 'monospace' }}
                                 >
                                   {item?.nativeBalance ? item?.nativeBalance.toFixed(3).toLocaleString('us-US') : 0}{' '}ETH
@@ -3766,12 +3770,12 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-gray-700">
+          <div className="flex justify-between text-zinc-100">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3787,15 +3791,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-gray-700">
+          <div className="mt-4 text-zinc-100">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-gray-700">
+        <div className="mt-6 border-t pt-4 text-zinc-100">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-gray-700">I want to pay</label>
+              <label className="block text-zinc-100">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3807,7 +3811,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">I will receive</label>
+              <label className="block text-zinc-100">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3816,7 +3820,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-gray-700">Commission</label>
+              <label className="block text-zinc-100">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
