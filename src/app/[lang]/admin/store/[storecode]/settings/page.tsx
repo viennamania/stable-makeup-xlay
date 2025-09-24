@@ -2486,7 +2486,7 @@ export default function SettingsPage({ params }: any) {
                                         //value={store?.adminWalletAddress}
                                         onChange={(e) => setSelectedAdminWalletAddress(e.target.value)}
                                         className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                            bg-white text-zinc-100 text-sm"
+                                            bg-zinc-800 text-zinc-100 text-sm"
                                         disabled={updatingAdminWalletAddress}
                                         >
                                         <option value="">가맹점 관리자용 지갑주소 변경</option>
@@ -2612,7 +2612,7 @@ export default function SettingsPage({ params }: any) {
                                     //value={store?.settlementWalletAddress}
                                     onChange={(e) => setSelectedSettlementWalletAddress(e.target.value)}
                                     className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                        bg-white text-zinc-100 text-sm"
+                                        bg-zinc-800 text-zinc-100 text-sm"
                                     disabled={updatingSettlementWalletAddress}
                                     >
                                     <option value="">가맹점 자동결제용 USDT지갑 변경</option>
@@ -2758,7 +2758,7 @@ export default function SettingsPage({ params }: any) {
                                             //value={store?.settlementFeeWalletAddress}
                                             onChange={(e) => setSelectedSettlementFeeWalletAddress(e.target.value)}
                                             className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                                bg-white text-zinc-100 text-sm"
+                                                bg-zinc-800 text-zinc-100 text-sm"
                                             disabled={updatingSettlementFeeWalletAddress}
                                             >
                                             <option value="">가맹점 PG 수수료 수납용 USDT지갑 변경</option>
@@ -2984,7 +2984,7 @@ export default function SettingsPage({ params }: any) {
                                     ///value={store?.sellerWalletAddress}
                                     onChange={(e) => setSelectedSellerWalletAddress(e.target.value)}
                                     className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                        bg-white text-zinc-100 text-sm"
+                                        bg-zinc-800 text-zinc-100 text-sm"
                                     disabled={updatingSellerWalletAddress}
                                     >
                                     <option value="">P2P 거래소 판매용 USDT지갑 변경</option>
@@ -3047,7 +3047,7 @@ export default function SettingsPage({ params }: any) {
                                     //value={store?.settlementWalletAddress}
                                     onChange={(e) => setSelectedSellerWalletAddress(e.target.value)}
                                     className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                        bg-white text-zinc-100 text-sm"
+                                        bg-zinc-800 text-zinc-100 text-sm"
                                     disabled={updatingSellerWalletAddress}
                                     >
                                     <option value="">P2P 거래소 판매용 USDT지갑 변경</option>
@@ -3459,14 +3459,14 @@ export default function SettingsPage({ params }: any) {
                             };
                             */  }
                         {/* 가맹점 결제용 통장 설정 */}
+                        {/*
                         <div className='w-full flex flex-col items-start justify-center gap-2
                             border border-gray-400 p-4 rounded-lg'>
 
                             <div className='w-full flex flex-col items-center justify-between gap-2
                                 border-b border-gray-300 pb-2'>
 
-                                {/* store payactionKey */}
-                                
+
                                 <div className="w-full flex flex-row items-center justify-start gap-2
                                     border-b border-gray-300 pb-2">
                                     <Image
@@ -3484,7 +3484,6 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-full flex flex-col items-start gap-2'>
                                     
                                     <div className='flex flex-row items-center justify-center gap-2'>
-                                        {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
                                         <span className="text-lg text-zinc-100">
                                         payactionApiKey:{' '}{store && store.payactionKey && store.payactionKey.payactionApiKey}
@@ -3506,7 +3505,6 @@ export default function SettingsPage({ params }: any) {
                                     </div>
                                 </div>
 
-                                {/* divider */}
                                 <div className='w-full h-[1px] bg-zinc-300'></div>
 
                                 <div className='w-64 flex flex-col items-center justify-center gap-2'>
@@ -3556,7 +3554,6 @@ export default function SettingsPage({ params }: any) {
                                     </button>
 
                                     <div className='mt-2 w-full flex flex-col items-center justify-center gap-2'>
-                                        {/* button for reset update */}
                                         <span className="text-sm text-red-400">
                                             자동입금기능을 사용하지 않을 경우 <br />
                                             아래 버튼을 눌러 초기화 해주세요.
@@ -3578,6 +3575,7 @@ export default function SettingsPage({ params }: any) {
                                 </div>
                             </div>
                         </div>
+                        */}
                     
 
                         
@@ -3712,7 +3710,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='w-full flex flex-row items-center justify-between'>
                                         <input
                                             type="text"
-                                            className="flex-1 bg-white text-zinc-100 rounded-lg p-2 text-sm"
+                                            className="flex-1 bg-zinc-800 text-zinc-100 rounded-lg p-2 text-sm"
                                             placeholder="가맹점 결제 상한 금액(KRW)을 입력하세요"
                                             value={maxPaymentAmountKRW}
                                             onChange={(e) => {
