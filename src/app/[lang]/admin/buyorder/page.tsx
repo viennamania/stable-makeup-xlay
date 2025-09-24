@@ -6299,16 +6299,8 @@ const fetchBuyOrders = async () => {
                           <button
                             className="
                               flex flex-row gap-2 items-center justify-between
-                              text-sm text-green-400 font-normal
+                              bg-zinc-800 text-zinc-100
                               border border-[#409192] rounded-lg p-2
-                              bg-blue-100
-                              text-center
-                              hover:bg-blue-200
-                              cursor-pointer
-                              transition-all duration-200 ease-in-out
-                              hover:scale-105
-                              hover:shadow-lg
-                              hover:shadow-blue-500/50
                             "
                             onClick={() => {
                               let url = '';
@@ -6347,7 +6339,8 @@ const fetchBuyOrders = async () => {
                                       {item?.usdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                     </span>
                                   </div>
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm">
+                                    TXID: {item?.transactionHash.slice(0, 5) + '...' + item?.transactionHash.slice(-4)}<br />
                                     테더(USDT) 전송내역
                                   </span>
                                 </div>

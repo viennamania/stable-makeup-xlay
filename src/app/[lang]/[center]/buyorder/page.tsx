@@ -6833,16 +6833,8 @@ const fetchBuyOrders = async () => {
                             <button
                               className="
                                 flex flex-row gap-2 items-center justify-between
-                                text-sm text-blue-500 font-normal
-                                border border-blue-600 rounded-lg p-2
-                                bg-blue-100
-                                w-full text-center
-                                hover:bg-blue-200
-                                cursor-pointer
-                                transition-all duration-200 ease-in-out
-                                hover:scale-105
-                                hover:shadow-lg
-                                hover:shadow-blue-500/50
+                                bg-zinc-800 text-zinc-100
+                                border border-[#409192] rounded-lg p-2
                               "
                               onClick={() => {
                                 let url = '';
