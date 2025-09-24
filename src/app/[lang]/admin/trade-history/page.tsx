@@ -3119,7 +3119,7 @@ const fetchBuyOrders = async () => {
                   type="date"
                   value={searchFromDate}
                   onChange={(e) => setSearchFormDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                 />
               </div>
 
@@ -3135,7 +3135,7 @@ const fetchBuyOrders = async () => {
                   type="date"
                   value={searchToDate}
                   onChange={(e) => setSearchToDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                 />
               </div>
 
@@ -3184,7 +3184,7 @@ const fetchBuyOrders = async () => {
                     value={searchBuyer}
                     onChange={(e) => setSearchBuyer(e.target.value)}
                     placeholder="회원 아이디"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   />
                 </div>
 
@@ -3194,7 +3194,7 @@ const fetchBuyOrders = async () => {
                     value={searchDepositName}
                     onChange={(e) => setSearchDepositName(e.target.value)}
                     placeholder="입금자명"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   />
                 </div>
 
@@ -3205,7 +3205,7 @@ const fetchBuyOrders = async () => {
                     value={searchStoreBankAccountNumber}
                     onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                     placeholder="구매자 통장번호"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   /> 
                 </div>
                 */}
@@ -3217,7 +3217,7 @@ const fetchBuyOrders = async () => {
                     value={searchStoreBankAccountNumber}
                     onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                     placeholder="판매자 통장번호"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   /> 
                 </div>
 
@@ -4149,7 +4149,7 @@ const fetchBuyOrders = async () => {
                               {item.status === 'cancelled' && (
                                 <div className="flex flex-row gap-1 items-start justify-start">
 
-                                    <div className="text-sm text-red-600">
+                                    <div className="text-sm text-red-500">
                                       {
                                         Cancelled_at
                                       }

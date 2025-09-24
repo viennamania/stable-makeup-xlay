@@ -2054,7 +2054,7 @@ const fetchBuyOrders = async () => {
               <div className="w-full flex justify-start items-center gap-2">
                   <button
                       onClick={() => window.history.back()}
-                      className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                      className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                       <Image
                           src="/icon-back.png"
                           alt="Back"
@@ -2512,7 +2512,7 @@ const fetchBuyOrders = async () => {
                                 {item.status === 'cancelled' && (
                                   <div className="flex flex-row gap-1 items-start justify-start">
  
-                                      <div className="text-sm text-red-600">
+                                      <div className="text-sm text-red-500">
                                         {
                                           Cancelled_at
                                         }

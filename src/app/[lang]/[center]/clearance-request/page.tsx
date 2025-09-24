@@ -3812,7 +3812,7 @@ const [tradeSummary, setTradeSummary] = useState({
                           value={searchBuyer}
                           onChange={(e) => setSearchBuyer(e.target.value)}
                           placeholder="회원아이디"
-                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                         />
 
                       </div>
@@ -3824,7 +3824,7 @@ const [tradeSummary, setTradeSummary] = useState({
                           value={searchDepositName}
                           onChange={(e) => setSearchDepositName(e.target.value)}
                           placeholder="입금자명"
-                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                         />
                       </div>
                       */}
@@ -4165,7 +4165,7 @@ const [tradeSummary, setTradeSummary] = useState({
                             '&fromDate=' + e.target.value + '&toDate=' + searchToDate
                           );
                         }}
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
                     </div>
 
@@ -4190,7 +4190,7 @@ const [tradeSummary, setTradeSummary] = useState({
                             '&fromDate=' + searchFromDate + '&toDate=' + e.target.value
                           );
                         }}
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
                     </div>
                   </div>
@@ -4223,7 +4223,7 @@ const [tradeSummary, setTradeSummary] = useState({
                       value={searchWithdrawDepositName}
                       onChange={(e) => setSearchWithdrawDepositName(e.target.value)}
                       placeholder="입금자명"
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
                   {/*
@@ -4689,7 +4689,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                         {item.seller?.nickname}
                                       </span>
 
-                                      <div className="text-lg text-red-600 font-normal">
+                                      <div className="text-lg text-red-500 font-normal">
                                         {
                                           Cancelled_at
                                         }
@@ -4883,7 +4883,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                                 )}
                                 {item.status === 'cancelled' && (
-                                  <div className="text-sm text-red-600">
+                                  <div className="text-sm text-red-500">
                                     
                                   </div>
                                 )}
@@ -5191,7 +5191,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                 <>   
                                   {item?.buyer?.depositCompleted !== true
                                   ? (
-                                    <div className="text-sm text-red-600
+                                    <div className="text-sm text-red-500
                                     flex flex-row items-center gap-2
                                     border border-red-600
                                     rounded-md px-2 py-1">

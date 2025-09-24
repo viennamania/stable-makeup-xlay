@@ -2099,7 +2099,7 @@ export default function Index({ params }: any) {
                         '/' + params.lang + '/' + params.center
                       )}
 
-                      className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                      className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                       <Image
                           src="/icon-home.png"
                           alt="Back"
@@ -2718,7 +2718,7 @@ export default function Index({ params }: any) {
                                         {item.seller?.nickname}
                                       </span>
 
-                                      <div className="text-sm text-red-600">
+                                      <div className="text-sm text-red-500">
                                         {
                                           Cancelled_at
                                         }

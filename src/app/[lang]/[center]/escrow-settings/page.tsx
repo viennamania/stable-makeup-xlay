@@ -1021,7 +1021,7 @@ export default function SettingsPage({ params }: any) {
                     <div className="w-full flex justify-start items-center gap-2">
                         <button
                             onClick={() => window.history.back()}
-                            className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                            className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                             <Image
                                 src="/icon-back.png"
                                 alt="Back"

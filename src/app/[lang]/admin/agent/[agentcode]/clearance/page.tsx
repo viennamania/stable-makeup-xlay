@@ -1565,7 +1565,7 @@ export default function Index({ params }: any) {
                 {/*
                 <button
                     onClick={() => window.history.back()}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                    className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                     <Image
                         src="/icon-back.png"
                         alt="Back"
@@ -1578,7 +1578,7 @@ export default function Index({ params }: any) {
                 {/* windows back button */}
                 <button
                     onClick={() => window.history.back()}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                    className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                     <Image
                         src="/icon-back.png"
                         alt="Back"

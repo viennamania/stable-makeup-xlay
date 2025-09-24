@@ -3650,7 +3650,7 @@ const fetchBuyOrders = async () => {
 
 
 
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   >
                     <option value="">전체</option>
                     {allStores && allStores.map((item, index) => (
@@ -4282,7 +4282,7 @@ const fetchBuyOrders = async () => {
                                 </div>
 
                                 <button
-                                  className="text-sm text-red-600 font-normal
+                                  className="text-sm text-red-500 font-normal
                                     border border-red-600 rounded-lg p-2
                                     bg-red-100
                                     w-full text-center
@@ -4534,7 +4534,7 @@ const fetchBuyOrders = async () => {
                               <div className="flex flex-col gap-2 items-start justify-start">
 
                                   {/*
-                                  <div className="text-lg text-red-600 font-normal
+                                  <div className="text-lg text-red-500 font-normal
                                     border border-red-600 rounded-lg p-2
                                     bg-red-100
                                     w-full text-center
@@ -4545,7 +4545,7 @@ const fetchBuyOrders = async () => {
                                   </div>
                                   */}
                                   <button
-                                    className="text-sm text-red-600 font-normal
+                                    className="text-sm text-red-500 font-normal
                                       border border-red-600 rounded-lg p-2
                                       bg-red-100
                                       w-full text-center
@@ -4895,7 +4895,7 @@ const fetchBuyOrders = async () => {
                               </div>
 
                               {item.status === 'cancelled' && (
-                                <div className="text-sm text-red-600">
+                                <div className="text-sm text-red-500">
                                   {item.cancelTradeReason ? item.cancelTradeReason :
                                     "거래취소사유 없음"
                                   }
@@ -4953,7 +4953,7 @@ const fetchBuyOrders = async () => {
                                       <button
                                         disabled={cancellings[index] || !agreementForCancelTrade[index]}
                     
-                                        className="text-sm text-red-600 font-normal
+                                        className="text-sm text-red-500 font-normal
                                           border border-red-600 rounded-lg p-2
                                           bg-red-100
                                           w-full text-center
@@ -5005,7 +5005,7 @@ const fetchBuyOrders = async () => {
                                 )}
 
                                 {item.status === 'cancelled' && (
-                                  <div className="text-sm text-red-600">
+                                  <div className="text-sm text-red-500">
                                     {item.cancelTradeReason ? item.cancelTradeReason :
                                       "거래취소사유 없음"
                                     }
@@ -5153,7 +5153,7 @@ const fetchBuyOrders = async () => {
                                           height={20}
                                           className="w-5 h-5"
                                         />
-                                        <span className="text-sm text-red-600 font-normal">
+                                        <span className="text-sm text-red-500 font-normal">
                                           결제은행정보 없음
                                         </span>
                                       </div>
@@ -5715,7 +5715,7 @@ const fetchBuyOrders = async () => {
                                       w-32
                                       flex flex-col gap-2 items-center justify-center
                                       
-                                      bg-red-100 text-red-600 px-2 py-1 rounded-md hover:bg-red-200
+                                      bg-red-100 text-red-500 px-2 py-1 rounded-md hover:bg-red-200
 
                                       text-sm
                                       transition duration-300 ease-in-out

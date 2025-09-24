@@ -766,7 +766,7 @@ export default function SendUsdt({ params }: any) {
             <div className="w-full flex justify-start items-center gap-2">
                 <button
                     onClick={() => window.history.back()}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                    className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                     <Image
                         src="/icon-back.png"
                         alt="Back"
@@ -1292,7 +1292,7 @@ export default function SendUsdt({ params }: any) {
 
                                 <span className="font-normal text-lg">
                                   {transfer.sendOrReceive === "send" ? (
-                                    <span className="text-red-600">출금</span>
+                                    <span className="text-red-500">출금</span>
                                   ) : (
                                     <span className="text-green-400">입금</span>
                                   )}
@@ -1306,20 +1306,20 @@ export default function SendUsdt({ params }: any) {
                                 {transfer.sendOrReceive === "send" ? (
 
                                   <div className='flex flex-col gap-1'>
-                                    <span className="text-red-600">
+                                    <span className="text-red-500">
                                       받은 사람
                                     </span>
                                     {transfer?.toUser?.nickname && (
-                                      <span className="text-red-600">
+                                      <span className="text-red-500">
                                         {transfer?.toUser?.nickname}
                                       </span>
                                     )}
-                                    <span className="text-red-600 text-sm">
+                                    <span className="text-red-500 text-sm">
                                       {transfer.transferData.toAddress.slice(0, 6) + '...'}
                                     </span>
                                     {/*
                                     {transfer.isEscrowTransfer && (
-                                      <span className="text-red-600 text-xs">
+                                      <span className="text-red-500 text-xs">
                                         에스크로 지갑으로 출금됨
                                       </span>
                                     )}

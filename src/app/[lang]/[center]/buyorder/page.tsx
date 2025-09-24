@@ -4102,7 +4102,7 @@ const fetchBuyOrders = async () => {
                           height={20}
                           className="w-5 h-5"
                         />
-                        <span className="text-lg text-red-600 font-normal"
+                        <span className="text-lg text-red-500 font-normal"
                           style={{ fontFamily: 'monospace' }}
                         >
                           {
@@ -4381,7 +4381,7 @@ const fetchBuyOrders = async () => {
                       type="date"
                       value={searchFromDate}
                       onChange={(e) => setSearchFormDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
 
@@ -4399,7 +4399,7 @@ const fetchBuyOrders = async () => {
                       type="date"
                       value={searchToDate}
                       onChange={(e) => setSearchToDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
 
@@ -4449,7 +4449,7 @@ const fetchBuyOrders = async () => {
                         value={searchBuyer}
                         onChange={(e) => setSearchBuyer(e.target.value)}
                         placeholder="회원 아이디"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
                     </div>
 
@@ -4459,7 +4459,7 @@ const fetchBuyOrders = async () => {
                         value={searchDepositName}
                         onChange={(e) => setSearchDepositName(e.target.value)}
                         placeholder="입금자명"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
                     </div>
 
@@ -4470,7 +4470,7 @@ const fetchBuyOrders = async () => {
                         value={searchStoreBankAccountNumber}
                         onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                         placeholder="구매자 통장번호"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       /> 
                     </div>
 
@@ -5568,7 +5568,7 @@ const fetchBuyOrders = async () => {
                                 </div>
 
                                 <button
-                                  className="text-sm text-red-600 font-normal
+                                  className="text-sm text-red-500 font-normal
                                     border border-red-600 rounded-lg p-2
                                     bg-red-100
                                     w-full text-center
@@ -5792,7 +5792,7 @@ const fetchBuyOrders = async () => {
                             {item.status === 'cancelled' && (
                                 <div className="flex flex-col gap-2 items-start justify-start">
                                   <button
-                                    className="text-sm text-red-600 font-normal
+                                    className="text-sm text-red-500 font-normal
                                       border border-red-600 rounded-lg p-2
                                       bg-red-100
                                       w-full text-center
@@ -6219,7 +6219,7 @@ const fetchBuyOrders = async () => {
                                       <button
                                         disabled={cancellings[index] || !agreementForCancelTrade[index]}
                     
-                                        className="text-sm text-red-600 font-normal
+                                        className="text-sm text-red-500 font-normal
                                           border border-red-600 rounded-lg p-2
                                           bg-red-100
                                           w-full text-center
@@ -6279,7 +6279,7 @@ const fetchBuyOrders = async () => {
                                 {item.status === 'cancelled' && (
 
                                   <div className="w-full flex flex-col gap-2 items-center justify-center">
-                                    <span className="text-sm text-red-600">
+                                    <span className="text-sm text-red-500">
                                       {item.cancelTradeReason ? item.cancelTradeReason :
                                         "거래취소사유 없음"
                                       }
@@ -6430,7 +6430,7 @@ const fetchBuyOrders = async () => {
                                           height={20}
                                           className="w-5 h-5"
                                         />
-                                        <span className="text-sm text-red-600 font-normal">
+                                        <span className="text-sm text-red-500 font-normal">
                                           결제은행정보 없음
                                         </span>
                                       </div>
@@ -6823,7 +6823,7 @@ const fetchBuyOrders = async () => {
                           {item.status === 'cancelled' && (
 
                             <div className="w-full flex flex-col gap-2 items-center justify-center">
-                              <span className="text-sm text-red-600">
+                              <span className="text-sm text-red-500">
                                 {item.cancelTradeReason ? item.cancelTradeReason :
                                   "거래취소사유 없음"
                                 }
@@ -6941,7 +6941,7 @@ const fetchBuyOrders = async () => {
                           && (
                             <button
                               className={`
-                                ${item.status === 'cancelled' ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-zinc-100'}
+                                ${item.status === 'cancelled' ? 'bg-red-100 text-red-500' : 'bg-purple-100 text-zinc-100'}
                                 flex flex-row gap-2 items-center justify-between
                                 text-sm font-normal
                                 border border-purple-600 rounded-lg p-2

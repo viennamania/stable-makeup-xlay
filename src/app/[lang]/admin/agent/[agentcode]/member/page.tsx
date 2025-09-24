@@ -1826,7 +1826,7 @@ export default function Index({ params }: any) {
                       <select
                         value={searchStorecode}
                         onChange={(e) => setSearchStorecode(e.target.value)}
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       >
                         <option value="">전체</option>
                         {allStores && allStores.map((item, index) => (
@@ -1865,7 +1865,7 @@ export default function Index({ params }: any) {
                         value={searchBuyer}
                         onChange={(e) => setSearchBuyer(e.target.value)}
                         placeholder="회원 아이디"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
 
                       {/*
@@ -1891,7 +1891,7 @@ export default function Index({ params }: any) {
                         value={searchDepositName}
                         onChange={(e) => setSearchDepositName(e.target.value)}
                         placeholder="입금자명"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
 
                       {/*
@@ -2159,7 +2159,7 @@ export default function Index({ params }: any) {
                                   });
                                 }}
                                 placeholder="충전금액"
-                                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                               />
                             </div>
                           </td>

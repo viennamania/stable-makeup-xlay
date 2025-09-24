@@ -1532,7 +1532,7 @@ export default function Index({ params }: any) {
 
 
 
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   >
                     <option value="">
                       가맹점 선택

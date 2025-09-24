@@ -1748,7 +1748,7 @@ const fetchBuyOrders = async () => {
 
 
 
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     >
                       <option value="">전체</option>
 
@@ -1826,7 +1826,7 @@ const fetchBuyOrders = async () => {
                       type="date"
                       value={searchFromDate}
                       onChange={(e) => setSearchFormDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
 
@@ -1844,7 +1844,7 @@ const fetchBuyOrders = async () => {
                       type="date"
                       value={searchToDate}
                       onChange={(e) => setSearchToDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
                 </div>
@@ -1862,7 +1862,7 @@ const fetchBuyOrders = async () => {
                         value={searchBuyer}
                         onChange={(e) => setSearchBuyer(e.target.value)}
                         placeholder="회원 아이디"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
                     </div>
 
@@ -1872,7 +1872,7 @@ const fetchBuyOrders = async () => {
                         value={searchDepositName}
                         onChange={(e) => setSearchDepositName(e.target.value)}
                         placeholder="입금자명"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       />
                     </div>
 
@@ -1882,7 +1882,7 @@ const fetchBuyOrders = async () => {
                         value={searchStoreBankAccountNumber}
                         onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                         placeholder="입금통장번호"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                       /> 
                     </div>
 

@@ -1796,8 +1796,8 @@ export default function SettingsPage({ params }: any) {
                     <div className="w-full flex justify-start items-center gap-2">
                         <button
                             onClick={() => window.history.back()}
-                            className="flex items-center justify-center bg-gray-200 rounded-lg p-2
-                            hover:bg-gray-300 transition duration-200 ease-in-out"
+                            className="flex items-center justify-center bg-gray-700 rounded-lg p-2
+                            hover:bg-gray-600 transition duration-200 ease-in-out"
                         >
                             <Image
                                 src="/icon-back.png"
@@ -2005,7 +2005,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-col gap-2'>
                                         <input
                                             disabled={!address || settingStoreName}
-                                            className="bg-white text-zinc-100 rounded-lg p-2 text-sm"
+                                            className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
                                                 
                                             placeholder="가맹점 이름을 입력하세요"                                              
                                             value={storeName}
@@ -2057,7 +2057,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-row gap-2 items-center justify-between'>
                                     <input
                                         disabled={!address || writingStoreDescription}
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
                                         placeholder="가맹점 설명을 입력하세요"
                                         value={storeDescription}
                                         type='text'
@@ -2127,7 +2127,7 @@ export default function SettingsPage({ params }: any) {
                             <div className='
                             w-64 flex flex-col gap-2 items-center justify-between'>
                                 <select
-                                    className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                    className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                     value={backgroundColor}
                                     onChange={(e) => setBackgroundColor(e.target.value)}
                                 >
@@ -2234,7 +2234,7 @@ export default function SettingsPage({ params }: any) {
                                         {allAgents && allAgents.length > 0 && (
                                             <select
                                                 disabled={!address || updatingAgentcode}
-                                                className="bg-white text-zinc-100 rounded-lg p-2 text-sm"
+                                                className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
                                                 value={agentcode}
                                                 onChange={(e) => {
                                                     setAgentCode(e.target.value);
@@ -2285,7 +2285,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-col xl:flex-row gap-2 items-center justify-between'>
                                     <select
                                         disabled={!address || updatingAgentWFeeWalletAddress}
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
                                         value={selectedAgentFeeWalletAddress}
                                         onChange={(e) => {
                                             setSelectedAgentWFeeWalletAddress(e.target.value);
@@ -2333,7 +2333,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-row gap-2 items-center justify-between'>
                                     <input
                                         disabled={!address || updatingAgentFeePercent}
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
                                         placeholder="에이전트 수수료율을 입력하세요 (0.01 ~ 5.00)"
                                         value={agentFeePercent}
                                         type='number'
@@ -3239,7 +3239,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-64 flex flex-col gap-2 items-center justify-between'>
 
                                     <select
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         value={withdrawalBankName}
                                         onChange={(e) => setWithdrawalBankName(e.target.value)}
                                     >
@@ -3270,14 +3270,14 @@ export default function SettingsPage({ params }: any) {
                                     </select>
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="계좌번호"
                                         value={withdrawalAccountNumber}
                                         onChange={(e) => setWithdrawalAccountNumber(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="예금주"
                                         value={withdrawalAccountHolder}
                                         onChange={(e) => setWithdrawalAccountHolder(e.target.value)}
@@ -3372,7 +3372,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-64 flex flex-col gap-2 items-center justify-between'>
                                     
                                     <select
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         value={bankName}
                                         onChange={(e) => setBankName(e.target.value)}
                                     >
@@ -3404,14 +3404,14 @@ export default function SettingsPage({ params }: any) {
 
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="계좌번호"
                                         value={accountNumber}
                                         onChange={(e) => setAccountNumber(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="예금주"
                                         value={accountHolder}
                                         onChange={(e) => setAccountHolder(e.target.value)}
@@ -3513,14 +3513,14 @@ export default function SettingsPage({ params }: any) {
                                     
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="payactionApiKey"
                                         value={payactionApiKey}
                                         onChange={(e) => setPayactionApiKey(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="payactionWebhookKey"
                                         value={payactionWebhookKey}
                                         onChange={(e) => setPayactionWebhookKey(e.target.value)}
@@ -3529,7 +3529,7 @@ export default function SettingsPage({ params }: any) {
                                 
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="payactionShopId"
                                         value={payactionShopId}
                                         onChange={(e) => setPayactionShopId(e.target.value)}
@@ -3637,7 +3637,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <input
                                         type="text"
-                                        className="bg-white text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
                                         placeholder="결제 URL을 입력하세요"
                                         value={paymentUrl}
                                         onChange={(e) => setPaymentUrl(e.target.value)}

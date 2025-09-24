@@ -1271,7 +1271,7 @@ export default function Index({ params }: any) {
             <div className="w-full flex justify-start items-center gap-2">
                 <button
                     onClick={() => window.history.back()}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                    className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                     <Image
                         src="/icon-back.png"
                         alt="Back"
@@ -1569,7 +1569,7 @@ export default function Index({ params }: any) {
                     value={searchNickname}
                     onChange={(e) => setSearchNickname(e.target.value)}
                     placeholder="회원 검색"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   />
 
                   <button

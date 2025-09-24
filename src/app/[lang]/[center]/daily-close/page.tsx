@@ -1391,7 +1391,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg text-red-600 font-normal"
+                      <span className="text-lg text-red-500 font-normal"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1773,7 +1773,7 @@ export default function Index({ params }: any) {
                               </span>
                             ) : (
 
-                              <span className="text-red-600">
+                              <span className="text-red-500">
                                 출금대기
                               </span>
                             

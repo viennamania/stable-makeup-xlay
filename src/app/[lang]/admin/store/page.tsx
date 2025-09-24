@@ -2425,7 +2425,7 @@ export default function Index({ params }: any) {
                       type="date"
                       value={searchFromDate}
                       onChange={(e) => setSearchFromDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
 
@@ -2441,7 +2441,7 @@ export default function Index({ params }: any) {
                       type="date"
                       value={searchToDate}
                       onChange={(e) => setSearchToDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                     />
                   </div>
                 </div>

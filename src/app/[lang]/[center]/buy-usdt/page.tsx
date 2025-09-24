@@ -1317,7 +1317,7 @@ export default function Index({ params }: any) {
                                 )}
 
                                 {item.status === 'cancelled' && (
-                                  <div className="text-sm text-red-600">
+                                  <div className="text-sm text-red-500">
                                     {Cancelled_at}
                                   </div>
                                 )}

@@ -3598,7 +3598,7 @@ const [tradeSummary, setTradeSummary] = useState({
                     type="date"
                     value={searchFromDate}
                     onChange={(e) => setSearchFormDate(e.target.value)}
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   />
                 </div>
 
@@ -3616,7 +3616,7 @@ const [tradeSummary, setTradeSummary] = useState({
                     type="date"
                     value={searchToDate}
                     onChange={(e) => setSearchToDate(e.target.value)}
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                   />
                 </div>
               </div>
@@ -4128,7 +4128,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                       {item.seller?.nickname}
                                     </span>
 
-                                    <div className="text-sm text-red-600
+                                    <div className="text-sm text-red-500
                                       border border-red-600 rounded-lg p-2
                                     ">
                                       {
@@ -4319,7 +4319,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                               )}
                               {item.status === 'cancelled' && (
-                                <div className="text-sm text-red-600">
+                                <div className="text-sm text-red-500">
                                   
                                 </div>
                               )}
@@ -4628,7 +4628,7 @@ const [tradeSummary, setTradeSummary] = useState({
                               <>   
                                 {item?.buyer?.depositCompleted !== true
                                 ? (
-                                  <div className="text-sm text-red-600
+                                  <div className="text-sm text-red-500
                                   flex flex-row items-center gap-2
                                   border border-red-600
                                   rounded-md px-2 py-1">

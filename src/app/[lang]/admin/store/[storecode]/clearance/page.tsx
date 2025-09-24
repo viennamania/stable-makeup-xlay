@@ -1673,7 +1673,7 @@ export default function Index({ params }: any) {
                 {/*
                 <button
                     onClick={() => window.history.back()}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                    className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                     <Image
                         src="/icon-back.png"
                         alt="Back"
@@ -1686,7 +1686,7 @@ export default function Index({ params }: any) {
                 {/* windows back button */}
                 <button
                     onClick={() => window.history.back()}
-                    className="flex items-center justify-center bg-gray-200 rounded-full p-2">
+                    className="flex items-center justify-center bg-gray-700 rounded-full p-2">
                     <Image
                         src="/icon-back.png"
                         alt="Back"
@@ -2629,7 +2629,7 @@ export default function Index({ params }: any) {
                           type="date"
                           value={searchFromDate}
                           onChange={(e) => setSearchFormDate(e.target.value)}
-                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                         />
                       </div>
 
@@ -2647,7 +2647,7 @@ export default function Index({ params }: any) {
                           type="date"
                           value={searchToDate}
                           onChange={(e) => setSearchToDate(e.target.value)}
-                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                          className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
                         />
                       </div>
                     </div>
@@ -3307,7 +3307,7 @@ export default function Index({ params }: any) {
                                   {item?.buyer?.depositCompleted !== true
                                   ? (
                                     <div className="flex flex-col items-center justify-center gap-1">
-                                      <span className="text-sm text-red-600
+                                      <span className="text-sm text-red-500
                                         border border-red-600
                                         rounded-md px-2 py-1">
                                         출금대기중
