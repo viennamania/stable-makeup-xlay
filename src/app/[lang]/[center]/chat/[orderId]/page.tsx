@@ -3517,41 +3517,6 @@ export default function Index({ params }: any) {
 
 
 
-          {/* footer */}
-            {/* 이용약관 / 개인정보처리방침 / 고객센터 */}
-            <div className="
-              w-full
-              flex flex-col items-center justify-center mt-10 mb-10
-              bg-white shadow-lg rounded-lg p-6
-              border border-gray-200
-              ">
-              <div className="flex flex-row items-center justify-center gap-2">
-                <a
-                  href="#"
-                  className="text-sm text-zinc-500 hover:text-blue-400"
-                >
-                  이용약관
-                </a>
-                <span className="text-sm text-zinc-500">|</span>
-                <a
-                  href="#"
-                  className="text-sm text-zinc-500 hover:text-blue-400"
-                >
-                  개인정보처리방침
-                </a>
-                <span className="text-sm text-zinc-500">|</span>
-                <a
-                  href="#"
-                  className="text-sm text-zinc-500 hover:text-blue-400"
-                >
-                  고객센터
-                </a>
-              </div>
-              <div className="text-sm text-zinc-500 mt-2">
-                © 2025 X-Ray. All rights reserved.
-              </div>
-
-            </div>
 
 
 
