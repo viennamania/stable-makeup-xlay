@@ -3084,7 +3084,7 @@ const fetchBuyOrders = async () => {
                   </div>
 
                   <div className="flex flex-row gap-2 items-center">
-                    <span className="text-sm text-zinc-500 font-normal">
+                    <span className="text-sm ">
                       오늘 수수료 차감량
                     </span>
                     <div className="
@@ -3541,7 +3541,7 @@ const fetchBuyOrders = async () => {
 
               <div className="flex flex-col xl:flex-row items-center justify-between gap-2
                 w-full
-                bg-zinc-200
+                bg-zinc-600 backdrop-blur-sm
                 p-4 rounded-lg shadow-md
                 ">
 
@@ -3739,7 +3739,12 @@ const fetchBuyOrders = async () => {
 
                 <div className="w-full overflow-x-auto">
 
-                  <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
 
                     <thead
                       className="bg-zinc-600 text-sm font-normal"
@@ -3812,7 +3817,7 @@ const fetchBuyOrders = async () => {
                               flex flex-col gap-2 items-center justify-center">
 
                               <div className="flex flex-col gap-2 items-center justify-center">
-                                <span className="text-sm text-zinc-500 font-normal">
+                                <span className="text-sm">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('ko-KR', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -3820,7 +3825,7 @@ const fetchBuyOrders = async () => {
                                   })}
                                 </span>
 
-                                <span className="text-sm text-zinc-500 font-normal">
+                                <span className="text-sm">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('en-US', {
 
                                     hour: '2-digit',
@@ -3831,7 +3836,7 @@ const fetchBuyOrders = async () => {
 
                               </div>
 
-                              <span className="text-sm text-zinc-500 font-normal">
+                              <span className="text-sm">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
@@ -3864,7 +3869,7 @@ const fetchBuyOrders = async () => {
                                   navigator.clipboard.writeText(item.tradeId);
                                   toast.success('거래번호가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-normal
+                                className="text-sm 
                                   hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                 title="거래번호 복사"
@@ -3893,7 +3898,7 @@ const fetchBuyOrders = async () => {
                                     navigator.clipboard.writeText(item.walletAddress);
                                     toast.success('지갑주소가 복사되었습니다.');
                                   }}
-                                  className="text-sm text-zinc-500 font-normal
+                                  className="text-sm 
                                   hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                   title="지갑주소 복사"
@@ -3917,14 +3922,14 @@ const fetchBuyOrders = async () => {
 
                                   }
                                 </div>
-                                <div className="text-sm text-zinc-500 font-normal">
+                                <div className="text-sm ">
                                   {
                                     item?.buyer?.depositBankName
 
                                   }
                                 </div>
 
-                                <div className="text-sm text-zinc-500 font-normal">
+                                <div className="text-sm ">
                                   {
                                     item?.buyer?.depositBankAccountNumber &&
                                     item?.buyer?.depositBankAccountNumber.slice(0, 5) + '...'
@@ -3969,7 +3974,7 @@ const fetchBuyOrders = async () => {
                                   </span>
                                 </div>
                               </div>
-                              <span className="text-sm text-zinc-500 font-normal"
+                              <span className="text-sm "
                                 style={{
                                   fontFamily: 'monospace',
                                 }}
@@ -3994,7 +3999,7 @@ const fetchBuyOrders = async () => {
                               </span>
                               {/* seller.walletAddress */}
                               <button
-                                className="text-sm text-zinc-500 font-normal
+                                className="text-sm 
                                   hover:text-blue-400
                                   hover:underline
                                   cursor-pointer
@@ -4031,7 +4036,7 @@ const fetchBuyOrders = async () => {
                                   navigator.clipboard.writeText(item?.store?.bankInfo?.accountNumber);
                                   toast.success('판매자 통장번호가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-normal
+                                className="text-sm 
                                   hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                 title="판매자 통장번호 복사"
@@ -4274,18 +4279,10 @@ const fetchBuyOrders = async () => {
                               && item?.transactionHash !== '0x'
                               && (
                                 <button
-                                  className="
-                                    flex flex-row gap-2 items-center justify-between
-                                    text-sm text-green-400 font-normal
-                                    border border-[#409192] rounded-lg p-2
-                                    bg-blue-100
-                                    text-center
-                                    hover:bg-blue-200
-                                    cursor-pointer
-                                    transition-all duration-200 ease-in-out
-                                    hover:scale-105
-                                    hover:shadow-lg
-                                    hover:shadow-blue-500/50
+                              className="
+                                flex flex-row gap-2 items-center justify-between
+                                bg-zinc-800 text-zinc-100
+                                border border-[#409192] rounded-lg p-2
                                   "
                                   onClick={() => {
                                     let url = '';
@@ -4324,7 +4321,7 @@ const fetchBuyOrders = async () => {
                                             {item?.usdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                           </span>
                                         </div>
-                                        <span className="text-sm text-zinc-500">
+                                        <span className="text-sm">
                                           테더(USDT) 전송내역
                                         </span>
                                       </div>
