@@ -33,11 +33,11 @@ export default function RootLayout({
                   이용약관
                 </a>
                 {' | '}
-                <a href={`/${params.lang}/privacy-policy`} className="text-blue-400 hover:underline">
+                <a href='#' className="text-blue-400 hover:underline">
                   개인정보처리방침
                 </a>
                 {' | '}
-                <a href={`/${params.lang}/contact`} className="text-blue-400 hover:underline">
+                <a href='#' className="text-blue-400 hover:underline">
                   고객센터
                 </a>
               </div>
