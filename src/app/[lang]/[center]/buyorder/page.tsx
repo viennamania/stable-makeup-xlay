@@ -4884,8 +4884,12 @@ const fetchBuyOrders = async () => {
 
               <div className="w-full overflow-x-auto">
 
-                <table className=" w-full table-auto border-collapse border border-zinc-600 rounded-md">
-
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
                   <thead
                     className="bg-zinc-600 text-sm font-normal"
                     style={{
@@ -5070,8 +5074,7 @@ const fetchBuyOrders = async () => {
                         >
 
                           <div className="
-
-                            w-36 
+                            w-32
                             flex flex-col items-start justify-start gap-2
                             cursor-pointer
                             hover:bg-zinc-500/50
@@ -6873,7 +6876,8 @@ const fetchBuyOrders = async () => {
                                       {item?.usdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                     </span>
                                   </div>
-                                  <span className="text-sm ">
+                                  <span className="text-sm">
+                                    TXID: {item?.transactionHash.slice(0, 5) + '...' + item?.transactionHash.slice(-4)}<br />
                                     스캔에서 전송내역 확인하기
                                   </span>
                                 </div>
@@ -7002,9 +7006,9 @@ const fetchBuyOrders = async () => {
 
 
                         <td className="p-2">
-                          <div className="w-full  flex flex-col gap-2 items-center justify-center
-                            bg-zinc-600/10
-                            p-4 rounded-lg shadow-sm">
+                          <div className="w-full
+                            flex flex-col gap-2 items-start justify-center
+                            border border-dashed border-zinc-300 rounded-lg p-2">
 
 
                             {item.status === "paymentConfirmed" &&
@@ -7233,12 +7237,7 @@ const fetchBuyOrders = async () => {
                                       <button
                                         className="
                                           text-sm text-blue-500 underline font-normal
-                                          hover:text-blue-800
                                           hover:cursor-pointer
-                                          transition-all duration-200 ease-in-out
-                                          hover:scale-105
-                                          hover:shadow-lg
-                                          hover:shadow-blue-500/50
                                         "
                                         onClick={() => {
                                           window.open(
@@ -7272,9 +7271,13 @@ const fetchBuyOrders = async () => {
                                         toast.success('회원아이디가 복사되었습니다.');
                                       }}
                                       className="flex flex-row gap-1 items-center justify-center p-2
-                                      bg-transparent border-none cursor-pointer
-                                      hover:border hover:border-blue-600 hover:border-dashed
-                                      hover:bg-blue-100 hover:shadow-lg"
+                                      hover:bg-zinc-700 rounded-lg
+                                      hover:cursor-pointer
+                                      transition-all duration-200 ease-in-out
+                                      hover:scale-105
+                                      hover:shadow-lg
+                                      hover:shadow-blue-500/50
+                                      "
                                     >
                                       <Image
                                         src="/icon-user.png"
@@ -7283,12 +7286,12 @@ const fetchBuyOrders = async () => {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-lg font-normal text-blue-500">
+                                      <span className="text-lg">
                                         {item.nickname}
                                       </span>
                                     </button>
 
-                                    <span className="text-sm text-blue-500 font-normal"
+                                    <span className="text-sm"
                                       style={{
                                         fontFamily: 'monospace',
                                       }}

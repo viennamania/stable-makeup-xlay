@@ -4134,7 +4134,12 @@ const fetchBuyOrders = async () => {
 
             <div className="w-full overflow-x-auto">
 
-              <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
+              <table className=" w-full table-auto border-collapse border border-zinc-400
+                bg-zinc-700/50
+                backdrop-blur-md
+                rounded-lg
+                shadow-lg
+                ">
 
                 <thead
                   className="bg-zinc-600 text-sm font-normal"
@@ -6931,23 +6936,7 @@ const fetchBuyOrders = async () => {
                               <div className="flex flex-row gap-2 items-center justify-center">
 
                                 <button
-                                  /*
-                                  className="
-                                  w-44        
-                                  flex flex-col gap-2 items-center justify-center
-                                  bg-purple-500 text-white px-2 py-1 rounded-md hover:bg-purple-600
-                                  text-sm
-                                  transition duration-300 ease-in-out
-                                  transform hover:scale-105
-                                  hover:shadow-lg
-                                  hover:shadow-purple-500/50
-                                  hover:cursor-pointer
-                                  hover:transition-transform
-                                  hover:duration-300
-                                  hover:ease-in-out
 
-                                  "
-                                  */
                                   disabled={item.settlement.txid === "0x" || !item.settlement.txid}
 
                                   className={`
@@ -7040,9 +7029,13 @@ const fetchBuyOrders = async () => {
                                       toast.success('회원아이디가 복사되었습니다.');
                                     }}
                                     className="flex flex-row gap-1 items-center justify-center p-2
-                                    bg-transparent border-none cursor-pointer
-                                    hover:border hover:border-blue-600 hover:border-dashed
-                                    hover:bg-blue-100 hover:shadow-lg"
+                                    hover:bg-zinc-700 rounded-lg
+                                    hover:cursor-pointer
+                                    transition-all duration-200 ease-in-out
+                                    hover:scale-105
+                                    hover:shadow-lg
+                                    hover:shadow-blue-500/50
+                                    "
                                   >
                                     <Image
                                       src="/icon-user.png"
@@ -7051,12 +7044,12 @@ const fetchBuyOrders = async () => {
                                       height={20}
                                       className="w-5 h-5"
                                     />
-                                    <span className="text-sm font-normal text-blue-500">
+                                    <span className="text-sm">
                                       {item.nickname}
                                     </span>
                                   </button>
 
-                                  <span className="text-sm text-blue-500 font-normal"
+                                  <span className="text-sm"
                                     style={{
                                       fontFamily: 'monospace',
                                     }}

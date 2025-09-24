@@ -1787,12 +1787,6 @@ export default function Index({ params }: any) {
                             </button>
                           </td>
 
- 
-
-
-
-
-
                         </tr>
 
                       ))}
