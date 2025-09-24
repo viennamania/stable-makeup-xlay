@@ -589,7 +589,7 @@ const P2PTable = () => {
                                   width={20}
                                   height={20}
                                 />
-                                <p className="text-sm text-red-400">
+                                <p className="text-sm text-red-500">
                                   Cancelled at {
                                     new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                   }
@@ -715,7 +715,7 @@ const P2PTable = () => {
                             {item.status === 'paymentConfirmed' && (
                               <div className="w-full flex flex-col items-start gap-2">
                                 <div className="flex flex-row items-center gap-2">
-                                  <div className="text-lg font-normal text-red-400">
+                                  <div className="text-lg font-normal text-red-500">
                                     - {item.krwAmount} KRW
                                   </div>
                                   <div className="text-lg font-normal text-white">
@@ -753,7 +753,7 @@ const P2PTable = () => {
                                   <li className="text-lg">Amount : {item.krwAmount} KRW</li>
                                   
                                   <li className="mt-2">You must deposit to the above account using deposit name<br /><br />
-                                    <span className="text-red-400 font-normal text-xl">{item.tradeId}</span>
+                                    <span className="text-red-500 font-normal text-xl">{item.tradeId}</span>
                                   </li>
 
                                   {/*

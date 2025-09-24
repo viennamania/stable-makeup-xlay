@@ -1730,7 +1730,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     {' '}메모하기{' '}
                                     {store?.memoCount > 0 && (
-                                        <span className="text-red-400 font-normal">
+                                        <span className="text-red-500 font-normal">
                                             ({store?.memoCount})
                                         </span>
                                     )}
@@ -1756,7 +1756,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     {' '}청산관리{' '}
                                     {store?.clearanceCount > 0 && (
-                                        <span className="text-red-400 font-normal">
+                                        <span className="text-red-500 font-normal">
                                             ({store?.clearanceCount})
                                         </span>
                                     )}
@@ -2118,7 +2118,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 P2P 거래소 판매용 USDT지갑이 설정되지 않았습니다.
                                     </span>
                                 </div>
@@ -2188,7 +2188,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     회원가입 후 P2P 거래소 판매용 USDT지갑을 설정하세요.
@@ -2251,7 +2251,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     가맹점 홈페이지에서 회원가입 후 P2P 거래소 판매용 USDT지갑을 설정하세요.
@@ -2513,7 +2513,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 가맹점 자동결제용 USDT지갑이 설정되지 않았습니다.
                                     </span>
                                 </div>
@@ -2580,7 +2580,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     가맹점 홈페이지에서 회원가입 후 가맹점 자동결제용 USDT지갑을 설정하세요.

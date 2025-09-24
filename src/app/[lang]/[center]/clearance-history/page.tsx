@@ -3552,7 +3552,7 @@ const [tradeSummary, setTradeSummary] = useState({
                   )}
 
 
-                  <p className="text-lg text-red-400 font-normal">
+                  <p className="text-lg text-red-500 font-normal">
                     {
                       paymentRequestedCount > 0 ? (
                         <span>{paymentRequestedCount.toLocaleString()}</span>
@@ -4986,7 +4986,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                   width={20}
                                   height={20}
                                 />
-                                <p className="text-sm text-red-400">
+                                <p className="text-sm text-red-500">
                                   {Cancelled_at} {
                                     new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                   }
@@ -5126,7 +5126,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-sm text-red-400 font-normal">
+                                  <p className="text-sm text-red-500 font-normal">
                                     {Buyer}: {
                                       address && item?.buyer?.walletAddress === address ? Me :
                                       address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous

@@ -2511,7 +2511,7 @@ export default function Index({ params }: any) {
                   )}
 
 
-                  <p className="text-lg text-red-400 font-normal">
+                  <p className="text-lg text-red-500 font-normal">
                     {
                     totalNumberOfBuyOrders
                     }
@@ -2924,7 +2924,7 @@ export default function Index({ params }: any) {
                                     item.totalBuyerCount ? item.totalBuyerCount : 0
                                   }{' '}명
                                 </span>
-                                <span className="text-lg text-red-400">
+                                <span className="text-lg text-red-500">
                                   {
                                     item.totalBlackBuyerCount ? item.totalBlackBuyerCount : 0
                                   }{' '}명
@@ -3067,7 +3067,7 @@ export default function Index({ params }: any) {
                                   </div>
                                 ) : (
                                   <div className="flex flex-col xl:flex-row items-center gap-2">
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                       판매자 원화통장 없음
                                     </span>
                                     {/*
@@ -3106,7 +3106,7 @@ export default function Index({ params }: any) {
                                       }
                                     </button>
                                   ) : (
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                       판매자 USDT지갑 없음
                                     </span>
                                   )
@@ -3228,7 +3228,7 @@ export default function Index({ params }: any) {
                                     </div>
 
                                   ) : (
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                       가맹점 수수료 USDT지갑 없음
                                     </span>
                                   )}
@@ -3252,7 +3252,7 @@ export default function Index({ params }: any) {
                                       }
                                     </button>
                                   ) : (
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                       에이전트 USDT지갑 없음
                                     </span>
                                   )}
@@ -3540,7 +3540,7 @@ export default function Index({ params }: any) {
                                       }
                                     </button>
                                   ) : (
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                       결제용 USDT지갑 없음
                                     </span>
                                   )}

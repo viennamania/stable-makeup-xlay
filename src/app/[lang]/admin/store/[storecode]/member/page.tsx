@@ -1599,7 +1599,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <span className="text-sm text-red-400">
+                    <span className="text-sm text-red-500">
                       {store && store.storeName}의 가맹점 관리자가 설정되지 않았습니다.
                     </span>
                   </div>
@@ -1668,7 +1668,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <span className="text-sm text-red-400">
+                    <span className="text-sm text-red-500">
                       {store && store.storeName}의 회원이 없습니다.
                       <br />
                       가맹점 홈페이지에서 회원가입 후 가맹점 관리자를 설정하세요.
@@ -2062,7 +2062,7 @@ export default function Index({ params }: any) {
                                     판매자확정
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                  <span className="text-sm text-red-400">
+                                  <span className="text-sm text-red-500">
                                     결제요청
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
@@ -2070,7 +2070,7 @@ export default function Index({ params }: any) {
                                     결제완료
                                   </span>
                                 ) : item?.buyOrderStatus === 'cancelled' ? (
-                                  <span className="text-sm text-red-400">
+                                  <span className="text-sm text-red-500">
                                     거래취소
                                   </span>
                                 ) : ''

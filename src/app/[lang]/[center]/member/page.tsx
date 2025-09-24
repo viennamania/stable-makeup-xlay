@@ -2856,8 +2856,12 @@ export default function Index({ params }: any) {
 
                 <div className="w-full overflow-x-auto">
 
-                  <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
-
+                  <table className=" w-full table-auto border-collapse border border-zinc-400
+                    bg-zinc-700/50
+                    backdrop-blur-md
+                    rounded-lg
+                    shadow-lg
+                    ">
                     <thead
                       className="bg-zinc-600 text-sm font-normal"
                       style={{
@@ -3134,7 +3138,7 @@ export default function Index({ params }: any) {
                                     판매자확정
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                  <span className="text-lg text-red-400 font-normal">
+                                  <span className="text-lg text-red-500 font-normal">
                                     결제요청
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
@@ -3142,7 +3146,7 @@ export default function Index({ params }: any) {
                                     결제완료
                                   </span>
                                 ) : item?.buyOrderStatus === 'cancelled' ? (
-                                  <span className="text-lg text-red-400 font-normal">
+                                  <span className="text-lg text-red-500 font-normal">
                                     거래취소
                                   </span>
                                 ) : ''

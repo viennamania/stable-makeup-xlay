@@ -2929,7 +2929,7 @@ export default function Index({ params }: any) {
             <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-5">
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산수(건)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {buyOrderStats.totalCount ?.toLocaleString()}
                 </div>
               </div>
@@ -2996,7 +2996,7 @@ export default function Index({ params }: any) {
                   )}
 
 
-                  <p className="text-lg text-red-400 font-normal">
+                  <p className="text-lg text-red-500 font-normal">
                     {
                     totalNumberOfBuyOrders
                     }
@@ -3152,7 +3152,7 @@ export default function Index({ params }: any) {
                                   navigator.clipboard.writeText(item.tradeId);
                                   toast.success('거래번호가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-normal
+                                className="text-sm  font-normal
                                   hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                 title="거래번호 복사"
@@ -3161,7 +3161,7 @@ export default function Index({ params }: any) {
                               </button>
 
                               <div className="flex flex-col gap-2 items-center justify-center">
-                                <span className="text-sm text-zinc-500 font-normal">
+                                <span className="text-sm  font-normal">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('ko-KR', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -3172,7 +3172,7 @@ export default function Index({ params }: any) {
                                   })}
                                 </span>
                                 {/*
-                                <span className="text-sm text-zinc-500 font-normal">
+                                <span className="text-sm  font-normal">
                                   {item?.createdAt && new Date(item.createdAt)?.toLocaleString('en-US', {
                                     year: 'numeric',
                                     month: '2-digit',
@@ -3185,7 +3185,7 @@ export default function Index({ params }: any) {
                                 */}
                               </div>
 
-                              <span className="text-sm text-zinc-500 font-normal">
+                              <span className="text-sm  font-normal">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
@@ -3214,7 +3214,7 @@ export default function Index({ params }: any) {
                             </div>
                           </td>
 
-                          <td className="text-zinc-500 p-2">
+                          <td className=" p-2">
                             
 
                             <div className="flex flex-col gap-2 items-start justify-start">
@@ -3227,12 +3227,12 @@ export default function Index({ params }: any) {
                                 className="rounded-lg w-8 h-8 object-cover"
                               />
                               <div className="flex flex-col items-start justify-start">
-                                <span className="text-sm text-zinc-500 font-bold">
+                                <span className="text-sm  font-bold">
                                   {
                                     item?.store?.storeName
                                   }
                                 </span>
-                                <span className="text-sm text-zinc-500">
+                                <span className="text-sm ">
                                   {
                                     item?.agent.agentName
                                   }
@@ -3264,7 +3264,7 @@ export default function Index({ params }: any) {
                                     navigator.clipboard.writeText(item.walletAddress);
                                     toast.success('지갑주소가 클립보드에 복사되었습니다.');
                                   }}
-                                  className="text-sm text-zinc-400 font-normal hover:text-blue-400 cursor-pointer"
+                                  className="text-sm  font-normal text-blue-400 hover:underline hover:cursor-pointer"
                                   title="지갑주소 복사"
                                 >
                                   {item?.buyer?.walletAddress ? (
@@ -3314,7 +3314,7 @@ export default function Index({ params }: any) {
 
 
                               </div>
-                              <span className="text-sm text-zinc-500 font-normal"
+                              <span className="text-sm  font-normal"
                                 style={{
                                   fontFamily: 'monospace',
                                 }}
@@ -3333,12 +3333,12 @@ export default function Index({ params }: any) {
                               {item?.buyer?.nickname ? (
                                 <div className="flex flex-col items-start justify-center gap-1">
 
-                                  <span className="text-lg text-zinc-400 font-normal">
+                                  <span className="text-lg  font-normal">
                                     {item.buyer?.depositBankName}
                                   </span>
 
                                   <button
-                                    className="text-lg text-zinc-400 font-normal hover:text-blue-400 underline"
+                                    className="text-lg  font-normal hover:text-blue-400 underline"
                                     onClick={() => {
                                       navigator.clipboard.writeText(item.buyer?.depositBankAccountNumber);
                                       alert('계좌번호가 클립보드에 복사되었습니다.');
@@ -3348,18 +3348,18 @@ export default function Index({ params }: any) {
                                   </button>
 
 
-                                  <span className="text-lg text-zinc-400 font-normal">
+                                  <span className="text-lg  font-normal">
                                     {item.buyer?.depositName}
                                   </span>
 
                                 </div>
                               ) : (
                                 <div className="flex flex-col items-start justify-center gap-1">
-                                  <span className="text-lg text-zinc-400 font-normal">
+                                  <span className="text-lg  font-normal">
                                     {item.seller?.bankInfo?.bankName}
                                   </span>
                                   <button
-                                    className="text-lg text-zinc-400 font-normal hover:text-blue-400"
+                                    className="text-lg  font-normal hover:text-blue-400"
                                     onClick={() => {
                                       navigator.clipboard.writeText(item.seller?.bankInfo?.accountNumber);
                                       alert('계좌번호가 클립보드에 복사되었습니다.');
@@ -3367,7 +3367,7 @@ export default function Index({ params }: any) {
                                   >
                                     {item.seller?.bankInfo?.accountNumber}
                                   </button>
-                                  <span className="text-lg text-zinc-400 font-normal">
+                                  <span className="text-lg  font-normal">
                                     {item.seller?.bankInfo?.accountHolder}
                                     </span>
                                 </div>
@@ -3384,7 +3384,7 @@ export default function Index({ params }: any) {
                                     자동처리
                                   </span>
                                 ) : (
-                                  <span className="text-sm text-red-400 font-normal">
+                                  <span className="text-sm text-red-500 font-normal">
                                     수동처리
                                   </span>
                                 )}
@@ -3430,7 +3430,7 @@ export default function Index({ params }: any) {
                                       {item.seller?.nickname}
                                     </div>
                                     */}
-                                    <div className="text-sm text-zinc-500">
+                                    <div className="text-sm ">
 
                                       {params.lang === 'ko' ? (
                                         <p>{
@@ -3478,7 +3478,7 @@ export default function Index({ params }: any) {
                                     </div>
                                     */}
 
-                                    <div className="text-sm text-zinc-500">
+                                    <div className="text-sm ">
                                       {/* from now */}
                                       {
                                         new Date().getTime() - new Date(item.paymentRequestedAt).getTime() < 1000 * 60 ? (
@@ -3509,7 +3509,7 @@ export default function Index({ params }: any) {
                                       </span>
                                       */}
 
-                                      <div className="text-sm text-zinc-500">
+                                      <div className="text-sm ">
                                         {
                                           // from now
                                           new Date().getTime() - new Date(item.cancelledAt).getTime() < 1000 * 60 ? (
@@ -3540,7 +3540,7 @@ export default function Index({ params }: any) {
                                     */}
 
                                     <span
-                                      className="text-sm text-zinc-500"
+                                      className="text-sm "
                                     >{
                                       //item.paymentConfirmedAt && new Date(item.paymentConfirmedAt)?.toLocaleString()
                                       // from now
@@ -3937,9 +3937,9 @@ export default function Index({ params }: any) {
                           */}
 
 
-                          <td className="text-zinc-500 p-2">
+                          <td className=" p-2">
                             <div className="flex flex-col gap-2 items-center justify-center">
-                              <span className="text-sm font-normal text-zinc-500">
+                              <span className="text-sm font-normal ">
                                 {
                                   item.seller?.nickname
                                 }
@@ -3955,10 +3955,8 @@ export default function Index({ params }: any) {
                                   className="w-5 h-5"
                                 />
                                 <button
-                                  className="text-sm text-zinc-500 font-normal
-                                    hover:text-blue-400
-                                    hover:underline
-                                    cursor-pointer
+                                  className="text-sm  font-normal
+                                    text-blue-400 hover:underline hover:cursor-pointer
                                     "
                                   title="지갑주소 복사"
 
@@ -4001,7 +3999,7 @@ export default function Index({ params }: any) {
 
                                   {/* 출금계좌번호 */}
                                   {/*
-                                  <span className="text-sm text-zinc-500">
+                                  <span className="text-sm ">
                                     {item?.buyer?.nickname ?
                                     <>
                                     {item?.buyer?.depositName}
@@ -4169,7 +4167,7 @@ export default function Index({ params }: any) {
 
                                     {params.lang === 'ko' ? (
 
-                                      <p className="text-sm text-zinc-500">
+                                      <p className="text-sm ">
 
                                       
                                         {
@@ -4188,7 +4186,7 @@ export default function Index({ params }: any) {
                                       
                                       ) : (
 
-                                        <p className="text-sm text-zinc-500">
+                                        <p className="text-sm ">
 
 
                                       
@@ -4247,7 +4245,7 @@ export default function Index({ params }: any) {
                                       width={28}
                                       height={28}
                                     />
-                                    <p className="text-sm text-zinc-500">{Expires_in} {
+                                    <p className="text-sm ">{Expires_in} {
     
                                       24 - Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) - 1
 
@@ -4267,7 +4265,7 @@ export default function Index({ params }: any) {
                                       width={28}
                                       height={28}
                                     />
-                                    <p className="text-sm text-zinc-500">Expired</p>
+                                    <p className="text-sm ">Expired</p>
                                     */}
                                   </div>
                                 )}
@@ -4299,7 +4297,7 @@ export default function Index({ params }: any) {
                                 </p>
 
                                 {item.status === 'cancelled' ? (
-                                  <p className="ml-2 text-sm text-zinc-500">
+                                  <p className="ml-2 text-sm ">
                                     {new Date(item.acceptedAt)?.toLocaleString()}
                                   </p>
                                 ) : (
@@ -4307,7 +4305,7 @@ export default function Index({ params }: any) {
                                   <>
                                     {params.lang === 'ko' ? (
 
-                                      <p className="ml-2 text-sm text-zinc-500">
+                                      <p className="ml-2 text-sm ">
 
                                       
                                         {new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -4326,7 +4324,7 @@ export default function Index({ params }: any) {
 
                                     ) : (
 
-                                      <p className="ml-2 text-sm text-zinc-500">
+                                      <p className="ml-2 text-sm ">
 
                                         {Trade_Started} {
                                           new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -4384,7 +4382,7 @@ export default function Index({ params }: any) {
                             {/*
                             
                             {item.acceptedAt && (
-                              <p className="mb-2 text-sm text-zinc-500">
+                              <p className="mb-2 text-sm ">
                                 Trade started at {new Date(item.acceptedAt).toLocaleDateString() + ' ' + new Date(item.acceptedAt).toLocaleTimeString()}
                               </p>
                             )}
@@ -4401,7 +4399,7 @@ export default function Index({ params }: any) {
                                   width={20}
                                   height={20}
                                 />
-                                <p className="text-sm text-red-400">
+                                <p className="text-sm text-red-500">
                                   {Cancelled_at} {
                                     new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                   }
@@ -4418,7 +4416,7 @@ export default function Index({ params }: any) {
 
 
 
-                              <p className="text-2xl text-zinc-500">
+                              <p className="text-2xl ">
                                 {Price}: {
                                   // currency
                                 
@@ -4432,10 +4430,10 @@ export default function Index({ params }: any) {
 
                               <div className="mt-2 flex flex-row items-start gap-2">
 
-                                <p className="text-xl font-normal text-zinc-500">
+                                <p className="text-xl font-normal ">
                                   {item.usdtAmount}{' '}USDT
                                 </p>
-                                <p className="text-lg font-normal text-zinc-500">{Rate}: {
+                                <p className="text-lg font-normal ">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(3)
 
@@ -4541,7 +4539,7 @@ export default function Index({ params }: any) {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-sm text-red-400 font-normal">
+                                  <p className="text-sm text-red-500 font-normal">
                                     {Buyer}: {
                                       address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
                                     }
@@ -4612,7 +4610,7 @@ export default function Index({ params }: any) {
                                       {Waiting_for_seller_to_deposit} {item.usdtAmount} USDT {to_escrow}...
                                     </span>
 
-                                    <span className="text-sm text-zinc-500">
+                                    <span className="text-sm ">
 
                                       {If_the_seller_does_not_deposit_the_USDT_to_escrow},
 
@@ -4654,7 +4652,7 @@ export default function Index({ params }: any) {
                                           );
                                         }}
                                       />
-                                      <label className="text-sm text-zinc-500">
+                                      <label className="text-sm ">
                                         {I_agree_to_cancel_the_trade}
                                       </label>
                                     </div>
@@ -4913,7 +4911,7 @@ export default function Index({ params }: any) {
                                                       );
                                                   }}
                                                 />
-                                                <label className="text-sm text-zinc-500">
+                                                <label className="text-sm ">
                                                   {I_agree_to_the_terms_of_trade}
                                                 </label>
                                               </div>
@@ -4925,7 +4923,7 @@ export default function Index({ params }: any) {
                                               {address && agreementForTrade[index] && (
                                                 <div className="mt-8 flex flex-row items-center justify-start gap-2">
 
-                                                  <span className="text-sm text-zinc-500">SMS</span>
+                                                  <span className="text-sm ">SMS</span>
 
                                                   <div className="flex flex-col items-start justify-start">
                                                     <input
@@ -4990,7 +4988,7 @@ export default function Index({ params }: any) {
                         {/* status */}
                         {/*
                         <div className="absolute bottom-4 right-4 flex flex-row items-start justify-start">
-                          <div className="text-sm text-zinc-500">
+                          <div className="text-sm ">
                             {item.status === 'ordered' ? 'Order opened at ' + new Date(item.createdAt)?.toLocaleString()
                             : item.status === 'accepted' ? 'Trade started at ' + new Date(item.acceptedAt)?.toLocaleString()
                             : item.status === 'paymentRequested' ? 'Payment requested at ' + new Date(item.paymentRequestedAt)?.toLocaleString()
@@ -5067,7 +5065,7 @@ export default function Index({ params }: any) {
             </button>
 
 
-            <span className="text-sm text-zinc-500">
+            <span className="text-sm ">
               {page} / {Math.ceil(Number(totalCount) / Number(limit))}
             </span>
 

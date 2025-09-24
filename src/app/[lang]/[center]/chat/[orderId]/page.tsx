@@ -2390,7 +2390,7 @@ export default function Index({ params }: any) {
                       )}
 
                       {item.status === 'cancelled' && (
-                        <span className="text-lg text-red-400">
+                        <span className="text-lg text-red-500">
                           판매자가 거래를 취소했습니다.
                         </span>
                       )}

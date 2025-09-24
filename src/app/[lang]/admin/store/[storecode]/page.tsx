@@ -1606,7 +1606,7 @@ export default function Index({ params }: any) {
                       {store && store.adminWalletAddress.substring(0, 6)}...{store && store.adminWalletAddress.substring(store.adminWalletAddress.length - 4)}
                     </button>
                   ) : (
-                    <span className="text-sm text-red-400">
+                    <span className="text-sm text-red-500">
                       {store && store.storeName}의 가맹점 관리자가 설정되지 않았습니다.
                     </span>
                   )}
@@ -1666,7 +1666,7 @@ export default function Index({ params }: any) {
                       </button> 
                     </div>
                   ) : (
-                    <span className="text-sm text-red-400">
+                    <span className="text-sm text-red-500">
                       {store && store.storeName}의 회원이 없습니다.
                       <br />
                       가맹점 홈페이지에서 회원가입 후 가맹점 관리자를 설정하세요.

@@ -2628,7 +2628,7 @@ export default function Index({ params }: any) {
                 )}
 
 
-                <p className="text-lg text-red-400 font-normal">
+                <p className="text-lg text-red-500 font-normal">
                   {
                   totalNumberOfBuyOrders
                   }
@@ -3002,7 +3002,7 @@ export default function Index({ params }: any) {
                                     판매자확정
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                  <span className="text-sm text-red-400">
+                                  <span className="text-sm text-red-500">
                                     결제요청
                                   </span>
                                 ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
@@ -3010,7 +3010,7 @@ export default function Index({ params }: any) {
                                     결제완료
                                   </span>
                                 ) : item?.buyOrderStatus === 'cancelled' ? (
-                                  <span className="text-sm text-red-400">
+                                  <span className="text-sm text-red-500">
                                     거래취소
                                   </span>
                                 ) : ''

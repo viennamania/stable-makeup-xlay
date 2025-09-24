@@ -1818,7 +1818,7 @@ export default function Index({ params }: any) {
                   )}
 
 
-                  <p className="text-lg text-red-400 font-normal">
+                  <p className="text-lg text-red-500 font-normal">
                     {
                     totalNumberOfBuyOrders
                     }
@@ -2060,7 +2060,7 @@ export default function Index({ params }: any) {
 
                                   </button>
                                 ) : (
-                                  <span className="text-red-400">
+                                  <span className="text-red-500">
                                     관리자 지갑주소가 없습니다.
                                   </span>
                                 )}
@@ -2080,7 +2080,7 @@ export default function Index({ params }: any) {
                                 ) : (                 
 
 
-                                  <span className="text-red-400">
+                                  <span className="text-red-500">
                                     수수료 수납용 USDT지갑 주소가 없습니다.
                                   </span>
                                 )}

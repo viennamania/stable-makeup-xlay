@@ -456,63 +456,6 @@ export default function Index({ params }: any) {
   
 
 
-  const [nativeBalance, setNativeBalance] = useState(0);
-  const [balance, setBalance] = useState(0);
-  useEffect(() => {
-
-    // get the balance
-    const getBalance = async () => {
-
-      ///console.log('getBalance address', address);
-
-      
-      const result = await balanceOf({
-        contract,
-        address: address || "",
-      });
-
-  
-      //console.log(result);
-  
-      setBalance( Number(result) / 10 ** 6 );
-
-
-      /*
-      await fetch('/api/user/getBalanceByWalletAddress', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chain: searchStorecode,
-          walletAddress: address,
-        }),
-      })
-
-      .then(response => response.json())
-
-      .then(data => {
-          setNativeBalance(data.result?.displayValue);
-      });
-      */
-
-
-
-    };
-
-
-    if (address) getBalance();
-
-    const interval = setInterval(() => {
-      if (address) getBalance();
-    } , 5000);
-
-    return () => clearInterval(interval);
-
-  } , [address, contract]);
-
-
-
 
 
 
@@ -1798,7 +1741,7 @@ const fetchBuyOrders = async () => {
                         </span>
                       </div>
                     ) : (
-                      <span className="text-sm text-red-400">
+                      <span className="text-sm text-red-500">
                         가맹점 정보가 없습니다.
                       </span>
                     ) : (
@@ -2196,7 +2139,7 @@ const fetchBuyOrders = async () => {
                 )}
 
 
-                <p className="text-lg text-red-400 font-normal">
+                <p className="text-lg text-red-500 font-normal">
                   {
                   totalNumberOfBuyOrders
                   }
@@ -2293,8 +2236,12 @@ const fetchBuyOrders = async () => {
 
               <div className="w-full overflow-x-auto">
 
-                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
-
+                  <table className=" w-full table-auto border-collapse border border-zinc-400
+                    bg-zinc-700/50
+                    backdrop-blur-md
+                    rounded-lg
+                    shadow-lg
+                    ">
                   <thead className="bg-zinc-800">
                     <tr>
                       <th className="px-4 py-2 text-left text-sm font-normal ">

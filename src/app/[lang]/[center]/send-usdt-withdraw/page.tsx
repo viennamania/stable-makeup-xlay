@@ -1104,7 +1104,7 @@ export default function SendUsdt({ params }: any) {
                           {/* dot icon */}
                           <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
 
-                          <div className="text-red-400">
+                          <div className="text-red-500">
                             {This_address_is_not_white_listed}<br />
                             {If_you_are_sure_please_click_the_send_button}
                           </div>

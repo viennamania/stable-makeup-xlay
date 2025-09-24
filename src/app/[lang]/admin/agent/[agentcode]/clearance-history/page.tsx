@@ -1940,7 +1940,7 @@ export default function Index({ params }: any) {
 
                                 )}
                                 {item.status === 'cancelled' && (
-                                  <span className="text-red-400">{Cancelled}</span>
+                                  <span className="text-red-500">{Cancelled}</span>
                                 )}
                               </td>
 

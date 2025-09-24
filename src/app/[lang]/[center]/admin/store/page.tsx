@@ -1419,7 +1419,7 @@ export default function Index({ params }: any) {
                     {store && store.adminWalletAddress.substring(0, 6)}...{store && store.adminWalletAddress.substring(store.adminWalletAddress.length - 4)}
                   </button>
                 ) : (
-                  <span className="text-xs text-red-400">
+                  <span className="text-xs text-red-500">
                     {store && store.storeName}의 관리자 지갑이 설정되지 않았습니다.
                   </span>
                 )}
@@ -1479,7 +1479,7 @@ export default function Index({ params }: any) {
                     </button> 
                   </div>
                 ) : (
-                  <span className="text-xs text-red-400">
+                  <span className="text-xs text-red-500">
                     {store && store.storeName}의 회원이 없습니다.
                     <br />
                     가맹점 링크에서 회원가입 후 관리자 지갑을 설정하세요.

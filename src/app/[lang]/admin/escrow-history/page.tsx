@@ -1698,7 +1698,7 @@ export default function Index({ params }: any) {
               )}
 
 
-              <p className="text-lg text-red-400 font-normal">
+              <p className="text-lg text-red-500 font-normal">
                 {
                 totalNumberOfBuyOrders
                 }

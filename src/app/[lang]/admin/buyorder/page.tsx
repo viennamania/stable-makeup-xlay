@@ -4046,7 +4046,7 @@ const fetchBuyOrders = async () => {
               )}
 
 
-              <p className="text-lg text-red-400 font-normal">
+              <p className="text-lg text-red-500 font-normal">
                 {
                 totalNumberOfBuyOrders
                 }
@@ -5813,7 +5813,7 @@ const fetchBuyOrders = async () => {
                                   />
                                   {/* warning message */}
                                   {/* 취소사유가 없을 경우 판매자 평가에 영향을 미칠 수 있습니다. */}
-                                  <div className="text-xs text-red-400">
+                                  <div className="text-xs text-red-500">
                                     취소사유가 없을 경우 판매자 평가에 영향을 미칠 수 있습니다.
                                   </div>
 
@@ -7584,7 +7584,7 @@ const fetchBuyOrders = async () => {
                               width={20}
                               height={20}
                             />
-                            <p className="text-sm text-red-400">
+                            <p className="text-sm text-red-500">
                               {Cancelled_at} {
                                 new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                               }
@@ -7722,7 +7722,7 @@ const fetchBuyOrders = async () => {
                                     height: '32px',
                                 }}
                               />
-                              <p className="text-sm text-red-400 font-normal">
+                              <p className="text-sm text-red-500 font-normal">
                                 {Buyer}: {
                                   address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
                                 }

@@ -1515,7 +1515,7 @@ export default function SettingsPage({ params }: any) {
                                                     height={20}
                                                     className="w-5 h-5"
                                                     />
-                                                    <span className="text-sm text-red-400">
+                                                    <span className="text-sm text-red-500">
                                                     {agent && agent.agentName}의 에이전트 관리자 설정이 되어 있지 않습니다.
                                                     </span>
                                                 </div>
@@ -1585,7 +1585,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                             />
-                                            <span className="text-sm text-red-400">
+                                            <span className="text-sm text-red-500">
                                             {agent && agent.agentName}의 회원이 없습니다.
                                             <br />
                                             에이전트 홈페이지에서 회원가입 후 에이전트 관리자를 설정하세요.

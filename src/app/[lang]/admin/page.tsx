@@ -1319,7 +1319,7 @@ export default function Index({ params }: any) {
                     className="w-6 h-6"
                   />
                   <h2 className="text-lg font-normal">구매주문</h2>
-                  <p className="text-lg text-red-400 font-normal">
+                  <p className="text-lg text-red-500 font-normal">
                     {totalSummary.totalNumberOfBuyOrders}
                   </p>
                   {totalSummary.totalNumberOfBuyOrders > 0 && (
@@ -1542,7 +1542,7 @@ export default function Index({ params }: any) {
                     className="w-6 h-6"
                   />
                   <h2 className="text-lg font-normal">청산주문</h2>
-                  <p className="text-lg text-zinc-500">
+                  <p className="text-lg ">
                     {totalSummary.totalNumberOfSellOrders}
                   </p>
                   {loadingSummary && (
@@ -1805,7 +1805,7 @@ export default function Index({ params }: any) {
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                     <h2 className="text-lg font-normal">총 거래수</h2>
-                    <p className="text-lg text-zinc-500">
+                    <p className="text-lg ">
                       {totalSummary.totalNumberOfTrades}
                     </p>
                     {loadingSummary && (
@@ -2023,7 +2023,7 @@ export default function Index({ params }: any) {
                 <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <h2 className="text-lg font-normal">총 거래금액(원)</h2>
-                    <p className="text-lg text-zinc-500">
+                    <p className="text-lg ">
                       {
                         !totalSummary.totalClearanceAmountKrw ? "0" :
                       Number(totalSummary.totalClearanceAmountKrw)?.toLocaleString()} 원
@@ -2032,7 +2032,7 @@ export default function Index({ params }: any) {
 
                   <div className="flex flex-col items-center justify-center gap-2">
                     <h2 className="text-lg font-normal">총 거래량(USDT)</h2>
-                    <p className="text-lg text-zinc-500">
+                    <p className="text-lg ">
                       {
                         !totalSummary.totalClearanceAmountUsdt ? "0" :
                       Number(totalSummary.totalClearanceAmountUsdt)?.toLocaleString()} USDT
@@ -2051,7 +2051,7 @@ export default function Index({ params }: any) {
                     {/* dot */}
                     <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                     <h2 className="text-lg font-normal">총 거래수</h2>
-                    <p className="text-lg text-zinc-500">
+                    <p className="text-lg ">
                       {totalSummary.totalNumberOfClearances}
                     </p>
                     {loadingSummary && (
@@ -2223,7 +2223,7 @@ export default function Index({ params }: any) {
                   {/* dot */}
                   <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                   <h2 className="text-lg font-normal">총 가맹점수</h2>
-                  <p className="text-lg text-zinc-500">
+                  <p className="text-lg ">
                     {totalSummary.totalNumberOfStores} 개
                   </p>
                   {loadingSummary && (
@@ -2293,7 +2293,7 @@ export default function Index({ params }: any) {
                                 >
                                   {store.storeName}
                                 </button>
-                                <span className="text-sm text-zinc-500">
+                                <span className="text-sm ">
                                   {store?.agentName || store?.agentcode}
                                 </span>
                               </div>
@@ -2371,7 +2371,7 @@ export default function Index({ params }: any) {
                   {/* dot */}
                   <div className="w-2 h-2 bg-gray-700 rounded-full"></div>
                   <h2 className="text-lg font-normal">총 회원수</h2>
-                  <p className="text-lg text-zinc-500">
+                  <p className="text-lg ">
                     {totalSummary.totalNumberOfBuyers} 명
                   </p>
                   {loadingSummary && (
@@ -2618,7 +2618,7 @@ export default function Index({ params }: any) {
                         <div className="flex flex-col gap-2 justify-center items-center">
                           {/* 아이디를 설정해야 거래를 시작할 수 있습니다. */}
                           {address && (
-                            <span className="text-sm text-red-400">
+                            <span className="text-sm text-red-500">
                               아이디가 설정되지 않았습니다.<br/>
                               거래를 시작하려면 아이디를 설정해야 합니다.
                             </span>
@@ -2808,26 +2808,26 @@ export default function Index({ params }: any) {
           <div className="flex flex-row items-center justify-center gap-2">
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-400"
+              className="text-sm  hover:text-blue-400"
             >
               이용약관
             </a>
-            <span className="text-sm text-zinc-500">|</span>
+            <span className="text-sm ">|</span>
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-400"
+              className="text-sm  hover:text-blue-400"
             >
               개인정보처리방침
             </a>
-            <span className="text-sm text-zinc-500">|</span>
+            <span className="text-sm ">|</span>
             <a
               href="#"
-              className="text-sm text-zinc-500 hover:text-blue-400"
+              className="text-sm  hover:text-blue-400"
             >
               고객센터
             </a>
           </div>
-          <div className="text-sm text-zinc-500 mt-2">
+          <div className="text-sm  mt-2">
             © 2025 X-Ray. All rights reserved.
           </div>
 

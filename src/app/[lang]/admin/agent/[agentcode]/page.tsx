@@ -2903,7 +2903,7 @@ export default function Index({ params }: any) {
                               
                                 {/*
                               {trade.status === "ordered" ? (
-                                <span className="text-red-400 font-normal
+                                <span className="text-red-500 font-normal
                                   bg-red-100/50
                                   px-2 py-1 rounded-lg
                                 ">
@@ -3072,7 +3072,7 @@ export default function Index({ params }: any) {
                           address
                           && !loadingUser
                           && (
-                            <span className="text-sm text-red-400">
+                            <span className="text-sm text-red-500">
                               아이디가 설정되지 않았습니다.<br/>
                               거래를 시작하려면 아이디를 설정해야 합니다.
                             </span>

@@ -1955,7 +1955,7 @@ export default function Index({ params }: any) {
             {/* 가맹점 보유량 */}
             {version !== 'bangbang' && (
             <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
-            bg-zinc-200 backdrop-blur-sm p-2 rounded-lg shadow-md">
+            bg-zinc-800/50 p-2 rounded-lg">
 
               <div className="flex flex-col items-start xl:items-center gap-2 mb-2 xl:mb-0">                
                 <div className="flex flex-row gap-2 items-center">
@@ -1967,7 +1967,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <span className="text-lg font-normal text-zinc-500">
+                    <span className="text-lg font-normal ">
                       현재 보유량
                     </span>
                   </div>
@@ -1995,7 +1995,7 @@ export default function Index({ params }: any) {
 
                 {/* 오늘 수수료 차감량 */}
                 <div className="flex flex-row gap-2 items-center">
-                  <span className="text-sm text-zinc-500 font-normal">
+                  <span className="text-sm  font-normal">
                     오늘 수수료 차감량
                   </span>
                   <div className="
@@ -2050,7 +2050,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg font-normal text-zinc-500">
+                <span className="text-lg font-normal ">
                   가맹점 거래
                 </span>
               </div>
@@ -2082,7 +2082,7 @@ export default function Index({ params }: any) {
                     .toLocaleString('ko-KR')
                   }
                 </span>
-                <span className="text-sm text-zinc-500">
+                <span className="text-sm ">
                   원
                 </span>
               </div>
@@ -2101,7 +2101,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg font-normal text-zinc-500">
+                <span className="text-lg font-normal ">
                   가맹점 정산
                 </span>
               </div>
@@ -2133,7 +2133,7 @@ export default function Index({ params }: any) {
                     .toLocaleString('ko-KR')
                   }
                 </span>
-                <span className="text-sm text-zinc-500">
+                <span className="text-sm ">
                   원
                 </span>
               </div>
@@ -2151,7 +2151,7 @@ export default function Index({ params }: any) {
                   height={20}
                   className="w-5 h-5"
                 />
-                <span className="text-lg font-normal text-zinc-500">
+                <span className="text-lg font-normal ">
                   가맹점 판매
                 </span>
               </div>
@@ -2183,7 +2183,7 @@ export default function Index({ params }: any) {
                     .toLocaleString('ko-KR')
                   }
                 </span>
-                <span className="text-sm text-zinc-500">
+                <span className="text-sm ">
                   원
                 </span>
               </div>
@@ -2214,7 +2214,7 @@ export default function Index({ params }: any) {
                   onClick={() => {
                     window.open(`/${params.lang}/${params.center}/homepage`, '_blank');
                   }}
-                  className="text-sm text-zinc-500 underline"
+                  className="text-sm  underline"
                 >
                   회원 홈페이지 새창
                 </button>
@@ -2276,7 +2276,7 @@ export default function Index({ params }: any) {
                 <div className="w-full flex flex-col items-end justify-center gap-2
                 border-b-2 border-b-[#3167b4]">
                   <h2 className="text-lg font-normal">총 회원수</h2>
-                  <p className="text-lg text-zinc-500">
+                  <p className="text-lg ">
                     {storeSummary.totalNumberOfBuyers}명
                   </p>
                 </div>
@@ -2286,7 +2286,7 @@ export default function Index({ params }: any) {
                   
                   <table className="min-w-full">
                     <thead>
-                      <tr className="bg-gray-100">
+                      <tr className="bg-zinc-600">
                         <th className="px-4 py-2 text-left">회원아이디</th>
                         <th className="px-4 py-2 text-left">입금자명</th>
                         <th className="px-4 py-2 text-left">가입일</th>
@@ -2352,7 +2352,7 @@ export default function Index({ params }: any) {
 
                   <div className="flex flex-col items-center justify-center gap-2">
                     <h2 className="text-lg font-normal">총 구매주문수</h2>
-                    <p className="text-lg text-zinc-500">
+                    <p className="text-lg ">
                       {storeSummary.totalNumberOfOrders}
                     </p>
                   </div>
@@ -2393,7 +2393,7 @@ export default function Index({ params }: any) {
                   
                   <table className="min-w-full">
                     <thead>
-                      <tr className="bg-gray-100">
+                      <tr className="bg-zinc-600">
                         <th className="px-4 py-2 text-left">거래번호</th>
                         <th className="px-4 py-2 text-left">거래금액(원)</th>
                         <th className="px-4 py-2 text-left">거래량(USDT)</th>
@@ -2512,7 +2512,7 @@ export default function Index({ params }: any) {
                   <div className="w-full flex flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <h2 className="text-lg font-normal">총 거래수</h2>
-                      <p className="text-lg text-zinc-500">
+                      <p className="text-lg ">
                         {storeSummary.totalNumberOfTrades}
                       </p>
                     </div>
@@ -2552,7 +2552,7 @@ export default function Index({ params }: any) {
                   <div className="w-full flex flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <h2 className="text-lg font-normal">총 결제수</h2>
-                      <p className="text-lg text-zinc-500">
+                      <p className="text-lg ">
                         {storeSummary.totalSettlementCount}
                       </p>
                     </div>
@@ -2592,7 +2592,7 @@ export default function Index({ params }: any) {
                     
                     <table className="min-w-full">
                       <thead>
-                        <tr className="bg-gray-100">
+                        <tr className="bg-zinc-600">
                           <th className="
                           hidden xl:table-cell
                           px-4 py-2 text-left">거래번호</th>
@@ -2611,7 +2611,7 @@ export default function Index({ params }: any) {
                             hidden xl:table-cell
                             px-4 py-2">#{trade.tradeId}</td>
                             <td className="px-4 py-2">
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm ">
                                 {trade.nickname || '익명'}
                               </span>
                               <br />
@@ -2716,7 +2716,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-row items-center justify-center gap-2">
                     <div className="flex flex-col items-center justify-center gap-2">
                       <h2 className="text-lg font-normal">총 판매주문수</h2>
-                      <p className="text-lg text-zinc-500">
+                      <p className="text-lg ">
                         {storeSummary.totalClearanceCount}
                       </p>
                     </div>
@@ -2727,7 +2727,7 @@ export default function Index({ params }: any) {
                           style={{ fontFamily: 'monospace' }}>
                           {Number(storeSummary.totalClearanceKrwAmount)?.toLocaleString()}
                         </p>
-                        <span className="text-lg text-zinc-500">
+                        <span className="text-lg ">
                           원
                         </span>
                       </div>
@@ -2760,7 +2760,7 @@ export default function Index({ params }: any) {
                     
                     <table className="min-w-full">
                       <thead>
-                        <tr className="bg-gray-100">
+                        <tr className="bg-zinc-600">
                           <th className="
                           hidden xl:table-cell
                           px-4 py-2 text-left">판매번호</th>
@@ -2808,7 +2808,7 @@ export default function Index({ params }: any) {
                                   style={{ fontFamily: 'monospace' }}>
                                   {Number(trade.krwAmount)?.toLocaleString()}
                                 </span>
-                                <span className="text-sm text-zinc-500">
+                                <span className="text-sm ">
                                   원
                                 </span>
                               </div>
@@ -3069,7 +3069,7 @@ export default function Index({ params }: any) {
                             <div className="flex flex-col gap-2 justify-center items-center">
 
                               {address && (
-                                <span className="text-sm text-red-400">
+                                <span className="text-sm text-red-500">
                                   아이디가 설정되지 않았습니다.<br/>
                                   거래를 시작하려면 아이디를 설정해야 합니다.
                                 </span>

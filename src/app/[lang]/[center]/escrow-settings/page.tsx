@@ -1710,7 +1710,7 @@ export default function SettingsPage({ params }: any) {
                                 <span className="text-sm">ETH</span>
                                     {/* if escrow balance is 0, comment this out */}
                                 
-                                <span className="pl-2 text-sm text-red-400">
+                                <span className="pl-2 text-sm text-red-500">
                                     에스크로 지갑에 가스비용(ETH)을 0.1 이상 충전해주세요.
                                 </span>
                             

@@ -805,7 +805,7 @@ const P2PTable = () => {
                                   width={20}
                                   height={20}
                                 />
-                                <p className="text-sm text-red-400">
+                                <p className="text-sm text-red-500">
                                   Cancelled at {
                                     new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                   }
@@ -909,7 +909,7 @@ const P2PTable = () => {
                                         height: '32px',
                                     }}
                                   />
-                                  <p className="text-xl text-red-400 font-normal">
+                                  <p className="text-xl text-red-500 font-normal">
                                     Buyer: {
                                       item?.buyer?.walletAddress === address ? 'Me' :
                                       item?.buyer?.nickname.substring(0, 1) + '***'

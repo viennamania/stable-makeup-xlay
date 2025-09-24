@@ -1229,7 +1229,7 @@ const fetchBuyOrders = async () => {
     return (
       <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
         <div className="py-0 w-full">
-          <h1 className="text-2xl font-bold text-red-400">잘못된 접근입니다.</h1>
+          <h1 className="text-2xl font-bold text-red-500">잘못된 접근입니다.</h1>
           <p className="text-zinc-100">올바른 상점 코드를 입력해주세요.</p>
         </div>
       </main>
@@ -1532,7 +1532,7 @@ const fetchBuyOrders = async () => {
               )}
 
 
-              <p className="text-lg text-red-400 font-normal">
+              <p className="text-lg text-red-500 font-normal">
                 {
                 totalNumberOfBuyOrders
                 }

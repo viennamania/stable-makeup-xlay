@@ -3233,7 +3233,7 @@ const fetchBuyOrders = async () => {
                                       자동입금처리
                                     </span>
                                   ) : (
-                                    <span className="text-sm text-red-400 font-normal">
+                                    <span className="text-sm text-red-500 font-normal">
                                       수동입금처리
                                     </span>
                                   )}
@@ -4202,7 +4202,7 @@ const fetchBuyOrders = async () => {
                                     width={20}
                                     height={20}
                                   />
-                                  <p className="text-sm text-red-400">
+                                  <p className="text-sm text-red-500">
                                     {Cancelled_at} {
                                       new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                     }
@@ -4342,7 +4342,7 @@ const fetchBuyOrders = async () => {
                                           height: '32px',
                                       }}
                                     />
-                                    <p className="text-sm text-red-400 font-normal">
+                                    <p className="text-sm text-red-500 font-normal">
                                       {Buyer}: {
                                         address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
                                       }

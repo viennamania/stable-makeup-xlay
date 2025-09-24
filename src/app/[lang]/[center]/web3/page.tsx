@@ -1210,10 +1210,10 @@ export default function SettingsPage({ params }: any) {
 
                                                         }
                                                     </span>
-                                                    <span className={`text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-400' : 'text-green-500'}`}>
+                                                    <span className={`text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
                                                         {transfer.sendOrReceive === 'send' ? '송금' : '수신'}
                                                     </span>
-                                                    <span className={`w-20 text-right text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-400' : 'text-green-500'}`}>
+                                                    <span className={`w-20 text-right text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
                                                         {transfer.sendOrReceive === 'send' ? '-' : '+'} {transfer.transferData.value / 10 ** 6}
                                                     </span>
                                                 </div>
@@ -2021,7 +2021,7 @@ export default function SettingsPage({ params }: any) {
                                             {/* error message */}
                                             {errorMsgForSetSeller && (
                                                 <div className='flex flex-row gap-2 items-center justify-between'>
-                                                    <span className='text-sm  text-red-400'>
+                                                    <span className='text-sm  text-red-500'>
                                                         {errorMsgForSetSeller}
                                                     </span>
                                                 </div>

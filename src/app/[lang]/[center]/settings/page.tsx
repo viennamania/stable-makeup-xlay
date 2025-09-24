@@ -1424,7 +1424,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 가맹점 관리자 설정이 되어 있지 않습니다.
                                     </span>
                                 </div>
@@ -1492,7 +1492,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                             />
-                                            <span className="text-sm text-red-400">
+                                            <span className="text-sm text-red-500">
                                             {store && store.storeName}의 회원이 없습니다.
                                             <br />
                                             가맹점 홈페이지에서 회원가입 후 가맹점 관리자를 설정하세요.
@@ -1561,7 +1561,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-red-400">
+                                    <span className="text-lg text-red-500">
                                     {store && store.storeName}의 가맹점 자동결제용 USDT지갑이 설정되지 않았습니다.
                                     </span>
                                 </div>
@@ -1627,7 +1627,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-red-400">
+                                    <span className="text-lg text-red-500">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     가맹점 홈페이지에서 회원가입 후 가맹점 자동결제용 USDT지갑을 설정하세요.
@@ -1681,7 +1681,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                         />
-                                        <span className="text-sm text-red-400">
+                                        <span className="text-sm text-red-500">
                                         {store && store.storeName}의 가맹점 수수료 USDT지갑 설정되지 않았습니다.
                                         </span>
                                     </div>
@@ -1746,7 +1746,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                         />
-                                        <span className="text-sm text-red-400">
+                                        <span className="text-sm text-red-500">
                                         {store && store.storeName}의 회원이 없습니다.
                                         <br />
                                         가맹점 홈페이지에서 회원가입 후 가맹점 수수료 USDT지갑을 설정하세요.
@@ -1907,7 +1907,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 가맹점 판매자 USDT지갑이 설정되지 않았습니다.
                                     </span>
                                 </div>
@@ -1976,7 +1976,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     회원가입 후 가맹점 USDT지갑을 설정하세요.
@@ -2035,7 +2035,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                     />
-                                    <span className="text-sm text-red-400">
+                                    <span className="text-sm text-red-500">
                                     {store && store.storeName}의 회원이 없습니다.
                                     <br />
                                     회원가입 후 가맹점 USDT지갑을 설정하세요.

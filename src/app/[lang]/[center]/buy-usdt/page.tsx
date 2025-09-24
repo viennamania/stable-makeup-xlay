@@ -1737,7 +1737,7 @@ export default function Index({ params }: any) {
                                     width={20}
                                     height={20}
                                   />
-                                  <p className="text-sm text-red-400">
+                                  <p className="text-sm text-red-500">
                                     {Cancelled_at} {
                                       new Date(item.cancelledAt).toLocaleDateString() + ' ' + new Date(item.cancelledAt).toLocaleTimeString()
                                     }
@@ -1873,7 +1873,7 @@ export default function Index({ params }: any) {
                                           height: '32px',
                                       }}
                                     />
-                                    <p className="text-sm text-red-400 font-normal">
+                                    <p className="text-sm text-red-500 font-normal">
                                       {Buyer}: {
                                         address && item?.buyer?.walletAddress === address ? Me :
                                         address && item?.buyer?.nickname ? item?.buyer?.nickname : Anonymous
