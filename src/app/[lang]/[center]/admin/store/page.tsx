@@ -1630,7 +1630,7 @@ export default function Index({ params }: any) {
 
                   } }
                   placeholder="회원아이디"
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <input
                   disabled={insertingUserCode}
@@ -1638,7 +1638,7 @@ export default function Index({ params }: any) {
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                   placeholder="회원 입금자명"
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
                 {/* userBankName */}
@@ -1648,7 +1648,7 @@ export default function Index({ params }: any) {
                   value={userBankName}
                   onChange={(e) => setUserBankName(e.target.value)}
                   placeholder="회원 은행명"
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
 

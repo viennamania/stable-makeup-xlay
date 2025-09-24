@@ -313,13 +313,6 @@ const CenterConsole = () => {
           <>
             <div className="flex flex-col gap-2 justify-center items-center">
 
-              <div className="flex flex-row gap-2 justify-center items-center">
-                {/* dot */}
-                <div className="w-2 h-2 bg-zinc-600 rounded-full"></div>
-                <span className="text-sm text-zinc-100">
-                  지갑주소
-                </span>
-              </div>
               <button
                 className="text-lg text-zinc-800 underline"
                 onClick={() => {
@@ -337,7 +330,7 @@ const CenterConsole = () => {
 
             <div className="w-full flex flex-col gap-2 justify-between items-center
               bg-green-50 p-2 rounded-lg">
-              <div className="flex flex-col gap-2 justify-center items-center">
+              <div className="flex flex-row gap-2 justify-center items-center">
                 <Image
                   src="/icon-tether.png"
                   alt="USDT"
@@ -345,14 +338,14 @@ const CenterConsole = () => {
                   height={35}
                   className="rounded-lg w-6 h-6"
                 />
-                <span className="text-sm text-zinc-100">
-                  잔액(USDT)
+                <span className="text-sm text-zinc-800">
+                  USDT 잔액
                 </span>
               </div>
 
               <div className="
               flex flex-col items-end justify-center
-              text-lg font-normal text-green-400"
+              text-lg font-normal text-green-600"
               style={{ fontFamily: "monospace" }}
               >
                 {Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -360,7 +353,7 @@ const CenterConsole = () => {
 
             </div>
 
-            <div className="flex flex-col gap-2 justify-center items-center">
+            <div className="flex flex-row gap-2 justify-center items-center">
               <Image
                 src={`/logo-chain-${chain}.png`}
                 alt={`${chain} logo`}
@@ -368,12 +361,16 @@ const CenterConsole = () => {
                 height={20}
                 className="rounded-lg"
               />
-              <span className="text-sm text-zinc-100">
-                가스보유량({chain === "ethereum" ? "ETH" :
+              <span className="text-sm text-zinc-800">
+                {chain === "ethereum" ? "ETH" :
                 chain === "polygon" ? "POL" :
                 chain === "arbitrum" ? "ETH" :
-                chain === "bsc" ? "BNB" : ""})
+                chain === "bsc" ? "BNB" : ""}
               </span>
+              <span className="text-sm text-zinc-800">잔액</span>
+            </div>
+
+            <div className="w-full flex flex-col gap-2 justify-between items-center">
               <div className="text-sm font-normal text-zinc-800"
                 style={{ fontFamily: "monospace" }}
               >

@@ -2252,7 +2252,7 @@ const fetchBuyOrders = async () => {
                     value={searchStorecode}
                     onChange={(e) => setSearchStorecode(e.target.value)}
                     placeholder="가맹점 코드"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
 
                   <button

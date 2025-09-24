@@ -1583,7 +1583,7 @@ export default function Index({ params }: any) {
       
 
             
-            <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
+            <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-zinc-800 shadow-md rounded-lg mt-5">
               <div className="text-sm text-zinc-100">
                 © 2025 X-Ray. All rights reserved.
               </div>

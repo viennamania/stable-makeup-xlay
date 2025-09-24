@@ -2278,7 +2278,7 @@ export default function Index({ params }: any) {
 
                 } }
                 placeholder="회원아이디"
-                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
               {/* userPassword */}
@@ -2288,7 +2288,7 @@ export default function Index({ params }: any) {
                 value={userPassword}
                 onChange={(e) => setUserPassword(e.target.value)}
                 placeholder="회원 비밀번호"
-                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
 
@@ -2299,7 +2299,7 @@ export default function Index({ params }: any) {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="회원 이름"
-                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
             </div>
@@ -2315,7 +2315,7 @@ export default function Index({ params }: any) {
                 value={userBankDepositName}
                 onChange={(e) => setUserBankDepositName(e.target.value)}
                 placeholder="회원 입금자명"
-                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
 
@@ -2326,7 +2326,7 @@ export default function Index({ params }: any) {
                 disabled={insertingUserCode}
                 value={userBankName}
                 onChange={(e) => setUserBankName(e.target.value)}
-                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">
                   은행선택
@@ -2426,7 +2426,7 @@ export default function Index({ params }: any) {
                 value={userBankAccountNumber}
                 onChange={(e) => setUserBankAccountNumber(e.target.value)}
                 placeholder="회원 계좌번호"
-                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
             </div>

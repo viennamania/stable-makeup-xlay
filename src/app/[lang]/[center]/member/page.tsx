@@ -2495,7 +2495,7 @@ export default function Index({ params }: any) {
 
 
 
-
+            {/*
             <div className="w-full flex flex-col xl:flwx-row items-start justify-center gap-2 mt-4">
 
 
@@ -2522,7 +2522,6 @@ export default function Index({ params }: any) {
                     {paymentUrl + '/' + params.lang + '/' + clientId + '/' + store?.storecode + '/paymaster'}
                   </button>
 
-                  {/* 복사 버튼 */}
                   <button
                     onClick={() => {
                       navigator.clipboard.writeText(`${paymentUrl}/${params.lang}/${clientId}/${store?.storecode}/center`);
@@ -2536,6 +2535,7 @@ export default function Index({ params }: any) {
 
 
             </div>
+            */}
 
 
 
@@ -2583,7 +2583,7 @@ export default function Index({ params }: any) {
                   flex flex-col xl:flex-col items-center justify-center gap-2">
 
 
-                  <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-full flex flex-row items-between justify-center gap-2">
 
                     <input
                       disabled={insertingUserCode}
@@ -2596,7 +2596,7 @@ export default function Index({ params }: any) {
 
                       } }
                       placeholder="회원 아이디"
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
                     {/* userPassword */}
@@ -2606,7 +2606,7 @@ export default function Index({ params }: any) {
                       value={userPassword}
                       onChange={(e) => setUserPassword(e.target.value)}
                       placeholder="회원 비밀번호"
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
 
@@ -2617,13 +2617,13 @@ export default function Index({ params }: any) {
                       value={userName}
                       onChange={(e) => setUserName(e.target.value)}
                       placeholder="회원 이름"
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
                   </div>
 
 
-                  <div className="flex flex-row items-center justify-start gap-2">
+                  <div className="w-full flex flex-row items-between justify-center gap-2">
 
 
                     {/* userBankDepositName */}
@@ -2633,7 +2633,7 @@ export default function Index({ params }: any) {
                       value={userBankDepositName}
                       onChange={(e) => setUserBankDepositName(e.target.value)}
                       placeholder="회원 입금자명"
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
 
@@ -2643,7 +2643,7 @@ export default function Index({ params }: any) {
                       disabled={insertingUserCode}
                       value={userBankName}
                       onChange={(e) => setUserBankName(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="" selected={userBankName === ""}>
                         은행선택
@@ -2741,7 +2741,7 @@ export default function Index({ params }: any) {
                       value={userBankAccountNumber}
                       onChange={(e) => setUserBankAccountNumber(e.target.value)}
                       placeholder="회원 계좌번호"
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full p-2 border border-zinc-300 bg-zinc-800 text-zinc-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
 
                   </div>
@@ -2906,18 +2906,31 @@ export default function Index({ params }: any) {
                           </td>
 
                           <td className="p-2">
-                            {item.nickname}
+                            <div className="
+                            w-32
+                            flex flex-row items-center justify-start gap-1">
+                              <Image
+                                src="/icon-user.png"
+                                alt="Buyer"
+                                width={20}
+                                height={20}
+                                className="rounded-lg w-5 h-5"
+                              />
+                              <span className="text-sm">
+                                {item.nickname}
+                              </span>
+                            </div>
                           </td>
 
                           <td className="p-2">
                             <div className="flex flex-col items-end justify-center gap-1">
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm">
                                 {item?.buyer?.depositBankName}
                               </span>
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm">
                                 {item?.buyer?.depositBankAccountNumber}
                               </span>
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm">
                                 {item?.buyer?.depositName}
                               </span>
                             </div>
@@ -3001,8 +3014,8 @@ export default function Index({ params }: any) {
                                     });
                                     openModal();
                                   }}
-                                  className="w-full bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                    hover:bg-gray-700/80"
+                                  className="w-full bg-blue-500 text-sm text-white px-2 py-1 rounded-lg
+                                    hover:bg-blue-600"
                                 >
                                   보기
                                 </button>
@@ -3022,8 +3035,8 @@ export default function Index({ params }: any) {
                                     );
                                     toast.success('회원 결제페이지 링크가 복사되었습니다.');
                                   }}
-                                  className="w-full bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                    hover:bg-gray-700/80"
+                                  className="w-full bg-blue-500 text-sm text-white px-2 py-1 rounded-lg
+                                    hover:bg-blue-600"
                                 >
                                   링크 복사
                                 </button>
@@ -3041,8 +3054,8 @@ export default function Index({ params }: any) {
                                     );
                                     toast.success('회원 결제페이지 스크립트가 복사되었습니다.');
                                   }}
-                                  className="w-full bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                    hover:bg-gray-700/80"
+                                  className="w-full bg-blue-500 text-sm text-white px-2 py-1 rounded-lg
+                                    hover:bg-blue-600"
                                 >
                                   스크립트 복사
                                 </button>
@@ -3064,8 +3077,8 @@ export default function Index({ params }: any) {
                                     );
                                     toast.success('회원 홈페이지를 새창으로 열었습니다.');
                                   }}
-                                  className="w-full bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                    hover:bg-gray-700/80"
+                                  className="w-full bg-blue-500 text-sm text-white px-2 py-1 rounded-lg
+                                    hover:bg-blue-600"
                                 >
                                   새창열기
                                 </button>
@@ -3079,19 +3092,30 @@ export default function Index({ params }: any) {
 
 
                           <td className="p-2">
-                            <button
-                              onClick={() => {
-                                navigator.clipboard.writeText(item?.walletAddress);
-                                toast.success(Copied_Wallet_Address);
-                              } }
-                              className="text-sm text-zinc-500 underline"
-                            >
-                            {
-                                item?.walletAddress && (
-                                  item.walletAddress.substring(0, 6) + '...' + item.walletAddress.substring(item.walletAddress.length - 4)
-                                )
-                              }
-                            </button>
+
+                            <div className="flex flex-row items-center justify-center gap-1">
+                              <Image
+                                src="/icon-shield.png"
+                                alt="Wallet"
+                                width={20}
+                                height={20}
+                                className="w-5 h-5"
+                              />
+                              <button
+                                onClick={() => {
+                                  navigator.clipboard.writeText(item?.walletAddress);
+                                  toast.success(Copied_Wallet_Address);
+                                }}
+                                className="text-sm underline"
+                              >
+                              {
+                                  item?.walletAddress && (
+                                    item.walletAddress.substring(0, 6) + '...' + item.walletAddress.substring(item.walletAddress.length - 4)
+                                  )
+                                }
+                              </button>
+                            </div>
+
                           </td>
 
  
@@ -3166,8 +3190,8 @@ export default function Index({ params }: any) {
                                 }}
                                 className={`
                                   w-full mb-2
-                                  bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80
+                                  bg-blue-500 text-sm text-white px-2 py-1 rounded-lg
+                                  hover:bg-blue-600
                                 `}
                               >
                                 잔액 확인하기
@@ -3182,8 +3206,8 @@ export default function Index({ params }: any) {
                                 }}
                                 className={`
                                   w-full mb-2
-                                  bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80
+                                  bg-blue-500 text-sm text-white px-2 py-1 rounded-lg
+                                  hover:bg-blue-600
                                 `}
                               >
                                 잔액 회수하기
@@ -3292,7 +3316,7 @@ export default function Index({ params }: any) {
           
 
 
-          <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-white shadow-md rounded-lg mt-5">
+          <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-zinc-800 shadow-md rounded-lg mt-5">
             <div className="text-sm text-zinc-100">
               © 2025 X-Ray. All rights reserved.
             </div>
