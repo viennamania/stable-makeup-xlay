@@ -1639,7 +1639,7 @@ export default function Index({ params }: any) {
 
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 수수료수량(USDT)</div>
+                  <div className="text-sm">총 수수료량(USDT)</div>
                   <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
@@ -1910,7 +1910,7 @@ export default function Index({ params }: any) {
                                 <span>결제액(원)</span>
                               </div>
                               <div className="flex flex-col items-center justify-center gap-2">
-                                <span>수수료수량(USDT)</span>
+                                <span>수수료량(USDT)</span>
                                 <span>수수료금액(원)</span>
                               </div>
 

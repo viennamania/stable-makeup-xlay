@@ -2403,7 +2403,7 @@ const fetchBuyOrders = async () => {
     }
     const data = await response.json();
     
-    console.log('getTradeSummary data', data);
+    //console.log('getTradeSummary data', data);
 
 
     setTradeSummary(data.result);
@@ -3057,7 +3057,7 @@ const fetchBuyOrders = async () => {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg font-normal text-zinc-500">
+                      <span className="text-lg font-normal ">
                         현재 보유량
                       </span>
                     </div>
@@ -3136,7 +3136,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
+                  <span className="text-lg font-normal ">
                     가맹점 거래
                   </span>
                 </div>
@@ -3168,7 +3168,7 @@ const fetchBuyOrders = async () => {
                       .toLocaleString('ko-KR')
                     }
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm ">
                     원
                   </span>
                 </div>
@@ -3183,7 +3183,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
+                  <span className="text-lg font-normal ">
                     가맹점 정산
                   </span>
                 </div>
@@ -3215,7 +3215,7 @@ const fetchBuyOrders = async () => {
                       .toLocaleString('ko-KR')
                     }
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm ">
                     원
                   </span>
                 </div>
@@ -3231,7 +3231,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
+                  <span className="text-lg font-normal ">
                     가맹점 판매
                   </span>
                 </div>
@@ -3263,7 +3263,7 @@ const fetchBuyOrders = async () => {
                       .toLocaleString('ko-KR')
                     }
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm ">
                     원
                   </span>
                 </div>
@@ -3398,7 +3398,7 @@ const fetchBuyOrders = async () => {
                 {/*
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">전체</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-xl font-normal ">
                     {totalCount}
                   </div>
                 </div>
@@ -3548,14 +3548,14 @@ const fetchBuyOrders = async () => {
                 <div className="w-full xl:w-1/3 flex flex-row items-center justify-between gap-2 pl-4 pr-4">
                   
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 P2P 거래수(건)</div>
-                    <div className="text-xl font-normal text-zinc-500">
+                    <div className="text-sm">P2P 거래수(건)</div>
+                    <div className="text-xl font-normal ">
                       {tradeSummary.totalCount?.toLocaleString()}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 P2P 거래금액(원)</div>
+                    <div className="text-sm">P2P 거래금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
                       <span className="text-xl font-normal text-yellow-500"
                         style={{ fontFamily: 'monospace' }}
@@ -3566,14 +3566,14 @@ const fetchBuyOrders = async () => {
                         .toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                         }
                       </span>
-                      <span className="text-sm text-zinc-500">
+                      <span className="text-sm ">
                         원
                       </span>
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 P2P 거래량(USDT)</div>
+                    <div className="text-sm">P2P 거래량(USDT)</div>
                     <div className="flex flex-row items-center gap-1">
                       <Image
                         src="/icon-tether.png"
@@ -3603,14 +3603,14 @@ const fetchBuyOrders = async () => {
 
                   
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 결제수(건)</div>
-                    <div className="text-xl font-normal text-zinc-500">
+                    <div className="text-sm">결제수(건)</div>
+                    <div className="text-xl font-normal ">
                       {tradeSummary.totalSettlementCount?.toLocaleString()}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 결제금액(원)</div>
+                    <div className="text-sm">결제금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
                       <span className="text-xl font-normal text-yellow-500"
                         style={{ fontFamily: 'monospace' }}
@@ -3625,7 +3625,7 @@ const fetchBuyOrders = async () => {
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 결제량(USDT)</div>
+                    <div className="text-sm">결제량(USDT)</div>
                     <div className="flex flex-row items-center gap-1">
                       <Image
                         src="/icon-tether.png"
@@ -3646,7 +3646,7 @@ const fetchBuyOrders = async () => {
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 수수료금액(원)</div>
+                    <div className="text-sm">수수료금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
                       <span className="text-xl font-normal text-yellow-500"
                         style={{ fontFamily: 'monospace' }}
@@ -3662,7 +3662,7 @@ const fetchBuyOrders = async () => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 수수료수량(USDT)</div>
+                    <div className="text-sm">수수료량(USDT)</div>
                     <div className="flex flex-row items-center gap-1">
                       <Image
                         src="/icon-tether.png"
@@ -3692,14 +3692,14 @@ const fetchBuyOrders = async () => {
 
                 <div className="w-full xl:w-1/4 flex flex-row items-center justify-between gap-2 pl-4 pr-4">
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 청산수(건)</div>
-                    <div className="text-xl font-normal text-zinc-500">
+                    <div className="text-sm">청산수(건)</div>
+                    <div className="text-xl font-normal ">
                       {tradeSummary.totalClearanceCount?.toLocaleString()}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 청산금액(원)</div>
+                    <div className="text-sm">청산금액(원)</div>
                     <div className="flex flex-row items-center gap-1">
                       <span className="text-xl font-normal text-yellow-500">
                         {tradeSummary.totalClearanceAmount?.toLocaleString()}
@@ -3708,7 +3708,7 @@ const fetchBuyOrders = async () => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">총 청산수량(USDT)</div>
+                    <div className="text-sm">청산수량(USDT)</div>
                     <div className="flex flex-row items-center gap-1">
                       <Image
                         src="/icon-tether.png"
@@ -3988,7 +3988,7 @@ const fetchBuyOrders = async () => {
                           </td>
 
 
-                          <td className="text-zinc-500 p-2">
+                          <td className=" p-2">
                             <div className="
                               w-24
                               flex flex-col gap-2 items-center justify-center">
@@ -4026,7 +4026,7 @@ const fetchBuyOrders = async () => {
                             <div className="
                               w-24
                               flex flex-col gap-2 items-center justify-center">
-                              <div className="text-sm font-normal text-zinc-500">
+                              <div className="text-sm font-normal ">
                                 {item?.store?.bankInfo?.bankName}
                               </div>
 
@@ -4044,7 +4044,7 @@ const fetchBuyOrders = async () => {
                                 {item?.store?.bankInfo?.accountNumber}
                               </button>
 
-                              <div className="text-sm font-normal text-zinc-500">
+                              <div className="text-sm font-normal ">
                                 {item?.store?.bankInfo?.accountHolder}
                               </div>
                             </div>
@@ -4115,7 +4115,7 @@ const fetchBuyOrders = async () => {
                                       {item.seller?.nickname}
                                     </div>
                                     */}
-                                    <div className="text-sm text-zinc-500">
+                                    <div className="text-sm ">
 
                                       {params.lang === 'ko' ? (
                                         <p>{
@@ -4163,7 +4163,7 @@ const fetchBuyOrders = async () => {
                                     </div>
                                     */}
 
-                                    <div className="text-sm text-zinc-500">
+                                    <div className="text-sm ">
                                       {/* from now */}
                                       {
                                         new Date().getTime() - new Date(item.paymentRequestedAt).getTime() < 1000 * 60 ? (
@@ -4194,7 +4194,7 @@ const fetchBuyOrders = async () => {
                                       </span>
                                       */}
 
-                                      <div className="text-sm text-zinc-500">
+                                      <div className="text-sm ">
                                         {
                                           // from now
                                           new Date().getTime() - new Date(item.cancelledAt).getTime() < 1000 * 60 ? (
@@ -4246,7 +4246,7 @@ const fetchBuyOrders = async () => {
                                     <span
                                       className="
                                         w-28 
-                                        text-sm text-zinc-500"
+                                        text-sm "
                                     >{
                                       //item.paymentConfirmedAt && new Date(item.paymentConfirmedAt)?.toLocaleString()
                                       // from now
@@ -4721,7 +4721,7 @@ const fetchBuyOrders = async () => {
                                             height={20}
                                             className="animate-spin"
                                           />
-                                          <span className="text-sm font-normal text-zinc-500">
+                                          <span className="text-sm font-normal ">
                                             가맹점 결제중...
                                           </span>
                                         </div>
@@ -4834,7 +4834,7 @@ const fetchBuyOrders = async () => {
 
                                     {params.lang === 'ko' ? (
 
-                                      <p className="text-sm text-zinc-500">
+                                      <p className="text-sm ">
 
                                       
                                         {
@@ -4853,7 +4853,7 @@ const fetchBuyOrders = async () => {
                                       
                                       ) : (
 
-                                        <p className="text-sm text-zinc-500">
+                                        <p className="text-sm ">
 
 
                                       
@@ -4912,7 +4912,7 @@ const fetchBuyOrders = async () => {
                                       width={28}
                                       height={28}
                                     />
-                                    <p className="text-sm text-zinc-500">{Expires_in} {
+                                    <p className="text-sm ">{Expires_in} {
     
                                       24 - Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) - 1
 
@@ -4932,7 +4932,7 @@ const fetchBuyOrders = async () => {
                                       width={28}
                                       height={28}
                                     />
-                                    <p className="text-sm text-zinc-500">Expired</p>
+                                    <p className="text-sm ">Expired</p>
                                     */}
                                   </div>
                                 )}
@@ -4964,7 +4964,7 @@ const fetchBuyOrders = async () => {
                                 </p>
 
                                 {item.status === 'cancelled' ? (
-                                  <p className="ml-2 text-sm text-zinc-500">
+                                  <p className="ml-2 text-sm ">
                                     {new Date(item.acceptedAt)?.toLocaleString()}
                                   </p>
                                 ) : (
@@ -4972,7 +4972,7 @@ const fetchBuyOrders = async () => {
                                   <>
                                     {params.lang === 'ko' ? (
 
-                                      <p className="ml-2 text-sm text-zinc-500">
+                                      <p className="ml-2 text-sm ">
 
                                       
                                         {new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -4991,7 +4991,7 @@ const fetchBuyOrders = async () => {
 
                                     ) : (
 
-                                      <p className="ml-2 text-sm text-zinc-500">
+                                      <p className="ml-2 text-sm ">
 
                                         {Trade_Started} {
                                           new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -5049,7 +5049,7 @@ const fetchBuyOrders = async () => {
                             {/*
                             
                             {item.acceptedAt && (
-                              <p className="mb-2 text-sm text-zinc-500">
+                              <p className="mb-2 text-sm ">
                                 Trade started at {new Date(item.acceptedAt).toLocaleDateString() + ' ' + new Date(item.acceptedAt).toLocaleTimeString()}
                               </p>
                             )}
@@ -5083,7 +5083,7 @@ const fetchBuyOrders = async () => {
 
 
 
-                              <p className="text-2xl text-zinc-500">
+                              <p className="text-2xl ">
                                 {Price}: {
                                   // currency
                                 
@@ -5097,10 +5097,10 @@ const fetchBuyOrders = async () => {
 
                               <div className="mt-2 flex flex-row items-start gap-2">
 
-                                <p className="text-xl font-normal text-zinc-500">
+                                <p className="text-xl font-normal ">
                                   {item.usdtAmount}{' '}USDT
                                 </p>
-                                <p className="text-lg font-normal text-zinc-500">{Rate}: {
+                                <p className="text-lg font-normal ">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(3)
 
@@ -5277,7 +5277,7 @@ const fetchBuyOrders = async () => {
                                       {Waiting_for_seller_to_deposit} {item.usdtAmount} USDT {to_escrow}...
                                     </span>
 
-                                    <span className="text-sm text-zinc-500">
+                                    <span className="text-sm ">
 
                                       {If_the_seller_does_not_deposit_the_USDT_to_escrow},
 
@@ -5319,7 +5319,7 @@ const fetchBuyOrders = async () => {
                                           );
                                         }}
                                       />
-                                      <label className="text-sm text-zinc-500">
+                                      <label className="text-sm ">
                                         {I_agree_to_cancel_the_trade}
                                       </label>
                                     </div>
@@ -5578,7 +5578,7 @@ const fetchBuyOrders = async () => {
                                                       );
                                                   }}
                                                 />
-                                                <label className="text-sm text-zinc-500">
+                                                <label className="text-sm ">
                                                   {I_agree_to_the_terms_of_trade}
                                                 </label>
                                               </div>
@@ -5590,7 +5590,7 @@ const fetchBuyOrders = async () => {
                                               {address && agreementForTrade[index] && (
                                                 <div className="mt-8 flex flex-row items-center justify-start gap-2">
 
-                                                  <span className="text-sm text-zinc-500">SMS</span>
+                                                  <span className="text-sm ">SMS</span>
 
                                                   <div className="flex flex-col items-start justify-start">
                                                     <input
@@ -5655,7 +5655,7 @@ const fetchBuyOrders = async () => {
                         {/* status */}
                         {/*
                         <div className="absolute bottom-4 right-4 flex flex-row items-start justify-start">
-                          <div className="text-sm text-zinc-500">
+                          <div className="text-sm ">
                             {item.status === 'ordered' ? 'Order opened at ' + new Date(item.createdAt)?.toLocaleString()
                             : item.status === 'accepted' ? 'Trade started at ' + new Date(item.acceptedAt)?.toLocaleString()
                             : item.status === 'paymentRequested' ? 'Payment requested at ' + new Date(item.paymentRequestedAt)?.toLocaleString()
@@ -5741,7 +5741,7 @@ const fetchBuyOrders = async () => {
               </button>
 
 
-              <span className="text-sm text-zinc-500">
+              <span className="text-sm ">
                 {page} / {Math.ceil(Number(totalCount) / Number(limit))}
               </span>
 

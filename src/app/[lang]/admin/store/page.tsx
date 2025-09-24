@@ -2224,7 +2224,7 @@ export default function Index({ params }: any) {
                       </div>
                     </div>
                     <div className="w-full flex flex-col gap-2 items-end justify-center">
-                      <div className="text-sm">총 수수료수량(USDT)</div>
+                      <div className="text-sm">총 수수료량(USDT)</div>
                       <div className="flex flex-row items-center justify-center gap-1">
                         <Image
                           src="/icon-tether.png"

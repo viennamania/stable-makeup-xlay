@@ -2229,7 +2229,7 @@ export default function Index({ params }: any) {
                         결제량(USDT)<br/>결제금액(원)
                       </th>
                       <th className="px-4 py-2 text-right">
-                        수수료수량(USDT)<br/>수수료금액(원)
+                        수수료량(USDT)<br/>수수료금액(원)
                       </th>
 
                       {/*
