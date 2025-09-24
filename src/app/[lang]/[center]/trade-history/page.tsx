@@ -3742,7 +3742,7 @@ const fetchBuyOrders = async () => {
                   <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-normal"
+                      className="bg-zinc-600 text-sm font-normal"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}

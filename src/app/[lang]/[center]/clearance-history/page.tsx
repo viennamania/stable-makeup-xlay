@@ -3780,7 +3780,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-normal"
+                      className="bg-zinc-600 text-sm font-normal"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}

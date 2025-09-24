@@ -1135,25 +1135,20 @@ export default function SettingsPage({ params }: any) {
 
 
 
-                <div className="flex flex-col items-start justify-center space-y-4">
+                <div className="
+                mt-4
+                flex flex-col items-start justify-center space-y-4">
 
                     <div className='flex flex-row items-center space-x-4'>
                         <Image
-                            src={"/profile-default.png"}
+                            src={"/icon-user.png"}
                             alt="Avatar"
                             width={20}
                             height={20}
-                            priority={true} // Added priority property
-                            className="rounded-full"
-                            style={{
-                                objectFit: 'cover',
-                                width: '20px',
-                                height: '20px',
-                            }}
+                            className="w-8 h-8 rounded-full bg-zinc-800 object-cover"
                         />
                         <div className="text-xl font-normal text-zinc-100">
                             {Profile_Settings}
-                            
                         </div>
 
 

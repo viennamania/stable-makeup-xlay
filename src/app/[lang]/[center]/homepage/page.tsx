@@ -3409,7 +3409,7 @@ const fetchBuyOrders = async () => {
                     <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                       <thead
-                        className="bg-zinc-800 text-white text-sm font-normal"
+                        className="bg-zinc-600 text-sm font-normal"
                         style={{
                           backgroundColor: 'rgba(0, 0, 0, 0.5)',
                         }}
@@ -3445,13 +3445,13 @@ const fetchBuyOrders = async () => {
                                 />
 
                                 {/* the count of status is ordered */}
-                                <span className="text-sm text-zinc-50 font-normal">
+                               <span className="text-sm font-normal">
                                   {
                                     buyOrders.filter((item) => item.status === 'ordered').length
                                   }
                                 </span>
 
-                                <span className="text-sm text-zinc-50 font-normal">
+                               <span className="text-sm font-normal">
                                   거래상태
                                 </span>
 
@@ -3488,14 +3488,14 @@ const fetchBuyOrders = async () => {
                                   height={20}
                                   className="w-5 h-5 animate-spin"
                                 />
-                                <span className="text-sm text-zinc-50 font-normal">
+                               <span className="text-sm font-normal">
                                   {
                                     buyOrders.filter((item) => item.status === 'paymentRequested').length
                                   }
                                 </span>
 
                               </div>
-                              <span className="text-sm text-zinc-50 font-normal">
+                             <span className="text-sm font-normal">
                                 입금액
                               </span>
 
@@ -3528,7 +3528,7 @@ const fetchBuyOrders = async () => {
                                   className="w-5 h-5 animate-spin"
                                 />
 
-                                <span className="text-sm text-zinc-50 font-normal">
+                               <span className="text-sm font-normal">
                                   {
                                     buyOrders.filter((item) => item.status === 'paymentConfirmed'
                                     && item?.settlement?.status !== "paymentSettled").length
