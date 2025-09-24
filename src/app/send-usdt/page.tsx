@@ -237,7 +237,7 @@ export default function SendUsdt() {
         */}
 
         <div className="flex justify-start space-x-4 mb-10">
-            <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
+            <button onClick={() => router.push('/')} className=" font-normal underline">Go Home</button>
         </div>
         
 
@@ -300,12 +300,12 @@ export default function SendUsdt() {
             <button
               disabled={!address || !toAddress || !amount || sending}
               onClick={sendUsdt}
-              className="bg-zinc-800 text-white p-2 rounded w-80 text-center font-normal hover:bg-zinc-700 hover:text-white"
+              className="bg-zinc-800  p-2 rounded w-80 text-center font-normal hover:bg-zinc-700 hover:"
             >
                 Send
             </button>
 
-            <div className="text-xl font-normal text-zinc-100">
+            <div className="text-xl font-normal ">
                 Balance: {balance} USDT
             </div>
         </div>

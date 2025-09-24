@@ -373,7 +373,7 @@ export default function ProfilePage() {
 
         
                 <div className="flex justify-start space-x-4 mb-10">
-                    <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
+                    <button onClick={() => router.push('/')} className=" font-normal underline">Go Home</button>
                 </div>
 
 
@@ -430,7 +430,7 @@ export default function ProfilePage() {
                         {/*userCode && (
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     Profile Picture
                                 </div>
 
@@ -447,7 +447,7 @@ export default function ProfilePage() {
                                         avatarEdit ? setAvatarEdit(false) : setAvatarEdit(true);
 
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     {avatarEdit ? 'Cancel' : 'Edit'}
                                     
@@ -460,11 +460,11 @@ export default function ProfilePage() {
                         {userCode && (
                             <div className='flex flex-col xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     My Profile Picture
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     <Uploader
                                         lang="en"
                                         walletAddress={address}
@@ -479,11 +479,11 @@ export default function ProfilePage() {
                         {userCode && (
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                    My Nickname
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     {nickname}
                                 </div>
 
@@ -497,7 +497,7 @@ export default function ProfilePage() {
                                         nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                     } }
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     {nicknameEdit ? 'Cancel' : 'Edit'}
                                 </button>
@@ -512,11 +512,11 @@ export default function ProfilePage() {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     {userCode}
                                 </div>
 
@@ -525,7 +525,7 @@ export default function ProfilePage() {
                                         navigator.clipboard.writeText(userCode);
                                         toast.success('Referral code copied to clipboard');
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     Copy
                                 </button>
@@ -539,11 +539,11 @@ export default function ProfilePage() {
                         {userCode && seller && (
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     Seller
                                 </div>
 
-                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="flex flex-col p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     
                                     <div className="text-lg font-normal">
                                         {seller?.bankInfo?.bankName}
@@ -562,7 +562,7 @@ export default function ProfilePage() {
                                     onClick={() => {
                                         window.location.href = '/sell-usdt';
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     Sell USDT
                                 </button>
@@ -575,16 +575,16 @@ export default function ProfilePage() {
                                 
                                 <div className='w-full flex flex-row gap-2 items-center justify-between'>
 
-                                    <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                    <div className="bg-red-800 text-sm  p-2 rounded">
                                         Seller
                                     </div>
 
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                    <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                         Not a seller
                                     </div>
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                        <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                             Applying...
                                         </div>
                                     ) : (
@@ -598,7 +598,7 @@ export default function ProfilePage() {
                                                 apply();
 
                                             }}
-                                            className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                            className="p-2 bg-blue-500  rounded"
                                         >
                                             Apply
                                         </button>
@@ -611,7 +611,7 @@ export default function ProfilePage() {
                                                                         
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder="Enter your bank name"
                                         value={bankName}
                                         type='text'
@@ -621,7 +621,7 @@ export default function ProfilePage() {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder="Enter your account number"
                                         value={accountNumber}
                                         type='number'
@@ -636,7 +636,7 @@ export default function ProfilePage() {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder="Enter your account holder"
                                         value={accountHolder}
                                         type='text'

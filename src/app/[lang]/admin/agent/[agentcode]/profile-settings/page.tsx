@@ -1028,13 +1028,13 @@ export default function SettingsPage({ params }: any) {
 
                 {params.agentcode && (
                     <div className="w-full flex flex-row items-center justify-center gap-2 bg-black/10 p-2 rounded-lg mb-4">
-                        <span className="text-sm text-zinc-100">
+                        <span className="text-sm ">
                         {params.agentcode}
                         </span>
                     </div>
                 )}
         
-                <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-100 text-lg"
+                <div className="w-full flex flex-row gap-2 items-center justify-start  text-lg"
                 >
                     {/* go back button */}
                     <div className="w-full flex justify-start items-center gap-2">
@@ -1050,7 +1050,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-zinc-100 font-normal">
+                        <span className="text-sm  font-normal">
                             돌아가기
                         </span>
                     </div>
@@ -1069,7 +1069,7 @@ export default function SettingsPage({ params }: any) {
                                     className="w-6 h-6"
                                 />
                                 <button
-                                    className="text-lg text-zinc-100 underline"
+                                    className="text-lg  underline"
                                     onClick={() => {
                                         navigator.clipboard.writeText(address);
                                         toast.success(Copied_Wallet_Address);
@@ -1112,7 +1112,7 @@ export default function SettingsPage({ params }: any) {
                                 height: '20px',
                             }}
                         />
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                             {Profile_Settings}
                             
                         </div>
@@ -1131,13 +1131,13 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         나의 아이디
                                     </span>
                                 </div>
 
 
-                                <span className="text-xl font-normal text-zinc-100">
+                                <span className="text-xl font-normal ">
                                     {nickname}
                                 </span>
 
@@ -1150,7 +1150,7 @@ export default function SettingsPage({ params }: any) {
                                         nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                     } }
-                                    className="p-2 bg-green-500 text-zinc-100 rounded-lg"
+                                    className="p-2 bg-green-500  rounded-lg"
                                 >
                                     {nicknameEdit ? Cancel : Edit}
                                 </button>
@@ -1176,7 +1176,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         {nicknameEdit ? "내 아이디 수정" : "내 아이디 설정"}
                                     </span>
                                 </div>
@@ -1185,7 +1185,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-col gap-2'>
                                     <input
                                         disabled={!address}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-2xl font-normal"
                                         placeholder={Enter_your_nickname}
                                         
                                         //value={nickname}
@@ -1214,14 +1214,14 @@ export default function SettingsPage({ params }: any) {
 
                                     />
                                     <div className='flex flex-row gap-2 items-center justify-between'>
-                                        <span className='text-xs font-normal text-zinc-100'>
+                                        <span className='text-xs font-normal '>
                                             {Nickname_should_be_5_10_characters}
                                         </span>
                                     </div>
                                 </div>
                                 <button
                                     disabled={!address}
-                                    className="p-2 bg-green-500 text-zinc-100 rounded-lg"
+                                    className="p-2 bg-green-500  rounded-lg"
                                     onClick={() => {
                                         setUserData();
                                     }}
@@ -1238,11 +1238,11 @@ export default function SettingsPage({ params }: any) {
                         {false && userCode && (
                             <div className='flex flex-row xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded-lg">
+                                <div className="bg-green-500 text-sm  p-2 rounded-lg">
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}
@@ -1259,11 +1259,11 @@ export default function SettingsPage({ params }: any) {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     {userCode}
                                 </div>
 
@@ -1274,7 +1274,7 @@ export default function SettingsPage({ params }: any) {
                                         navigator.clipboard.writeText(userCode);
                                         toast.success('Referral code copied to clipboard');
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     Copy
                                 </button>
@@ -1310,14 +1310,14 @@ export default function SettingsPage({ params }: any) {
 
                                 <div className="flex flex-col xl:flex-row p-2 gap-2">
                                     
-                                    <span className="text-lg text-zinc-100 font-normal">
+                                    <span className="text-lg  font-normal">
                                         {seller?.bankInfo?.bankName}
                                     </span>
 
-                                    <span className="text-lg text-zinc-100 font-normal">
+                                    <span className="text-lg  font-normal">
                                         {seller?.bankInfo?.accountNumber}
                                     </span>
-                                    <span className="text-lg text-zinc-100 font-normal">
+                                    <span className="text-lg  font-normal">
                                         {seller?.bankInfo?.accountHolder}
                                     </span>
 
@@ -1328,7 +1328,7 @@ export default function SettingsPage({ params }: any) {
                                     onClick={() => {
                                         setEditSeller(!editSeller);
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     {editSeller ? Cancel : Edit}
                                 </button>
@@ -1367,13 +1367,13 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     {!seller && (
-                                        <div className="text-lg text-zinc-100">
+                                        <div className="text-lg ">
                                             {Not_a_seller}
                                         </div>
                                     )}
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                        <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                             {Applying}...
                                         </div>
                                     ) : (
@@ -1391,7 +1391,7 @@ export default function SettingsPage({ params }: any) {
                                             }}
                                             className={`
                                                 ${!verifiedOtp ? 'bg-gray-300 text-gray-400'
-                                                : 'bg-green-500 text-zinc-100'}
+                                                : 'bg-green-500 '}
 
                                                 p-2 rounded-lg text-sm font-normal
                                             `}
@@ -1408,7 +1408,7 @@ export default function SettingsPage({ params }: any) {
                                     {/*                             
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_bank_name}
                                         value={bankName}
                                         type='text'
@@ -1421,7 +1421,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <select
                                         disabled={!address}
-                                        className="p-2 w-full text-lg text-center bg-zinc-800 rounded-lg text-zinc-100
+                                        className="p-2 w-full text-lg text-center bg-zinc-800 rounded-lg 
                                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                         value={bankName}
                                         onChange={(e) => {
@@ -1503,7 +1503,7 @@ export default function SettingsPage({ params }: any) {
                                     
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded-lg text-lg"
+                                        className="p-2 w-64  bg-zinc-800 rounded-lg text-lg"
                                         placeholder={Enter_your_account_number}
                                         value={accountNumber}
                                         type='number'
@@ -1518,7 +1518,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded-lg text-lg"
+                                        className="p-2 w-64  bg-zinc-800 rounded-lg text-lg"
                                         placeholder={Enter_your_account_holder}
                                         value={accountHolder}
                                         type='text'
@@ -1540,7 +1540,7 @@ export default function SettingsPage({ params }: any) {
                                         width={30}
                                         height={30}
                                     />
-                                    <div className="text-white">
+                                    <div className="">
                                         {OTP_verified}
                                     </div>
                                     </div>
@@ -1561,7 +1561,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !address || isSendingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                         
                                         `}
@@ -1587,7 +1587,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !otp || isVerifingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                             
                                             `}

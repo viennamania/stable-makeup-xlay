@@ -971,13 +971,13 @@ export default function Index({ params }: any) {
                   onClick={() =>
                       router.push('/' + params.lang)
                   }
-                  className="text-zinc-100 font-normal underline"
+                  className=" font-normal underline"
               >
                 {Go_Home}
               </button>
               <button
                 onClick={() => router.push('/' + params.lang + '/buy-usdt')}
-                className="text-zinc-100 font-normal underline"
+                className=" font-normal underline"
               >
 
                 {Go_Buy_USDT}
@@ -985,7 +985,7 @@ export default function Index({ params }: any) {
               {/* Go to Sell USDT */}
               <button
                   onClick={() => router.push('/' + params.lang + '/sell-usdt')}
-                  className="text-zinc-100 font-normal underline"
+                  className=" font-normal underline"
               >
                 {Go_Sell_USDT}
               </button>
@@ -1004,7 +1004,7 @@ export default function Index({ params }: any) {
                   window.location.reload();
 
                 }}
-                className="text-lg bg-red-500 text-white px-4 py-2 rounded-md"
+                className="text-lg bg-red-500  px-4 py-2 rounded-md"
               >
                 Disconnect Wallet
               </button>
@@ -1058,7 +1058,7 @@ export default function Index({ params }: any) {
                   <div className="w-full flex flex-col items-start justify-between gap-2">
                     {/* my usdt balance */}
                     <div className="flex flex-col gap-2 items-start">
-                      <div className="text-5xl font-normal text-white">
+                      <div className="text-5xl font-normal ">
                         {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                       </div>
                     </div>
@@ -1078,7 +1078,7 @@ export default function Index({ params }: any) {
                               height: '20px',
                           }}
                         />
-                        <div className="text-lg font-normal text-white ">{user?.nickname}</div>
+                        <div className="text-lg font-normal  ">{user?.nickname}</div>
                       </div>
                     </div>
 
@@ -1221,7 +1221,7 @@ export default function Index({ params }: any) {
                                 {/* reload button */}
                                 {item.status !== 'paymentConfirmed' && ( 
                                   <button
-                                    className="text-sm bg-green-500 text-white px-2 py-1 rounded-md"
+                                    className="text-sm bg-green-500  px-2 py-1 rounded-md"
                                     onClick={() => {
                                       fetch('/api/order/getOneSellOrder', {
                                         method: 'POST',
@@ -1389,7 +1389,7 @@ export default function Index({ params }: any) {
                             <div className="mt-4 flex flex-row items-between space-x-2">
 
                               <div className="flex flex-col items-start">
-                                <p className="text-2xl font-normal text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-2xl font-normal ">{item.usdtAmount} USDT</p>
 
                                 <p className="text-lg text-zinc-400">
                                   Price: {
@@ -1405,7 +1405,7 @@ export default function Index({ params }: any) {
                               </div>
 
                               <div className="flex flex-col items-start">
-                                <p className="text-lg font-normal text-white">Rate: {
+                                <p className="text-lg font-normal ">Rate: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -1463,7 +1463,7 @@ export default function Index({ params }: any) {
 
                                 {address && item?.buyer?.walletAddress === address && (
                                   <button
-                                      className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md"
+                                      className="text-sm bg-blue-500  px-2 py-1 rounded-md"
                                       onClick={() => {
                                         //console.log('Chat');
                                         
@@ -1520,7 +1520,7 @@ export default function Index({ params }: any) {
                                 {/* if i am the seller, then show chat button */}
                                 {address && item.walletAddress === address && (
                                   <button
-                                      className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md"
+                                      className="text-sm bg-blue-500  px-2 py-1 rounded-md"
                                       onClick={() => {
                                         //console.log('Chat');
                                         
@@ -1542,7 +1542,7 @@ export default function Index({ params }: any) {
 
                               <div className='flex flex-row items-center justify-end gap-2'>
                                 <button
-                                    className="flex text-sm bg-blue-500 text-white px-2 py-1 rounded-md"
+                                    className="flex text-sm bg-blue-500  px-2 py-1 rounded-md"
                                     onClick={() => {
                                       
                                       //router.push(`/sell-usdt/${item._id}`);
@@ -1609,7 +1609,7 @@ export default function Index({ params }: any) {
                                         height={32}
                                         className="animate-spin"
                                     />
-                                    <div className="text-lg font-normal text-white">
+                                    <div className="text-lg font-normal ">
                                       Escrowing {item.usdtAmount} USDT...
                                     </div>
                                   </div>
@@ -1638,7 +1638,7 @@ export default function Index({ params }: any) {
                                         height={50}
                                         className="animate-spin"
                                     />
-                                    <div className="text-lg font-normal text-white">
+                                    <div className="text-lg font-normal ">
                                       Requesting payment...
                                     </div>
                                   </div>
@@ -1698,7 +1698,7 @@ export default function Index({ params }: any) {
 
                                     ${requestPaymentCheck[index] ? 'bg-green-500' : 'bg-gray-500'}
                                     
-                                  text-white px-4 py-2 rounded-md mt-4`}
+                                   px-4 py-2 rounded-md mt-4`}
 
                                   onClick={() => {
                                       console.log('request Payment');
@@ -1726,33 +1726,33 @@ export default function Index({ params }: any) {
                                       Request Payment
                                       </div>
                                     </div>
-                                    <div className="text-lg text-white">
+                                    <div className="text-lg ">
                                       Insufficient Balance
                                     </div>
-                                    <div className="text-lg text-white">
+                                    <div className="text-lg ">
                                       You need {item.usdtAmount} USDT
                                     </div>
-                                    <div className="text-lg text-white">
+                                    <div className="text-lg ">
                                       You have {balance} USDT
                                     </div>
-                                    <div className="text-lg text-white">
+                                    <div className="text-lg ">
                                       Please top up your balance by depositing {item.usdtAmount - balance} USDT
                                     </div>
-                                    <div className="text-lg text-white">
+                                    <div className="text-lg ">
                                       Your wallet address is
                                     </div>
-                                    <div className="text-xs text-white">
+                                    <div className="text-xs ">
                                       {address.substring(0, 10)}...{address.substring(address.length - 10, address.length)}
                                       
                                     </div>
-                                    <div className="text-xs text-white">
+                                    <div className="text-xs ">
                                     
                                       <button
                                           onClick={() => {
                                               navigator.clipboard.writeText(address);
                                               toast.success('Address has been copied');
                                           }}
-                                      className="text-xs bg-green-500 text-white px-2 py-1 rounded-md">Copy</button>
+                                      className="text-xs bg-green-500  px-2 py-1 rounded-md">Copy</button>
                                     </div>
                                   </div>
 
@@ -1767,7 +1767,7 @@ export default function Index({ params }: any) {
                                       </div>
                                     </div>
 
-                                    <div className="flex flex-col gap-2 text-sm text-left text-white">
+                                    <div className="flex flex-col gap-2 text-sm text-left ">
                                       <ul>
                                         <li>
                                           {item.seller?.bankInfo.bankName} {item.seller?.bankInfo.accountNumber} {item.seller?.bankInfo.accountHolder}
@@ -1839,7 +1839,7 @@ export default function Index({ params }: any) {
                                         
                                         <button
                                           disabled={!user}
-                                          className="text-lg bg-green-500 text-white px-4 py-2 rounded-md mt-4"
+                                          className="text-lg bg-green-500  px-4 py-2 rounded-md mt-4"
                                           onClick={() => {
                                               ///console.log('Buy USDT');
 
@@ -1898,7 +1898,7 @@ export default function Index({ params }: any) {
 
                                   {/* polygon icon to go to polygon scan */}
                                   <button
-                                    className="text-sm bg-green-500 text-white px-2 py-1 rounded-md"
+                                    className="text-sm bg-green-500  px-2 py-1 rounded-md"
                                     onClick={() => {
                                       window.open(`https://arbiscan.io/tx/${item.escrowTransactionHash}`);
                                     }}
@@ -2042,12 +2042,12 @@ export default function Index({ params }: any) {
                                     height={32}
                                   />
 
-                                  <span className="textlg text-white">
+                                  <span className="textlg ">
                                     Escrow: {item.usdtAmount} USDT
                                   </span>
 
                                   <button
-                                      className="ml-5 text-sm bg-white text-white px-2 py-1 rounded-md"
+                                      className="ml-5 text-sm bg-white  px-2 py-1 rounded-md"
                                       onClick={() => {
                                           //console.log('Cancel Payment Request');
                                           // new window
@@ -2087,7 +2087,7 @@ export default function Index({ params }: any) {
                                           height={32}
                                           className="animate-spin"
                                       />
-                                      <div className="text-lg font-normal text-white">
+                                      <div className="text-lg font-normal ">
                                         
                                         Checking the bank transfer from the buyer ( {item?.buyer?.nickname} )...
 
@@ -2160,7 +2160,7 @@ export default function Index({ params }: any) {
                                       height={32}
                                       className="animate-spin"
                                   />
-                                  <div className="text-lg font-normal text-white">
+                                  <div className="text-lg font-normal ">
                                     Transfering {item.usdtAmount} USDT to the buyer ( {item?.buyer?.nickname} ) wallet address...
                                   </div>
                                 </div>
@@ -2174,7 +2174,7 @@ export default function Index({ params }: any) {
                                     }
                                       className={`w-full text-lg
                                         ${confirmPaymentCheck[index] ? 'bg-green-500' : 'bg-gray-500'}
-                                        text-white px-4 py-2 rounded-md mt-4`}
+                                         px-4 py-2 rounded-md mt-4`}
                                       onClick={() => {
                                           console.log('Canfirm Payment');
 
@@ -2259,7 +2259,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2275,15 +2275,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2295,7 +2295,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2304,7 +2304,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -2316,7 +2316,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

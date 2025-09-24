@@ -1124,7 +1124,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-zinc-100 font-normal">
+                            <span className="ml-2 text-sm  font-normal">
                                 돌아가기
                             </span>
                         </button>
@@ -1247,7 +1247,7 @@ export default function SettingsPage({ params }: any) {
                                             nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                         } }
-                                        className="bg-gray-700 text-zinc-100 rounded-lg p-2"
+                                        className="bg-gray-700  rounded-lg p-2"
                                         disabled={!address}
                                     >
                                         {nicknameEdit ? Cancel : Edit}
@@ -1294,7 +1294,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='w-full flex flex-col gap-2'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-normal"
+                                                    className="p-2 w-64  bg-zinc-800 rounded text-xl font-normal"
                                                     placeholder="에이전트 이름을 입력하세요"
                                                     
                                                     //value={nickname}
@@ -1317,7 +1317,7 @@ export default function SettingsPage({ params }: any) {
 
                                             <button
                                                 disabled={!address || !editedNickname}
-                                                className={`bg-gray-700 text-zinc-100 rounded-lg p-2 w-full ${!editedNickname ? "opacity-50" : ""}`}
+                                                className={`bg-gray-700  rounded-lg p-2 w-full ${!editedNickname ? "opacity-50" : ""}`}
                                                 onClick={() => {
                                                     if (!editedNickname) {
                                                         toast.error("에이전트 이름을 입력하세요");
@@ -1355,7 +1355,7 @@ export default function SettingsPage({ params }: any) {
                                     {/*
                                     <input
                                         disabled={!address}
-                                        className="bg-[#1f2937] text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-[#1f2937]  rounded-lg p-2 text-sm w-full"
                                         placeholder="에이전트 설명을 입력하세요"
                                         value={agentDescription}
                                         type='text'
@@ -1376,7 +1376,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !agentDescription}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2 w-full ${!agentDescription ? "opacity-50" : ""}`}
+                                        className={`bg-gray-700  rounded-lg p-2 w-full ${!agentDescription ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             if (!agentDescription) {
                                                 toast.error("에이전트 설명을 입력하세요");
@@ -1403,7 +1403,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <div className="w-full
                                     flex flex-col items-center justify-center gap-2
-                                    p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                    p-2 bg-zinc-800 rounded  text-xl font-normal">
                                         <Uploader
                                             lang={params.lang}
                                             agentcode={params.agentcode as string}
@@ -1563,7 +1563,7 @@ export default function SettingsPage({ params }: any) {
                                         </select>
                                         <button
                                             disabled={!address || !selectedAgentFeeWalletAddress || updatingAgentWFeeWalletAddress}
-                                            className={`bg-gray-700 text-zinc-100 text-sm rounded-lg p-2 px-4 py-2
+                                            className={`bg-gray-700  text-sm rounded-lg p-2 px-4 py-2
                                                 ${!selectedAgentFeeWalletAddress || updatingAgentWFeeWalletAddress ? "opacity-50" : ""}`}
                                             onClick={() => {
                                                 confirm(
@@ -1636,7 +1636,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !usdtKRWRate || updatingUsdtKRWRate}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!usdtKRWRate || updatingUsdtKRWRate ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -1681,7 +1681,7 @@ export default function SettingsPage({ params }: any) {
                                 />
                                 <button
                                     disabled={!address || !agentFeePercent || updatingAgentFeePercent}
-                                    className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                    className={`bg-gray-700  rounded-lg p-2
                                         ${!agentFeePercent || updatingAgentFeePercent ? "opacity-50" : ""}`}
                                     onClick={() => {
                                         confirm(

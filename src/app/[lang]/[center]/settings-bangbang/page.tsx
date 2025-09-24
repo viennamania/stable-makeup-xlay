@@ -1622,7 +1622,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-zinc-100 font-normal">
+                            <span className="ml-2 text-sm  font-normal">
                                 돌아가기
                             </span>
                         </button>
@@ -1667,7 +1667,7 @@ export default function SettingsPage({ params }: any) {
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-lg text-zinc-100 font-normal">
+                            <span className="text-lg  font-normal">
                             {user?.nickname || "프로필"}
                             </span>
 
@@ -1690,7 +1690,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}관리
@@ -1718,7 +1718,7 @@ export default function SettingsPage({ params }: any) {
                                         '/' + params.lang + '/admin/store/' + params.center + '/memo'
                                     );
                                     }}
-                                    className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                    className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-gray-700/80 flex flex-row items-center gap-2"
                                 >
                                     <Image
@@ -1744,7 +1744,7 @@ export default function SettingsPage({ params }: any) {
                                     );
                                     }
                                     }
-                                    className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                    className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-gray-700/80 flex flex-row items-center gap-2"
                                 >
                                     <Image
@@ -1839,7 +1839,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !nickname
                                             || settingStoreName
                                         }
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!storeName || settingStoreName
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -1883,7 +1883,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !storeDescription || writingStoreDescription}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!storeDescription || writingStoreDescription
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -1980,7 +1980,7 @@ export default function SettingsPage({ params }: any) {
 
                                 <button
                                     disabled={!address || !backgroundColor || updatingBackgroundColor}
-                                    className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                    className={`w-full bg-gray-700  rounded-lg p-2
                                         ${!backgroundColor || updatingBackgroundColor
                                         ? "opacity-50" : ""}`}
                                     onClick={() => {
@@ -2173,7 +2173,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 P2P 거래소 판매용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -2236,7 +2236,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 P2P 거래소 판매용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -2294,7 +2294,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <button
                                         onClick={() => router.push(`/${params.lang}/admin/store/${params.storecode}/daily-close`)}
-                                        className="bg-gray-700 text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-gray-700  rounded-lg p-2 text-sm"
                                         disabled={!address}
                                     >
                                         일일 마감 페이지로 이동
@@ -2421,7 +2421,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !bankName || !accountNumber || !accountHolder
                                             || writingStoreBankInfo
                                         }
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!bankName || !accountNumber || !accountHolder || writingStoreBankInfo
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -2565,7 +2565,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSettlementWalletAddress}로 가맹점 자동결제용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSettlementWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSettlementWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSettlementWalletAddress ? '변경 중...' : '변경'}

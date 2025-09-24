@@ -1592,7 +1592,7 @@ export default function Index({ params }: any) {
             width={200}
             height={200}
           />
-          <div className="text-lg text-zinc-100">가맹점 정보를 불러오는 중...</div>
+          <div className="text-lg ">가맹점 정보를 불러오는 중...</div>
         </div>
       ) : !store ? (
         <div className="py-0 w-full flex flex-col items-center justify-center gap-4">
@@ -1602,14 +1602,14 @@ export default function Index({ params }: any) {
             width={200}
             height={200}
           />
-          <div className="text-lg text-zinc-100">가맹점 정보가 없습니다.</div>
+          <div className="text-lg ">가맹점 정보가 없습니다.</div>
           <div className="text-sm text-gray-400">가맹점 홈페이지로 이동해주세요.</div>  
           <div className="w-full max-w-2xl">
             <table className="w-full table-auto border-collapse
             border border-gray-300 rounded-lg shadow-md">
               <thead>
                 <tr className="bg-gray-200
-                text-zinc-100">
+                ">
                   <th className="px-4 py-2 text-left">가맹점 이름</th>
                   <th className="px-4 py-2 text-left">가맹점 코드</th>
                   <th className="px-4 py-2 text-left">가맹점 로고</th>
@@ -1654,7 +1654,7 @@ export default function Index({ params }: any) {
             width={200}
             height={200}
           />
-          <div className="text-lg text-zinc-100">로그인이 필요합니다.</div>
+          <div className="text-lg ">로그인이 필요합니다.</div>
           <div className="text-sm text-gray-400">로그인 후 가맹점 정보를 확인하세요.</div>
           <ConnectButton
             client={client}
@@ -1868,10 +1868,10 @@ export default function Index({ params }: any) {
             {/* right space */}
             {/* background transparent */}
             <select
-              //className="p-2 text-sm bg-zinc-800 text-white rounded"
+              //className="p-2 text-sm bg-zinc-800  rounded"
 
 
-              className="p-2 text-sm bg-zinc-800 text-white rounded"
+              className="p-2 text-sm bg-zinc-800  rounded"
 
               onChange={(e) => {
                 const lang = e.target.value;
@@ -2895,7 +2895,7 @@ export default function Index({ params }: any) {
                         height={35}
                         className="rounded-lg w-6 h-6"
                       />
-                      <span className="text-sm md:text-lg text-white">
+                      <span className="text-sm md:text-lg ">
                         마이 페이지
                       </span>
                 </div>
@@ -2992,7 +2992,7 @@ export default function Index({ params }: any) {
 
                                   }}
                                   //className="text-zinc-800 underline"
-                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                                  className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                 >
 
                                   프로필 설정
@@ -3017,7 +3017,7 @@ export default function Index({ params }: any) {
 
                                   }}
                                   //className="text-zinc-800 underline"
-                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                                  className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                   >
 
                                   판매자 회원 결제용 통장 설정하기
@@ -3045,7 +3045,7 @@ export default function Index({ params }: any) {
 
                                   }}
                                   //className="text-zinc-800 underline"
-                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                                  className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                   >
 
                                   출금통장(USDT 판매용) 설정하기
@@ -3092,7 +3092,7 @@ export default function Index({ params }: any) {
 
 
                                   }}
-                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                                  className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                 >
 
                                   프로필 설정
@@ -3116,7 +3116,7 @@ export default function Index({ params }: any) {
 
 
                                   }}
-                                  className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                                  className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
                                   >
 
                                   판매자 설정
@@ -3165,10 +3165,10 @@ export default function Index({ params }: any) {
 
        
         <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-zinc-800 shadow-md rounded-lg mt-5">
-          <div className="text-sm text-zinc-100">
+          <div className="text-sm ">
             © 2025 X-Ray. All rights reserved.
           </div>
-          <div className="text-sm text-zinc-100">
+          <div className="text-sm ">
             <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
               이용약관
             </a>

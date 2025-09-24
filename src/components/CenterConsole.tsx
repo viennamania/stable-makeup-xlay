@@ -388,7 +388,7 @@ const CenterConsole = () => {
             </div>
 
             <button
-              className="px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600 transition-colors duration-200"
+              className="px-3 py-1 bg-green-500  text-sm rounded hover:bg-green-600 transition-colors duration-200"
               onClick={() => {
 
                 router.push('/ko/admin/withdraw-usdt');
@@ -406,7 +406,7 @@ const CenterConsole = () => {
 
           <div className="mt-5 flex flex-col gap-2 justify-center items-center">
             {/* 로그인하고 나의 자산을 확인하세요 */}
-            <span className="text-sm text-zinc-100">
+            <span className="text-sm ">
               로그인하고 나의 지갑주소에서 자산을 확인하세요
             </span>
           </div>

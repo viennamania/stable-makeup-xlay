@@ -400,7 +400,7 @@ export default function SettingsPage({ params }: any) {
                         '/' + params.lang + '/' + params.center + '/?wallet=' + wallet
                         
                     )}
-                        className="text-zinc-100 font-normal underline"
+                        className=" font-normal underline"
                     >
                         {Go_Home}
                     </button>
@@ -455,7 +455,7 @@ export default function SettingsPage({ params }: any) {
                             <button
                                 disabled={isConnecting}
                                 onClick={handleConnect}
-                                className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                className="p-2 bg-blue-500  rounded"
                             >
                                 {Please_connect_your_wallet_first}
                             </button>
@@ -475,7 +475,7 @@ export default function SettingsPage({ params }: any) {
                             <div className='flex flex-col items-start gap-2'>
 
                                 <div className='flex flex-row items-center gap-2'>    
-                                    <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                    <div className="bg-green-500 text-sm  p-2 rounded">
                                        
                                         {My_Wallet_Address}
                                     </div>
@@ -513,7 +513,7 @@ export default function SettingsPage({ params }: any) {
 
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xs xl:text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xs xl:text-xl font-normal">
                                     {address}
                                 </div>
 
@@ -533,7 +533,7 @@ export default function SettingsPage({ params }: any) {
                                         onChange={() => setAgreementCopy(!agreementCopy)}
                                         className='w-6 h-6'
                                     />
-                                    <div className='text-lg text-zinc-100 font-normal'>
+                                    <div className='text-lg  font-normal'>
                                         {I_understand_that_I_should_never_deposit_any_other_tokens}
                                     </div>
                                 </div>
@@ -549,7 +549,7 @@ export default function SettingsPage({ params }: any) {
                                     }}
                                     className={`
                                         p-2 rounded text-black
-                                        ${!address || !agreementCopy ? 'bg-gray-300 ' : 'bg-blue-500 text-white'}
+                                        ${!address || !agreementCopy ? 'bg-gray-300 ' : 'bg-blue-500 '}
                                     `}
                                     >
                                     {Copy}
@@ -562,11 +562,11 @@ export default function SettingsPage({ params }: any) {
                         {/* My Phone Number */}
                         <div className='flex flex-col xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
                                 
-                            <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                            <div className="bg-green-500 text-sm  p-2 rounded">
                                 {My_Phone_Number}
                             </div>
 
-                            <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-2xl font-normal">
+                            <div className="p-2 bg-zinc-800 rounded  text-2xl font-normal">
                                 {phoneNumber}
                             </div>
 
@@ -576,7 +576,7 @@ export default function SettingsPage({ params }: any) {
                                     navigator.clipboard.writeText(phoneNumber);
                                     toast.success('Phone number copied to clipboard');
                                 }}
-                                className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                className="p-2 bg-blue-500  rounded"
                             >
                                 {Copy}
                             </button>
@@ -598,7 +598,7 @@ export default function SettingsPage({ params }: any) {
 
 
                                     }}
-                                    className="p-2 bg-red-500 text-zinc-100 rounded"
+                                    className="p-2 bg-red-500  rounded"
                                 >
                                     {Disconnect_Wallet}
                                 </button>

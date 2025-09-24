@@ -1739,7 +1739,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal text-zinc-100">
+                <div className="text-xl font-normal ">
                   회원관리
                 </div>
             </div>
@@ -1826,7 +1826,7 @@ export default function Index({ params }: any) {
                       <select
                         value={searchStorecode}
                         onChange={(e) => setSearchStorecode(e.target.value)}
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       >
                         <option value="">전체</option>
                         {allStores && allStores.map((item, index) => (
@@ -1865,7 +1865,7 @@ export default function Index({ params }: any) {
                         value={searchBuyer}
                         onChange={(e) => setSearchBuyer(e.target.value)}
                         placeholder="회원 아이디"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       />
 
                       {/*
@@ -1875,7 +1875,7 @@ export default function Index({ params }: any) {
                           //fetchAllStore();
                           fetchAllBuyer();
                         }}
-                        className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                        className="bg-gray-700  px-4 py-2 rounded-lg w-full"
 
                         disabled={fetchingAllBuyer}
                       >
@@ -1891,7 +1891,7 @@ export default function Index({ params }: any) {
                         value={searchDepositName}
                         onChange={(e) => setSearchDepositName(e.target.value)}
                         placeholder="입금자명"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       />
 
                       {/*
@@ -1901,7 +1901,7 @@ export default function Index({ params }: any) {
                           //fetchAllStore();
                           fetchAllBuyer();
                         }}
-                        className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                        className="bg-gray-700  px-4 py-2 rounded-lg w-full"
 
                         disabled={fetchingAllBuyer}
                       >
@@ -1921,7 +1921,7 @@ export default function Index({ params }: any) {
                         setPageValue(1);
                         fetchAllBuyer();
                       }}
-                      className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                      className="bg-gray-700  px-4 py-2 rounded-lg w-full"
                       disabled={fetchingAllBuyer}
                     >
                       <div className="flex flex-row items-center justify-between gap-2">
@@ -2159,7 +2159,7 @@ export default function Index({ params }: any) {
                                   });
                                 }}
                                 placeholder="충전금액"
-                                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                               />
                             </div>
                           </td>
@@ -2178,7 +2178,7 @@ export default function Index({ params }: any) {
                                   openModal();
 
                                 }}
-                                className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80"
                               >
                                 보기
@@ -2196,7 +2196,7 @@ export default function Index({ params }: any) {
                                   );
                                   toast.success('회원 홈페이지 링크가 복사되었습니다.');
                                 }}
-                                className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80"
                               >
                                 복사
@@ -2308,7 +2308,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/agent/${params.agentcode}/member?limit=${Number(limit)}&page=${Number(page) - 1}`);
@@ -2326,7 +2326,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/agent/${params.agentcode}/member?limit=${Number(limit)}&page=${Number(page) + 1}`);
@@ -2411,7 +2411,7 @@ const UserHomePage = (
 
       <button
         onClick={closeModal}
-        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+        className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
       >
         닫기
       </button>
@@ -2449,7 +2449,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2465,15 +2465,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2485,7 +2485,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2494,7 +2494,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -2506,7 +2506,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

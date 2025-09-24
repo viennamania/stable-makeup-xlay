@@ -883,7 +883,7 @@ export default function Index({ params }: any) {
                 onClick={() => router.push(
                   '/' + params.lang + '/' + params.center + '?wallet=' + wallet
                 )}
-                className="text-zinc-100 font-normal underline"
+                className=" font-normal underline"
               >
                 {Go_Home}
               </button>
@@ -923,7 +923,7 @@ export default function Index({ params }: any) {
                     <div className="flex flex-col gap-2 items-start">
                       <div className="text-sm">{My_Balance}</div>
                       <div className="flex flex-row items-end justify-center  gap-2">
-                        <span className="text-4xl font-normal text-white">
+                        <span className="text-4xl font-normal ">
                           {Number(balance).toFixed(2)}
                         </span>
                         <span className="text-lg">USDT</span>
@@ -999,7 +999,7 @@ export default function Index({ params }: any) {
                               }}
                             />
                             
-                            <div className="text-lg font-normal text-white ">
+                            <div className="text-lg font-normal  ">
                               {
                                 user && user.nickname ? user.nickname : Anonymous
                               }
@@ -1051,7 +1051,7 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Total}</div>
-                      <div className="text-xl font-normal text-white">
+                      <div className="text-xl font-normal ">
                         {sellOrders.length} 
                       </div>
                       
@@ -1059,14 +1059,14 @@ export default function Index({ params }: any) {
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Sell}</div>
-                      <div className="text-xl font-normal text-white">
+                      <div className="text-xl font-normal ">
                         {sellOrders.filter((item) => item.status === 'ordered').length}
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Trades}</div>
-                      <div className="text-xl font-normal text-white">
+                      <div className="text-xl font-normal ">
 
                         {
                           //sellOrders.filter((item) => item.status === 'accepted').length
@@ -1094,7 +1094,7 @@ export default function Index({ params }: any) {
                               height: '20px',
                           }}
                         />
-                        <div className="text-lg font-normal text-white ">
+                        <div className="text-lg font-normal  ">
                           {
                             user && user.nickname ? user.nickname : Anonymous
                           }
@@ -1169,7 +1169,7 @@ export default function Index({ params }: any) {
                     <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                       <thead
-                        className="bg-zinc-800 text-white"
+                        className="bg-zinc-800 "
                       >
                         <tr>
                           <th className="p-2">{Order_Opened}</th>
@@ -1232,7 +1232,7 @@ export default function Index({ params }: any) {
                                   }}
                                 />
                                 <div className="flex flex-col gap-2 items-start">
-                                  <div className="text-lg font-normal text-white">
+                                  <div className="text-lg font-normal ">
                                     {item.walletAddress === address ? 'Me' : item.nickname}
                                   </div>
                                   <div className="text-sm text-zinc-400">
@@ -1243,7 +1243,7 @@ export default function Index({ params }: any) {
                             </td>
 
                             <td className="p-2">
-                              <div className="text-sm font-normal text-white">
+                              <div className="text-sm font-normal ">
                                 {
                                   // currency
                                   Number(item.krwAmount)?.toLocaleString('ko-KR', {
@@ -1252,19 +1252,19 @@ export default function Index({ params }: any) {
                                   })
                                 }
                               </div>
-                              <div className="text-sm font-normal text-white">
+                              <div className="text-sm font-normal ">
                               {Rate}{' '}{Number(item.krwAmount / item.usdtAmount).toFixed(2)}
                               </div>
                             </td>
 
                             <td className="p-2">
-                              <div className="text-sm font-normal text-white">
+                              <div className="text-sm font-normal ">
                                 {item.usdtAmount} USDT
                               </div>
                             </td>
 
                             <td className="p-2">
-                              <div className="text-sm font-normal text-white">
+                              <div className="text-sm font-normal ">
                                 {item.seller?.bankInfo.bankName}
                               </div>
                             </td>
@@ -1348,7 +1348,7 @@ export default function Index({ params }: any) {
                                     disabled={cancellings[index] || !agreementForCancelTrade[index]}
                                     className={`
                                       ${cancellings[index] || !agreementForCancelTrade[index] ?
-                                        'bg-zinc-800 text-zinc-400' : 'bg-red-500 text-white'}
+                                        'bg-zinc-800 text-zinc-400' : 'bg-red-500 '}
                                       px-2 py-1 rounded-md hover:bg-red-600
                                     `}
                                       
@@ -1387,7 +1387,7 @@ export default function Index({ params }: any) {
                                     disabled={acceptingSellOrder[index] || !agreementForTrade[index]}
                                     className={`
                                       ${acceptingSellOrder[index] || !agreementForTrade[index] ?
-                                        'bg-zinc-800 text-zinc-400' : 'bg-green-500 text-white'}
+                                        'bg-zinc-800 text-zinc-400' : 'bg-green-500 '}
                                       px-2 py-1 rounded-md hover:bg-green-600
                                     `}
                                     onClick={() => {
@@ -1556,7 +1556,7 @@ export default function Index({ params }: any) {
                                     {/* share button */}
                                     {/*
                                     <button
-                                      className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                      className="text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                       onClick={() => {
 
                                         window.open(`https://gold.goodtether.com/${params.lang}/sell-usdt/${item._id}`, '_blank');
@@ -1690,7 +1690,7 @@ export default function Index({ params }: any) {
 
                                     {/* share button */}
                                     <button
-                                      className="ml-5 text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                      className="ml-5 text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                       onClick={() => {
 
                                         //window.open(`https://gold.goodtether.com/${params.lang}/${params.center}/sell-usdt/${item._id}`, '_blank');
@@ -1768,10 +1768,10 @@ export default function Index({ params }: any) {
 
                                 <div className="mt-2 flex flex-row items-start gap-2">
 
-                                  <p className="text-xl font-normal text-white">
+                                  <p className="text-xl font-normal ">
                                     {item.usdtAmount}{' '}USDT
                                   </p>
-                                  <p className="text-lg font-normal text-white">{Rate}: {
+                                  <p className="text-lg font-normal ">{Rate}: {
 
                                     Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -1834,7 +1834,7 @@ export default function Index({ params }: any) {
 
                                 {address && item.walletAddress !== address && item.buyer && item?.buyer?.walletAddress === address && (
                                   <button
-                                    className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                                    className="bg-green-500  px-4 py-2 rounded-lg"
                                     onClick={() => {
                                         //console.log('Buy USDT');
                                         // go to chat
@@ -2000,7 +2000,7 @@ export default function Index({ params }: any) {
 
                                         <button
                                           disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                          className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                          className={`text-sm bg-red-500  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                           onClick={() => {
                                             // api call
                                             // cancelSellOrder
@@ -2221,7 +2221,7 @@ export default function Index({ params }: any) {
 
                                             <button
                                               disabled={!address || !agreementForTrade[index]}
-                                              className={`m-10 text-lg text-white px-4 py-2 rounded-md
+                                              className={`m-10 text-lg  px-4 py-2 rounded-md
                                                 ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                                 `}
                                               onClick={() => {
@@ -2345,7 +2345,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2361,15 +2361,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2381,7 +2381,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2390,7 +2390,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -2402,7 +2402,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

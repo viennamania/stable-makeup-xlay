@@ -1790,7 +1790,7 @@ export default function SettingsPage({ params }: any) {
             ">
         
 
-                <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-100 text-lg"
+                <div className="w-full flex flex-row gap-2 items-center justify-start  text-lg"
                 >
                     {/* go back button */}
                     <div className="w-full flex justify-start items-center gap-2">
@@ -1806,7 +1806,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-zinc-100 font-normal">
+                            <span className="ml-2 text-sm  font-normal">
                                 돌아가기
                             </span>
                         </button>
@@ -1851,7 +1851,7 @@ export default function SettingsPage({ params }: any) {
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-lg text-zinc-100 font-normal">
+                            <span className="text-lg  font-normal">
                             {user?.nickname || "프로필"}
                             </span>
 
@@ -1874,7 +1874,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}관리
@@ -1902,7 +1902,7 @@ export default function SettingsPage({ params }: any) {
                                         '/' + params.lang + '/admin/store/' + params.storecode + '/memo'
                                     );
                                     }}
-                                    className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                    className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-gray-700/80 flex flex-row items-center gap-2"
                                 >
                                     <Image
@@ -1928,7 +1928,7 @@ export default function SettingsPage({ params }: any) {
                                     );
                                     }
                                     }
-                                    className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                    className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-gray-700/80 flex flex-row items-center gap-2"
                                 >
                                     <Image
@@ -1966,7 +1966,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-6 h-6"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         가맹점 기본정보 설정
                                     </span>
                                 </div>
@@ -1977,7 +1977,7 @@ export default function SettingsPage({ params }: any) {
                             <div className="flex flex-row items-center gap-2">
                                 {/* dot */}
                                 <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                <span className="text-lg text-zinc-100">
+                                <span className="text-lg ">
                                     가맹점 코드
                                 </span>
                                 <span className="text-xl text-blue-400 font-normal">
@@ -1993,7 +1993,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         가맹점 이름
                                     </span>
                                     <span className="text-xl text-blue-400 font-normal">
@@ -2005,7 +2005,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-col gap-2'>
                                         <input
                                             disabled={!address || settingStoreName}
-                                            className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
+                                            className="bg-zinc-600  rounded-lg p-2 text-sm"
                                                 
                                             placeholder="가맹점 이름을 입력하세요"                                              
                                             value={storeName}
@@ -2023,7 +2023,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !nickname
                                             || settingStoreName
                                         }
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!storeName || settingStoreName
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -2047,7 +2047,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center justify-start gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         가맹점 설명
                                     </span>
                                     <span className="text-xl text-blue-400 font-normal">
@@ -2057,7 +2057,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-row gap-2 items-center justify-between'>
                                     <input
                                         disabled={!address || writingStoreDescription}
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm"
                                         placeholder="가맹점 설명을 입력하세요"
                                         value={storeDescription}
                                         type='text'
@@ -2067,7 +2067,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !storeDescription || writingStoreDescription}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!storeDescription || writingStoreDescription
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -2088,7 +2088,7 @@ export default function SettingsPage({ params }: any) {
                             <div className="w-full flex flex-row items-center justify-start gap-2">
                                 {/* dot */}
                                 <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                <span className="text-lg text-zinc-100">
+                                <span className="text-lg ">
                                     가맹점 로고
                                 </span>
                             </div>
@@ -2116,7 +2116,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-row items-center justify-center gap-2'>
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         배경색
                                     </span>
                                     {/* bg-red-500 */}
@@ -2127,7 +2127,7 @@ export default function SettingsPage({ params }: any) {
                             <div className='
                             w-64 flex flex-col gap-2 items-center justify-between'>
                                 <select
-                                    className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                    className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                     value={backgroundColor}
                                     onChange={(e) => setBackgroundColor(e.target.value)}
                                 >
@@ -2164,7 +2164,7 @@ export default function SettingsPage({ params }: any) {
 
                                 <button
                                     disabled={!address || !backgroundColor || updatingBackgroundColor}
-                                    className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                    className={`w-full bg-gray-700  rounded-lg p-2
                                         ${!backgroundColor || updatingBackgroundColor
                                         ? "opacity-50" : ""}`}
                                     onClick={() => {
@@ -2200,7 +2200,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-6 h-6"
                                 />
-                                <span className="text-lg text-zinc-100">
+                                <span className="text-lg ">
                                     에이전트 설정
                                 </span>
                             </div>
@@ -2210,7 +2210,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                 
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         에이전트 이름
                                     </span>
                                     <span className="text-xl text-blue-400 font-normal">
@@ -2220,7 +2220,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="flex flex-row items-center gap-2">
                                 
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         에이전트 코드
                                     </span>
                                     <span className="text-xl text-blue-400 font-normal">
@@ -2234,7 +2234,7 @@ export default function SettingsPage({ params }: any) {
                                         {allAgents && allAgents.length > 0 && (
                                             <select
                                                 disabled={!address || updatingAgentcode}
-                                                className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
+                                                className="bg-zinc-600  rounded-lg p-2 text-sm"
                                                 value={agentcode}
                                                 onChange={(e) => {
                                                     setAgentCode(e.target.value);
@@ -2252,7 +2252,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <button
                                         disabled={!address || updatingAgentcode || !agentcode}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!agentcode || updatingAgentcode ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -2274,7 +2274,7 @@ export default function SettingsPage({ params }: any) {
                             <div className='w-full flex flex-col items-center justify-center gap-2'>
                                 <div className="w-full flex flex-row items-center justify-start gap-2">
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         에이전트 수수료 지갑
                                     </span>
                                     <span className="text-xl text-blue-400 font-normal">
@@ -2285,7 +2285,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-col xl:flex-row gap-2 items-center justify-between'>
                                     <select
                                         disabled={!address || updatingAgentWFeeWalletAddress}
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm"
                                         value={selectedAgentFeeWalletAddress}
                                         onChange={(e) => {
                                             setSelectedAgentWFeeWalletAddress(e.target.value);
@@ -2300,7 +2300,7 @@ export default function SettingsPage({ params }: any) {
                                     </select>
                                     <button
                                         disabled={!address || !selectedAgentFeeWalletAddress || updatingAgentWFeeWalletAddress}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!selectedAgentFeeWalletAddress || updatingAgentWFeeWalletAddress ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -2322,7 +2322,7 @@ export default function SettingsPage({ params }: any) {
                             <div className='w-full flex flex-col items-center justify-center gap-2'>
                                 <div className="w-full flex flex-row items-center justify-start gap-2">
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         에이전트 수수료율(%)
                                     </span>
                                     <span className="text-xl text-blue-400 font-normal">
@@ -2333,7 +2333,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-row gap-2 items-center justify-between'>
                                     <input
                                         disabled={!address || updatingAgentFeePercent}
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm"
                                         placeholder="에이전트 수수료율을 입력하세요 (0.01 ~ 5.00)"
                                         value={agentFeePercent}
                                         type='number'
@@ -2346,7 +2346,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !agentFeePercent || updatingAgentFeePercent}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!agentFeePercent || updatingAgentFeePercent ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -2363,7 +2363,7 @@ export default function SettingsPage({ params }: any) {
                                 {/* resetAgentFeePercent() */}
                                 <button
                                     disabled={!address || resettingAgentFeePercent}
-                                    className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                    className={`bg-gray-700  rounded-lg p-2
                                         ${!address || resettingAgentFeePercent ? "opacity-50" : ""}`}
                                     onClick={() => {
                                         confirm(
@@ -2402,7 +2402,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                 />
-                                <span className="text-lg text-zinc-100">
+                                <span className="text-lg ">
                                     가맹점 관리자 설정
                                 </span>
                             </div>
@@ -2415,7 +2415,7 @@ export default function SettingsPage({ params }: any) {
                                         '_blank'
                                     );
                                 }}
-                                className="bg-gray-700 text-sm text-white px-4 py-2 rounded-lg"
+                                className="bg-gray-700 text-sm  px-4 py-2 rounded-lg"
                             >
                                 가맹점 관리자 홈페이지 열기
                             </button>
@@ -2427,7 +2427,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="w-full flex flex-row items-center justify-start gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         관리자용 지갑주소
                                     </span>
                                 </div>
@@ -2438,7 +2438,7 @@ export default function SettingsPage({ params }: any) {
                                     navigator.clipboard.writeText(store.adminWalletAddress);
                                     toast.success(Copied_Wallet_Address);
                                     } }
-                                    className="text-lg text-zinc-100 underline"
+                                    className="text-lg  underline"
                                 >
                                     <div className='flex flex-row items-center justify-start gap-2'>
                                         <Image
@@ -2448,7 +2448,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                         />
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             {store && store.adminWalletAddress.substring(0, 6)}...{store && store.adminWalletAddress.substring(store.adminWalletAddress.length - 4)}
                                         </span>
                                     </div>
@@ -2486,7 +2486,7 @@ export default function SettingsPage({ params }: any) {
                                         //value={store?.adminWalletAddress}
                                         onChange={(e) => setSelectedAdminWalletAddress(e.target.value)}
                                         className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                            bg-zinc-800 text-zinc-100 text-sm"
+                                            bg-zinc-800  text-sm"
                                         disabled={updatingAdminWalletAddress}
                                         >
                                         <option value="">가맹점 관리자용 지갑주소 변경</option>
@@ -2513,7 +2513,7 @@ export default function SettingsPage({ params }: any) {
                                             `정말 ${selectedAdminWalletAddress}로 가맹점 관리자를 변경하시겠습니까?`
                                             ) && updateAdminWalletAddress();
                                         }}
-                                        className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                        className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                             ${updatingAdminWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         >
                                         {updatingAdminWalletAddress ? '변경 중...' : '변경'}
@@ -2551,7 +2551,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="w-full flex flex-row items-center justify-start gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         자동결제용 USDT지갑
                                     </span>
                                 </div>
@@ -2563,7 +2563,7 @@ export default function SettingsPage({ params }: any) {
                                     navigator.clipboard.writeText(store.settlementWalletAddress);
                                     toast.success(Copied_Wallet_Address);
                                     } }
-                                    className="text-lg text-zinc-100 underline"
+                                    className="text-lg  underline"
                                 >
                                     <div className='flex flex-row items-center justify-start gap-2'>
                                         <Image
@@ -2573,7 +2573,7 @@ export default function SettingsPage({ params }: any) {
                                             height={20}
                                             className="w-5 h-5"
                                         />
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             {store && store.settlementWalletAddress.substring(0, 6)}...{store && store.settlementWalletAddress.substring(store.settlementWalletAddress.length - 4)}
                                         </span>
                                     </div>
@@ -2612,7 +2612,7 @@ export default function SettingsPage({ params }: any) {
                                     //value={store?.settlementWalletAddress}
                                     onChange={(e) => setSelectedSettlementWalletAddress(e.target.value)}
                                     className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                        bg-zinc-800 text-zinc-100 text-sm"
+                                        bg-zinc-800  text-sm"
                                     disabled={updatingSettlementWalletAddress}
                                     >
                                     <option value="">가맹점 자동결제용 USDT지갑 변경</option>
@@ -2639,7 +2639,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSettlementWalletAddress}로 가맹점 자동결제용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSettlementWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSettlementWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSettlementWalletAddress ? '변경 중...' : '변경'}
@@ -2686,7 +2686,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         가맹점 PG 수수료 설정
                                     </span>
                                 </div>
@@ -2696,7 +2696,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className="w-full flex flex-row items-center justify-start gap-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             PG 수수료 수납용 USDT지갑
                                         </span>
                                     </div>
@@ -2709,7 +2709,7 @@ export default function SettingsPage({ params }: any) {
                                             navigator.clipboard.writeText(store.settlementFeeWalletAddress);
                                             toast.success(Copied_Wallet_Address);
                                             } }
-                                            className="text-lg text-zinc-100 underline"
+                                            className="text-lg  underline"
                                         >
                                             <div className='flex flex-row items-center justify-start gap-2'>
                                                 <Image
@@ -2719,7 +2719,7 @@ export default function SettingsPage({ params }: any) {
                                                     height={20}
                                                     className="w-5 h-5"
                                                 />
-                                                <span className="text-lg text-zinc-100">
+                                                <span className="text-lg ">
                                                     {store && store.settlementFeeWalletAddress.substring(0, 6)}...{store && store.settlementFeeWalletAddress.substring(store.settlementFeeWalletAddress.length - 4)}
                                                 </span>
                                             </div>
@@ -2758,7 +2758,7 @@ export default function SettingsPage({ params }: any) {
                                             //value={store?.settlementFeeWalletAddress}
                                             onChange={(e) => setSelectedSettlementFeeWalletAddress(e.target.value)}
                                             className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                                bg-zinc-800 text-zinc-100 text-sm"
+                                                bg-zinc-800  text-sm"
                                             disabled={updatingSettlementFeeWalletAddress}
                                             >
                                             <option value="">가맹점 PG 수수료 수납용 USDT지갑 변경</option>
@@ -2784,7 +2784,7 @@ export default function SettingsPage({ params }: any) {
                                                 `정말 ${selectedSettlementFeeWalletAddress}로 가맹점 PG 수수료 수납용 USDT지갑을 변경하시겠습니까?`
                                                 ) && updateSettlementFeeWalletAddress();
                                             }}
-                                            className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                            className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                                 ${updatingSettlementFeeWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                             >
                                             {updatingSettlementFeeWalletAddress ? '변경 중...' : '변경'}
@@ -2822,18 +2822,18 @@ export default function SettingsPage({ params }: any) {
                                     <div className="w-full flex flex-row items-center justify-start gap-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             가맹점 PG 수수료율(%)
                                         </span>
                                     </div>
                                     <div className='w-full flex flex-row items-center justify-center gap-2'>
 
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             {store && store.settlementFeePercent || 0}%
                                         </span>
                                         <input
                                             disabled={!address}
-                                            className="bg-[#1f2937] text-zinc-100 rounded-lg p-2 text-sm"
+                                            className="bg-[#1f2937]  rounded-lg p-2 text-sm"
                                             placeholder="가맹점 수수료율을 입력하세요"
                                             //value={store.settlementFeePercent || 0}
                                             value={settlementFeePercent}
@@ -2858,7 +2858,7 @@ export default function SettingsPage({ params }: any) {
                                             disabled={!address || !settlementFeePercent
                                                 || settlementFeePercent < 0.01 || settlementFeePercent > 5.00
                                                 || updatingSettlementFeePercent}
-                                            className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!settlementFeePercent ? "opacity-50" : ""}`}
+                                            className={`bg-gray-700  rounded-lg p-2 ${!settlementFeePercent ? "opacity-50" : ""}`}
                                             onClick={() => {
 
                                                 confirm(
@@ -2907,7 +2907,7 @@ export default function SettingsPage({ params }: any) {
                                     height={20}
                                     className="w-5 h-5"
                                 />
-                                <span className="text-lg text-zinc-100">
+                                <span className="text-lg ">
                                     가맹점 P2P 거래소 설정
                                 </span>
                             </div>
@@ -2920,7 +2920,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="w-full flex flex-row items-center justify-start gap-2">
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         판매용 USDT지갑
                                     </span>
                                 </div>
@@ -2932,7 +2932,7 @@ export default function SettingsPage({ params }: any) {
                                     navigator.clipboard.writeText(store.sellerWalletAddress);
                                     toast.success(Copied_Wallet_Address);
                                     } }
-                                    className="text-lg text-zinc-100 underline"
+                                    className="text-lg  underline"
                                 >
                                 <div className='flex flex-row items-center justify-start gap-2'>
                                     <Image
@@ -2942,7 +2942,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                     {store && store.sellerWalletAddress.substring(0, 6)}...{store && store.sellerWalletAddress.substring(store.sellerWalletAddress.length - 4)}
                                     </span>
                                 </div>
@@ -2984,7 +2984,7 @@ export default function SettingsPage({ params }: any) {
                                     ///value={store?.sellerWalletAddress}
                                     onChange={(e) => setSelectedSellerWalletAddress(e.target.value)}
                                     className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                        bg-zinc-800 text-zinc-100 text-sm"
+                                        bg-zinc-800  text-sm"
                                     disabled={updatingSellerWalletAddress}
                                     >
                                     <option value="">P2P 거래소 판매용 USDT지갑 변경</option>
@@ -3011,7 +3011,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 P2P 거래소 판매용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -3047,7 +3047,7 @@ export default function SettingsPage({ params }: any) {
                                     //value={store?.settlementWalletAddress}
                                     onChange={(e) => setSelectedSellerWalletAddress(e.target.value)}
                                     className="w-64 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
-                                        bg-zinc-800 text-zinc-100 text-sm"
+                                        bg-zinc-800  text-sm"
                                     disabled={updatingSellerWalletAddress}
                                     >
                                     <option value="">P2P 거래소 판매용 USDT지갑 변경</option>
@@ -3074,7 +3074,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 P2P 거래소 판매용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -3108,7 +3108,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-full flex flex-row items-center justify-start gap-2'>
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         판매자 보유금 수량(USDT)
                                     </span>
                                 </div>
@@ -3133,7 +3133,7 @@ export default function SettingsPage({ params }: any) {
                                     {/* route to daily-close page */}
                                     <button
                                         onClick={() => router.push(`/${params.lang}/admin/store/${params.storecode}/daily-close`)}
-                                        className="bg-gray-700 text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-gray-700  rounded-lg p-2 text-sm"
                                         disabled={!address}
                                     >
                                         일일 마감 페이지로 이동
@@ -3142,7 +3142,7 @@ export default function SettingsPage({ params }: any) {
                                     {/*
                                     <input
                                         disabled={!address}
-                                        className="bg-[#1f2937] text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-[#1f2937]  rounded-lg p-2 text-sm"
                                         placeholder="판매용 USDT지갑 수량을 입력하세요"
                                         value={escrowAmountUSDT}
                                         type='number'
@@ -3163,7 +3163,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <button
                                         disabled={!address || !escrowAmountUSDT || updatingEscrowAmountUSDT}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!escrowAmountUSDT ? "opacity-50" : ""}`}
+                                        className={`bg-gray-700  rounded-lg p-2 ${!escrowAmountUSDT ? "opacity-50" : ""}`}
                                         onClick={() => {
 
                                             confirm(
@@ -3204,7 +3204,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         가맹점 출금용(USDT판매용) 원화통장 설정
                                     </span>
                                 </div>
@@ -3214,20 +3214,20 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             은행이름:{' '}{store && store?.withdrawalBankInfo && store.withdrawalBankInfo.bankName}
                                         </span>
                                     </div>
 
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             계좌번호:{' '}{store && store?.withdrawalBankInfo && store.withdrawalBankInfo.accountNumber}
                                         </span>
                                     </div>
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             예금주:{' '}{store && store?.withdrawalBankInfo && store.withdrawalBankInfo.accountHolder}
                                         </span>
                                     </div>
@@ -3239,7 +3239,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-64 flex flex-col gap-2 items-center justify-between'>
 
                                     <select
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         value={withdrawalBankName}
                                         onChange={(e) => setWithdrawalBankName(e.target.value)}
                                     >
@@ -3270,14 +3270,14 @@ export default function SettingsPage({ params }: any) {
                                     </select>
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="계좌번호"
                                         value={withdrawalAccountNumber}
                                         onChange={(e) => setWithdrawalAccountNumber(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="예금주"
                                         value={withdrawalAccountHolder}
                                         onChange={(e) => setWithdrawalAccountHolder(e.target.value)}
@@ -3285,7 +3285,7 @@ export default function SettingsPage({ params }: any) {
                                     <button
                                         disabled={!address || !withdrawalBankName || !withdrawalAccountNumber || !withdrawalAccountHolder
                                             || writingStoreWithdrawalBankInfo}
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!withdrawalBankName || !withdrawalAccountNumber || !withdrawalAccountHolder || writingStoreWithdrawalBankInfo
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3335,7 +3335,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         P2P 구매자 계좌이체용 원화통장 설정
                                     </span>
                                 </div>
@@ -3345,20 +3345,20 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             은행이름:{' '}{store && store.bankInfo && store.bankInfo.bankName}
                                         </span>
                                     </div>
 
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                         계좌번호:{' '}{store && store.bankInfo && store.bankInfo.accountNumber}
                                         </span>
                                     </div>
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                         예금주:{' '}{store && store.bankInfo && store.bankInfo.accountHolder}
                                         </span>
                                     </div>
@@ -3372,7 +3372,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-64 flex flex-col gap-2 items-center justify-between'>
                                     
                                     <select
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         value={bankName}
                                         onChange={(e) => setBankName(e.target.value)}
                                     >
@@ -3404,14 +3404,14 @@ export default function SettingsPage({ params }: any) {
 
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="계좌번호"
                                         value={accountNumber}
                                         onChange={(e) => setAccountNumber(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="예금주"
                                         value={accountHolder}
                                         onChange={(e) => setAccountHolder(e.target.value)}
@@ -3421,7 +3421,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !bankName || !accountNumber || !accountHolder
                                             || writingStoreBankInfo
                                         }
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!bankName || !accountNumber || !accountHolder || writingStoreBankInfo
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3476,7 +3476,7 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         페이액션 자동입금 설정
                                     </span>
                                 </div>
@@ -3485,20 +3485,20 @@ export default function SettingsPage({ params }: any) {
                                     
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                         payactionApiKey:{' '}{store && store.payactionKey && store.payactionKey.payactionApiKey}
                                         </span>
                                     </div>
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                         payactionWebhookKey:{' '}{store && store.payactionKey && store.payactionKey.payactionWebhookKey}
                                         </span>
                                     </div>
                                 
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                         payactionShopId:{' '}{store && store.payactionKey && store.payactionKey.payactionShopId}
                                         </span>
                                     
@@ -3511,14 +3511,14 @@ export default function SettingsPage({ params }: any) {
                                     
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="payactionApiKey"
                                         value={payactionApiKey}
                                         onChange={(e) => setPayactionApiKey(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="payactionWebhookKey"
                                         value={payactionWebhookKey}
                                         onChange={(e) => setPayactionWebhookKey(e.target.value)}
@@ -3527,7 +3527,7 @@ export default function SettingsPage({ params }: any) {
                                 
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="payactionShopId"
                                         value={payactionShopId}
                                         onChange={(e) => setPayactionShopId(e.target.value)}
@@ -3536,7 +3536,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !payactionApiKey || !payactionWebhookKey || !payactionShopId
                                             || updatingPayactionKeys
                                         }
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!payactionApiKey || !payactionWebhookKey || !payactionShopId || updatingPayactionKeys
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3559,7 +3559,7 @@ export default function SettingsPage({ params }: any) {
                                             아래 버튼을 눌러 초기화 해주세요.
                                         </span>
                                         <button
-                                            className={`w-full bg-red-500 text-zinc-100 rounded-lg p-2
+                                            className={`w-full bg-red-500  rounded-lg p-2
                                                 ${updatingPayactionKeys
                                                 ? "opacity-50" : ""}`}
                                             onClick={() => {
@@ -3599,14 +3599,14 @@ export default function SettingsPage({ params }: any) {
                                         height={20}
                                         className="w-5 h-5"
                                     />
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         가맹점 결제 설정
                                     </span>
                                 </div>
 
                                 {/* information */}
                                 {/* url format */}
-                                <div className='w-full text-sm text-zinc-100'>
+                                <div className='w-full text-sm '>
                                     <span>
                                         결제 URL은 https:// 또는 http:// 로 시작해야 합니다. <br />
                                         예시: https://yourstore.com/pay
@@ -3618,7 +3618,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-row items-center justify-center gap-2'>
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                         결제 URL:{' '}{store && store.paymentUrl
                                             ? <a href={store.paymentUrl} target="_blank" className="text-blue-400 underline">
                                                 {store.paymentUrl}
@@ -3635,14 +3635,14 @@ export default function SettingsPage({ params }: any) {
 
                                     <input
                                         type="text"
-                                        className="bg-zinc-600 text-zinc-100 rounded-lg p-2 text-sm w-full"
+                                        className="bg-zinc-600  rounded-lg p-2 text-sm w-full"
                                         placeholder="결제 URL을 입력하세요"
                                         value={paymentUrl}
                                         onChange={(e) => setPaymentUrl(e.target.value)}
                                     />
                                     <button
                                         disabled={!address || !paymentUrl || updatingPaymentUrl}
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!paymentUrl || updatingPaymentUrl
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3685,7 +3685,7 @@ export default function SettingsPage({ params }: any) {
                                         border-b border-gray-300 pb-2">
                                         {/* dot */}
                                         <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                        <span className="text-lg text-zinc-100">
+                                        <span className="text-lg ">
                                             가맹점 결제 상한 금액(원) 설정
                                         </span>
                                     </div>
@@ -3700,7 +3700,7 @@ export default function SettingsPage({ params }: any) {
                                             height={16}
                                             className="w-4 h-4"
                                         />
-                                        <span className="text-zinc-100">
+                                        <span className="">
                                             현재 가맹점 결제 상한 금액: {store?.maxPaymentAmountKRW
                                                 ? store?.maxPaymentAmountKRW.toLocaleString() + ' 원'
                                                 : '설정된 결제 상한 금액이 없습니다. (기본값: 3,000,000 원)'}
@@ -3710,7 +3710,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='w-full flex flex-row items-center justify-between'>
                                         <input
                                             type="text"
-                                            className="flex-1 bg-zinc-800 text-zinc-100 rounded-lg p-2 text-sm"
+                                            className="flex-1 bg-zinc-800  rounded-lg p-2 text-sm"
                                             placeholder="가맹점 결제 상한 금액(KRW)을 입력하세요"
                                             value={maxPaymentAmountKRW}
                                             onChange={(e) => {
@@ -3722,14 +3722,14 @@ export default function SettingsPage({ params }: any) {
                                             }}
 
                                         />
-                                        <span className="text-zinc-100 ml-2">
+                                        <span className=" ml-2">
                                             {maxPaymentAmountKRW ? Number(maxPaymentAmountKRW).toLocaleString() : '0'} 원
                                         </span>
                                     </div>
 
                                     <button
                                         disabled={!address || !maxPaymentAmountKRW || updatingMaxPaymentAmountKRW}
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!address || !maxPaymentAmountKRW || updatingMaxPaymentAmountKRW
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {

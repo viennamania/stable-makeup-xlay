@@ -2107,7 +2107,7 @@ const fetchBuyOrders = async () => {
                       />
                   </button>
                   {/* title */}
-                  <span className="text-sm text-zinc-100 font-normal">
+                  <span className="text-sm  font-normal">
                       돌아가기
                   </span>
               </div>
@@ -2175,7 +2175,7 @@ const fetchBuyOrders = async () => {
                     className="w-6 h-6"
                   />
 
-                  <div className="text-xl font-normal text-zinc-100">
+                  <div className="text-xl font-normal ">
                     통장관리
                   </div>
 
@@ -2271,7 +2271,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2287,15 +2287,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2307,7 +2307,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2316,7 +2316,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -2328,7 +2328,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

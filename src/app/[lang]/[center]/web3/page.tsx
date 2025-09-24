@@ -1069,7 +1069,7 @@ export default function SettingsPage({ params }: any) {
                             {/* wallet address */}
                             {address && (
                                 <div className='flex flex-row items-center justify-between gap-2'>
-                                    <span className="text-lg text-zinc-100 ">
+                                    <span className="text-lg  ">
                                         {address.slice(0, 6)}...{address.slice(-4)}
                                     </span>
                                     {/* 복사 버튼 */}
@@ -1079,7 +1079,7 @@ export default function SettingsPage({ params }: any) {
                                             //toast.success('USDT지갑주소가 복사되었습니다.');
                                             alert('USDT지갑주소가 복사되었습니다.');
                                         }}
-                                        className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                        className="p-2 bg-blue-500  rounded"
                                     >
                                         복사
                                     </button>
@@ -1088,7 +1088,7 @@ export default function SettingsPage({ params }: any) {
                                         onClick={() => router.push(`
                                             /${params.lang}/${params.center}/send-usdt-web3
                                         `)}
-                                        className="p-2 bg-green-500 text-zinc-100 rounded"
+                                        className="p-2 bg-green-500  rounded"
                                     >
                                         USDT 보내기
                                     </button>
@@ -1147,7 +1147,7 @@ export default function SettingsPage({ params }: any) {
                                     onClick={() => {
                                         //confirm('지갑연결을 해제하시겠습니까?') && activeAccount?.disconnect();
                                     }}
-                                    className="p-2 bg-red-500 text-zinc-100 rounded"
+                                    className="p-2 bg-red-500  rounded"
                                 >
                                     지갑연결 해제
                                 </button>
@@ -1166,7 +1166,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-col gap-2 items-end justify-between'>
    
                                         <div className='flex flex-row gap-2 items-center justify-between'>
-                                            <span className="text-lg text-zinc-100">
+                                            <span className="text-lg ">
                                                 {My_Balance}:
                                             </span>
                                             <span className="text-4xl text-green-500 font-bold ">
@@ -1181,7 +1181,7 @@ export default function SettingsPage({ params }: any) {
                                             {/* table body */}
                                             {transfers.map((transfer: any) => (
                                                 <div key={transfer._id} className='w-full flex flex-row gap-2 items-center justify-between'>
-                                                    <span className={` w-24 text-sm text-zinc-100 `}>
+                                                    <span className={` w-24 text-sm  `}>
                                                         {
                                                             //new Date(transfer.transferData.timestamp)?.toLocaleString()
 
@@ -1210,10 +1210,10 @@ export default function SettingsPage({ params }: any) {
 
                                                         }
                                                     </span>
-                                                    <span className={`text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
+                                                    <span className={`text-sm  ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
                                                         {transfer.sendOrReceive === 'send' ? '송금' : '수신'}
                                                     </span>
-                                                    <span className={`w-20 text-right text-sm text-zinc-100 ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
+                                                    <span className={`w-20 text-right text-sm  ${transfer.sendOrReceive === 'send' ? 'text-red-500' : 'text-green-500'}`}>
                                                         {transfer.sendOrReceive === 'send' ? '-' : '+'} {transfer.transferData.value / 10 ** 6}
                                                     </span>
                                                 </div>
@@ -1230,7 +1230,7 @@ export default function SettingsPage({ params }: any) {
                                     onClick={() => router.push(`
                                         /${params.lang}/${params.center}/sell-usdt-web3
                                     `)}
-                                    className="w-full p-2 rounded-lg text-xl bg-green-500 text-white"
+                                    className="w-full p-2 rounded-lg text-xl bg-green-500 "
                                 >
                                     USDT 판매하기
                                 </button>
@@ -1288,7 +1288,7 @@ export default function SettingsPage({ params }: any) {
                                                     disabled={sending}
                                                     onClick={() => setAmount(0)}
                                                     className="w-20 text-sm
-                                                    p-2 bg-gray-300 text-zinc-100 rounded"
+                                                    p-2 bg-gray-300  rounded"
 
                                                 >
                                                     초기화
@@ -1299,7 +1299,7 @@ export default function SettingsPage({ params }: any) {
                                                     disabled={sending}
                                                     onClick={() => setAmount(balance)}
                                                     className="w-20 text-sm
-                                                    p-2 bg-gray-300 text-zinc-100 rounded"
+                                                    p-2 bg-gray-300  rounded"
                                                 >
                                                     최대
                                                 </button>
@@ -1317,7 +1317,7 @@ export default function SettingsPage({ params }: any) {
                                             disabled={sending}
                                             type="text"
                                             placeholder="받을 사람의 USDT지갑주소"
-                                            className=" w-80 xl:w-96 p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-sm "
+                                            className=" w-80 xl:w-96 p-2 border border-gray-300 rounded  bg-black text-sm xl:text-sm "
                                             value={recipient.walletAddress}
                                             onChange={(e) => setRecipient({
                                                 ...recipient,
@@ -1352,7 +1352,7 @@ export default function SettingsPage({ params }: any) {
                                             width={30}
                                             height={30}
                                         />
-                                        <div className="text-white">OTP verified</div>
+                                        <div className="">OTP verified</div>
                                         </div>
                                     ) : (
                                     
@@ -1371,7 +1371,7 @@ export default function SettingsPage({ params }: any) {
                                                 ${
                                                 !address || !recipient?.walletAddress || !amount || isSendingOtp
                                                 ?'bg-gray-300 text-gray-400'
-                                                : 'bg-green-500 text-white'
+                                                : 'bg-green-500 '
                                                 }
                                             
                                             `}
@@ -1396,7 +1396,7 @@ export default function SettingsPage({ params }: any) {
                                                 ${
                                                 !otp || isVerifingOtp
                                                 ?'bg-gray-300 text-gray-400'
-                                                : 'bg-green-500 text-white'
+                                                : 'bg-green-500 '
                                                 }
                                                 
                                                 `}
@@ -1422,7 +1422,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !address || !recipient?.walletAddress || !amount || sending || !verifiedOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                         
                                         `}
@@ -1448,7 +1448,7 @@ export default function SettingsPage({ params }: any) {
                                             />
                                         </div>
                                         )}
-                                        <div className="text-white">
+                                        <div className="">
                                         {sending ? "전송중..." : ''}
                                         </div>
 
@@ -1480,7 +1480,7 @@ export default function SettingsPage({ params }: any) {
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
                                 {/*
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-green-500 text-sm  p-2 rounded">
                                     나의 아이디
                                 </div>
                                 */}
@@ -1495,7 +1495,7 @@ export default function SettingsPage({ params }: any) {
                                 </div>
 
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl ">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl ">
                                     {nickname}
                                 </div>
 
@@ -1506,7 +1506,7 @@ export default function SettingsPage({ params }: any) {
                                         nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                     } }
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     {nicknameEdit ? Cancel : Edit}
                                 </button>
@@ -1529,14 +1529,14 @@ export default function SettingsPage({ params }: any) {
                             <div className=' flex flex-col xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
                                 <div
-                                    className="bg-green-500 text-sm text-zinc-100 p-2 rounded"
+                                    className="bg-green-500 text-sm  p-2 rounded"
                                 >
                                     나의 아이디
                                 </div>
 
                                 <input
                                     disabled={!address}
-                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl "
+                                    className="p-2 w-64  bg-zinc-800 rounded text-2xl "
                                     placeholder={Enter_your_nickname}
                                     
                                     //value={nickname}
@@ -1571,7 +1571,7 @@ export default function SettingsPage({ params }: any) {
                                 </div>
                                 <button
                                     disabled={!address}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                     onClick={() => {
                                         setUserData();
                                     }}
@@ -1588,11 +1588,11 @@ export default function SettingsPage({ params }: any) {
                         {/*userCode && (
                             <div className='flex flex-row xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-green-500 text-sm  p-2 rounded">
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl ">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl ">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}
@@ -1609,11 +1609,11 @@ export default function SettingsPage({ params }: any) {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl ">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl ">
                                     {userCode}
                                 </div>
 
@@ -1624,7 +1624,7 @@ export default function SettingsPage({ params }: any) {
                                         navigator.clipboard.writeText(userCode);
                                         toast.success('Referral code copied to clipboard');
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     Copy
                                 </button>
@@ -1649,11 +1649,11 @@ export default function SettingsPage({ params }: any) {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-green-500 text-sm  p-2 rounded">
                                     구매자 은행정보
                                 </div>
 
-                                <div className="flex flex-col xl:flex-row p-2 bg-zinc-800 rounded text-zinc-100 text-xl 
+                                <div className="flex flex-col xl:flex-row p-2 bg-zinc-800 rounded  text-xl 
                                 gap-2 items-center justify-between">
                                     
                                     <div className="text-lg ">
@@ -1731,7 +1731,7 @@ export default function SettingsPage({ params }: any) {
                                                     은행: 제주은행
                                                 </span>
                                                 <div className="flex flex-row gap-2 items-center justify-between">
-                                                    <span className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl ">
+                                                    <span className="p-2 bg-zinc-800 rounded  text-xl ">
                                                         게좌번호:{' '}{
                                                             buyer.bankInfo.virtualAccount
                                                         }
@@ -1742,7 +1742,7 @@ export default function SettingsPage({ params }: any) {
                                                             navigator.clipboard.writeText(buyer.baankInfo.virtualAccount as string);
                                                             alert('가상계좌번호가 복사되었습니다.');
                                                         }}
-                                                        className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                                        className="p-2 bg-blue-500  rounded"
                                                     >
                                                         복사
                                                     </button>
@@ -1809,7 +1809,7 @@ export default function SettingsPage({ params }: any) {
 
                                                 <select
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                                     value={buyer?.bankInfo?.bankName}
                                                     onChange={(e) => {
@@ -1896,7 +1896,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="계좌번호"
@@ -1919,7 +1919,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="예금주"
@@ -1944,7 +1944,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="생년월일(6자리)"
@@ -1969,7 +1969,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <select
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                                     value={buyer?.bankInfo?.gender}
 
@@ -1995,7 +1995,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center  bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="전화번호"
@@ -2049,8 +2049,8 @@ export default function SettingsPage({ params }: any) {
                                                     || !buyer?.bankInfo?.gender
                                                     || !buyer?.bankInfo?.phoneNum
                                                     || applying
-                                                    ? 'bg-gray-500 text-zinc-100'
-                                                    : 'bg-blue-500 text-zinc-100'}
+                                                    ? 'bg-gray-500 '
+                                                    : 'bg-blue-500 '}
 
                                                     p-2 rounded-lg text-sm 
                                                     w-full mt-5
@@ -2080,7 +2080,7 @@ export default function SettingsPage({ params }: any) {
                                         width={30}
                                         height={30}
                                     />
-                                    <div className="text-white">
+                                    <div className="">
                                         {OTP_verified}
                                     </div>
                                     </div>
@@ -2101,7 +2101,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !address || isSendingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                         
                                         `}
@@ -2126,7 +2126,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !otp || isVerifingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                             
                                             `}

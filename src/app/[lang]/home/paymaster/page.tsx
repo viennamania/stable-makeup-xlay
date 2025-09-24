@@ -2017,7 +2017,7 @@ export default function Index({ params }: any) {
                 height={38}
                 className='rounded-lg w-16 h-16 bg-zinc-200'
               />
-              <span className="text-sm text-zinc-100 font-normal">
+              <span className="text-sm  font-normal">
                 {storeInfo?.storeName}
               </span>
             </div>
@@ -2105,7 +2105,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className='flex flex-row gap-2 items-center justify-center'>
-                  <span className="text-sm text-zinc-100">
+                  <span className="text-sm ">
                     USDT지갑:{' '}
                   </span>
                   <button
@@ -2113,7 +2113,7 @@ export default function Index({ params }: any) {
                       navigator.clipboard.writeText(address);
                       toast.success("USDT지갑주소가 복사되었습니다.");
                     }}
-                    className="text-sm underline text-zinc-100 hover:text-zinc-200"
+                    className="text-sm underline  hover:text-zinc-200"
                   >
                     {address.slice(0, 6)}...{address.slice(-4)}
                   </button>
@@ -2121,16 +2121,16 @@ export default function Index({ params }: any) {
 
                 {/* balance */}
                 <div className="flex flex-row gap-2 items-center justify-center">
-                  <span className="text-sm text-zinc-100">
+                  <span className="text-sm ">
                     잔액:{' '}
                   </span>
 
                   <div className="flex flex-row items-center justify-center gap-2">
-                    <span className="text-xl font-normal text-zinc-100">
+                    <span className="text-xl font-normal ">
                       {Number(balance).toFixed(2)}
                     </span>
                     {' '}
-                    <span className="text-sm text-zinc-100">
+                    <span className="text-sm ">
                       USDT
                     </span>
                   </div>
@@ -2351,7 +2351,7 @@ export default function Index({ params }: any) {
                             onClick={() => setSelectedKrwAmount(0)}
                             className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                             }
-                              text-sm text-zinc-100
+                              text-sm 
                               px-4 py-2 rounded-md border border-zinc-100
                               hover:bg-[#f472b6] hover:text-zinc-50
                               `}
@@ -2403,7 +2403,7 @@ export default function Index({ params }: any) {
                           )}
                           className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                           }
-                            text-lg text-zinc-100
+                            text-lg 
                             px-4 py-2 rounded-md border border-zinc-100
                             hover:bg-[#f472b6] hover:text-zinc-50
                             `}
@@ -2419,7 +2419,7 @@ export default function Index({ params }: any) {
                           )}
                           className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                           }
-                            text-lg text-zinc-100
+                            text-lg 
                             px-4 py-2 rounded-md border border-zinc-100
                             hover:bg-[#f472b6] hover:text-zinc-50
                             `}
@@ -2433,7 +2433,7 @@ export default function Index({ params }: any) {
                           )}
                           className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                           }
-                            text-lg text-zinc-100
+                            text-lg 
                             px-4 py-2 rounded-md border border-zinc-100
                             hover:bg-[#f472b6] hover:text-zinc-50
                             `}
@@ -2447,7 +2447,7 @@ export default function Index({ params }: any) {
                           )}
                           className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                           }
-                            text-lg text-zinc-100
+                            text-lg 
                             px-4 py-2 rounded-md border border-zinc-100
                             hover:bg-[#f472b6] hover:text-zinc-50
                             `}
@@ -2461,7 +2461,7 @@ export default function Index({ params }: any) {
                           )}
                           className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                           }
-                            text-lg text-zinc-100
+                            text-lg 
                             px-4 py-2 rounded-md border border-zinc-100
                             hover:bg-[#f472b6] hover:text-zinc-50
                             `}
@@ -2475,7 +2475,7 @@ export default function Index({ params }: any) {
                           )}
                           className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-black'
                           }
-                            text-lg text-zinc-100
+                            text-lg 
                             px-4 py-2 rounded-md border border-zinc-100
                             hover:bg-[#f472b6] hover:text-zinc-50
                             `}
@@ -2505,7 +2505,7 @@ export default function Index({ params }: any) {
                             value={depositBankName || ''}
                             onChange={(e) => setDepositBankName(e.target.value)}
                             placeholder="입금자은행명"
-                            className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
+                            className=" text-sm font-normal bg-zinc-200  px-4 py-2 rounded-md border border-zinc-100"
                           />
                         </div>
 
@@ -2522,7 +2522,7 @@ export default function Index({ params }: any) {
                             value={depositBankAccountNumber || ''}
                             onChange={(e) => setDepositBankAccountNumber(e.target.value)}
                             placeholder="입금자계좌번호"
-                            className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
+                            className=" text-sm font-normal bg-zinc-200  px-4 py-2 rounded-md border border-zinc-100"
                           />
                         </div>
 
@@ -2543,7 +2543,7 @@ export default function Index({ params }: any) {
                             value={depositName || ''}
                             onChange={(e) => setDepositName(e.target.value)}
                             placeholder="입금자명"
-                            className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
+                            className=" text-sm font-normal bg-zinc-200  px-4 py-2 rounded-md border border-zinc-100"
                           />
                         </div>
 

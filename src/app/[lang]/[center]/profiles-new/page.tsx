@@ -794,7 +794,7 @@ export default function SettingsPage({ params }: any) {
                             :
                             '/' + params.lang + '/' + params.center
                         ) }
-                        className="text-zinc-100 font-normal underline"
+                        className=" font-normal underline"
                     >
                         {Go_Home}
                     </button>
@@ -860,11 +860,11 @@ export default function SettingsPage({ params }: any) {
                         {userCode && (
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-green-500 text-sm  p-2 rounded">
                                     나의 아이디
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     {nickname}
                                 </div>
 
@@ -875,7 +875,7 @@ export default function SettingsPage({ params }: any) {
                                         nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                     } }
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     {nicknameEdit ? Cancel : Edit}
                                 </button>
@@ -898,14 +898,14 @@ export default function SettingsPage({ params }: any) {
                             <div className=' flex flex-col xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
                                 <div
-                                    className="bg-green-500 text-sm text-zinc-100 p-2 rounded"
+                                    className="bg-green-500 text-sm  p-2 rounded"
                                 >
                                     나의 아이디
                                 </div>
 
                                 <input
                                     disabled={!address}
-                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-normal"
+                                    className="p-2 w-64  bg-zinc-800 rounded text-2xl font-normal"
                                     placeholder={Enter_your_nickname}
                                     
                                     //value={nickname}
@@ -940,7 +940,7 @@ export default function SettingsPage({ params }: any) {
                                 </div>
                                 <button
                                     disabled={!address}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                     onClick={() => {
                                         setUserData();
                                     }}
@@ -957,11 +957,11 @@ export default function SettingsPage({ params }: any) {
                         {userCode && (
                             <div className='flex flex-row xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-green-500 text-sm  p-2 rounded">
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}
@@ -978,11 +978,11 @@ export default function SettingsPage({ params }: any) {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     {userCode}
                                 </div>
 
@@ -993,7 +993,7 @@ export default function SettingsPage({ params }: any) {
                                         navigator.clipboard.writeText(userCode);
                                         toast.success('Referral code copied to clipboard');
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     Copy
                                 </button>
@@ -1022,11 +1022,11 @@ export default function SettingsPage({ params }: any) {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-green-500 text-sm  p-2 rounded">
                                     구매자 은행정보
                                 </div>
 
-                                <div className="flex flex-col p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="flex flex-col p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     
                                     <div className="text-lg font-normal">
                                         
@@ -1105,7 +1105,7 @@ export default function SettingsPage({ params }: any) {
                                                     은행: 제주은행
                                                 </span>
                                                 <div className="flex flex-row gap-2 items-center justify-between">
-                                                    <span className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                                    <span className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                                         게좌번호:{' '}{
                                                             buyer.bankInfo.virtualAccount
                                                         }
@@ -1116,7 +1116,7 @@ export default function SettingsPage({ params }: any) {
                                                             navigator.clipboard.writeText(buyer.baankInfo.virtualAccount as string);
                                                             alert('가상계좌번호가 복사되었습니다.');
                                                         }}
-                                                        className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                                        className="p-2 bg-blue-500  rounded"
                                                     >
                                                         복사
                                                     </button>
@@ -1174,7 +1174,7 @@ export default function SettingsPage({ params }: any) {
 
                                                 <select
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                                     value={buyer?.bankInfo?.bankName}
                                                     onChange={(e) => {
@@ -1261,7 +1261,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="계좌번호"
@@ -1284,7 +1284,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="예금주"
@@ -1309,7 +1309,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="생년월일(6자리)"
@@ -1334,7 +1334,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <select
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                                     value={buyer?.bankInfo?.gender}
 
@@ -1360,7 +1360,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-row gap-2 items-center justify-between'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg text-zinc-100
+                                                    className="p-2 w-full text-2xl text-center font-normal bg-zinc-800 rounded-lg 
                                                     focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
 
                                                     placeholder="전화번호"
@@ -1414,8 +1414,8 @@ export default function SettingsPage({ params }: any) {
                                                     || !buyer?.bankInfo?.gender
                                                     || !buyer?.bankInfo?.phoneNum
                                                     || applying
-                                                    ? 'bg-gray-500 text-zinc-100'
-                                                    : 'bg-blue-500 text-zinc-100'}
+                                                    ? 'bg-gray-500 '
+                                                    : 'bg-blue-500 '}
 
                                                     p-2 rounded-lg text-sm font-normal
                                                     w-full mt-5
@@ -1445,7 +1445,7 @@ export default function SettingsPage({ params }: any) {
                                         width={30}
                                         height={30}
                                     />
-                                    <div className="text-white">
+                                    <div className="">
                                         {OTP_verified}
                                     </div>
                                     </div>
@@ -1466,7 +1466,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !address || isSendingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                         
                                         `}
@@ -1491,7 +1491,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !otp || isVerifingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                             
                                             `}
@@ -1524,18 +1524,18 @@ export default function SettingsPage({ params }: any) {
                                 
                                 <div className='w-full flex flex-row gap-2 items-center justify-between'>
 
-                                    <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                    <div className="bg-green-500 text-sm  p-2 rounded">
                                         {Seller}
                                     </div>
 
                                     {!seller && (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                        <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                             {Not_a_seller}
                                         </div>
                                     )}
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                        <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                             {Applying}...
                                         </div>
                                     ) : (
@@ -1553,7 +1553,7 @@ export default function SettingsPage({ params }: any) {
                                             }}
                                             className={`
                                                 ${!verifiedOtp ? 'bg-gray-300 text-gray-400'
-                                                : 'bg-green-500 text-zinc-100'}
+                                                : 'bg-green-500 '}
 
                                                 p-2 rounded-lg text-sm font-normal
                                             `}
@@ -1569,7 +1569,7 @@ export default function SettingsPage({ params }: any) {
                                                                         
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_bank_name}
                                         value={bankName}
                                         type='text'
@@ -1579,7 +1579,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_account_number}
                                         value={accountNumber}
                                         type='number'
@@ -1594,7 +1594,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_account_holder}
                                         value={accountHolder}
                                         type='text'
@@ -1615,7 +1615,7 @@ export default function SettingsPage({ params }: any) {
                                         width={30}
                                         height={30}
                                     />
-                                    <div className="text-white">
+                                    <div className="">
                                         {OTP_verified}
                                     </div>
                                     </div>
@@ -1636,7 +1636,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !address || isSendingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                         
                                         `}
@@ -1661,7 +1661,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !otp || isVerifingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                             
                                             `}
@@ -1709,11 +1709,11 @@ export default function SettingsPage({ params }: any) {
                             <div className='flex flex-col gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
                                 <div className='flex flex-row gap-2 items-center justify-between'>
 
-                                    <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                    <div className="bg-green-500 text-sm  p-2 rounded">
                                         Update USDT Price
                                     </div>
 
-                                    <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                    <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                         1 USDT = {usdtPrice} KRW
                                     </div>
 
@@ -1721,7 +1721,7 @@ export default function SettingsPage({ params }: any) {
                                         onClick={() => {
                                             setUsdtPriceEdit(!usdtPriceEdit);
                                         }}
-                                        className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                        className="p-2 bg-blue-500  rounded"
                                     >
                                         {usdtPriceEdit ? Cancel : Edit}
                                     </button>
@@ -1733,7 +1733,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='flex flex-col gap-2 items-center justify-between'>
 
                                         <input 
-                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                            className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                             placeholder="Enter USDT Price"
                                             type='number'
                                             value={editUsdtPrice}
@@ -1745,7 +1745,7 @@ export default function SettingsPage({ params }: any) {
                                             disabled={editingUsdtPrice}
 
                                             className={`
-                                                ${editingUsdtPrice ? 'bg-gray-300 text-gray-400' : 'bg-green-500 text-zinc-100'}
+                                                ${editingUsdtPrice ? 'bg-gray-300 text-gray-400' : 'bg-green-500 '}
                                                 p-2 rounded-lg text-sm font-normal
                                             `}
 

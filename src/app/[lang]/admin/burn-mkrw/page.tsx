@@ -806,7 +806,7 @@ export default function SendUsdt({ params }: any) {
                     />
                 </button>
                 {/* title */}
-                <span className="text-sm text-zinc-100 font-normal">
+                <span className="text-sm  font-normal">
                     돌아가기
                 </span>
             </div>
@@ -867,7 +867,7 @@ export default function SendUsdt({ params }: any) {
                     <div className="flex flex-row items-center justify-center gap-2">
 
                         <button
-                            className="text-lg text-zinc-100 underline"
+                            className="text-lg  underline"
                             onClick={() => {
                                 navigator.clipboard.writeText(address);
                                 toast.success(Copied_Wallet_Address);
@@ -923,7 +923,7 @@ export default function SendUsdt({ params }: any) {
                 />
               </div>
 
-              <div className="text-xl font-normal text-zinc-100">
+              <div className="text-xl font-normal ">
                 포인트 환전
               </div>
 
@@ -934,7 +934,7 @@ export default function SendUsdt({ params }: any) {
 
             <div className='w-full  flex flex-col gap-5 border border-gray-300 p-4 rounded-lg'>
 
-              <span className='text-sm text-zinc-100'>
+              <span className='text-sm '>
                 환전할 포인트 수량을 입력하세요.
               </span>
 
@@ -963,7 +963,7 @@ export default function SendUsdt({ params }: any) {
                         toast.error("환전하기 실패");
                       }
                     }}
-                    className={`bg-red-500 text-white rounded-lg px-4 py-2 ${burning ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`bg-red-500  rounded-lg px-4 py-2 ${burning ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     {burning ? '환전 중...' : '환전'}
                   </button>
@@ -981,12 +981,12 @@ export default function SendUsdt({ params }: any) {
                     height={20}
                     className="w-6 h-6"
                   />
-                  <span className='text-sm text-zinc-100'>
+                  <span className='text-sm '>
                     환전할 포인트 수량(MKRW): {burnAmount.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </span>
                 </div>
 
-                <span className='text-sm text-zinc-100'>
+                <span className='text-sm '>
                   환전 비율: {exchangeRate.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </span>
 
@@ -998,7 +998,7 @@ export default function SendUsdt({ params }: any) {
                     height={20}
                     className="w-6 h-6"
                   />
-                  <span className='text-sm text-zinc-100'>
+                  <span className='text-sm '>
                     환전될 테더 수량(USDT): {
                     Number(burnAmount / exchangeRate).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </span>
@@ -1018,7 +1018,7 @@ export default function SendUsdt({ params }: any) {
                     width={30}
                     height={30}
                   />
-                  <div className="text-white">OTP verified</div>
+                  <div className="">OTP verified</div>
                 </div>
               ) : (
              
@@ -1037,7 +1037,7 @@ export default function SendUsdt({ params }: any) {
                         ${
                         !address || !recipient?.walletAddress || !amount || isSendingOtp
                         ?'bg-gray-300 text-gray-400'
-                        : 'bg-green-500 text-white'
+                        : 'bg-green-500 '
                         }
                       
                       `}
@@ -1062,7 +1062,7 @@ export default function SendUsdt({ params }: any) {
                           ${
                           !otp || isVerifingOtp
                           ?'bg-gray-300 text-gray-400'
-                          : 'bg-green-500 text-white'
+                          : 'bg-green-500 '
                           }
                         
                         `}
@@ -1135,7 +1135,7 @@ export default function SendUsdt({ params }: any) {
                                   <span className="text-sm">
                                     {new Date(transfer.transferData.timestamp).toLocaleTimeString()}
                                   </span>
-                                  <span className="text-xs text-zinc-100">
+                                  <span className="text-xs ">
                                     {new Date(transfer.transferData.timestamp).toLocaleDateString()}
                                   </span>
                                 </div>

@@ -1230,7 +1230,7 @@ const fetchBuyOrders = async () => {
       <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
         <div className="py-0 w-full">
           <h1 className="text-2xl font-bold text-red-500">잘못된 접근입니다.</h1>
-          <p className="text-zinc-100">올바른 상점 코드를 입력해주세요.</p>
+          <p className="">올바른 상점 코드를 입력해주세요.</p>
         </div>
       </main>
     );
@@ -1296,7 +1296,7 @@ const fetchBuyOrders = async () => {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-zinc-100">{address}</div>
+        <div className="text-lg ">{address}</div>
 
               {/* logout button */}
               <button
@@ -1737,7 +1737,7 @@ const fetchBuyOrders = async () => {
                 className="w-6 h-6"
               />
 
-              <div className="text-xl font-normal text-zinc-100">
+              <div className="text-xl font-normal ">
                 통계(가맹)
               </div>
 
@@ -1943,26 +1943,26 @@ const fetchBuyOrders = async () => {
 
                   <thead className="bg-zinc-200">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
+                      <th className="px-4 py-2 text-left text-sm font-normal ">
                         날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">결제수(건)/미결제수(건)</th>
                       */}
                       
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">AG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">AG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">AG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">AG 수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">PG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">PG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">PG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">PG 수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">결제량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">결제금액(원)</th>
 
                     </tr>
                   </thead>
@@ -2051,10 +2051,10 @@ const fetchBuyOrders = async () => {
 
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-zinc-800 shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-100">
+              <div className="text-sm ">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-100">
+              <div className="text-sm ">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
                   이용약관
                 </a>
@@ -2123,7 +2123,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2139,15 +2139,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2159,7 +2159,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2168,7 +2168,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -2180,7 +2180,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

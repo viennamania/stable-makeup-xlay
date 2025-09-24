@@ -170,7 +170,7 @@ export default function RootLayout({
             <div className="fixed top-2 left-2 z-50 flex flex-col items-start justify-center">
               <button
                 className="flex flex-row items-center justify-center gap-2
-                mb-2 px-4 py-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-75"
+                mb-2 px-4 py-2 bg-black bg-opacity-50  rounded hover:bg-opacity-75"
                 onClick={() => setShowCenter(!showCenter)}
               >
                   <Image
@@ -180,7 +180,7 @@ export default function RootLayout({
                     height={25}
                   />
 
-                  <span className="text-sm text-white">
+                  <span className="text-sm ">
                     {showCenter ? 'Hide Wallet' : 'Show Wallet'}
                   </span>
               </button>
@@ -202,7 +202,7 @@ export default function RootLayout({
               {/* button bg is transparent black */}
               <button
                 className="
-                mb-2 px-4 py-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-75"
+                mb-2 px-4 py-2 bg-black bg-opacity-50  rounded hover:bg-opacity-75"
                 onClick={() => setShowChain(!showChain)}
               >
                 <div className="flex flex-row items-center justify-center gap-2">
@@ -214,7 +214,7 @@ export default function RootLayout({
                     height={50}
                   />
 
-                  <span className="text-sm text-white">
+                  <span className="text-sm ">
                     {showChain ? 'Hide Chain' : 'Show Chain'}
                   </span>
 
@@ -287,7 +287,7 @@ export default function RootLayout({
                     <div className={`
                       w-20 h-20
                       flex flex-col items-center justify-center gap-1 ${chain === 'ethereum' ? 'border-2 border-blue-500 p-2 rounded' : ''}
-                      hover:bg-blue-500 hover:text-white transition-colors duration-200`}>
+                      hover:bg-blue-500 hover: transition-colors duration-200`}>
                       <Image
                         src={`/logo-chain-ethereum.png`}
                         alt={`Chain logo for Ethereum`}
@@ -307,7 +307,7 @@ export default function RootLayout({
                     <div className={`
                       w-20 h-20
                       flex flex-col items-center justify-center gap-1 ${chain === 'polygon' ? 'border-2 border-blue-500 p-2 rounded' : ''}
-                      hover:bg-blue-500 hover:text-white transition-colors duration-200`}>
+                      hover:bg-blue-500 hover: transition-colors duration-200`}>
                       <Image
                         src={`/logo-chain-polygon.png`}
                         alt={`Chain logo for Polygon`}
@@ -327,7 +327,7 @@ export default function RootLayout({
                     <div className={`
                       w-20 h-20
                       flex flex-col items-center justify-center gap-1 ${chain === 'bsc' ? 'border-2 border-blue-500 p-2 rounded' : ''}
-                      hover:bg-blue-500 hover:text-white transition-colors duration-200`}>
+                      hover:bg-blue-500 hover: transition-colors duration-200`}>
                       <Image
                         src={`/logo-chain-bsc.png`}
                         alt={`Chain logo for BSC`}
@@ -347,7 +347,7 @@ export default function RootLayout({
                     <div className={`
                       w-20 h-20
                       flex flex-col items-center justify-center gap-1 ${chain === 'arbitrum' ? 'border-2 border-blue-500 p-2 rounded' : ''}
-                      hover:bg-blue-500 hover:text-white transition-colors duration-200`}>
+                      hover:bg-blue-500 hover: transition-colors duration-200`}>
                       <Image
                         src={`/logo-chain-arbitrum.png`}
                         alt={`Chain logo for Arbitrum`}
@@ -378,7 +378,7 @@ export default function RootLayout({
                       My Wallet
                     </span>
                     <button
-                      className="px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600 transition-colors duration-200"
+                      className="px-3 py-1 bg-green-500  text-sm rounded hover:bg-green-600 transition-colors duration-200"
                       onClick={() => {
 
                         router.push('/ko/admin/withdraw-usdt');

@@ -183,7 +183,7 @@ const {
 
 
                       {/*
-                      <p className="mt-1 text-sm text-zinc-100">
+                      <p className="mt-1 text-sm ">
                         Your file has been uploaded to{' '}
                         <a
                           className="font-medium text-gray-900 underline"
@@ -201,7 +201,7 @@ const {
 
                     <button
                       onClick={() => toast.dismiss(t.id)}
-                      className="absolute top-0 -right-2 inline-flex text-gray-400 focus:outline-none focus:text-zinc-100 rounded-full p-1.5 hover:bg-gray-100 transition ease-in-out duration-150"
+                      className="absolute top-0 -right-2 inline-flex text-gray-400 focus:outline-none focus: rounded-full p-1.5 hover:bg-gray-100 transition ease-in-out duration-150"
                     >
                       <svg
                         className="h-5 w-5"
@@ -308,7 +308,7 @@ const {
             <svg
               className={`${
                 dragActive ? 'scale-110' : 'scale-100'
-              } h-7 w-7 text-zinc-100 transition-all duration-75 group-hover:scale-110 group-active:scale-95`}
+              } h-7 w-7  transition-all duration-75 group-hover:scale-110 group-active:scale-95`}
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -323,10 +323,10 @@ const {
               <path d="M12 12v9"></path>
               <path d="m16 16-4-4-4 4"></path>
             </svg>
-            <p className="mt-2 text-center text-xs text-zinc-100">
+            <p className="mt-2 text-center text-xs ">
               {Drag_and_drop_or_click_to_upload}
             </p>
-            <p className="mt-2 text-center text-xs text-zinc-100">
+            <p className="mt-2 text-center text-xs ">
               {Max_file_size}
             </p>
             <span className="sr-only">
@@ -360,7 +360,7 @@ const {
           className={`${
             saveDisabled
               ? 'cursor-not-allowed border-gray-200 bg-gray-100 text-gray-400'
-              : 'border-black bg-black text-white hover:bg-white hover:text-black'
+              : 'border-black bg-black  hover:bg-white hover:text-black'
           } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
         >
           {saving ? (

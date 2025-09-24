@@ -464,7 +464,7 @@ const P2PTable = () => {
           */}
   
           <div className="flex justify-start space-x-4 mb-10">
-              <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
+              <button onClick={() => router.push('/')} className=" font-normal underline">Go Home</button>
           </div>
 
 
@@ -535,7 +535,7 @@ const P2PTable = () => {
                 <div className="w-full flex flex-row items-start justify-between gap-2">
                   {/* my usdt balance */}
                   <div className="flex flex-col gap-2 items-start">
-                    <div className="text-5xl font-normal text-white">
+                    <div className="text-5xl font-normal ">
                       {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                     </div>
                   </div>
@@ -550,7 +550,7 @@ const P2PTable = () => {
 
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">Total</div>
-                    <div className="text-xl font-normal text-white">
+                    <div className="text-xl font-normal ">
                       {sellOrders.length}
                     </div>
                     
@@ -558,14 +558,14 @@ const P2PTable = () => {
 
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">Orders</div>
-                    <div className="text-xl font-normal text-white">
+                    <div className="text-xl font-normal ">
                       {sellOrders.filter((item) => item.status === 'ordered').length}
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2 items-center">
                     <div className="text-sm">Trades</div>
-                    <div className="text-xl font-normal text-white">
+                    <div className="text-xl font-normal ">
 
                       {
                         //sellOrders.filter((item) => item.status === 'accepted').length
@@ -593,7 +593,7 @@ const P2PTable = () => {
                             height: '20px',
                         }}
                       />
-                      <div className="text-lg font-normal text-white ">{user?.nickname}</div>
+                      <div className="text-lg font-normal  ">{user?.nickname}</div>
                     </div>
                     {/* checkbox for search my trades */}
                     <div className="flex flex-row items-center gap-2">
@@ -819,7 +819,7 @@ const P2PTable = () => {
                             <div className="mt-4 flex flex-row items-between space-x-2">
 
                               <div className="flex flex-col items-start">
-                                <p className="text-2xl font-normal text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-2xl font-normal ">{item.usdtAmount} USDT</p>
 
                                 <p className="text-lg text-zinc-400">
                                   Price: {
@@ -835,7 +835,7 @@ const P2PTable = () => {
                               </div>
 
                               <div className="flex flex-row items-start gap-2">
-                                <p className="text-lg font-normal text-white">Rate: {
+                                <p className="text-lg font-normal ">Rate: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -1026,7 +1026,7 @@ const P2PTable = () => {
 
                                       <button
                                         disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                        className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                        className={`text-sm bg-red-500  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                         onClick={() => {
                                           // api call
                                           // cancelSellOrder
@@ -1209,7 +1209,7 @@ const P2PTable = () => {
 
                                           <button
                                             disabled={!user || !agreementForTrade[index]}
-                                            className={`text-lg bg-green-500 text-white px-4 py-2 rounded-md mt-4
+                                            className={`text-lg bg-green-500  px-4 py-2 rounded-md mt-4
                                               ${!user || !agreementForTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-600'}
                                               `}
                                             onClick={() => {
@@ -1333,7 +1333,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -1349,15 +1349,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -1369,7 +1369,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -1378,7 +1378,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -1390,7 +1390,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

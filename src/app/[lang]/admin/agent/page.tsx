@@ -1308,7 +1308,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-zinc-100">{address}</div>
+        <div className="text-lg ">{address}</div>
 
               {/* logout button */}
               <button
@@ -1657,7 +1657,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal text-zinc-100">
+                <div className="text-xl font-normal ">
                   에이전트관리
                 </div>
 
@@ -1750,7 +1750,7 @@ export default function Index({ params }: any) {
 
                       insertAgent();
                     }}
-                    className={`bg-gray-700 text-white px-4 py-2 rounded-lg w-full
+                    className={`bg-gray-700  px-4 py-2 rounded-lg w-full
                       ${!isAdmin || insertingAgent ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     {insertingAgent ? '에이전트 추가 중...' : '에이전트 추가'}
@@ -1774,10 +1774,10 @@ export default function Index({ params }: any) {
                       setPageValue(1);
                       fetchAllAgent();
                     }}
-                    //className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                    //className="bg-gray-700  px-4 py-2 rounded-lg w-full"
                     className={`
                       w-32
-                      bg-gray-700 text-white px-4 py-2 rounded-lg
+                      bg-gray-700  px-4 py-2 rounded-lg
                       ${!isAdmin || fetchingAllAgent ? 'opacity-50 cursor-not-allowed' : ''}
                     `}
                     
@@ -1924,7 +1924,7 @@ export default function Index({ params }: any) {
                   <table className="w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-normal w-full"
+                      className="bg-zinc-800  text-sm font-normal w-full"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
                       }}
@@ -1993,7 +1993,7 @@ export default function Index({ params }: any) {
                                   </span>
                                   
                                   {/*
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm ">
                                     {item.agentcode}
                                   </span>
                                   */}
@@ -2003,7 +2003,7 @@ export default function Index({ params }: any) {
                                       navigator.clipboard.writeText(item.agentcode);
                                       toast.success('에이전트 코드가 복사되었습니다.');
                                     }}
-                                    className="text-sm text-zinc-100 hover:text-blue-400
+                                    className="text-sm  hover:text-blue-400
                                     hover:underline"
                                   >
                                     {item.agentcode}
@@ -2024,12 +2024,12 @@ export default function Index({ params }: any) {
                                   }}
                                   className={`${
                                     !isAdmin ? 'opacity-50 cursor-not-allowed' : ''
-                                  } bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  } bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80
                                   w-full
                                   `}
                                     
-                                  //className="w-full bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  //className="w-full bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   //hover:bg-gray-700/80"
                                 >
                                   설정하기
@@ -2053,7 +2053,7 @@ export default function Index({ params }: any) {
                                       navigator.clipboard.writeText(item.adminWalletAddress || '');
                                       toast.success('관리자 지갑주소가 복사되었습니다.');
                                     }}
-                                    className="text-sm text-zinc-100 hover:text-blue-400
+                                    className="text-sm  hover:text-blue-400
                                     hover:underline"
                                   >
                                       {item.adminWalletAddress.slice(0, 8) + '...' + item.adminWalletAddress.slice(-8)}
@@ -2071,7 +2071,7 @@ export default function Index({ params }: any) {
                                       navigator.clipboard.writeText(item?.agentFeeWalletAddress || '');
                                       toast.success('수수료 수납용 USDT지갑 주소가 복사되었습니다.');
                                     }}
-                                    className="text-sm text-zinc-100 hover:text-blue-400
+                                    className="text-sm  hover:text-blue-400
                                     hover:underline"
                                   >
                                     {item.agentFeeWalletAddress.slice(0, 8) + '...' + item.agentFeeWalletAddress.slice(-8)}
@@ -2102,7 +2102,7 @@ export default function Index({ params }: any) {
                                       "_blank"
                                     );
                                   }}
-                                  className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80"
                                 >
                                   홈페이지 열기
@@ -2114,7 +2114,7 @@ export default function Index({ params }: any) {
                           
                           <td className="p-2">
                             <div className="flex flex-col items-center justify-center gap-2">
-                              <span className="text-sm text-zinc-100">
+                              <span className="text-sm ">
                                 {item.totalStoreCount ? item.totalStoreCount : 0}개
                               </span>
                               {/* 가맹점 관리 버튼 */}
@@ -2124,7 +2124,7 @@ export default function Index({ params }: any) {
                                     '/' + params.lang + '/admin/store?agentcode=' + item.agentcode
                                   );
                                 }}
-                                className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80"
                               >
                                 가맹점 관리
@@ -2135,7 +2135,7 @@ export default function Index({ params }: any) {
                           {/*
                           <td className="p-2">
                             <div className="flex flex-col items-center gap-2">
-                              <span className="text-sm text-zinc-100">
+                              <span className="text-sm ">
                                 {
                                   item.totalBankAccountCount ? item.totalBankAccountCount : 0
                                 }{' '}개
@@ -2146,7 +2146,7 @@ export default function Index({ params }: any) {
                                     '/' + params.lang + '/admin/agent/' + item.agentcode + '/bank'
                                   );
                                 }}
-                                className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80"
                               >
                                 통장관리
@@ -2162,7 +2162,7 @@ export default function Index({ params }: any) {
 
 
                                 <div className="flex flex-row items-start gap-2">
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm ">
                                     {
                                       item.totalPaymentConfirmedCount ? item.totalPaymentConfirmedCount : 0
                                     }
@@ -2172,7 +2172,7 @@ export default function Index({ params }: any) {
                                 <div className="flex flex-col items-start gap-2">
 
 
-                                  <span className="text-lg text-zinc-100 font-normal"
+                                  <span className="text-lg  font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2180,7 +2180,7 @@ export default function Index({ params }: any) {
                                       .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                     }
                                   </span>
-                                  <span className="text-lg text-zinc-100 font-normal"
+                                  <span className="text-lg  font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2202,7 +2202,7 @@ export default function Index({ params }: any) {
                                       '/' + params.lang + '/admin/agent/' + item.agentcode + '/trade'
                                     );
                                   }}
-                                  className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80"
                                 >
                                   구매주문관리
@@ -2213,7 +2213,7 @@ export default function Index({ params }: any) {
                                       '/' + params.lang + '/admin/agent/' + item.agentcode + '/trade-history'
                                     );
                                   }}
-                                  className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80"
                                 >
                                   P2P 거래내역
@@ -2234,7 +2234,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-col items-center  justify-center gap-2">
 
                                 <div className="flex flex-row items-start gap-2">
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm ">
                                     {
                                       item.totalSettlementCount ? item.totalSettlementCount : 0
                                     }
@@ -2244,7 +2244,7 @@ export default function Index({ params }: any) {
                                 <div className="flex flex-col items-start gap-2">
 
 
-                                  <span className="text-lg text-zinc-100 font-normal"
+                                  <span className="text-lg  font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2252,7 +2252,7 @@ export default function Index({ params }: any) {
                                       .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                     }
                                   </span>
-                                  <span className="text-lg text-zinc-100 font-normal"
+                                  <span className="text-lg  font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2279,7 +2279,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-col items-start gap-2">
 
                                 <div className="flex flex-row items-start gap-2">
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm ">
                                     {
                                       item.totalPaymentConfirmedClearanceCount ? item.totalPaymentConfirmedClearanceCount : 0
                                     }{' '}건
@@ -2287,7 +2287,7 @@ export default function Index({ params }: any) {
                                 </div>
 
                                 <div className="flex flex-col items-start gap-2">
-                                  <span className="text-lg text-zinc-100 font-normal"
+                                  <span className="text-lg  font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2295,7 +2295,7 @@ export default function Index({ params }: any) {
                                         ?.toLocaleString('ko-KR')
                                     }{' '}원
                                   </span>
-                                  <span className="text-lg text-zinc-100 font-normal"
+                                  <span className="text-lg  font-normal"
                                     style={{ fontFamily: 'monospace' }}
                                   >
                                     {
@@ -2317,9 +2317,9 @@ export default function Index({ params }: any) {
                                   }}
                                   className={`${
                                     !isAdmin ? 'opacity-50 cursor-not-allowed' : ''
-                                  } bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  } bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80`}
-                                  //className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  //className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   //hover:bg-gray-700/80"  
                                 >
                                   청산관리
@@ -2357,7 +2357,7 @@ export default function Index({ params }: any) {
                   {allAgent?.map((item, index) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4">
                       <h2 className="text-lg font-normal">{item.agentName}</h2>
-                      <p className="text-sm text-zinc-100">{item.agentDescription}</p>
+                      <p className="text-sm ">{item.agentDescription}</p>
                     </div>
                   ))}
 
@@ -2401,7 +2401,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/agent?limit=${Number(limit)}&page=${Number(page) - 1}`);
@@ -2419,7 +2419,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/agent?limit=${Number(limit)}&page=${Number(page) + 1}`);
@@ -2489,7 +2489,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -2505,15 +2505,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -2525,7 +2525,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -2534,7 +2534,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -2546,7 +2546,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

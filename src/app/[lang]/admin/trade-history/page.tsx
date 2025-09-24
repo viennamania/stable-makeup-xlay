@@ -2656,7 +2656,7 @@ const fetchBuyOrders = async () => {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-zinc-100">{address}</div>
+        <div className="text-lg ">{address}</div>
 
               {/* logout button */}
               <button
@@ -3002,7 +3002,7 @@ const fetchBuyOrders = async () => {
               className="w-6 h-6"
             />
 
-            <div className="text-xl font-normal text-zinc-100">
+            <div className="text-xl font-normal ">
               P2P 거래내역
             </div>
           </div>
@@ -3018,7 +3018,7 @@ const fetchBuyOrders = async () => {
               <div className="text-sm">
                 {Buy_Order_Accept}
               </div>
-              <div className="text-xl font-normal text-white">
+              <div className="text-xl font-normal ">
                 {buyOrders.filter((item) => item.status === 'accepted').length}
               </div>
             </div>
@@ -3026,7 +3026,7 @@ const fetchBuyOrders = async () => {
             {/*
             <div className="flex flex-col gap-2 items-center">
               <div className="text-sm">{Trades}</div>
-              <div className="text-xl font-normal text-zinc-500">
+              <div className="text-xl font-normal ">
 
                 {
                   buyOrders.filter((item) => item.status === 'accepted' || item.status === 'paymentRequested').length
@@ -3038,7 +3038,7 @@ const fetchBuyOrders = async () => {
 
             <div className="flex flex-col gap-2 items-center">
               <div className="text-sm">전체</div>
-              <div className="text-xl font-normal text-zinc-500">
+              <div className="text-xl font-normal ">
                 {totalCount}
               </div>
             </div>
@@ -3080,7 +3080,10 @@ const fetchBuyOrders = async () => {
 
 
 
-                  className="w-32 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                  className="w-32 p-2
+                  bg-zinc-800 
+                  border border-zinc-300 rounded-lg
+                  focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
                 >
                   <option value="">전체</option>
 
@@ -3119,7 +3122,7 @@ const fetchBuyOrders = async () => {
                   type="date"
                   value={searchFromDate}
                   onChange={(e) => setSearchFormDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                 />
               </div>
 
@@ -3135,7 +3138,7 @@ const fetchBuyOrders = async () => {
                   type="date"
                   value={searchToDate}
                   onChange={(e) => setSearchToDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                 />
               </div>
 
@@ -3149,7 +3152,7 @@ const fetchBuyOrders = async () => {
                       setSearchFormDate(today.toISOString().split("T")[0]);
                       setSearchToDate(today.toISOString().split("T")[0]);
                     }}
-                    className="text-sm text-zinc-500 underline"
+                    className="text-sm  underline"
                   >
                     오늘
                   </button>
@@ -3163,7 +3166,7 @@ const fetchBuyOrders = async () => {
                       setSearchFormDate(yesterday.toISOString().split("T")[0]);
                       setSearchToDate(yesterday.toISOString().split("T")[0]);
                     }}
-                    className="text-sm text-zinc-500 underline"
+                    className="text-sm  underline"
                   >
                     어제
                   </button>
@@ -3184,7 +3187,7 @@ const fetchBuyOrders = async () => {
                     value={searchBuyer}
                     onChange={(e) => setSearchBuyer(e.target.value)}
                     placeholder="회원 아이디"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
 
@@ -3194,7 +3197,7 @@ const fetchBuyOrders = async () => {
                     value={searchDepositName}
                     onChange={(e) => setSearchDepositName(e.target.value)}
                     placeholder="입금자명"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
 
@@ -3205,7 +3208,7 @@ const fetchBuyOrders = async () => {
                     value={searchStoreBankAccountNumber}
                     onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                     placeholder="구매자 통장번호"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   /> 
                 </div>
                 */}
@@ -3217,7 +3220,7 @@ const fetchBuyOrders = async () => {
                     value={searchStoreBankAccountNumber}
                     onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                     placeholder="판매자 통장번호"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   /> 
                 </div>
 
@@ -3234,11 +3237,11 @@ const fetchBuyOrders = async () => {
 
                       ///getTradeSummary();
                     }}
-                    //className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                    //className="bg-gray-700 px-4 py-2 rounded-lg w-full"
                     className={`${
                       fetchingBuyOrders ? 'bg-gray-400' : 'bg-gray-700'
                     }
-                    text-white px-4 py-2 rounded-lg w-full
+                    px-4 py-2 rounded-lg w-full
                     hover:bg-gray-700/80
                     hover:cursor-pointer
                     hover:scale-105
@@ -3270,7 +3273,7 @@ const fetchBuyOrders = async () => {
                       exportToCSV('P2P_거래내역');
                   }}
                   disabled={isExporting}
-                  className={`${isExporting ? "bg-gray-500" : "bg-green-500"} text-white p-2 rounded-lg
+                  className={`${isExporting ? "bg-gray-500" : "bg-green-500"} p-2 rounded-lg
                       hover:bg-green-600
                   `}
                 >
@@ -3310,7 +3313,7 @@ const fetchBuyOrders = async () => {
 
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">P2P 거래수(건)</div>
-                <div className="text-4xl font-normal text-zinc-500">
+                <div className="text-4xl font-normal ">
                   {buyOrderStats.totalCount?.toLocaleString()}
                 </div>
               </div>
@@ -3365,7 +3368,7 @@ const fetchBuyOrders = async () => {
 
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">가맹점 결제수(건)</div>
-                  <span className="text-4xl font-normal text-zinc-500">
+                  <span className="text-4xl font-normal ">
                     {buyOrderStats.totalSettlementCount?.toLocaleString()}
                   </span>
               </div>
@@ -3490,20 +3493,20 @@ const fetchBuyOrders = async () => {
             <div className="xl:w-1/4 flex flex-row items-center justify-center gap-2">
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산수(건)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalClearanceCount?.toLocaleString()}
                 </div>
               </div>
 
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산금액(원)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalClearanceAmount?.toLocaleString()} 원
                 </div>
               </div>
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산수량(USDT)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalClearanceAmountUSDT?.toLocaleString()} USDT
                 </div>
               </div>
@@ -3641,10 +3644,15 @@ const fetchBuyOrders = async () => {
 
             <div className="w-full overflow-x-auto">
 
-              <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
+              <table className=" w-full table-auto border-collapse border border-zinc-400
+                bg-zinc-700/50
+                backdrop-blur-md
+                rounded-lg
+                shadow-lg
+                ">
 
                 <thead
-                  className="bg-zinc-800 text-white text-sm"
+                  className="bg-zinc-800 text-sm"
                   style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
                   }}
@@ -3653,10 +3661,10 @@ const fetchBuyOrders = async () => {
 
                     <th className="p-2">
                       <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           구매신청시간
                         </span>
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           {TID}
                         </span>
                       </div>
@@ -3666,10 +3674,10 @@ const fetchBuyOrders = async () => {
 
                     <th className="p-2">
                       <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           P2P구매자 아이디
                         </span>
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           구매자 USDT지갑
                         </span>
                       </div>
@@ -3679,13 +3687,13 @@ const fetchBuyOrders = async () => {
 
                     <th className="p-2">
                       <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           {Price}(원)
                         </span>
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           {Buy_Amount}(USDT)
                         </span>
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           단가(환율)
                         </span>
                       </div>
@@ -3694,10 +3702,10 @@ const fetchBuyOrders = async () => {
 
                     <th className="p-2">
                       <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           P2P판매자 아이디
                         </span>
-                        <span className="text-sm text-white">
+                        <span className="text-sm ">
                           판매자 USDT지갑
                         </span>
                       </div>
@@ -3720,7 +3728,7 @@ const fetchBuyOrders = async () => {
 
                   {!fetchingBuyOrders && buyOrders.length === 0 ? (
                     <tr>
-                      <td colSpan={10} className="p-4 text-center text-zinc-500">
+                      <td colSpan={10} className="p-4 text-center ">
                         <span>거래내역이 없습니다.</span>
                       </td>
                     </tr>
@@ -3751,7 +3759,7 @@ const fetchBuyOrders = async () => {
 
 
                             <div className="flex flex-col gap-2 items-center justify-center">
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm ">
                                 {item?.createdAt && new Date(item.createdAt)?.toLocaleString('ko-KR', {
                                   year: 'numeric',
                                   month: '2-digit',
@@ -3759,7 +3767,7 @@ const fetchBuyOrders = async () => {
                                 })}
                               </span>
                               
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm ">
                                 {item?.createdAt && new Date(item.createdAt)?.toLocaleString('en-US', {
                                   hour: '2-digit',
                                   minute: '2-digit',
@@ -3769,7 +3777,7 @@ const fetchBuyOrders = async () => {
                               
                             </div>
 
-                            <span className="text-sm text-zinc-500 font-normal">
+                            <span className="text-sm  font-normal">
                               {params.lang === 'ko' ? (
                                 <p>{
                                   new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
@@ -3801,7 +3809,7 @@ const fetchBuyOrders = async () => {
                                 navigator.clipboard.writeText(item.tradeId);
                                 toast.success('거래번호가 복사되었습니다.');
                               }}
-                              className="text-sm text-zinc-500 font-normal
+                              className="text-sm  font-normal
                                 hover:text-blue-500 cursor-pointer
                                 hover:underline"
                               title="거래번호 복사"
@@ -3814,7 +3822,7 @@ const fetchBuyOrders = async () => {
                           </div>
                         </td>
 
-                        <td className="text-zinc-500 p-2">
+                        <td className=" p-2">
                           
 
                           <div className="
@@ -3829,12 +3837,12 @@ const fetchBuyOrders = async () => {
                               className="rounded-lg w-8 h-8 object-cover"
                             />
                             <div className="flex flex-col items-start justify-start">
-                              <span className="text-sm text-zinc-500 font-bold">
+                              <span className="text-sm  font-bold">
                                 {
                                   item?.store?.storeName
                                 }
                               </span>
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm ">
                                 {
                                   item?.agent.agentName
                                 }
@@ -3861,7 +3869,7 @@ const fetchBuyOrders = async () => {
                                   navigator.clipboard.writeText(item.walletAddress);
                                   toast.success('지갑주소가 복사되었습니다.');
                                 }}
-                                className="text-sm text-zinc-500 font-normal
+                                className="text-sm  font-normal
                                 hover:text-blue-500 cursor-pointer
                                 hover:underline"
                                 title="지갑주소 복사"
@@ -3888,14 +3896,14 @@ const fetchBuyOrders = async () => {
 
                                 }
                               </div>
-                              <div className="text-sm text-zinc-500 font-normal">
+                              <div className="text-sm  font-normal">
                                 {
                                   item?.buyer?.depositBankName
 
                                 }
                               </div>
 
-                              <div className="text-sm text-zinc-500 font-normal">
+                              <div className="text-sm  font-normal">
                                 {
                                   item?.buyer?.depositBankAccountNumber &&
                                   item?.buyer?.depositBankAccountNumber.slice(0, 5) + '...'
@@ -3942,7 +3950,7 @@ const fetchBuyOrders = async () => {
                               </span>
                             </div>
 
-                            <span className="text-sm text-zinc-500"
+                            <span className="text-sm "
                               style={{
                                 fontFamily: 'monospace',
                               }}
@@ -3957,7 +3965,7 @@ const fetchBuyOrders = async () => {
                         </td>
 
 
-                        <td className="text-zinc-500 p-2">
+                        <td className=" p-2">
                           <div className="
                             w-32
                             flex flex-col gap-2 items-center justify-center">
@@ -3968,7 +3976,7 @@ const fetchBuyOrders = async () => {
                             </span>
                             {/* seller.walletAddress */}
                             <button
-                              className="text-sm text-zinc-500 font-normal
+                              className="text-sm  font-normal
                                 hover:text-blue-400
                                 hover:underline
                                 cursor-pointer
@@ -3999,7 +4007,7 @@ const fetchBuyOrders = async () => {
 
                         <td className="p-2">
                           <div className="flex flex-col gap-2 items-center justify-center">
-                            <div className="text-sm font-normal text-zinc-500">
+                            <div className="text-sm font-normal ">
                               {item?.store?.bankInfo?.bankName}
                             </div>
 
@@ -4009,7 +4017,7 @@ const fetchBuyOrders = async () => {
                                 navigator.clipboard.writeText(item?.store?.bankInfo?.accountNumber);
                                 toast.success('판매자 통장번호가 복사되었습니다.');
                               }}
-                              className="text-sm text-zinc-500 font-normal
+                              className="text-sm  font-normal
                                 hover:text-blue-500 cursor-pointer
                                 hover:underline"
                               title="판매자 통장번호 복사"
@@ -4017,7 +4025,7 @@ const fetchBuyOrders = async () => {
                               {item?.store?.bankInfo?.accountNumber}
                             </button>
 
-                            <div className="text-sm font-normal text-zinc-500">
+                            <div className="text-sm font-normal ">
                               {item?.store?.bankInfo?.accountHolder}
                             </div>
                           </div>
@@ -4077,11 +4085,11 @@ const fetchBuyOrders = async () => {
                                     {Trade_Started}
                                   </div>
                                   {/*
-                                  <div className="text-sm text-white">
+                                  <div className="text-sm ">
                                     {item.seller?.nickname}
                                   </div>
                                   */}
-                                  <div className="text-sm text-zinc-500">
+                                  <div className="text-sm ">
 
                                     {params.lang === 'ko' ? (
                                       <p>{
@@ -4124,12 +4132,12 @@ const fetchBuyOrders = async () => {
                                   </div>
 
                                   {/*
-                                  <div className="text-sm text-white">
+                                  <div className="text-sm ">
                                     {item.seller?.nickname}
                                   </div>
                                   */}
 
-                                  <div className="text-sm text-zinc-500">
+                                  <div className="text-sm ">
                                     {/* from now */}
                                     {
                                       new Date().getTime() - new Date(item.paymentRequestedAt).getTime() < 1000 * 60 ? (
@@ -4155,12 +4163,12 @@ const fetchBuyOrders = async () => {
                                       }
                                     </div>
                                     {/*
-                                    <span className="text-sm text-white">
+                                    <span className="text-sm ">
                                       {item.seller?.nickname}
                                     </span>
                                     */}
 
-                                    <div className="text-sm text-zinc-500">
+                                    <div className="text-sm ">
                                       {
                                         // from now
                                         new Date().getTime() - new Date(item.cancelledAt).getTime() < 1000 * 60 ? (
@@ -4217,7 +4225,7 @@ const fetchBuyOrders = async () => {
                                   </button>
 
                                   {/*
-                                  <span className="text-sm font-normal text-white">
+                                  <span className="text-sm font-normal ">
                                     {item.seller?.nickname}
                                   </span>
                                   */}
@@ -4225,7 +4233,7 @@ const fetchBuyOrders = async () => {
                                   <span
                                     className="
                                       w-28 
-                                      text-sm text-zinc-500"
+                                      text-sm "
                                   >{
                                     //item.paymentConfirmedAt && new Date(item.paymentConfirmedAt)?.toLocaleString()
                                     // from now
@@ -4252,7 +4260,7 @@ const fetchBuyOrders = async () => {
                                     {Completed_at}
                                   </div>
                                   {/* paymentConfirmedAt */}
-                                  <div className="text-sm text-zinc-500">
+                                  <div className="text-sm ">
                                     {
                                       new Date().getTime() - new Date(item.paymentConfirmedAt).getTime() < 1000 * 60 ? (
                                         ' ' + Math.floor((new Date().getTime() - new Date(item.paymentConfirmedAt).getTime()) / 1000) + ' ' + seconds_ago
@@ -4275,16 +4283,10 @@ const fetchBuyOrders = async () => {
                               <button
                                 className="
                                   flex flex-row gap-2 items-center justify-between
-                                  text-sm text-green-400 font-normal
-                                  border border-[#409192] rounded-lg p-2
-                                  bg-blue-100
-                                  text-center
-                                  hover:bg-blue-200
-                                  cursor-pointer
-                                  transition-all duration-200 ease-in-out
-                                  hover:scale-105
-                                  hover:shadow-lg
-                                  hover:shadow-blue-500/50
+                                  bg-zinc-800/50 hover:bg-zinc-800/70
+                                  text-sm
+                                  px-2 py-1 rounded-lg
+                                  w-full
                                 "
                                 onClick={() => {
                                   let url = '';
@@ -4323,7 +4325,7 @@ const fetchBuyOrders = async () => {
                                           {item?.usdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                                         </span>
                                       </div>
-                                      <span className="text-sm text-zinc-500">
+                                      <span className="text-sm ">
                                         테더(USDT) 전송내역
                                       </span>
                                     </div>
@@ -4348,7 +4350,7 @@ const fetchBuyOrders = async () => {
                           <div className="flex flex-col gap-2 items-start justify-start">
 
                             {item.status === 'accepted' && item.seller && item.seller.walletAddress !== address && (
-                              <span className="text-sm text-white">
+                              <span className="text-sm ">
                                 {item.seller.nickname}
                               </span>
                             )}
@@ -4368,7 +4370,7 @@ const fetchBuyOrders = async () => {
                                 <button
                                   disabled={cancellings[index] || !agreementForCancelTrade[index]}
               
-                                  className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                  className={`flex flex-row gap-1 text-sm px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                     
                                   onClick={() => {
                                     cancelTrade(item._id, index);
@@ -4411,9 +4413,9 @@ const fetchBuyOrders = async () => {
                                 <button
                                   disabled={acceptingBuyOrder[index] || !agreementForTrade[index]}
                                   className={`
-                                    flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md
+                                    flex flex-row gap-1 text-sm px-2 py-1 rounded-md
                                     ${acceptingBuyOrder[index] || !agreementForTrade[index] ?
-                                      'bg-zinc-500 text-white' : 'bg-green-500 text-white '}
+                                      'bg-zinc-500 ' : 'bg-green-500 '}
                                   `}
                                   onClick={() => {
                                     acceptBuyOrder(index, item._id, smsReceiverMobileNumber);
@@ -4465,7 +4467,7 @@ const fetchBuyOrders = async () => {
                                 <button
                                   disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                   
-                                  className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                  className={`flex flex-row gap-1 text-sm px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                   onClick={() => {
 
                                     requestPayment(
@@ -4521,7 +4523,7 @@ const fetchBuyOrders = async () => {
 
                                   <button
                                     disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                    className={`flex flex-row gap-1 text-sm px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                     onClick={() => {
                                       confirmPayment(
                                         index,
@@ -4570,7 +4572,7 @@ const fetchBuyOrders = async () => {
 
                                   <button
                                     disabled={rollbackingPayment[index] || !rollbackPaymentCheck[index]}
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                    className={`flex flex-row gap-1 text-sm px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                     onClick={() => {
                                       rollbackPayment(
                                         index,
@@ -4629,7 +4631,7 @@ const fetchBuyOrders = async () => {
                               className="
                               w-48
                               flex flex-col gap-2 items-center justify-center
-                              bg-purple-500 text-white px-2 py-1 rounded-md hover:bg-purple-600
+                              bg-purple-500 px-2 py-1 rounded-md hover:bg-purple-600
                               text-sm
                               transition duration-300 ease-in-out
                               transform hover:scale-105
@@ -4730,7 +4732,7 @@ const fetchBuyOrders = async () => {
                                         height={20}
                                         className="animate-spin"
                                       />
-                                      <span className="text-sm font-normal text-zinc-500">
+                                      <span className="text-sm font-normal ">
                                         가맹점 결제중...
                                       </span>
                                     </div>
@@ -4846,7 +4848,7 @@ const fetchBuyOrders = async () => {
 
                                 {params.lang === 'ko' ? (
 
-                                  <p className="text-sm text-zinc-500">
+                                  <p className="text-sm ">
 
                                   
                                     {
@@ -4865,7 +4867,7 @@ const fetchBuyOrders = async () => {
                                   
                                   ) : (
 
-                                    <p className="text-sm text-zinc-500">
+                                    <p className="text-sm ">
 
 
                                   
@@ -4895,7 +4897,7 @@ const fetchBuyOrders = async () => {
                               {/* share button */}
                               {/*
                               <button
-                                className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                className="text-sm bg-blue-500 px-2 py-1 rounded-md hover:bg-blue-600"
                                 onClick={() => {
 
                                   window.open(`https://gold.goodtether.com/${params.lang}/sell-usdt/${item._id}`, '_blank');
@@ -4924,7 +4926,7 @@ const fetchBuyOrders = async () => {
                                   width={28}
                                   height={28}
                                 />
-                                <p className="text-sm text-zinc-500">{Expires_in} {
+                                <p className="text-sm ">{Expires_in} {
 
                                   24 - Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) - 1
 
@@ -4944,7 +4946,7 @@ const fetchBuyOrders = async () => {
                                   width={28}
                                   height={28}
                                 />
-                                <p className="text-sm text-zinc-500">Expired</p>
+                                <p className="text-sm ">Expired</p>
                                 */}
                               </div>
                             )}
@@ -4976,7 +4978,7 @@ const fetchBuyOrders = async () => {
                             </p>
 
                             {item.status === 'cancelled' ? (
-                              <p className="ml-2 text-sm text-zinc-500">
+                              <p className="ml-2 text-sm ">
                                 {new Date(item.acceptedAt)?.toLocaleString()}
                               </p>
                             ) : (
@@ -4984,7 +4986,7 @@ const fetchBuyOrders = async () => {
                               <>
                                 {params.lang === 'ko' ? (
 
-                                  <p className="ml-2 text-sm text-zinc-500">
+                                  <p className="ml-2 text-sm ">
 
                                   
                                     {new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -5003,7 +5005,7 @@ const fetchBuyOrders = async () => {
 
                                 ) : (
 
-                                  <p className="ml-2 text-sm text-zinc-500">
+                                  <p className="ml-2 text-sm ">
 
                                     {Trade_Started} {
                                       new Date().getTime() - new Date(item.acceptedAt).getTime() < 1000 * 60 ? (
@@ -5031,7 +5033,7 @@ const fetchBuyOrders = async () => {
 
                               {/* share button */}
                               <button
-                                className="ml-5 text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                className="ml-5 text-sm bg-blue-500 px-2 py-1 rounded-md hover:bg-blue-600"
                                 onClick={() => {
 
                                   //window.open(`https://gold.goodtether.com/${params.lang}/${params.center}/sell-usdt/${item._id}`, '_blank');
@@ -5061,7 +5063,7 @@ const fetchBuyOrders = async () => {
                         {/*
                         
                         {item.acceptedAt && (
-                          <p className="mb-2 text-sm text-zinc-500">
+                          <p className="mb-2 text-sm ">
                             Trade started at {new Date(item.acceptedAt).toLocaleDateString() + ' ' + new Date(item.acceptedAt).toLocaleTimeString()}
                           </p>
                         )}
@@ -5095,7 +5097,7 @@ const fetchBuyOrders = async () => {
 
 
 
-                          <p className="text-2xl text-zinc-500">
+                          <p className="text-2xl ">
                             {Price}: {
                               // currency
                             
@@ -5109,10 +5111,10 @@ const fetchBuyOrders = async () => {
 
                           <div className="mt-2 flex flex-row items-start gap-2">
 
-                            <p className="text-xl font-normal text-zinc-500">
+                            <p className="text-xl font-normal ">
                               {item.usdtAmount}{' '}USDT
                             </p>
-                            <p className="text-lg font-normal text-zinc-500">{Rate}: {
+                            <p className="text-lg font-normal ">{Rate}: {
 
                               Number(item.krwAmount / item.usdtAmount).toFixed(3)
 
@@ -5179,7 +5181,7 @@ const fetchBuyOrders = async () => {
 
                           {address && item.walletAddress !== address && item?.buyer && item?.buyer?.walletAddress === address && (
                             <button
-                              className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                              className="bg-green-500 px-4 py-2 rounded-lg"
                               onClick={() => {
                                   //console.log('Buy USDT');
                                   // go to chat
@@ -5289,7 +5291,7 @@ const fetchBuyOrders = async () => {
                                   {Waiting_for_seller_to_deposit} {item.usdtAmount} USDT {to_escrow}...
                                 </span>
 
-                                <span className="text-sm text-zinc-500">
+                                <span className="text-sm ">
 
                                   {If_the_seller_does_not_deposit_the_USDT_to_escrow},
 
@@ -5331,7 +5333,7 @@ const fetchBuyOrders = async () => {
                                       );
                                     }}
                                   />
-                                  <label className="text-sm text-zinc-500">
+                                  <label className="text-sm ">
                                     {I_agree_to_cancel_the_trade}
                                   </label>
                                 </div>
@@ -5341,7 +5343,7 @@ const fetchBuyOrders = async () => {
 
                                   <button
                                     disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                    className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                    className={`text-sm bg-red-500 px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                     onClick={() => {
 
                                       cancelTrade(item._id, index);
@@ -5426,7 +5428,7 @@ const fetchBuyOrders = async () => {
                             <button
                               disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                               
-                              className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                              className={`flex flex-row gap-1 text-sm px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                               onClick={() => {
 
                                 requestPayment(
@@ -5590,7 +5592,7 @@ const fetchBuyOrders = async () => {
                                                   );
                                               }}
                                             />
-                                            <label className="text-sm text-zinc-500">
+                                            <label className="text-sm ">
                                               {I_agree_to_the_terms_of_trade}
                                             </label>
                                           </div>
@@ -5602,7 +5604,7 @@ const fetchBuyOrders = async () => {
                                           {address && agreementForTrade[index] && (
                                             <div className="mt-8 flex flex-row items-center justify-start gap-2">
 
-                                              <span className="text-sm text-zinc-500">SMS</span>
+                                              <span className="text-sm ">SMS</span>
 
                                               <div className="flex flex-col items-start justify-start">
                                                 <input
@@ -5621,7 +5623,7 @@ const fetchBuyOrders = async () => {
 
                                           <button
                                             disabled={!address || !agreementForTrade[index]}
-                                            className={`m-10 text-lg text-white px-4 py-2 rounded-md
+                                            className={`m-10 text-lg px-4 py-2 rounded-md
                                               ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                               `}
                                             onClick={() => {
@@ -5667,7 +5669,7 @@ const fetchBuyOrders = async () => {
                     {/* status */}
                     {/*
                     <div className="absolute bottom-4 right-4 flex flex-row items-start justify-start">
-                      <div className="text-sm text-zinc-500">
+                      <div className="text-sm ">
                         {item.status === 'ordered' ? 'Order opened at ' + new Date(item.createdAt)?.toLocaleString()
                         : item.status === 'accepted' ? 'Trade started at ' + new Date(item.acceptedAt)?.toLocaleString()
                         : item.status === 'paymentRequested' ? 'Payment requested at ' + new Date(item.paymentRequestedAt)?.toLocaleString()
@@ -5721,7 +5723,7 @@ const fetchBuyOrders = async () => {
             {/* 처음으로 */}
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 router.push(`/${params.lang}/admin/trade-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=1`)
               }}
@@ -5732,7 +5734,7 @@ const fetchBuyOrders = async () => {
 
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/trade-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) - 1}`)
@@ -5744,14 +5746,14 @@ const fetchBuyOrders = async () => {
             </button>
 
 
-            <span className="text-sm text-zinc-500">
+            <span className="text-sm ">
               {page} / {Math.ceil(Number(totalCount) / Number(limit))}
             </span>
 
 
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/trade-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) + 1}`)
@@ -5764,7 +5766,7 @@ const fetchBuyOrders = async () => {
             {/* 마지막으로 */}
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/trade-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`)
@@ -5834,7 +5836,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -5850,15 +5852,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -5870,7 +5872,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -5879,7 +5881,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -5891,7 +5893,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500 px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

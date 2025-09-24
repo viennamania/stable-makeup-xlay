@@ -754,7 +754,7 @@ export default function SendUsdt({ params }: any) {
                   <div className="flex flex-col gap-2 items-start">
                     <div className="text-sm">{My_Balance}</div>
                     <div className="flex flex-row items-end justify-center  gap-2">
-                      <span className="text-4xl font-normal text-white">
+                      <span className="text-4xl font-normal ">
                         {Number(balance).toFixed(2)}
                       </span>
                       <span className="text-lg">USDT</span>
@@ -818,7 +818,7 @@ export default function SendUsdt({ params }: any) {
                             }}
                           />
                           
-                          <div className="text-lg font-normal text-white ">
+                          <div className="text-lg font-normal  ">
                             {
                               user && user.nickname ? user.nickname : Anonymous
                             }
@@ -968,7 +968,7 @@ export default function SendUsdt({ params }: any) {
                       disabled={true}
                       type="text"
                       placeholder={User_wallet_address}
-                      className=" w-80  xl:w-full p-2 border border-gray-300 rounded text-white text-xs xl:text-lg font-normal"
+                      className=" w-80  xl:w-full p-2 border border-gray-300 rounded  text-xs xl:text-lg font-normal"
                       value={recipient?.walletAddress}
                       onChange={(e) => {
       
@@ -1011,7 +1011,7 @@ export default function SendUsdt({ params }: any) {
                       disabled={sending}
                       type="text"
                       placeholder={User_wallet_address}
-                      className=" w-80 xl:w-96 p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-sm font-normal"
+                      className=" w-80 xl:w-96 p-2 border border-gray-300 rounded  bg-black text-sm xl:text-sm font-normal"
                       value={recipient.walletAddress}
                       onChange={(e) => setRecipient({
                         ...recipient,
@@ -1035,7 +1035,7 @@ export default function SendUsdt({ params }: any) {
                             height: '38px',
                           }}
                         />
-                        <div className="text-white">{recipient?.nickname}</div>
+                        <div className="">{recipient?.nickname}</div>
                         <Image
                           src="/verified.png"
                           alt="check"
@@ -1081,7 +1081,7 @@ export default function SendUsdt({ params }: any) {
                     width={30}
                     height={30}
                   />
-                  <div className="text-white">OTP verified</div>
+                  <div className="">OTP verified</div>
                 </div>
               ) : (
              
@@ -1100,7 +1100,7 @@ export default function SendUsdt({ params }: any) {
                         ${
                         !address || !recipient?.walletAddress || !amount || isSendingOtp
                         ?'bg-gray-300 text-gray-400'
-                        : 'bg-green-500 text-white'
+                        : 'bg-green-500 '
                         }
                       
                       `}
@@ -1125,7 +1125,7 @@ export default function SendUsdt({ params }: any) {
                           ${
                           !otp || isVerifingOtp
                           ?'bg-gray-300 text-gray-400'
-                          : 'bg-green-500 text-white'
+                          : 'bg-green-500 '
                           }
                         
                         `}
@@ -1150,7 +1150,7 @@ export default function SendUsdt({ params }: any) {
                     ${
                     !address || !recipient?.walletAddress || !amount || sending || !verifiedOtp
                     ?'bg-gray-300 text-gray-400'
-                    : 'bg-green-500 text-white'
+                    : 'bg-green-500 '
                     }
                    
                    `}
@@ -1176,7 +1176,7 @@ export default function SendUsdt({ params }: any) {
                     />
                   </div>
                 )}
-                <div className="text-white">
+                <div className="">
                   {sending ? Sending : ''}
                 </div>
 

@@ -2250,7 +2250,7 @@ export default function Index({ params }: any) {
                 height={38}
                 className='rounded-full w-10 h-10'
               />
-              <span className="text-sm text-zinc-100 font-normal">
+              <span className="text-sm  font-normal">
                 {storeInfo?.storeName}
               </span>
             </div>
@@ -2275,7 +2275,7 @@ export default function Index({ params }: any) {
               <div className="flex flex-col items-start justify-center gap-2">
 
                 <div className='flex flex-row gap-2 items-center justify-center'>
-                  <span className="text-sm text-zinc-100">
+                  <span className="text-sm ">
 
                     아이디:{' '}{
                       memberid ? memberid : sellOrders.length > 0 ? sellOrders[0]?.buyer.nickname
@@ -2285,7 +2285,7 @@ export default function Index({ params }: any) {
                 </div>
 
                 <div className='flex flex-row gap-2 items-center justify-center'>
-                  <span className="text-sm text-zinc-100">
+                  <span className="text-sm ">
                     USDT지갑:{' '}
                   </span>
                   <button
@@ -2293,7 +2293,7 @@ export default function Index({ params }: any) {
                       navigator.clipboard.writeText(address);
                       toast.success("USDT지갑주소가 복사되었습니다.");
                     }}
-                    className="text-sm underline text-zinc-100 hover:text-zinc-200"
+                    className="text-sm underline  hover:text-zinc-200"
                   >
                     {address.slice(0, 6)}...{address.slice(-4)}
                   </button>
@@ -2301,16 +2301,16 @@ export default function Index({ params }: any) {
 
                 {/* balance */}
                 <div className="flex flex-row gap-2 items-center justify-center">
-                  <span className="text-sm text-zinc-100">
+                  <span className="text-sm ">
                     잔액:{' '}
                   </span>
 
                   <div className="flex flex-row items-center justify-center gap-2">
-                    <span className="text-xl font-normal text-zinc-100">
+                    <span className="text-xl font-normal ">
                       {Number(balance).toFixed(2)}
                     </span>
                     {' '}
-                    <span className="text-sm text-zinc-100">
+                    <span className="text-sm ">
                       USDT
                     </span>
                   </div>
@@ -2628,7 +2628,7 @@ export default function Index({ params }: any) {
                                 onClick={() => setSelectedKrwAmount(0)}
                                 className={`${loadingStoreInfo ? 'bg-[#f472b6]' : 'bg-green-500'
                                   }
-                                  text-sm text-zinc-100
+                                  text-sm 
                                   px-4 py-2 rounded-md border border-zinc-100
                                   hover:bg-[#f472b6] hover:text-zinc-50
                                   `}
@@ -2696,7 +2696,7 @@ export default function Index({ params }: any) {
                               )}
                               className={`${loadingStoreInfo ? 'bg-zinc-800' : 'bg-green-500'
                               }
-                                text-lg text-zinc-100
+                                text-lg 
                                 px-4 py-2 rounded-md border border-zinc-100
                                 hover:bg-[#f472b6] hover:text-zinc-50
                                 `}
@@ -2712,7 +2712,7 @@ export default function Index({ params }: any) {
                               )}
                               className={`${loadingStoreInfo ? 'bg-[#f472b6]' : 'bg-green-500'
                               }
-                                text-lg text-zinc-100
+                                text-lg 
                                 px-4 py-2 rounded-md border border-zinc-100
                                 hover:bg-[#f472b6] hover:text-zinc-50
                                 `}
@@ -2726,7 +2726,7 @@ export default function Index({ params }: any) {
                               )}
                               className={`${loadingStoreInfo ? 'bg-[#f472b6]' : 'bg-green-500'
                               }
-                                text-lg text-zinc-100
+                                text-lg 
                                 px-4 py-2 rounded-md border border-zinc-100
                                 hover:bg-[#f472b6] hover:text-zinc-50
                                 `}
@@ -2740,7 +2740,7 @@ export default function Index({ params }: any) {
                               )}
                               className={`${loadingStoreInfo ? 'bg-[#f472b6]' : 'bg-green-500'
                               }
-                                text-lg text-zinc-100
+                                text-lg 
                                 px-4 py-2 rounded-md border border-zinc-100
                                 hover:bg-[#f472b6] hover:text-zinc-50
                                 `}
@@ -2754,7 +2754,7 @@ export default function Index({ params }: any) {
                               )}
                               className={`${loadingStoreInfo ? 'bg-[#f472b6]' : 'bg-green-500'
                               }
-                                text-lg text-zinc-100
+                                text-lg 
                                 px-4 py-2 rounded-md border border-zinc-100
                                 hover:bg-[#f472b6] hover:text-zinc-50
                                 `}
@@ -2768,7 +2768,7 @@ export default function Index({ params }: any) {
                               )}
                               className={`${loadingStoreInfo ? 'bg-[#f472b6]' : 'bg-green-500'
                               }
-                                text-lg text-zinc-100
+                                text-lg 
                                 px-4 py-2 rounded-md border border-zinc-100
                                 hover:bg-[#f472b6] hover:text-zinc-50
                                 `}
@@ -2798,7 +2798,7 @@ export default function Index({ params }: any) {
                               value={depositBankName || ''}
                               onChange={(e) => setDepositBankName(e.target.value)}
                               placeholder="입금자은행명"
-                              className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
+                              className=" text-sm font-normal bg-zinc-200  px-4 py-2 rounded-md border border-zinc-100"
                             />
                           </div>
 
@@ -2815,7 +2815,7 @@ export default function Index({ params }: any) {
                               value={depositBankAccountNumber || ''}
                               onChange={(e) => setDepositBankAccountNumber(e.target.value)}
                               placeholder="입금자계좌번호"
-                              className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
+                              className=" text-sm font-normal bg-zinc-200  px-4 py-2 rounded-md border border-zinc-100"
                             />
                           </div>
 
@@ -2836,7 +2836,7 @@ export default function Index({ params }: any) {
                               value={depositName || ''}
                               onChange={(e) => setDepositName(e.target.value)}
                               placeholder={Deposit_Name}
-                              className=" text-sm font-normal bg-zinc-200 text-zinc-100 px-4 py-2 rounded-md border border-zinc-100"
+                              className=" text-sm font-normal bg-zinc-200  px-4 py-2 rounded-md border border-zinc-100"
                             />
                           </div>
 
@@ -4443,7 +4443,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -4459,15 +4459,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -4479,7 +4479,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -4488,7 +4488,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

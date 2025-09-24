@@ -2383,7 +2383,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-zinc-100">{address}</div>
+        <div className="text-lg ">{address}</div>
 
               {/* logout button */}
               <button
@@ -2714,7 +2714,7 @@ export default function Index({ params }: any) {
                 className="w-6 h-6"
               />
 
-              <div className="text-xl font-normal text-zinc-100">
+              <div className="text-xl font-normal ">
                 청산관리
               </div>
 
@@ -2769,7 +2769,7 @@ export default function Index({ params }: any) {
 
 
 
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   >
                     <option value="">전체</option>
                     {allStores && allStores.map((item, index) => (
@@ -2808,7 +2808,7 @@ export default function Index({ params }: any) {
                   type="date"
                   value={searchFromDate}
                   onChange={(e) => setSearchFormDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                 />
               </div>
 
@@ -2824,7 +2824,7 @@ export default function Index({ params }: any) {
                   type="date"
                   value={searchToDate}
                   onChange={(e) => setSearchToDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                 />
               </div>
             </div>
@@ -2848,7 +2848,7 @@ export default function Index({ params }: any) {
                     value={searchBuyer}
                     onChange={(e) => setSearchBuyer(e.target.value)}
                     placeholder="회원 아이디"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
 
@@ -2858,7 +2858,7 @@ export default function Index({ params }: any) {
                     value={searchDepositName}
                     onChange={(e) => setSearchDepositName(e.target.value)}
                     placeholder="입금자명"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
 
@@ -2869,7 +2869,7 @@ export default function Index({ params }: any) {
                     value={searchStoreBankAccountNumber}
                     onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                     placeholder="입금통장번호"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   /> 
                 </div>
 
@@ -2891,7 +2891,7 @@ export default function Index({ params }: any) {
 
                     getTradeSummary();
                   }}
-                  className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                  className="bg-gray-700  px-4 py-2 rounded-lg w-full"
                   disabled={fetchingBuyOrders}
                 >
                   <div className="flex flex-row items-center justify-between gap-2">
@@ -3246,7 +3246,7 @@ export default function Index({ params }: any) {
   
                           <td className="p-2">
                             <div className="flex flex-col gap-1">
-                              <span className="text-lg text-zinc-100">
+                              <span className="text-lg ">
                                 {item?.buyer?.nickname ?
                                   item?.buyer?.nickname
                                   : item?.nickname || '익명'}
@@ -3426,7 +3426,7 @@ export default function Index({ params }: any) {
                                       {Trade_Started}
                                     </div>
                                     {/*
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {item.seller?.nickname}
                                     </div>
                                     */}
@@ -3473,7 +3473,7 @@ export default function Index({ params }: any) {
                                     </div>
 
                                     {/*
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {item.seller?.nickname}
                                     </div>
                                     */}
@@ -3504,7 +3504,7 @@ export default function Index({ params }: any) {
                                         }
                                       </div>
                                       {/*
-                                      <span className="text-sm text-white">
+                                      <span className="text-sm ">
                                         {item.seller?.nickname}
                                       </span>
                                       */}
@@ -3534,7 +3534,7 @@ export default function Index({ params }: any) {
                                       {Completed}
                                     </span>
                                     {/*
-                                    <span className="text-sm font-normal text-white">
+                                    <span className="text-sm font-normal ">
                                       {item.seller?.nickname}
                                     </span>
                                     */}
@@ -3669,7 +3669,7 @@ export default function Index({ params }: any) {
                             <div className="flex flex-col gap-2 items-start justify-start">
 
                               {item.status === 'accepted' && item.seller && item.seller.walletAddress !== address && (
-                                <span className="text-sm text-white">
+                                <span className="text-sm ">
                                   {item.seller.nickname}
                                 </span>
                               )}
@@ -3689,7 +3689,7 @@ export default function Index({ params }: any) {
                                   <button
                                     disabled={cancellings[index] || !agreementForCancelTrade[index]}
                   
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                    className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                       
                                     onClick={() => {
                                       cancelTrade(item._id, index);
@@ -3732,9 +3732,9 @@ export default function Index({ params }: any) {
                                   <button
                                     disabled={acceptingBuyOrder[index] || !agreementForTrade[index]}
                                     className={`
-                                      flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md
+                                      flex flex-row gap-1 text-sm  px-2 py-1 rounded-md
                                       ${acceptingBuyOrder[index] || !agreementForTrade[index] ?
-                                        'bg-zinc-500 text-white' : 'bg-green-500 text-white '}
+                                        'bg-zinc-500 ' : 'bg-green-500  '}
                                     `}
                                     onClick={() => {
                                       acceptBuyOrder(index, item._id, smsReceiverMobileNumber);
@@ -3786,7 +3786,7 @@ export default function Index({ params }: any) {
                                   <button
                                     disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                     
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                    className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                     onClick={() => {
 
                                       requestPayment(
@@ -3842,7 +3842,7 @@ export default function Index({ params }: any) {
 
                                     <button
                                       disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
-                                      className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                       onClick={() => {
                                         confirmPayment(
                                           index,
@@ -3891,7 +3891,7 @@ export default function Index({ params }: any) {
 
                                     <button
                                       disabled={rollbackingPayment[index] || !rollbackPaymentCheck[index]}
-                                      className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                      className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                       onClick={() => {
                                         rollbackPayment(
                                           index,
@@ -4022,7 +4022,7 @@ export default function Index({ params }: any) {
                                     disabled={loadingDeposit[index]}
                                     className={`
                                       w-36 h-8
-                                      text-sm text-white px-2 py-1 rounded-md
+                                      text-sm  px-2 py-1 rounded-md
                                       bg-green-500 hover:bg-green-600
                                       transition-all duration-200 ease-in-out
                                       ${loadingDeposit[index] ? 'opacity-50 cursor-not-allowed' : ''}
@@ -4216,7 +4216,7 @@ export default function Index({ params }: any) {
                                   {/* share button */}
                                   {/*
                                   <button
-                                    className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                    className="text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                     onClick={() => {
 
                                       window.open(`https://gold.goodtether.com/${params.lang}/sell-usdt/${item._id}`, '_blank');
@@ -4352,7 +4352,7 @@ export default function Index({ params }: any) {
 
                                   {/* share button */}
                                   <button
-                                    className="ml-5 text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                    className="ml-5 text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                     onClick={() => {
 
                                       //window.open(`https://gold.goodtether.com/${params.lang}/${params.center}/sell-usdt/${item._id}`, '_blank');
@@ -4500,7 +4500,7 @@ export default function Index({ params }: any) {
 
                               {address && item.walletAddress !== address && item?.buyer && item?.buyer?.walletAddress === address && (
                                 <button
-                                  className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                                  className="bg-green-500  px-4 py-2 rounded-lg"
                                   onClick={() => {
                                       //console.log('Buy USDT');
                                       // go to chat
@@ -4662,7 +4662,7 @@ export default function Index({ params }: any) {
 
                                       <button
                                         disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                        className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                        className={`text-sm bg-red-500  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                         onClick={() => {
 
                                           cancelTrade(item._id, index);
@@ -4747,7 +4747,7 @@ export default function Index({ params }: any) {
                                 <button
                                   disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                   
-                                  className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                  className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                   onClick={() => {
 
                                     requestPayment(
@@ -4942,7 +4942,7 @@ export default function Index({ params }: any) {
 
                                               <button
                                                 disabled={!address || !agreementForTrade[index]}
-                                                className={`m-10 text-lg text-white px-4 py-2 rounded-md
+                                                className={`m-10 text-lg  px-4 py-2 rounded-md
                                                   ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                                   `}
                                                 onClick={() => {
@@ -5042,7 +5042,7 @@ export default function Index({ params }: any) {
             {/* 처음으로 */}
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=1`)
               }}
@@ -5053,7 +5053,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) - 1}`)
@@ -5072,7 +5072,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) + 1}`)
@@ -5085,7 +5085,7 @@ export default function Index({ params }: any) {
             {/* 마지막으로 */}
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`)
@@ -5155,7 +5155,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -5171,15 +5171,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -5191,7 +5191,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -5200,7 +5200,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -5212,7 +5212,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

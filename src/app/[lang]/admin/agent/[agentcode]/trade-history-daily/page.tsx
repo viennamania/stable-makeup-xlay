@@ -1258,7 +1258,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal text-zinc-100">
+                <div className="text-xl font-normal ">
                   통계(일별)
                 </div>
 
@@ -1303,7 +1303,7 @@ export default function Index({ params }: any) {
 
 
 
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                     >
                       <option value="">에이전트 선택</option>
 
@@ -1345,11 +1345,11 @@ export default function Index({ params }: any) {
                       type="date"
                       value={searchFromDate}
                       onChange={(e) => setSearchFormDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                     />
                   </div>
 
-                  <span className="text-sm text-zinc-100">~</span>
+                  <span className="text-sm ">~</span>
 
                   <div className="flex flex-row items-center gap-2">
                     <Image
@@ -1363,7 +1363,7 @@ export default function Index({ params }: any) {
                       type="date"
                       value={searchToDate}
                       onChange={(e) => setSearchToDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                     />
                   </div>
                 </div>
@@ -1381,7 +1381,7 @@ export default function Index({ params }: any) {
                         value={searchBuyer}
                         onChange={(e) => setSearchBuyer(e.target.value)}
                         placeholder="회원 아이디"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       />
                     </div>
 
@@ -1391,7 +1391,7 @@ export default function Index({ params }: any) {
                         value={searchDepositName}
                         onChange={(e) => setSearchDepositName(e.target.value)}
                         placeholder="입금자명"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       />
                     </div>
 
@@ -1401,7 +1401,7 @@ export default function Index({ params }: any) {
                         value={searchStoreBankAccountNumber}
                         onChange={(e) => setSearchStoreBankAccountNumber(e.target.value)}
                         placeholder="입금통장번호"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       /> 
                     </div>
 
@@ -1416,11 +1416,11 @@ export default function Index({ params }: any) {
 
                           getTradeSummary();
                         }}
-                        //className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                        //className="bg-gray-700  px-4 py-2 rounded-lg w-full"
                         className={`${
                           fetchingBuyOrders ? 'bg-gray-400' : 'bg-gray-700'
                         }
-                        text-white px-4 py-2 rounded-lg w-full
+                         px-4 py-2 rounded-lg w-full
                         hover:bg-gray-700/80
                         hover:cursor-pointer
                         hover:scale-105
@@ -1469,27 +1469,27 @@ export default function Index({ params }: any) {
 
                   <thead className="bg-zinc-200">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-normal text-zinc-100">
+                      <th className="px-4 py-2 text-left text-sm font-normal ">
                         날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">P2P 거래금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">결제수(건)/미결제수(건)</th>
                       */}
                       
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">AG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">AG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">AG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">AG 수수료금액(원)</th>
 
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">PG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">PG 수수료금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">PG 수수료량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">PG 수수료금액(원)</th>
 
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal text-zinc-100">결제금액(원)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">결제량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">결제금액(원)</th>
                       */}
 
 
@@ -1584,10 +1584,10 @@ export default function Index({ params }: any) {
 
             
             <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-zinc-800 shadow-md rounded-lg mt-5">
-              <div className="text-sm text-zinc-100">
+              <div className="text-sm ">
                 © 2025 X-Ray. All rights reserved.
               </div>
-              <div className="text-sm text-zinc-100">
+              <div className="text-sm ">
                 <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
                   이용약관
                 </a>
@@ -1656,7 +1656,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -1672,15 +1672,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -1692,7 +1692,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -1701,7 +1701,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -1713,7 +1713,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

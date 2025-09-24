@@ -16,7 +16,7 @@ const ModalUser: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         {/*
         <button 
           onClick={onClose} 
-          className="absolute top-2 right-2 text-zinc-100 hover:text-zinc-100"
+          className="absolute top-2 right-2  hover:"
         >
           &times;
         </button>

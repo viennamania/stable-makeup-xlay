@@ -1041,7 +1041,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-zinc-100 font-normal">
+                        <span className="text-sm  font-normal">
                             돌아가기
                         </span>
                     </div>
@@ -1092,7 +1092,7 @@ export default function SettingsPage({ params }: any) {
                             <div className="flex flex-row items-center justify-center gap-2">
 
                                 <button
-                                    className="text-lg text-zinc-100 underline"
+                                    className="text-lg  underline"
                                     onClick={() => {
                                         navigator.clipboard.writeText(address);
                                         toast.success(Copied_Wallet_Address);
@@ -1142,7 +1142,7 @@ export default function SettingsPage({ params }: any) {
                                 height: '20px',
                             }}
                         />
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                             판매자 회원 결제용 통장 설하기
                         </div>
 
@@ -1185,11 +1185,11 @@ export default function SettingsPage({ params }: any) {
 
                             <div className='flex flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-red-800 text-sm text-zinc-100 p-2 rounded">
+                                <div className="bg-red-800 text-sm  p-2 rounded">
                                     My Referral Code
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     {userCode}
                                 </div>
 
@@ -1200,7 +1200,7 @@ export default function SettingsPage({ params }: any) {
                                         navigator.clipboard.writeText(userCode);
                                         toast.success('Referral code copied to clipboard');
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     Copy
                                 </button>
@@ -1254,7 +1254,7 @@ export default function SettingsPage({ params }: any) {
                                     onClick={() => {
                                         setEditSeller(!editSeller);
                                     }}
-                                    className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                    className="p-2 bg-blue-500  rounded"
                                 >
                                     {editSeller ? Cancel : Edit}
                                 </button>
@@ -1299,7 +1299,7 @@ export default function SettingsPage({ params }: any) {
                                     )}
 
                                     {applying ? (
-                                        <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                        <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                             {Applying}...
                                         </div>
                                     ) : (
@@ -1317,7 +1317,7 @@ export default function SettingsPage({ params }: any) {
                                             }}
                                             className={`
                                                 ${!verifiedOtp ? 'bg-gray-300 text-gray-400'
-                                                : 'bg-green-500 text-zinc-100'}
+                                                : 'bg-green-500 '}
 
                                                 p-2 rounded-lg text-sm font-normal
                                             `}
@@ -1334,7 +1334,7 @@ export default function SettingsPage({ params }: any) {
                                     {/*                             
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-lg font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-lg font-normal"
                                         placeholder={Enter_your_bank_name}
                                         value={bankName}
                                         type='text'
@@ -1347,7 +1347,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <select
                                         disabled={!address}
-                                        className="p-2 w-full text-lg text-center bg-zinc-800 rounded-lg text-zinc-100
+                                        className="p-2 w-full text-lg text-center bg-zinc-800 rounded-lg 
                                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
                                         value={bankName}
                                         onChange={(e) => {
@@ -1428,7 +1428,7 @@ export default function SettingsPage({ params }: any) {
                                     
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded-lg text-lg"
+                                        className="p-2 w-64  bg-zinc-800 rounded-lg text-lg"
                                         placeholder={Enter_your_account_number}
                                         value={accountNumber}
                                         type='number'
@@ -1443,7 +1443,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <input 
                                         disabled={applying}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded-lg text-lg"
+                                        className="p-2 w-64  bg-zinc-800 rounded-lg text-lg"
                                         placeholder={Enter_your_account_holder}
                                         value={accountHolder}
                                         type='text'
@@ -1465,7 +1465,7 @@ export default function SettingsPage({ params }: any) {
                                         width={30}
                                         height={30}
                                     />
-                                    <div className="text-white">
+                                    <div className="">
                                         {OTP_verified}
                                     </div>
                                     </div>
@@ -1486,7 +1486,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !address || isSendingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                         
                                         `}
@@ -1512,7 +1512,7 @@ export default function SettingsPage({ params }: any) {
                                             ${
                                             !otp || isVerifingOtp
                                             ?'bg-gray-300 text-gray-400'
-                                            : 'bg-green-500 text-white'
+                                            : 'bg-green-500 '
                                             }
                                             
                                             `}

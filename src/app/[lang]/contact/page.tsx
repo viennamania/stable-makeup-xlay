@@ -2729,7 +2729,7 @@ const fetchBuyOrders = async () => {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal text-zinc-100">
+                <div className="text-xl font-normal ">
                   P2P 거래내역
                 </div>
 
@@ -2838,7 +2838,7 @@ const fetchBuyOrders = async () => {
                               USDT지갑
                             </span>
                             <button
-                                className="text-lg text-zinc-100 underline"
+                                className="text-lg  underline"
                                 onClick={() => {
                                     navigator.clipboard.writeText(address);
                                     toast.success(Copied_Wallet_Address);
@@ -2885,7 +2885,7 @@ const fetchBuyOrders = async () => {
                     <div className="text-sm">
                       {Buy_Order_Accept}
                     </div>
-                    <div className="text-xl font-normal text-white">
+                    <div className="text-xl font-normal ">
                       {buyOrders.filter((item) => item.status === 'accepted').length}
                     </div>
                   </div>
@@ -2948,7 +2948,7 @@ const fetchBuyOrders = async () => {
 
 
 
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       >
                         <option value="">전체</option>
 
@@ -2990,7 +2990,7 @@ const fetchBuyOrders = async () => {
                         type="date"
                         value={searchFromDate}
                         onChange={(e) => setSearchFormDate(e.target.value)}
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       />
                     </div>
 
@@ -3006,7 +3006,7 @@ const fetchBuyOrders = async () => {
                         type="date"
                         value={searchToDate}
                         onChange={(e) => setSearchToDate(e.target.value)}
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                       />
                     </div>
                   </div>
@@ -3773,7 +3773,7 @@ const fetchBuyOrders = async () => {
 
 
                                     {/*
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {item.seller?.nickname}
                                     </div>
                                     */}
@@ -3849,7 +3849,7 @@ const fetchBuyOrders = async () => {
 
 
                                     {/*
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {item.seller?.nickname}
                                     </div>
                                     */}
@@ -3908,7 +3908,7 @@ const fetchBuyOrders = async () => {
 
 
                                       {/*
-                                      <span className="text-sm text-white">
+                                      <span className="text-sm ">
                                         {item.seller?.nickname}
                                       </span>
                                       */}
@@ -3946,7 +3946,7 @@ const fetchBuyOrders = async () => {
                                     </span>
                                     */}
                                     {/*
-                                    <span className="text-sm font-normal text-white">
+                                    <span className="text-sm font-normal ">
                                       {item.seller?.nickname}
                                     </span>
                                     */}
@@ -4252,7 +4252,7 @@ const fetchBuyOrders = async () => {
                                           <button
                                             disabled={cancellings[index] || !agreementForCancelTrade[index]}
 
-                                            className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                            className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                               
                                             onClick={() => {
                                               cancelTrade(item._id, index);
@@ -4486,7 +4486,7 @@ const fetchBuyOrders = async () => {
 
                                               <button
                                                 disabled={rollbackingPayment[index] || !rollbackPaymentCheck[index]}
-                                                className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                                className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                                 onClick={() => {
                                                   rollbackPayment(
                                                     index,
@@ -4791,7 +4791,7 @@ const fetchBuyOrders = async () => {
                                   className="
                                   w-48
                                   flex flex-col gap-2 items-center justify-center
-                                  bg-purple-500 text-white px-2 py-1 rounded-md hover:bg-purple-600
+                                  bg-purple-500  px-2 py-1 rounded-md hover:bg-purple-600
                                   text-sm
                                   transition duration-300 ease-in-out
                                   transform hover:scale-105
@@ -4877,7 +4877,7 @@ const fetchBuyOrders = async () => {
                                 w-20
                               flex flex-col gap-2 items-center justify-center">
                                 <button
-                                  className="text-sm bg-zinc-500 text-white px-2 py-1 rounded-md hover:bg-zinc-600"
+                                  className="text-sm bg-zinc-500  px-2 py-1 rounded-md hover:bg-zinc-600"
 
                                   onClick={() => {
                                     setSelectedItem(item);
@@ -4892,7 +4892,7 @@ const fetchBuyOrders = async () => {
 
                                 {item?.settlement && item?.settlement?.txid && (
                                 <button
-                                  className="text-sm bg-zinc-500 text-white px-2 py-1 rounded-md hover:bg-zinc-600"
+                                  className="text-sm bg-zinc-500  px-2 py-1 rounded-md hover:bg-zinc-600"
                                   onClick={() => {
                                     window.open(
                                       `https://arbiscan.io/tx/${item.settlement.txid}`,
@@ -5051,7 +5051,7 @@ const fetchBuyOrders = async () => {
                                     {/* share button */}
                                     {/*
                                     <button
-                                      className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                      className="text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                       onClick={() => {
 
                                         window.open(`https://gold.goodtether.com/${params.lang}/sell-usdt/${item._id}`, '_blank');
@@ -5187,7 +5187,7 @@ const fetchBuyOrders = async () => {
 
                                     {/* share button */}
                                     <button
-                                      className="ml-5 text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                      className="ml-5 text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                       onClick={() => {
 
                                         //window.open(`https://gold.goodtether.com/${params.lang}/${"admin"}/sell-usdt/${item._id}`, '_blank');
@@ -5333,7 +5333,7 @@ const fetchBuyOrders = async () => {
 
                                 {address && item.walletAddress !== address && item?.buyer && item?.buyer?.walletAddress === address && (
                                   <button
-                                    className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                                    className="bg-green-500  px-4 py-2 rounded-lg"
                                     onClick={() => {
                                         //console.log('Buy USDT');
                                         // go to chat
@@ -5495,7 +5495,7 @@ const fetchBuyOrders = async () => {
 
                                         <button
                                           disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                          className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                          className={`text-sm bg-red-500  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                           onClick={() => {
 
                                             cancelTrade(item._id, index);
@@ -5580,7 +5580,7 @@ const fetchBuyOrders = async () => {
                                   <button
                                     disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                     
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                    className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                     onClick={() => {
 
                                       requestPayment(
@@ -5776,7 +5776,7 @@ const fetchBuyOrders = async () => {
 
                                                 <button
                                                   disabled={!address || !agreementForTrade[index]}
-                                                  className={`m-10 text-lg text-white px-4 py-2 rounded-md
+                                                  className={`m-10 text-lg  px-4 py-2 rounded-md
                                                     ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                                     `}
                                                   onClick={() => {
@@ -5884,7 +5884,7 @@ const fetchBuyOrders = async () => {
               {/* 처을으로 */}
               <button
                 disabled={Number(page) <= 1}
-                className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+                className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
                 onClick={() => {
                   
                   router.push(`/${params.lang}/home?limit=${Number(limit)}&page=1`);
@@ -5897,7 +5897,7 @@ const fetchBuyOrders = async () => {
 
               <button
                 disabled={Number(page) <= 1}
-                className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+                className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
                 onClick={() => {
                   
                   router.push(`/${params.lang}/home?limit=${Number(limit)}&page=${Number(page) - 1}`);
@@ -5915,7 +5915,7 @@ const fetchBuyOrders = async () => {
 
               <button
                 disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-                className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+                className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
                 onClick={() => {
                   
                   router.push(`/${params.lang}/home?limit=${Number(limit)}&page=${Number(page) + 1}`);
@@ -5928,7 +5928,7 @@ const fetchBuyOrders = async () => {
               {/* 마지막으로 */}
               <button
                 disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-                className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+                className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
                 onClick={() => {
                   
                   router.push(`/${params.lang}/home?limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`);
@@ -6074,7 +6074,7 @@ const UserPaymentPage = (
 
       <button
         onClick={closeModal}
-        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+        className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
       >
         닫기
       </button>
@@ -6113,7 +6113,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -6129,15 +6129,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -6149,7 +6149,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -6158,7 +6158,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -6170,7 +6170,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

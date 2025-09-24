@@ -1422,7 +1422,7 @@ export default function Index({ params }: any) {
               height={100}
               className="rounded-lg w-40 h-40"
             />
-            <span className="text-lg text-zinc-100 ml-2">
+            <span className="text-lg  ml-2">
               에이전트 정보를 불러오는 중...
             </span>
           </div>
@@ -1447,7 +1447,7 @@ export default function Index({ params }: any) {
               className="rounded-lg w-20 h-20"
             />
             <div className="flex flex-row items-center justify-center gap-2">
-              <span className="text-lg text-zinc-100 ml-2">
+              <span className="text-lg  ml-2">
                 에이전트 정보를 찾을 수 없습니다.
               </span>   
             </div> 
@@ -1516,7 +1516,7 @@ export default function Index({ params }: any) {
                 height={30}
                 className="rounded-lg w-6 h-6"
               />
-              <span className="text-sm text-zinc-100">
+              <span className="text-sm ">
                 에이전트 목록을 확인하고, 원하는 에이전트를 선택하여 거래를 시작하세요.
               </span>
             </div>
@@ -1564,7 +1564,7 @@ export default function Index({ params }: any) {
                     <span className="text-sm text-[#3167b4] font-bold">
                       {agent?.agentName || "에이전트 이름"}
                     </span>
-                    <span className="text-sm text-zinc-100">
+                    <span className="text-sm ">
                       {agent?.agentcode || "에이전트 코드"}
                     </span>
                   </div>
@@ -1646,9 +1646,9 @@ export default function Index({ params }: any) {
           {/* right space */}
           {/* background transparent */}
           <select
-            className="p-2 text-sm bg-zinc-800 text-white rounded"
+            className="p-2 text-sm bg-zinc-800  rounded"
 
-            ///className="p-2 text-sm bg-transparent text-zinc-100 rounded"
+            ///className="p-2 text-sm bg-transparent  rounded"
 
             onChange={(e) => {
               const lang = e.target.value;
@@ -1768,7 +1768,7 @@ export default function Index({ params }: any) {
                 <span className="text-sm text-[#3167b4] font-bold">
                   {agent?.agentName || "에이전트 이름"}
                 </span>
-                <span className="text-xs text-zinc-100">
+                <span className="text-xs ">
                   {agent?.agentcode || "에이전트 코드"}
                 </span>
               </div>
@@ -1825,7 +1825,7 @@ export default function Index({ params }: any) {
               height={100}
               className="rounded-lg w-20 h-20"
             />
-            <span className="text-lg text-zinc-100 ml-2">
+            <span className="text-lg  ml-2">
               에이전트 관리자가 아닙니다. 회원가입한후 센터에 문의하세요.
             </span>
 
@@ -2027,10 +2027,10 @@ export default function Index({ params }: any) {
           {/* right space */}
           {/* background transparent */}
           <select
-            //className="p-2 text-sm bg-zinc-800 text-white rounded"
+            //className="p-2 text-sm bg-zinc-800  rounded"
 
 
-            className="p-2 text-sm bg-zinc-800 text-white rounded"
+            className="p-2 text-sm bg-zinc-800  rounded"
 
             onChange={(e) => {
               const lang = e.target.value;
@@ -2872,7 +2872,7 @@ export default function Index({ params }: any) {
                               }}
                               className={`
                                 text-sm font-normal
-                                bg-gray-700 text-white
+                                bg-gray-700 
                                 px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80
                                 ${trade.status === "ordered" ? "bg-red-500" : ""}
@@ -2882,19 +2882,19 @@ export default function Index({ params }: any) {
                             >
 
                               {trade.status === "ordered" ? (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   구매주문
                                 </span>
                               ) : trade.status === "accepted" ? (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   거래시작
                                 </span>
                               ) : trade.status === "paymentRequested" ? (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   결제요청
                                 </span>
                               ) : (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   {trade.status}
                                 </span>
                               )}
@@ -2982,7 +2982,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="rounded-lg w-6 h-6"
                   />
-                  <span className="text-sm md:text-lg text-white">
+                  <span className="text-sm md:text-lg ">
                     마이 페이지
                   </span>
             </div>
@@ -3323,7 +3323,7 @@ const UserHomePage = (
 
       <button
         onClick={closeModal}
-        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+        className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
       >
         닫기
       </button>
@@ -3361,7 +3361,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3377,15 +3377,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3397,7 +3397,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3406,7 +3406,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -3418,7 +3418,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

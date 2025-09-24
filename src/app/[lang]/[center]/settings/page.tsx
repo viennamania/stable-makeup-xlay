@@ -1120,7 +1120,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-zinc-100 font-normal">
+                        <span className="text-sm  font-normal">
                             돌아가기
                         </span>
                     </div>
@@ -1186,7 +1186,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}관리
@@ -1221,7 +1221,7 @@ export default function SettingsPage({ params }: any) {
                                             nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                         } }
-                                        className="bg-gray-700 text-zinc-100 rounded-lg p-2"
+                                        className="bg-gray-700  rounded-lg p-2"
                                         disabled={!address}
                                     >
                                         {nicknameEdit ? Cancel : Edit}
@@ -1263,7 +1263,7 @@ export default function SettingsPage({ params }: any) {
                                             <div className='flex flex-col gap-2'>
                                                 <input
                                                     disabled={!address}
-                                                    className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-normal"
+                                                    className="p-2 w-64  bg-zinc-800 rounded text-xl font-normal"
                                                     placeholder="가맹점 이름을 입력하세요"
                                                     
                                                     //value={nickname}
@@ -1290,7 +1290,7 @@ export default function SettingsPage({ params }: any) {
 
                                             <button
                                                 disabled={!address || !editedNickname}
-                                                className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!editedNickname ? "opacity-50" : ""}`}
+                                                className={`bg-gray-700  rounded-lg p-2 ${!editedNickname ? "opacity-50" : ""}`}
                                                 onClick={() => {
                                                     if (!editedNickname) {
                                                         toast.error("가맹점 이름을 입력하세요");
@@ -1327,7 +1327,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
                                     <input
                                         disabled={!address}
-                                        className="bg-[#1f2937] text-zinc-100 rounded-lg p-2 w-full text-sm"
+                                        className="bg-[#1f2937]  rounded-lg p-2 w-full text-sm"
                                         placeholder="가맹점 설명을 입력하세요"
                                         value={storeDescription}
                                         type='text'
@@ -1337,7 +1337,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !storeDescription}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!storeDescription ? "opacity-50" : ""}`}
+                                        className={`bg-gray-700  rounded-lg p-2 ${!storeDescription ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             if (!storeDescription) {
                                                 toast.error("가맹점 설명을 입력하세요");
@@ -1364,7 +1364,7 @@ export default function SettingsPage({ params }: any) {
                                     </span>
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     <Uploader
                                         lang={params.lang}
                                         storecode={params.center as string}
@@ -1474,7 +1474,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedAdminWalletAddress}로 가맹점 관리자를 변경하시겠습니까?`
                                         ) && updateAdminWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingAdminWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingAdminWalletAddress ? '변경 중...' : '변경'}
@@ -1507,7 +1507,7 @@ export default function SettingsPage({ params }: any) {
                                                     '_blank'
                                                 );
                                             }}
-                                            className="bg-gray-700 text-sm text-white px-4 py-2 rounded-lg"
+                                            className="bg-gray-700 text-sm  px-4 py-2 rounded-lg"
                                         >
                                             가맹점 관리자 홈페이지 열기
                                         </button>
@@ -1612,7 +1612,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSettlementWalletAddress}로 가맹점 자동결제용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSettlementWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSettlementWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSettlementWalletAddress ? '변경 중...' : '변경'}
@@ -1731,7 +1731,7 @@ export default function SettingsPage({ params }: any) {
                                             `정말 ${selectedSettlementFeeWalletAddress}로 가맹점 수수료 USDT지갑을 변경하시겠습니까?`
                                             ) && updateSettlementFeeWalletAddress();
                                         }}
-                                        className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                        className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                             ${updatingSettlementFeeWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         >
                                         {updatingSettlementFeeWalletAddress ? '변경 중...' : '변경'}
@@ -1790,7 +1790,7 @@ export default function SettingsPage({ params }: any) {
                                     <div className='hidden flex-col gap-2'>
                                         <input
                                             disabled={!address}
-                                            className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-normal"
+                                            className="p-2 w-64  bg-zinc-800 rounded text-xl font-normal"
                                             placeholder="가맹점 수수료율을 입력하세요"
                                             value={settlementFeePercent}
                                             type='number'
@@ -1820,7 +1820,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !settlementFeePercent
                                             || settlementFeePercent < 0.01 || settlementFeePercent > 5.00
                                             || updatingSettlementFeePercent}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!settlementFeePercent ? "opacity-50" : ""}`}
+                                        className={`bg-gray-700  rounded-lg p-2 ${!settlementFeePercent ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             if (!settlementFeePercent) {
                                                 toast.error("가맹점 수수료율을 입력하세요");
@@ -1961,7 +1961,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 가맹점 판매자 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -2020,7 +2020,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 가맹점 판매자 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -2103,21 +2103,21 @@ export default function SettingsPage({ params }: any) {
                                 <div className='hidden w-full flex-row items-center justify-start gap-2'>
                                     <input
                                         type="text"
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-xl font-normal"
                                         placeholder="은행명"
                                         value={bankName}
                                         onChange={(e) => setBankName(e.target.value)}
                                     />
                                     <input
                                         type="number"
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-xl font-normal"
                                         placeholder="계좌번호"
                                         value={accountNumber}
                                         onChange={(e) => setAccountNumber(e.target.value)}
                                     />
                                     <input
                                         type="text"
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-xl font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-xl font-normal"
                                         placeholder="예금주"
                                         value={accountHolder}
                                         onChange={(e) => setAccountHolder(e.target.value)}
@@ -2127,7 +2127,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !bankName || !accountNumber || !accountHolder
                                             || writingStoreBankInfo
                                         }
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!bankName || !accountNumber || !accountHolder ? "opacity-50" : ""}`}
+                                        className={`bg-gray-700  rounded-lg p-2 ${!bankName || !accountNumber || !accountHolder ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             if (!bankName || !accountNumber || !accountHolder) {
                                                 toast.error("은행명, 계좌번호, 예금주를 입력하세요");

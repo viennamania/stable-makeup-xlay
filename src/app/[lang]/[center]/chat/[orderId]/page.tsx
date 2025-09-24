@@ -1651,7 +1651,7 @@ export default function Index({ params }: any) {
                 w-10 h-10
                   rounded-full'
               />
-              <span className="text-sm text-zinc-100 font-normal">
+              <span className="text-sm  font-normal">
                 {storeInfo?.storeName}
               </span>
             </div>
@@ -1722,7 +1722,7 @@ export default function Index({ params }: any) {
                   <div className="flex flex-col items-start justify-center gap-2">
 
                     <div className='flex flex-row gap-2 items-center justify-center'>
-                      <span className="text-sm text-zinc-100">
+                      <span className="text-sm ">
 
                         아이디:{' '}{
                           user?.nickname ? (
@@ -1737,7 +1737,7 @@ export default function Index({ params }: any) {
                     </div>
 
                     <div className='flex flex-row gap-2 items-center justify-center'>
-                      <span className="text-sm text-zinc-100">
+                      <span className="text-sm ">
                         USDT지갑:{' '}
                       </span>
                       <button
@@ -1745,7 +1745,7 @@ export default function Index({ params }: any) {
                           navigator.clipboard.writeText(address);
                           toast.success("USDT지갑주소가 복사되었습니다.");
                         }}
-                        className="text-sm underline text-zinc-100 hover:text-zinc-200"
+                        className="text-sm underline  hover:text-zinc-200"
                       >
                         {address.slice(0, 6)}...{address.slice(-4)}
                       </button>
@@ -1753,16 +1753,16 @@ export default function Index({ params }: any) {
 
                     {/* balance */}
                     <div className="flex flex-row gap-2 items-center justify-center">
-                      <span className="text-sm text-zinc-100">
+                      <span className="text-sm ">
                         잔액:{' '}
                       </span>
 
                       <div className="flex flex-row items-center justify-center gap-2">
-                        <span className="text-xl font-normal text-zinc-100">
+                        <span className="text-xl font-normal ">
                           {Number(balance).toFixed(2)}
                         </span>
                         {' '}
-                        <span className="text-sm text-zinc-100">
+                        <span className="text-sm ">
                           USDT
                         </span>
                       </div>
@@ -3605,7 +3605,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3621,15 +3621,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3641,7 +3641,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3650,7 +3650,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}

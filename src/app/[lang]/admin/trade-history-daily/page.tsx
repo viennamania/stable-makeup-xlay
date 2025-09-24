@@ -1840,11 +1840,11 @@ const fetchBuyOrders = async () => {
 
                           getTradeSummary();
                         }}
-                        //className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                        //className="bg-gray-700 px-4 py-2 rounded-lg w-full"
                         className={`${
                           fetchingBuyOrders ? 'bg-gray-400' : 'bg-gray-700'
                         }
-                        text-white px-4 py-2 rounded-lg w-full
+                        px-4 py-2 rounded-lg w-full
                         hover:bg-gray-700/80
                         hover:cursor-pointer
                         hover:scale-105
@@ -2485,7 +2485,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500 px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

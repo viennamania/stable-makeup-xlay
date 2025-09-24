@@ -317,7 +317,7 @@ const StabilityConsole = () => {
               <div className="flex flex-row gap-2 justify-center items-center">
                 {/* dot */}
                 <div className="w-2 h-2 bg-zinc-600 rounded-full"></div>
-                <span className="text-sm text-zinc-100">
+                <span className="text-sm ">
                   내 지갑주소
                 </span>
               </div>
@@ -354,7 +354,7 @@ const StabilityConsole = () => {
                   height={35}
                   className="rounded-lg w-6 h-6"
                 />
-                <span className="text-sm text-zinc-100">
+                <span className="text-sm ">
                   내 테더 잔액(USDT)
                 </span>
               </div>
@@ -380,7 +380,7 @@ const StabilityConsole = () => {
                 }}
                 className="w-full flex items-center justify-center
                 bg-gray-700
-                text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                 px-4 py-2 rounded-lg hover:bg-blue-600"
               >
                 <span className="text-sm text-gray-100">
                   출금하기
@@ -406,7 +406,7 @@ const StabilityConsole = () => {
                 height={20}
                 className="rounded-lg"
               />
-              <span className="text-sm text-zinc-100">
+              <span className="text-sm ">
                 가스보유량({chain === "ethereum" ? "ETH" :
                 chain === "polygon" ? "POL" :
                 chain === "arbitrum" ? "ETH" :
@@ -434,7 +434,7 @@ const StabilityConsole = () => {
 
           <div className="mt-5 flex flex-row gap-2 justify-center items-center">
             {/* 로그인하고 나의 자산을 확인하세요 */}
-            <span className="text-sm text-zinc-100">
+            <span className="text-sm ">
               로그인하고 나의 지갑주소에서 자산을 확인하세요
             </span>
 

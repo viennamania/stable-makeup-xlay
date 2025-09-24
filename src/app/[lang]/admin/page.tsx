@@ -1019,7 +1019,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-zinc-100">{address}</div>
+        <div className="text-lg ">{address}</div>
 
 
             {/* 회원가입한후 가맹점 관리자 등록신청을 하세요 */}
@@ -1231,10 +1231,10 @@ export default function Index({ params }: any) {
           {/* right space */}
           {/* background transparent */}
           <select
-            //className="p-2 text-sm bg-zinc-800 text-white rounded"
+            //className="p-2 text-sm bg-zinc-800  rounded"
 
 
-            className="p-2 text-sm bg-zinc-800 text-white rounded"
+            className="p-2 text-sm bg-zinc-800  rounded"
             value={params.lang}
             onChange={(e) => {
               const lang = e.target.value;
@@ -1449,7 +1449,7 @@ export default function Index({ params }: any) {
                               >
                                 {Number(trade.krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                               </span>
-                              <span className="text-lg text-zinc-100 font-normal"
+                              <span className="text-lg  font-normal"
                                 style={{ fontFamily: "monospace" }}
                               >
                                 {Number(trade.rate).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -1474,7 +1474,7 @@ export default function Index({ params }: any) {
                                 }}
                                 className={`
                                   text-sm font-normal
-                                  bg-gray-700 text-white
+                                  bg-gray-700 
                                   px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80
                                   ${trade.status === "ordered" ? "bg-red-500" : ""}
@@ -1484,19 +1484,19 @@ export default function Index({ params }: any) {
                               >
 
                                 {trade.status === "ordered" ? (
-                                  <span className="text-white font-normal">
+                                  <span className=" font-normal">
                                     구매주문
                                   </span>
                                 ) : trade.status === "accepted" ? (
-                                  <span className="text-white font-normal">
+                                  <span className=" font-normal">
                                     거래시작
                                   </span>
                                 ) : trade.status === "paymentRequested" ? (
-                                  <span className="text-white font-normal">
+                                  <span className=" font-normal">
                                     결제요청
                                   </span>
                                 ) : (
-                                  <span className="text-white font-normal">
+                                  <span className=" font-normal">
                                     {trade.status}
                                   </span>
                                 )}
@@ -1649,7 +1649,7 @@ export default function Index({ params }: any) {
                               }}
                               className={`
                                 text-sm font-normal
-                                bg-gray-700 text-white
+                                bg-gray-700 
                                 px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80
                                 ${trade.status === "ordered" ? "bg-red-500" : ""}
@@ -1659,19 +1659,19 @@ export default function Index({ params }: any) {
                             >
 
                               {trade.status === "ordered" ? (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   구매주문
                                 </span>
                               ) : trade.status === "accepted" ? (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   거래시작
                                 </span>
                               ) : trade.status === "paymentRequested" ? (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   결제요청
                                 </span>
                               ) : (
-                                <span className="text-white font-normal">
+                                <span className=" font-normal">
                                   {trade.status}
                                 </span>
                               )}
@@ -2479,7 +2479,7 @@ export default function Index({ params }: any) {
                     height={35}
                     className="rounded-lg w-6 h-6"
                   />
-                  <span className="text-sm md:text-lg text-white">
+                  <span className="text-sm md:text-lg ">
                     마이 페이지
                   </span>
             </div>
@@ -2862,7 +2862,7 @@ function Header() {
       />
 
       
-      <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 text-zinc-100">
+      <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 ">
         thirdweb SDK
         <span className="text-zinc-300 inline-block mx-1"> + </span>
         <span className="inline-block -skew-x-6 text-blue-400"> Next.js </span>

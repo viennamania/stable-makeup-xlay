@@ -249,7 +249,7 @@ export default function SettingsPage() {
                 */}
         
                 <div className="flex justify-start space-x-4 mb-10">
-                    <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
+                    <button onClick={() => router.push('/')} className=" font-normal underline">Go Home</button>
                 </div>
 
 
@@ -311,7 +311,7 @@ export default function SettingsPage() {
                             <div className='flex flex-col items-start gap-2'>
 
                                 <div className='flex flex-row items-center gap-2'>    
-                                    <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                                    <div className="bg-green-500 text-sm  p-2 rounded">
                                         My Wallet Address
                                     </div>
                                     {/* button for polygon explorer */}
@@ -344,7 +344,7 @@ export default function SettingsPage() {
 
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xs xl:text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xs xl:text-xl font-normal">
                                     {address}
                                 </div>
 
@@ -365,7 +365,7 @@ export default function SettingsPage() {
                                         onChange={() => setAgreementCopy(!agreementCopy)}
                                         className='w-6 h-6'
                                     />
-                                    <div className='text-lg text-zinc-100 font-normal'>
+                                    <div className='text-lg  font-normal'>
                                         I understand that I should never deposit any other tokens (e.g. Ethereum) to this address.
                                     </div>
                                 </div>
@@ -380,8 +380,8 @@ export default function SettingsPage() {
                                     toast.success('Address copied to clipboard');
                                     }}
                                     className={`
-                                        p-2 text-zinc-100 rounded
-                                        ${!address || !agreementCopy ? 'bg-gray-300 text-zinc-100' : 'bg-blue-500'}
+                                        p-2  rounded
+                                        ${!address || !agreementCopy ? 'bg-gray-300 ' : 'bg-blue-500'}
                                     `}
                                     >
                                     Copy
@@ -400,11 +400,11 @@ export default function SettingsPage() {
                         {/* My Phone Number */}
                         <div className='flex flex-col xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
                                 
-                            <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded">
+                            <div className="bg-green-500 text-sm  p-2 rounded">
                                 My Phone Number
                             </div>
 
-                            <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-2xl font-normal">
+                            <div className="p-2 bg-zinc-800 rounded  text-2xl font-normal">
                                 {phoneNumber}
                             </div>
 
@@ -414,7 +414,7 @@ export default function SettingsPage() {
                                     navigator.clipboard.writeText(phoneNumber);
                                     toast.success('Phone number copied to clipboard');
                                 }}
-                                className="p-2 bg-blue-500 text-zinc-100 rounded"
+                                className="p-2 bg-blue-500  rounded"
                             >
                                 Copy
                             </button>
@@ -432,7 +432,7 @@ export default function SettingsPage() {
 
                                         window.location.reload();
                                     }}
-                                    className="p-2 bg-red-500 text-zinc-100 rounded"
+                                    className="p-2 bg-red-500  rounded"
                                 >
                                     Disconnect Wallet
                                 </button>

@@ -532,7 +532,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-zinc-100 font-normal">
+                        <span className="text-sm  font-normal">
                             돌아가기
                         </span>
                     </div>
@@ -557,7 +557,7 @@ export default function SettingsPage({ params }: any) {
                                 height: '20px',
                             }}
                         />
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                             {Profile_Settings}
                             
                         </div>
@@ -584,7 +584,7 @@ export default function SettingsPage({ params }: any) {
                                     navigator.clipboard.writeText(userCode);
                                     toast.success('회원코드가 복사되었습니다');
                                 }}
-                                className="p-2 bg-green-500 text-zinc-100 rounded-lg"
+                                className="p-2 bg-green-500  rounded-lg"
                             >
                                 복사
                             </button>
@@ -622,7 +622,7 @@ export default function SettingsPage({ params }: any) {
                                         nicknameEdit ? setNicknameEdit(false) : setNicknameEdit(true);
 
                                     } }
-                                    className="p-2 bg-green-500 text-zinc-100 rounded-lg"
+                                    className="p-2 bg-green-500  rounded-lg"
                                 >
                                     {nicknameEdit ? Cancel : Edit}
                                 </button>
@@ -657,7 +657,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='flex flex-col gap-2'>
                                     <input
                                         disabled={!address}
-                                        className="p-2 w-64 text-zinc-100 bg-zinc-800 rounded text-2xl font-normal"
+                                        className="p-2 w-64  bg-zinc-800 rounded text-2xl font-normal"
                                         placeholder={Enter_your_nickname}
                                         
                                         //value={nickname}
@@ -693,7 +693,7 @@ export default function SettingsPage({ params }: any) {
                                 </div>
                                 <button
                                     disabled={!address}
-                                    className="p-2 bg-green-500 text-zinc-100 rounded-lg"
+                                    className="p-2 bg-green-500  rounded-lg"
                                     onClick={() => {
                                         setUserData();
                                     }}
@@ -710,11 +710,11 @@ export default function SettingsPage({ params }: any) {
                         {false && userCode && (
                             <div className='flex flex-row xl:flex-row gap-2 items-center justify-between border border-gray-300 p-4 rounded-lg'>
 
-                                <div className="bg-green-500 text-sm text-zinc-100 p-2 rounded-lg">
+                                <div className="bg-green-500 text-sm  p-2 rounded-lg">
                                     {My_Profile_Picture}
                                 </div>
 
-                                <div className="p-2 bg-zinc-800 rounded text-zinc-100 text-xl font-normal">
+                                <div className="p-2 bg-zinc-800 rounded  text-xl font-normal">
                                     <Uploader
                                         lang={params.lang}
                                         walletAddress={address as string}

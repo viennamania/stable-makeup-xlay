@@ -2596,7 +2596,7 @@ const [tradeSummary, setTradeSummary] = useState({
             height={200}
           />
 
-          <div className="text-lg text-zinc-100">가맹점 정보를 불러오는 중...</div>
+          <div className="text-lg ">가맹점 정보를 불러오는 중...</div>
         </div>
       </main>
     );
@@ -2611,7 +2611,7 @@ const [tradeSummary, setTradeSummary] = useState({
             width={200}
             height={200}
           />
-          <div className="text-lg text-zinc-100">가맹점 정보가 없습니다.</div>
+          <div className="text-lg ">가맹점 정보가 없습니다.</div>
           <div className="text-sm text-gray-400">가맹점 홈페이지로 이동해주세요.</div>
 
           {/* table of storeList */}
@@ -2814,10 +2814,10 @@ const [tradeSummary, setTradeSummary] = useState({
           {/* right space */}
           {/* background transparent */}
           <select
-            //className="p-2 text-sm bg-zinc-800 text-white rounded"
+            //className="p-2 text-sm bg-zinc-800  rounded"
 
 
-            className="p-2 text-sm bg-zinc-800 text-white rounded"
+            className="p-2 text-sm bg-zinc-800  rounded"
 
             onChange={(e) => {
               const lang = e.target.value;
@@ -3242,7 +3242,7 @@ const [tradeSummary, setTradeSummary] = useState({
                 className="w-6 h-6"
               />
 
-              <div className="text-xl font-normal text-zinc-100">
+              <div className="text-xl font-normal ">
                 판매(거래소)
               </div>
 
@@ -3376,7 +3376,7 @@ const [tradeSummary, setTradeSummary] = useState({
                               USDT지갑
                             </span>
                             <button
-                                className="text-lg text-zinc-100 underline"
+                                className="text-lg  underline"
                                 onClick={() => {
                                     navigator.clipboard.writeText(address);
                                     toast.success(Copied_Wallet_Address);
@@ -3470,7 +3470,7 @@ const [tradeSummary, setTradeSummary] = useState({
                       <div className="text-sm">
                         {Buy_Order_Accept}
                       </div>
-                      <div className="text-xl font-normal text-white">
+                      <div className="text-xl font-normal ">
                         {buyOrders.filter((item) => item.status === 'accepted').length}
                       </div>
                     </div>
@@ -3524,7 +3524,7 @@ const [tradeSummary, setTradeSummary] = useState({
                 ">
                   <button
                     className={`
-                      ${paymentRequestedCount > 0 ? 'bg-red-500 text-white' : 'bg-red-400 text-white'}
+                      ${paymentRequestedCount > 0 ? 'bg-red-500 ' : 'bg-red-400 '}
                       text-sm px-4 py-2 rounded-lg hover:bg-red-600
                     `}
                     onClick={() => {
@@ -3598,7 +3598,7 @@ const [tradeSummary, setTradeSummary] = useState({
                     type="date"
                     value={searchFromDate}
                     onChange={(e) => setSearchFormDate(e.target.value)}
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
 
@@ -3616,7 +3616,7 @@ const [tradeSummary, setTradeSummary] = useState({
                     type="date"
                     value={searchToDate}
                     onChange={(e) => setSearchToDate(e.target.value)}
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
               </div>
@@ -4307,7 +4307,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                       w-24 h-8
                                       flex flex-row
                                       items-center justify-center
-                                      gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                      gap-1 text-sm  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                       
                                     onClick={() => {
                                       cancelTrade(item._id, index);
@@ -4357,7 +4357,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                   <button
                                     disabled={cancellings[index] || !agreementForCancelTrade[index]}
                   
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                    className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                       
                                     onClick={() => {
                                       cancelTrade(item._id, index);
@@ -4403,10 +4403,10 @@ const [tradeSummary, setTradeSummary] = useState({
                                       w-24 h-8
                                       flex flex-row 
                                       items-center justify-center
-                                      gap-1 text-sm text-white px-2 py-1 rounded-md
+                                      gap-1 text-sm  px-2 py-1 rounded-md
                                       ${acceptingBuyOrder[index] || !agreementForTrade[index] ?
-                                        'bg-zinc-500 text-white' :
-                                        'bg-green-500 text-white '}
+                                        'bg-zinc-500 ' :
+                                        'bg-green-500  '}
                                     `}
                                     onClick={() => {
                                       acceptBuyOrder(index, item._id, smsReceiverMobileNumber);
@@ -4461,7 +4461,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                     
                                     className={`
                                       w-24 h-8
-                                      flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                     onClick={() => {
 
                                       requestPayment(
@@ -4528,7 +4528,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                         w-28 
                                         flex flex-row
                                         items-center justify-center
-                                        gap-1 text-sm text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                        gap-1 text-sm  px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
 
                               
                                       onClick={() => {
@@ -4587,7 +4587,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                           w-24 h-8
                                           flex flex-row
                                           items-center justify-center
-                                          gap-1 text-sm text-white px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                          gap-1 text-sm  px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                         onClick={() => {
                                           rollbackPayment(
                                             index,
@@ -4803,7 +4803,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                   {/* share button */}
                                   {/*
                                   <button
-                                    className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                    className="text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                     onClick={() => {
 
                                       window.open(`https://gold.goodtether.com/${params.lang}/sell-usdt/${item._id}`, '_blank');
@@ -4939,7 +4939,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                                   {/* share button */}
                                   <button
-                                    className="ml-5 text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                    className="ml-5 text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                     onClick={() => {
 
                                       //window.open(`https://gold.goodtether.com/${params.lang}/${params.center}/sell-usdt/${item._id}`, '_blank');
@@ -5087,7 +5087,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                               {address && item.walletAddress !== address && item?.buyer && item?.buyer?.walletAddress === address && (
                                 <button
-                                  className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                                  className="bg-green-500  px-4 py-2 rounded-lg"
                                   onClick={() => {
                                       //console.log('Buy USDT');
                                       // go to chat
@@ -5251,7 +5251,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                                       <button
                                         disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                        className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                        className={`text-sm bg-red-500  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                         onClick={() => {
 
                                           cancelTrade(item._id, index);
@@ -5336,7 +5336,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                 <button
                                   disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                   
-                                  className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                  className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                   onClick={() => {
 
                                     requestPayment(
@@ -5534,7 +5534,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
                                               <button
                                                 disabled={!address || !agreementForTrade[index]}
-                                                className={`m-10 text-lg text-white px-4 py-2 rounded-md
+                                                className={`m-10 text-lg  px-4 py-2 rounded-md
                                                   ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                                   `}
                                                 onClick={() => {
@@ -5641,7 +5641,7 @@ const [tradeSummary, setTradeSummary] = useState({
             {/* 처음으로 */}
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/${params.center}/clearance-history?limit=${Number(limit)}&page=1`);
@@ -5655,7 +5655,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/${params.center}/clearance-history?limit=${Number(limit)}&page=${Number(page) - 1}`);
@@ -5673,7 +5673,7 @@ const [tradeSummary, setTradeSummary] = useState({
 
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/${params.center}/clearance-history?limit=${Number(limit)}&page=${Number(page) + 1}`);
@@ -5686,7 +5686,7 @@ const [tradeSummary, setTradeSummary] = useState({
             {/* 마지막 */}
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/${params.center}/clearance-history?limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`);
@@ -5703,10 +5703,10 @@ const [tradeSummary, setTradeSummary] = useState({
           
 
           <div className="w-full flex flex-col items-center justify-center gap-4 p-4 bg-zinc-800 shadow-md rounded-lg mt-5">
-            <div className="text-sm text-zinc-100">
+            <div className="text-sm ">
               © 2025 X-Ray. All rights reserved.
             </div>
-            <div className="text-sm text-zinc-100">
+            <div className="text-sm ">
               <a href={`/${params.lang}/terms-of-service`} className="text-blue-400 hover:underline">
                 이용약관
               </a>
@@ -5790,7 +5790,7 @@ const UserPaymentPage = (
 
       <button
         onClick={closeModal}
-        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-700/80"
+        className="bg-gray-700  px-4 py-2 rounded-lg hover:bg-gray-700/80"
       >
         닫기
       </button>
@@ -5833,7 +5833,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -5849,15 +5849,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -5869,7 +5869,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -5878,7 +5878,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -5890,7 +5890,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

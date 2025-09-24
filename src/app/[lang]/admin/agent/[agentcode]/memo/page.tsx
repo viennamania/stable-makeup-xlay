@@ -982,7 +982,7 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm text-zinc-100 font-normal">
+                        <span className="text-sm  font-normal">
                             돌아가기
                         </span>
                     </div>
@@ -1048,7 +1048,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}메모하기
@@ -1073,7 +1073,7 @@ export default function SettingsPage({ params }: any) {
 
                         <button
                             disabled={writeingStoreMemo}
-                            className={`w-full bg-blue-500 text-white rounded-md p-2 ${writeingStoreMemo ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            className={`w-full bg-blue-500  rounded-md p-2 ${writeingStoreMemo ? 'opacity-50 cursor-not-allowed' : ''}`}
                             onClick={writeStoreMemo}
                         >
                             {writeingStoreMemo ? '메모 저장중...' : '메모 저장하기'}

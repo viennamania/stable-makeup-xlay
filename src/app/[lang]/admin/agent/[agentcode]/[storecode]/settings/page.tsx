@@ -1681,7 +1681,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-zinc-100 font-normal">
+                            <span className="ml-2 text-sm  font-normal">
                                 돌아가기
                             </span>
                         </button>
@@ -1726,7 +1726,7 @@ export default function SettingsPage({ params }: any) {
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-lg text-zinc-100 font-normal">
+                            <span className="text-lg  font-normal">
                             {user?.nickname || "프로필"}
                             </span>
 
@@ -1749,7 +1749,7 @@ export default function SettingsPage({ params }: any) {
                             className="w-10 h-10 rounded-full"
                         />
 
-                        <div className="text-xl font-normal text-zinc-100">
+                        <div className="text-xl font-normal ">
                         가맹점{' '}{
                             store && store.storeName + " (" + store.storecode + ")"
                         }{' '}관리
@@ -1777,7 +1777,7 @@ export default function SettingsPage({ params }: any) {
                                         '/' + params.lang + '/admin/store/' + params.storecode + '/memo'
                                     );
                                     }}
-                                    className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                    className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-gray-700/80 flex flex-row items-center gap-2"
                                 >
                                     <Image
@@ -1803,7 +1803,7 @@ export default function SettingsPage({ params }: any) {
                                     );
                                     }
                                     }
-                                    className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                    className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-gray-700/80 flex flex-row items-center gap-2"
                                 >
                                     <Image
@@ -1898,7 +1898,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !nickname
                                             || settingStoreName
                                         }
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!storeName || settingStoreName
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -1942,7 +1942,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !storeDescription || writingStoreDescription}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!storeDescription || writingStoreDescription
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -2039,7 +2039,7 @@ export default function SettingsPage({ params }: any) {
 
                                 <button
                                     disabled={!address || !backgroundColor || updatingBackgroundColor}
-                                    className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                    className={`w-full bg-gray-700  rounded-lg p-2
                                         ${!backgroundColor || updatingBackgroundColor
                                         ? "opacity-50" : ""}`}
                                     onClick={() => {
@@ -2127,7 +2127,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <button
                                         disabled={!address || updatingAgentcode || !agentcode}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!agentcode || updatingAgentcode ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -2175,7 +2175,7 @@ export default function SettingsPage({ params }: any) {
                                     </select>
                                     <button
                                         disabled={!address || !selectedAgentFeeWalletAddress || updatingAgentWFeeWalletAddress}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!selectedAgentFeeWalletAddress || updatingAgentWFeeWalletAddress ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -2221,7 +2221,7 @@ export default function SettingsPage({ params }: any) {
                                     />
                                     <button
                                         disabled={!address || !agentFeePercent || updatingAgentFeePercent}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`bg-gray-700  rounded-lg p-2
                                             ${!agentFeePercent || updatingAgentFeePercent ? "opacity-50" : ""}`}
                                         onClick={() => {
                                             confirm(
@@ -2272,7 +2272,7 @@ export default function SettingsPage({ params }: any) {
                                         '_blank'
                                     );
                                 }}
-                                className="bg-gray-700 text-sm text-white px-4 py-2 rounded-lg"
+                                className="bg-gray-700 text-sm  px-4 py-2 rounded-lg"
                             >
                                 가맹점 관리자 홈페이지 열기
                             </button>
@@ -2370,7 +2370,7 @@ export default function SettingsPage({ params }: any) {
                                             `정말 ${selectedAdminWalletAddress}로 가맹점 관리자를 변경하시겠습니까?`
                                             ) && updateAdminWalletAddress();
                                         }}
-                                        className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                        className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                             ${updatingAdminWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                         >
                                         {updatingAdminWalletAddress ? '변경 중...' : '변경'}
@@ -2496,7 +2496,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSettlementWalletAddress}로 가맹점 자동결제용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSettlementWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSettlementWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSettlementWalletAddress ? '변경 중...' : '변경'}
@@ -2641,7 +2641,7 @@ export default function SettingsPage({ params }: any) {
                                                 `정말 ${selectedSettlementFeeWalletAddress}로 가맹점 PG 수수료 수납용 USDT지갑을 변경하시겠습니까?`
                                                 ) && updateSettlementFeeWalletAddress();
                                             }}
-                                            className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                            className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                                 ${updatingSettlementFeeWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                             >
                                             {updatingSettlementFeeWalletAddress ? '변경 중...' : '변경'}
@@ -2690,7 +2690,7 @@ export default function SettingsPage({ params }: any) {
                                         </span>
                                         <input
                                             disabled={!address}
-                                            className="bg-[#1f2937] text-zinc-100 rounded-lg p-2 text-sm"
+                                            className="bg-[#1f2937]  rounded-lg p-2 text-sm"
                                             placeholder="가맹점 수수료율을 입력하세요"
                                             //value={store.settlementFeePercent || 0}
                                             value={settlementFeePercent}
@@ -2715,7 +2715,7 @@ export default function SettingsPage({ params }: any) {
                                             disabled={!address || !settlementFeePercent
                                                 || settlementFeePercent < 0.01 || settlementFeePercent > 5.00
                                                 || updatingSettlementFeePercent}
-                                            className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!settlementFeePercent ? "opacity-50" : ""}`}
+                                            className={`bg-gray-700  rounded-lg p-2 ${!settlementFeePercent ? "opacity-50" : ""}`}
                                             onClick={() => {
 
                                                 confirm(
@@ -2868,7 +2868,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 P2P 거래소 판매용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -2931,7 +2931,7 @@ export default function SettingsPage({ params }: any) {
                                         `정말 ${selectedSellerWalletAddress}로 P2P 거래소 판매용 USDT지갑을 변경하시겠습니까?`
                                         ) && updateSellerWalletAddress();
                                     }}
-                                    className={`bg-gray-700 text-sm text-white px-4 py-2 rounded-lg
+                                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg
                                         ${updatingSellerWalletAddress ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     >
                                     {updatingSellerWalletAddress ? '변경 중...' : '변경'}
@@ -2965,7 +2965,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className='w-full flex flex-row items-center justify-start gap-2'>
                                     {/* dot */}
                                     <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                                    <span className="text-lg text-zinc-100">
+                                    <span className="text-lg ">
                                         판매자 보유금 수량(USDT)
                                     </span>
                                 </div>
@@ -2990,7 +2990,7 @@ export default function SettingsPage({ params }: any) {
                                     {/* route to daily-close page */}
                                     <button
                                         onClick={() => router.push(`/${params.lang}/admin/store/${params.storecode}/daily-close`)}
-                                        className="bg-gray-700 text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-gray-700  rounded-lg p-2 text-sm"
                                         disabled={!address}
                                     >
                                         일일 마감 페이지로 이동
@@ -2999,7 +2999,7 @@ export default function SettingsPage({ params }: any) {
                                     {/*
                                     <input
                                         disabled={!address}
-                                        className="bg-[#1f2937] text-zinc-100 rounded-lg p-2 text-sm"
+                                        className="bg-[#1f2937]  rounded-lg p-2 text-sm"
                                         placeholder="판매용 USDT지갑 수량을 입력하세요"
                                         value={escrowAmountUSDT}
                                         type='number'
@@ -3020,7 +3020,7 @@ export default function SettingsPage({ params }: any) {
 
                                     <button
                                         disabled={!address || !escrowAmountUSDT || updatingEscrowAmountUSDT}
-                                        className={`bg-gray-700 text-zinc-100 rounded-lg p-2 ${!escrowAmountUSDT ? "opacity-50" : ""}`}
+                                        className={`bg-gray-700  rounded-lg p-2 ${!escrowAmountUSDT ? "opacity-50" : ""}`}
                                         onClick={() => {
 
                                             confirm(
@@ -3149,7 +3149,7 @@ export default function SettingsPage({ params }: any) {
                                     <button
                                         disabled={!address || !withdrawalBankName || !withdrawalAccountNumber || !withdrawalAccountHolder
                                             || writingStoreWithdrawalBankInfo}
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!withdrawalBankName || !withdrawalAccountNumber || !withdrawalAccountHolder || writingStoreWithdrawalBankInfo
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3293,7 +3293,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !bankName || !accountNumber || !accountHolder
                                             || writingStoreBankInfo
                                         }
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!bankName || !accountNumber || !accountHolder || writingStoreBankInfo
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3410,7 +3410,7 @@ export default function SettingsPage({ params }: any) {
                                         disabled={!address || !payactionApiKey || !payactionWebhookKey || !payactionShopId
                                             || updatingPayactionKeys
                                         }
-                                        className={`w-full bg-gray-700 text-zinc-100 rounded-lg p-2
+                                        className={`w-full bg-gray-700  rounded-lg p-2
                                             ${!payactionApiKey || !payactionWebhookKey || !payactionShopId || updatingPayactionKeys
                                             ? "opacity-50" : ""}`}
                                         onClick={() => {
@@ -3434,7 +3434,7 @@ export default function SettingsPage({ params }: any) {
                                             아래 버튼을 눌러 초기화 해주세요.
                                         </span>
                                         <button
-                                            className={`w-full bg-red-500 text-zinc-100 rounded-lg p-2
+                                            className={`w-full bg-red-500  rounded-lg p-2
                                                 ${updatingPayactionKeys
                                                 ? "opacity-50" : ""}`}
                                             onClick={() => {

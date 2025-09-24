@@ -1438,7 +1438,7 @@ export default function Index({ params }: any) {
                       />
                   </button>
                   {/* title */}
-                  <span className="text-sm text-zinc-100 font-normal">
+                  <span className="text-sm  font-normal">
                       홈으로
                   </span>
               </div>
@@ -1489,7 +1489,7 @@ export default function Index({ params }: any) {
                       <div className="flex flex-row items-center justify-center gap-2">
 
                           <button
-                              className="text-lg text-zinc-100 underline"
+                              className="text-lg  underline"
                               onClick={() => {
                                   navigator.clipboard.writeText(address);
                                   toast.success(Copied_Wallet_Address);
@@ -1584,7 +1584,7 @@ export default function Index({ params }: any) {
                                 width={40}
                                 height={40}
                               />
-                              <h2 className="text-lg font-normal text-white">{Order}</h2>
+                              <h2 className="text-lg font-normal ">{Order}</h2>
                             </div>
 
                             {/* check box for private sale */}
@@ -1691,7 +1691,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-400 text-white px-2 py-2 rounded-md"
+                                className="bg-red-400  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 0 && setKrwAmount(krwAmount - 1);
                                 }}
@@ -1701,7 +1701,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-600 text-white px-2 py-2 rounded-md"
+                                className="bg-red-600  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 10 && setKrwAmount(krwAmount - 10);
                                 }}
@@ -1711,7 +1711,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-800 text-white px-2 py-2 rounded-md"
+                                className="bg-red-800  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 100 && setKrwAmount(krwAmount - 100);
                                 }}
@@ -1721,7 +1721,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-900 text-white px-2 py-2 rounded-md"
+                                className="bg-red-900  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 1000 && setKrwAmount(krwAmount - 1000);
                                 }}
@@ -1774,7 +1774,7 @@ export default function Index({ params }: any) {
                             <div className="flex flex-col gap-2">
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-400 text-white px-2 py-2 rounded-md"
+                                className="bg-green-400  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 1);
                                 }}
@@ -1783,7 +1783,7 @@ export default function Index({ params }: any) {
                               </button>
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-600 text-white px-2 py-2 rounded-md"
+                                className="bg-green-600  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 10);
                                 }}
@@ -1793,7 +1793,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-800 text-white px-2 py-2 rounded-md"
+                                className="bg-green-800  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 100);
                                 }}
@@ -1803,7 +1803,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-900 text-white px-2 py-2 rounded-md"
+                                className="bg-green-900  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 1000);
                                 }}
@@ -1932,7 +1932,7 @@ export default function Index({ params }: any) {
                                     height={24}
                                   />
                                 </div>
-                                <div className="text-white">
+                                <div className="">
                                   {Placing_Order}...
                                 </div>
                   
@@ -1942,7 +1942,7 @@ export default function Index({ params }: any) {
                           ) : (
                               <button
                                   disabled={usdtAmount === 0 || agreementPlaceOrder === false}
-                                  className={`text-lg text-white px-4 py-2 rounded-md ${usdtAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
+                                  className={`text-lg  px-4 py-2 rounded-md ${usdtAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
                                   onClick={() => {
                                       console.log('Sell USDT');
                                       // open trade detail
@@ -2124,7 +2124,7 @@ export default function Index({ params }: any) {
                                         height={24}
                                       />
                                     </div>
-                                    <div className="text-white">
+                                    <div className="">
                                       {Placing_Order}...
                                     </div>
                       
@@ -2132,7 +2132,7 @@ export default function Index({ params }: any) {
                               ) : (
                                   <button
                                       disabled={krwAmount === 0 || agreementPlaceOrder === false}
-                                      className={`text-lg text-white px-4 py-2 rounded-md ${krwAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`text-lg  px-4 py-2 rounded-md ${krwAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
                                       onClick={() => {
                                           console.log('Sell USDT');
                                           // open trade detail
@@ -2182,7 +2182,7 @@ export default function Index({ params }: any) {
                     {/*
                     <div className="flex flex-col gap-2 items-center">
                       <div className="text-sm">{Total}</div>
-                      <div className="text-xl font-normal text-white">
+                      <div className="text-xl font-normal ">
                         {buyOrders.length}
                       </div>
                     </div>
@@ -2269,7 +2269,7 @@ export default function Index({ params }: any) {
                   <div className="mt-4 flex flex-row items-center gap-2">
                     <button
                       disabled={loadingFetchSellOrders || requestingPayment.some((item) => item === true) || escrowing.some((item) => item === true) || confirmingPayment.some((item) => item === true)}
-                      className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${loadingFetchSellOrders ? 'bg-gray-500' : 'bg-green-500'}`}
+                      className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${loadingFetchSellOrders ? 'bg-gray-500' : 'bg-green-500'}`}
                       onClick={fetchBuyOrders}
                     >
                       <Image
@@ -2296,7 +2296,7 @@ export default function Index({ params }: any) {
 
                   <thead>
                       <tr
-                          className="bg-gray-800 text-white text-xs h-10 "
+                          className="bg-gray-800  text-xs h-10 "
                       >
 
                           <th className="text-left ">{Opened_at}</th>
@@ -2454,7 +2454,7 @@ export default function Index({ params }: any) {
                             
                                   <button
                                     disabled={cancellings[index]}
-                                    className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${cancellings[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                    className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${cancellings[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                     onClick={() => cancelBuyOrder(item._id, index)}
                                   >
                                     <Image
@@ -2509,7 +2509,7 @@ export default function Index({ params }: any) {
                                     <button
                                       disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                       
-                                      className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                       onClick={() => {
          
                                         requestPayment(
@@ -2562,7 +2562,7 @@ export default function Index({ params }: any) {
 
                                       <button
                                         disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
-                                        className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                        className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                         onClick={() => {
                                           confirmPayment(
                                             index,
@@ -2862,9 +2862,9 @@ export default function Index({ params }: any) {
 
                               <div className="flex flex-row items-start gap-2">
 
-                                <p className="text-lg font-normal text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-lg font-normal ">{item.usdtAmount} USDT</p>
 
-                                <p className="text-lg font-normal text-white">{Rate}: {
+                                <p className="text-lg font-normal ">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -2909,7 +2909,7 @@ export default function Index({ params }: any) {
                                     {/*
                                     <div
                                       className="text-sm
-                                        bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 cursor-pointer"
+                                        bg-blue-500  px-3 py-2 rounded-md hover:bg-blue-600 cursor-pointer"
 
                                       onClick={() => {
                                         router.push(
@@ -2933,7 +2933,7 @@ export default function Index({ params }: any) {
                                            
                                     <button
                                         disabled={cancellings[index]}
-                                        className={`text-sm bg-red-500 text-white px-3 py-2 rounded-md ${cancellings[index] ? 'bg-gray-500' : ''}`}
+                                        className={`text-sm bg-red-500  px-3 py-2 rounded-md ${cancellings[index] ? 'bg-gray-500' : ''}`}
                                         onClick={() => {
                                           // api call
                                           // cancelBuyOrder
@@ -3016,7 +3016,7 @@ export default function Index({ params }: any) {
 
                                     {/*
                                     <button
-                                      className="bg-blue-500 text-white px-2 py-1 rounded-md"
+                                      className="bg-blue-500  px-2 py-1 rounded-md"
                                       onClick={() => {
                                         
 
@@ -3061,7 +3061,7 @@ export default function Index({ params }: any) {
 
                               {item.walletAddress === address && item.privateSale && (
                                 <button
-                                    className=" flex flex-row text-sm bg-blue-500 text-white px-2 py-1 rounded-md"
+                                    className=" flex flex-row text-sm bg-blue-500  px-2 py-1 rounded-md"
                                     onClick={() => {
                                       
                                       ////router.push(`/sell-usdt/${item._id}`);
@@ -3256,7 +3256,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3272,15 +3272,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3292,7 +3292,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3301,7 +3301,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -3313,7 +3313,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

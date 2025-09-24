@@ -868,7 +868,7 @@ export default function Index({ params }: any) {
                       <div className="hidden flex-row items-center justify-center gap-2">
 
                           <button
-                              className="text-lg text-zinc-100 underline"
+                              className="text-lg  underline"
                               onClick={() => {
                                   navigator.clipboard.writeText(address);
                                   toast.success(Copied_Wallet_Address);
@@ -1020,10 +1020,10 @@ export default function Index({ params }: any) {
           {/* right space */}
           {/* background transparent */}
           <select
-            //className="p-2 text-sm bg-zinc-800 text-white rounded"
+            //className="p-2 text-sm bg-zinc-800  rounded"
 
 
-            className="p-2 text-sm bg-zinc-800 text-white rounded"
+            className="p-2 text-sm bg-zinc-800  rounded"
 
             onChange={(e) => {
               const lang = e.target.value;
@@ -1093,7 +1093,7 @@ export default function Index({ params }: any) {
                       height={35}
                       className="rounded-lg w-6 h-6"
                     />
-                    <span className="text-sm md:text-lg text-white">
+                    <span className="text-sm md:text-lg ">
                       마이 페이지
                     </span>
               </div>
@@ -1267,7 +1267,7 @@ export default function Index({ params }: any) {
                           );
 
                         }}
-                        className="w-full flex items-center justify-start bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className="w-full flex items-center justify-start bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         <Image
                           src="/icon-buy-label-color.png"
@@ -1310,7 +1310,7 @@ export default function Index({ params }: any) {
                           );
 
                         }}
-                        className="w-full flex items-center justify-start bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className="w-full flex items-center justify-start bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         <Image
                           src="/icon-sell-label-color.png"
@@ -1341,7 +1341,7 @@ export default function Index({ params }: any) {
                           router.push('/' + params.lang + '/' + params.center + '/store');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         가맹점관리
                       </button>
@@ -1355,7 +1355,7 @@ export default function Index({ params }: any) {
                           //router.push('/' + params.lang + '/' + params.center + '/sell-usdt');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         판매자 관리
                       </button>
@@ -1370,7 +1370,7 @@ export default function Index({ params }: any) {
                           //router.push('/' + params.lang + '/' + params.center + '/buyorder');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         구매자 관리
                       </button>
@@ -1386,7 +1386,7 @@ export default function Index({ params }: any) {
                           router.push('/' + params.lang + '/' + params.center + '/dashboard/trade-history');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         거래 관리
                       </button>
@@ -1415,7 +1415,7 @@ export default function Index({ params }: any) {
                           router.push('/' + params.lang + '/' + params.center + '/admin/store');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         가맹점관리
                       </button>
@@ -1429,7 +1429,7 @@ export default function Index({ params }: any) {
                           //router.push('/' + params.lang + '/' + params.center + '/sell-usdt');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         판매자 관리
                       </button>
@@ -1443,7 +1443,7 @@ export default function Index({ params }: any) {
                           //router.push('/' + params.lang + '/' + params.center + '/sell-usdt');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         구매자 관리
                       </button>
@@ -1457,7 +1457,7 @@ export default function Index({ params }: any) {
                           router.push('/' + params.lang + '/' + params.center + '/trade-history');
 
                         }}
-                        className=" w-full flex bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                        className=" w-full flex bg-gray-700  px-4 py-2 rounded-lg hover:bg-blue-600"
                       >
                         거래 관리
                       </button>
@@ -1512,7 +1512,7 @@ function Header() {
       />
 
       
-      <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 text-zinc-100">
+      <h1 className="text-2xl md:text-6xl font-normal md:font-bold tracking-tighter mb-6 ">
         thirdweb SDK
         <span className="text-zinc-300 inline-block mx-1"> + </span>
         <span className="inline-block -skew-x-6 text-blue-400"> Next.js </span>

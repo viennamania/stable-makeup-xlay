@@ -2112,7 +2112,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-400 text-white px-2 py-2 rounded-md"
+                                className="bg-red-400  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 0 && setKrwAmount(krwAmount - 1);
                                 }}
@@ -2122,7 +2122,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-600 text-white px-2 py-2 rounded-md"
+                                className="bg-red-600  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 10 && setKrwAmount(krwAmount - 10);
                                 }}
@@ -2132,7 +2132,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-800 text-white px-2 py-2 rounded-md"
+                                className="bg-red-800  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 100 && setKrwAmount(krwAmount - 100);
                                 }}
@@ -2142,7 +2142,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-red-900 text-white px-2 py-2 rounded-md"
+                                className="bg-red-900  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   krwAmount > 1000 && setKrwAmount(krwAmount - 1000);
                                 }}
@@ -2195,7 +2195,7 @@ export default function Index({ params }: any) {
                             <div className="flex flex-col gap-2">
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-400 text-white px-2 py-2 rounded-md"
+                                className="bg-green-400  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 1);
                                 }}
@@ -2204,7 +2204,7 @@ export default function Index({ params }: any) {
                               </button>
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-600 text-white px-2 py-2 rounded-md"
+                                className="bg-green-600  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 10);
                                 }}
@@ -2214,7 +2214,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-800 text-white px-2 py-2 rounded-md"
+                                className="bg-green-800  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 100);
                                 }}
@@ -2224,7 +2224,7 @@ export default function Index({ params }: any) {
 
                               <button
                                 disabled={usdtAmount === 0}
-                                className="bg-green-900 text-white px-2 py-2 rounded-md"
+                                className="bg-green-900  px-2 py-2 rounded-md"
                                 onClick={() => {
                                   setKrwAmount(krwAmount + 1000);
                                 }}
@@ -2363,7 +2363,7 @@ export default function Index({ params }: any) {
                           ) : (
                               <button
                                   disabled={usdtAmount === 0 || agreementPlaceOrder === false}
-                                  className={`text-lg text-white px-4 py-2 rounded-md ${usdtAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
+                                  className={`text-lg  px-4 py-2 rounded-md ${usdtAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
                                   onClick={() => {
                                       console.log('Buy USDT');
                                       // open trade detail
@@ -2516,7 +2516,7 @@ export default function Index({ params }: any) {
                               ) : (
                                   <button
                                       disabled={krwAmount === 0 || agreementPlaceOrder === false}
-                                      className={`text-lg text-white  px-4 py-2 rounded-md ${krwAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`text-lg   px-4 py-2 rounded-md ${krwAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
 
 
                                       onClick={() => {
@@ -2989,7 +2989,7 @@ export default function Index({ params }: any) {
                                   {/*
                                   <button
                                     disabled={cancellings[index]}
-                                    className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                    className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${cancellings[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                     onClick={() => cancelBuyOrder(item._id, index)}
                                   >
                                     <Image
@@ -3113,7 +3113,7 @@ export default function Index({ params }: any) {
                                     <button
                                       disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                       
-                                      className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                       onClick={() => {
          
                                         requestPayment(
@@ -3151,7 +3151,7 @@ export default function Index({ params }: any) {
                                     {/* functio cancelTrade(index, item._id) */}
                                     <button
                                       disabled={cancellings[index]}
-                                      className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${cancellings[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                      className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${cancellings[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                       onClick={() => {
                                         confirm (
                                           "정말로 취소하시겠습니까? \n\n" +
@@ -3203,7 +3203,7 @@ export default function Index({ params }: any) {
 
                                       <button
                                         disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
-                                        className={`flex flex-row gap-1 text-sm text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                        className={`flex flex-row gap-1 text-sm  px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                         onClick={() => {
                                           confirmPayment(
                                             index,
@@ -3265,7 +3265,7 @@ export default function Index({ params }: any) {
                                         disabled={loadingDeposit[index]}
                                         className={`
                                           w-44 h-8 flex flex-row items-center justify-center
-                                          text-sm text-white px-2 py-1 rounded-md
+                                          text-sm  px-2 py-1 rounded-md
                                           bg-green-500 hover:bg-green-600
                                           transition-all duration-200 ease-in-out
                                           ${loadingDeposit[index] ? 'opacity-50 cursor-not-allowed' : ''}
@@ -3579,9 +3579,9 @@ export default function Index({ params }: any) {
 
                               <div className="flex flex-row items-start gap-2">
 
-                                <p className="text-lg font-normal text-white">{item.usdtAmount} USDT</p>
+                                <p className="text-lg font-normal ">{item.usdtAmount} USDT</p>
 
-                                <p className="text-lg font-normal text-white">{Rate}: {
+                                <p className="text-lg font-normal ">{Rate}: {
 
                                   Number(item.krwAmount / item.usdtAmount).toFixed(2)
 
@@ -3626,7 +3626,7 @@ export default function Index({ params }: any) {
                                     {/*
                                     <div
                                       className="text-sm
-                                        bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 cursor-pointer"
+                                        bg-blue-500  px-3 py-2 rounded-md hover:bg-blue-600 cursor-pointer"
 
                                       onClick={() => {
                                         router.push(
@@ -3651,7 +3651,7 @@ export default function Index({ params }: any) {
                                     {/*
                                     <button
                                         disabled={cancellings[index]}
-                                        className={`text-sm bg-red-500 text-white px-3 py-2 rounded-md ${cancellings[index] ? 'bg-gray-500' : ''}`}
+                                        className={`text-sm bg-red-500  px-3 py-2 rounded-md ${cancellings[index] ? 'bg-gray-500' : ''}`}
                                         onClick={() => {
                                           // api call
                                           // cancelBuyOrder
@@ -3735,7 +3735,7 @@ export default function Index({ params }: any) {
 
                                     {/*
                                     <button
-                                      className="bg-blue-500 text-white px-2 py-1 rounded-md"
+                                      className="bg-blue-500  px-2 py-1 rounded-md"
                                       onClick={() => {
                                         
 
@@ -3780,7 +3780,7 @@ export default function Index({ params }: any) {
 
                               {item.walletAddress === address && item.privateSale && (
                                 <button
-                                    className=" flex flex-row text-sm bg-blue-500 text-white px-2 py-1 rounded-md"
+                                    className=" flex flex-row text-sm bg-blue-500  px-2 py-1 rounded-md"
                                     onClick={() => {
                                       
                                       ////router.push(`/sell-usdt/${item._id}`);
@@ -3958,7 +3958,7 @@ export default function Index({ params }: any) {
             {/* 처음 페이지로 이동 */}
             <button
               disabled={Number(pageValue) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(pageValue) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(pageValue) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
 
                 router.push(`/${params.lang}/admin/store/${params.storecode}/clearance?limit=${limitValue}&page=1`);
@@ -3971,7 +3971,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(pageValue) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(pageValue) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(pageValue) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
 
                 router.push(`/${params.lang}/admin/store/${params.storecode}/clearance?limit=${limitValue}&page=${Number(pageValue) - 1}`);
@@ -3989,7 +3989,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(pageValue) >= Math.ceil(Number(totalCount) / Number(limitValue))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(pageValue) >= Math.ceil(Number(totalCount) / Number(limitValue)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(pageValue) >= Math.ceil(Number(totalCount) / Number(limitValue)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
 
                 router.push(`/${params.lang}/admin/store/${params.storecode}/clearance?limit=${limitValue}&page=${Number(pageValue) + 1}`);
@@ -4002,7 +4002,7 @@ export default function Index({ params }: any) {
             {/* 마지막 페이지로 이동 */}
             <button
               disabled={Number(pageValue) >= Math.ceil(Number(totalCount) / Number(limitValue))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(pageValue) >= Math.ceil(Number(totalCount) / Number(limitValue)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(pageValue) >= Math.ceil(Number(totalCount) / Number(limitValue)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
 
                 router.push(`/${params.lang}/admin/store/${params.storecode}/clearance?limit=${limitValue}&page=${Math.ceil(Number(totalCount) / Number(limitValue))}`);
@@ -4145,7 +4145,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

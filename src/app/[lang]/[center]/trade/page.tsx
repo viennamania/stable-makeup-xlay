@@ -2109,7 +2109,7 @@ export default function Index({ params }: any) {
                       />
                   </button>
                   {/* title */}
-                  <span className="text-sm text-zinc-100 font-normal">
+                  <span className="text-sm  font-normal">
                       홈으로
                   </span>
 
@@ -2163,7 +2163,7 @@ export default function Index({ params }: any) {
                       <div className="flex flex-row items-center justify-center gap-2">
 
                           <button
-                              className="text-lg text-zinc-100 underline"
+                              className="text-lg  underline"
                               onClick={() => {
                                   navigator.clipboard.writeText(address);
                                   toast.success(Copied_Wallet_Address);
@@ -2207,7 +2207,7 @@ export default function Index({ params }: any) {
                     className="w-6 h-6"
                   />
 
-                  <div className="text-xl font-normal text-zinc-100">
+                  <div className="text-xl font-normal ">
                     구매신청 목록
                   </div>
 
@@ -2414,7 +2414,7 @@ export default function Index({ params }: any) {
                       <div className="text-sm">
                         {Buy_Order_Accept}
                       </div>
-                      <div className="text-xl font-normal text-white">
+                      <div className="text-xl font-normal ">
                         {buyOrders.filter((item) => item.status === 'accepted').length}
                       </div>
                     </div>
@@ -2492,7 +2492,7 @@ export default function Index({ params }: any) {
 
 
                             <td className="p-2">
-                              <div className="text-sm text-white ">
+                              <div className="text-sm  ">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
@@ -2548,7 +2548,7 @@ export default function Index({ params }: any) {
 
                                     }
                                   </div>
-                                  <div className="text-xs font-normal text-white">
+                                  <div className="text-xs font-normal ">
                                     {item.walletAddress === address ? 'Me' : item?.nickname}
                                   </div>
 
@@ -2582,13 +2582,13 @@ export default function Index({ params }: any) {
 
                             <td className="p-2">
                               <div className="flex flex-row gap-2 items-center justify-center">
-                                <div className="text-xs font-normal text-white">
+                                <div className="text-xs font-normal ">
                                   {item.seller?.bankInfo?.bankName}
                                 </div>
-                                <div className="text-xs font-normal text-white">
+                                <div className="text-xs font-normal ">
                                   {item.seller?.bankInfo?.accountNumber}
                                 </div>
-                                <div className="text-xs font-normal text-white">
+                                <div className="text-xs font-normal ">
                                   {item.seller?.bankInfo?.accountHolder}
                                 </div>
                               </div>
@@ -2615,7 +2615,7 @@ export default function Index({ params }: any) {
                                           paymentAmounts.map((item, idx) => idx === index ? Number(e.target.value) : item)
                                         );
                                       }}
-                                      className="w-20 h-8 rounded-md text-right text-white text-lg text-semibold"
+                                      className="w-20 h-8 rounded-md text-right  text-lg text-semibold"
                                     />
                                   ) : (
                                     <></>
@@ -2639,7 +2639,7 @@ export default function Index({ params }: any) {
 
                                   <div className="flex flex-row gap-1 items-center justify-center">
                                     
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {item.seller?.nickname}
                                     </div>
 
@@ -2647,7 +2647,7 @@ export default function Index({ params }: any) {
                                       {Trade_Started}
                                     </div>
 
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
 
                                       {params.lang === 'ko' ? (
                                         <p>{
@@ -2682,7 +2682,7 @@ export default function Index({ params }: any) {
                                 {item.status === 'paymentRequested' && (
                                   <div className="flex flex-row gap-2 items-center justify-center">
                                     
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {item.seller?.nickname}
                                     </div>
                                     
@@ -2695,7 +2695,7 @@ export default function Index({ params }: any) {
                                     </div>
 
 
-                                    <div className="text-sm text-white">
+                                    <div className="text-sm ">
                                       {/* from now */}
                                       {
                                         new Date().getTime() - new Date(item.paymentRequestedAt).getTime() < 1000 * 60 ? (
@@ -2714,7 +2714,7 @@ export default function Index({ params }: any) {
 
                                 {item.status === 'cancelled' && (
                                   <div className="flex flex-row gap-2 items-center justify-center">
-                                       <span className="text-sm text-white">
+                                       <span className="text-sm ">
                                         {item.seller?.nickname}
                                       </span>
 
@@ -2725,7 +2725,7 @@ export default function Index({ params }: any) {
                                       </div>
 
 
-                                      <div className="text-sm text-white">
+                                      <div className="text-sm ">
                                         {
                                           // from now
                                           new Date().getTime() - new Date(item.cancelledAt).getTime() < 1000 * 60 ? (
@@ -2745,7 +2745,7 @@ export default function Index({ params }: any) {
                                 {/* if status is accepted, show payment request button */}
                                 {item.status === 'paymentConfirmed' && (
                                   <div className="flex flex-row gap-2 items-center justify-center">
-                                    <span className="text-sm font-normal text-white">
+                                    <span className="text-sm font-normal ">
                                       {item.seller?.nickname}
                                     </span>
 
@@ -2755,7 +2755,7 @@ export default function Index({ params }: any) {
 
 
                                     <span
-                                      className="text-sm text-white"
+                                      className="text-sm "
                                     >{
                                       //item.paymentConfirmedAt && new Date(item.paymentConfirmedAt)?.toLocaleString()
                                       // from now
@@ -2789,7 +2789,7 @@ export default function Index({ params }: any) {
                               <div className="flex flex-col gap-2 items-start justify-start">
 
                                 {item.status === 'accepted' && item.seller && item.seller.walletAddress !== address && (
-                                  <span className="text-sm text-white">
+                                  <span className="text-sm ">
                                     {item.seller.nickname}
                                   </span>
                                 )}
@@ -2809,7 +2809,7 @@ export default function Index({ params }: any) {
                                     <button
                                       disabled={cancellings[index] || !agreementForCancelTrade[index]}
                    
-                                      className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                      className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                         
                                       onClick={() => {
                                         cancelTrade(item._id, index);
@@ -2852,9 +2852,9 @@ export default function Index({ params }: any) {
                                     <button
                                       disabled={acceptingBuyOrder[index] || !agreementForTrade[index]}
                                       className={`
-                                        flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md
+                                        flex flex-row gap-1 text-xs  px-2 py-1 rounded-md
                                         ${acceptingBuyOrder[index] || !agreementForTrade[index] ?
-                                          'bg-zinc-500 text-white' : 'bg-green-500 text-white '}
+                                          'bg-zinc-500 ' : 'bg-green-500  '}
                                       `}
                                       onClick={() => {
                                         acceptBuyOrder(index, item._id, smsReceiverMobileNumber);
@@ -2907,7 +2907,7 @@ export default function Index({ params }: any) {
                                     <button
                                       disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                       
-                                      className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                       onClick={() => {
 
                                         requestPayment(
@@ -2970,7 +2970,7 @@ export default function Index({ params }: any) {
 
                                       <button
                                         disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
-                                        className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                        className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                         onClick={() => {
                                           confirmPayment(
                                             index,
@@ -3019,7 +3019,7 @@ export default function Index({ params }: any) {
 
                                       <button
                                         disabled={rollbackingPayment[index] || !rollbackPaymentCheck[index]}
-                                        className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                        className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                         onClick={() => {
                                           rollbackPayment(
                                             index,
@@ -3064,7 +3064,7 @@ export default function Index({ params }: any) {
 
 
 
-                            <td className="text-white p-2">
+                            <td className=" p-2">
                               {
                                 "#" + item.tradeId
                               }
@@ -3217,7 +3217,7 @@ export default function Index({ params }: any) {
                                     {/* share button */}
                                     {/*
                                     <button
-                                      className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                      className="text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                       onClick={() => {
 
                                         window.open(`https://gold.goodtether.com/${params.lang}/sell-usdt/${item._id}`, '_blank');
@@ -3353,7 +3353,7 @@ export default function Index({ params }: any) {
 
                                     {/* share button */}
                                     <button
-                                      className="ml-5 text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                                      className="ml-5 text-sm bg-blue-500  px-2 py-1 rounded-md hover:bg-blue-600"
                                       onClick={() => {
 
                                         //window.open(`https://gold.goodtether.com/${params.lang}/${params.center}/sell-usdt/${item._id}`, '_blank');
@@ -3501,7 +3501,7 @@ export default function Index({ params }: any) {
 
                                 {address && item.walletAddress !== address && item?.buyer && item?.buyer?.walletAddress === address && (
                                   <button
-                                    className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                                    className="bg-green-500  px-4 py-2 rounded-lg"
                                     onClick={() => {
                                         //console.log('Buy USDT');
                                         // go to chat
@@ -3665,7 +3665,7 @@ export default function Index({ params }: any) {
 
                                         <button
                                           disabled={cancellings[index] || !agreementForCancelTrade[index]}
-                                          className={`text-sm bg-red-500 text-white px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
+                                          className={`text-sm bg-red-500  px-2 py-1 rounded-md ${cancellings[index] || !agreementForCancelTrade[index] ? 'opacity-50 cursor-not-allowed' : 'hover:bg-red-600'}`}
                                           onClick={() => {
 
                                             cancelTrade(item._id, index);
@@ -3750,7 +3750,7 @@ export default function Index({ params }: any) {
                                   <button
                                     disabled={escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index]}
                                     
-                                    className={`flex flex-row gap-1 text-xs text-white px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                    className={`flex flex-row gap-1 text-xs  px-2 py-1 rounded-md ${escrowing[index] || requestingPayment[index] || !requestPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
                                     onClick={() => {
 
                                       requestPayment(
@@ -3945,7 +3945,7 @@ export default function Index({ params }: any) {
 
                                                 <button
                                                   disabled={!address || !agreementForTrade[index]}
-                                                  className={`m-10 text-lg text-white px-4 py-2 rounded-md
+                                                  className={`m-10 text-lg  px-4 py-2 rounded-md
                                                     ${!address || !agreementForTrade[index] ? 'bg-zinc-800' : 'bg-green-500 hover:bg-green-600'}
                                                     `}
                                                   onClick={() => {
@@ -4052,7 +4052,7 @@ export default function Index({ params }: any) {
 
               <button
                 disabled={Number(page) <= 1}
-                className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+                className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
                 onClick={() => {
                   
                   router.push(`/${params.lang}/${params.center}/buyorder?limit=${Number(limit)}&page=${Number(page) - 1}`);
@@ -4070,7 +4070,7 @@ export default function Index({ params }: any) {
 
               <button
                 disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-                className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+                className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
                 onClick={() => {
                   
                   router.push(`/${params.lang}/${params.center}/buyorder?limit=${Number(limit)}&page=${Number(page) + 1}`);
@@ -4140,7 +4140,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -4156,15 +4156,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -4176,7 +4176,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -4185,7 +4185,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -4197,7 +4197,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

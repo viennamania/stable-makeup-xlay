@@ -1775,7 +1775,7 @@ export default function Index({ params }: any) {
 
         <h1 className="text-2xl font-bold">접근권한을 체크중입니다...</h1>
         <p className="text-lg">이 페이지에 접근할 권한이 없습니다.</p>
-        <div className="text-lg text-zinc-100">{address}</div>
+        <div className="text-lg ">{address}</div>
 
               {/* logout button */}
               <button
@@ -2127,7 +2127,7 @@ export default function Index({ params }: any) {
                   className="w-6 h-6"
                 />
 
-                <div className="text-xl font-normal text-zinc-100">
+                <div className="text-xl font-normal ">
                   가맹점관리
                 </div>
 
@@ -2337,7 +2337,7 @@ export default function Index({ params }: any) {
 
                     } }
                     className="w-48 p-2
-                    bg-zinc-800 text-zinc-100
+                    bg-zinc-800 
                     border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">
@@ -2374,7 +2374,7 @@ export default function Index({ params }: any) {
                     } }
                     placeholder="가맹점 이름"
                     className="w-52 p-2
-                    bg-zinc-800 text-zinc-100
+                    bg-zinc-800 
                     border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   
@@ -2401,7 +2401,7 @@ export default function Index({ params }: any) {
 
                       insertStore();
                     }}
-                    className={`bg-gray-700 text-white px-4 py-2 rounded-lg w-full
+                    className={`bg-gray-700  px-4 py-2 rounded-lg w-full
                       ${!isAdmin
                       || insertingStore
                       || fetchingAllStore
@@ -2429,7 +2429,7 @@ export default function Index({ params }: any) {
                       type="date"
                       value={searchFromDate}
                       onChange={(e) => setSearchFromDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                     />
                   </div>
 
@@ -2445,7 +2445,7 @@ export default function Index({ params }: any) {
                       type="date"
                       value={searchToDate}
                       onChange={(e) => setSearchToDate(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 text-zinc-100"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                     />
                   </div>
                 </div>
@@ -2463,7 +2463,7 @@ export default function Index({ params }: any) {
                     onChange={(e) => setSearchStorecode(e.target.value)}
                     placeholder="가맹점 코드, 이름"
                     className="w-48 p-2
-                    bg-zinc-800 text-zinc-100
+                    bg-zinc-800 
                     border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
 
@@ -2472,10 +2472,10 @@ export default function Index({ params }: any) {
                       setPageValue(1);
                       fetchAllStore();
                     }}
-                    //className="bg-gray-700 text-white px-4 py-2 rounded-lg w-full"
+                    //className="bg-gray-700  px-4 py-2 rounded-lg w-full"
                     className={`
                       w-32
-                      bg-gray-700 text-white px-4 py-2 rounded-lg
+                      bg-gray-700  px-4 py-2 rounded-lg
                       ${!isAdmin || fetchingAllStore ? 'opacity-50 cursor-not-allowed' : ''}
                     `}
                     
@@ -2839,7 +2839,7 @@ export default function Index({ params }: any) {
 
                                   />
                                   <div className="flex flex-col items-start justify-center gap-1">
-                                    <span className="text-sm font-bold text-zinc-100">
+                                    <span className="text-sm font-bold ">
                                       {item.storeName.length > 8 ? item.storeName.slice(0, 8) + '...' : item.storeName}
                                     </span>
                                     <button
@@ -2847,13 +2847,13 @@ export default function Index({ params }: any) {
                                         navigator.clipboard.writeText(item.storecode);
                                         toast.success('가맹점 코드가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-zinc-100 hover:text-blue-500
+                                      className="text-sm  hover:text-blue-500
                                       hover:underline"
                                     >
                                       {item.storecode}
                                     </button>
 
-                                    <span className="text-sm text-zinc-100">
+                                    <span className="text-sm ">
                                       {item?.agentName?.slice(0, 5) || '에이전트 없음'}
                                     </span>
 
@@ -2888,7 +2888,7 @@ export default function Index({ params }: any) {
                                   className={`
                                     ${!isAdmin || insertingStore ? 'opacity-50 cursor-not-allowed' : ''}
                                     w-full
-                                    bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                    bg-blue-700 text-sm  px-2 py-1 rounded-lg
                                     hover:bg-blue-700/80
                                   `}
                                 >
@@ -2901,7 +2901,7 @@ export default function Index({ params }: any) {
                                       '/' + params.lang + '/admin/store/' + item.storecode + '/memo'
                                     );
                                   }}
-                                  className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                  className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-gray-700/80"
                                 >
                                   메모하기
@@ -2930,7 +2930,7 @@ export default function Index({ params }: any) {
 
 
                               <div className="flex flex-col items-center justify-center gap-2">
-                                <span className="text-lg text-zinc-100">
+                                <span className="text-lg ">
                                   {
                                     item.totalBuyerCount ? item.totalBuyerCount : 0
                                   }{' '}명
@@ -2955,7 +2955,7 @@ export default function Index({ params }: any) {
                                   );
                                 }}
                                 className="w-full mb-2
-                                bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                bg-blue-700 text-sm  px-2 py-1 rounded-lg
                                 hover:bg-blue-700/80"
                               >
                                 회원관리
@@ -2967,7 +2967,7 @@ export default function Index({ params }: any) {
                           {/*
                           <td className="p-2">
                             <div className="flex flex-col items-center gap-2">
-                              <span className="text-sm text-zinc-100">
+                              <span className="text-sm ">
                                 {
                                   item.totalBankAccountCount ? item.totalBankAccountCount : 0
                                 }{' '}개
@@ -2978,7 +2978,7 @@ export default function Index({ params }: any) {
                                     '/' + params.lang + '/admin/store/' + item.storecode + '/bank'
                                   );
                                 }}
-                                className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                 hover:bg-gray-700/80"
                               >
                                 통장관리
@@ -3065,12 +3065,12 @@ export default function Index({ params }: any) {
                                 {/* 판매자 통장 */}
                                 {item?.bankInfo ? (
                                   <div className="flex flex-col xl:flex-row items-center gap-2">
-                                    <span className="text-sm text-zinc-100">
+                                    <span className="text-sm ">
                                       {
                                         item?.bankInfo?.bankName
                                       }
                                     </span>
-                                    <span className="text-sm text-zinc-100">
+                                    <span className="text-sm ">
                                       {
                                         item?.bankInfo?.accountHolder
                                       }
@@ -3089,7 +3089,7 @@ export default function Index({ params }: any) {
                                         );
                                       }
                                       }
-                                      className="bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
+                                      className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
                                       hover:bg-gray-700/80"
                                     >
                                       통장관리
@@ -3142,7 +3142,7 @@ export default function Index({ params }: any) {
 
                                   <div className="w-full flex flex-row items-center justify-center gap-2
                                   border-b border-gray-300 pb-2">
-                                    <span className="text-sm text-zinc-100">
+                                    <span className="text-sm ">
                                       {
                                         item.totalPaymentConfirmedCount ? item.totalPaymentConfirmedCount : 0
                                       }
@@ -3190,7 +3190,7 @@ export default function Index({ params }: any) {
                                   }}
                                   className="mb-2
                                   w-full
-                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  bg-blue-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-blue-700/80"
                                 >
                                   P2P 거래내역
@@ -3229,7 +3229,7 @@ export default function Index({ params }: any) {
                                         }
                                       </button>
 
-                                      <span className="text-xl text-zinc-100 font-normal">
+                                      <span className="text-xl  font-normal">
                                         {
                                           item.settlementFeePercent ? item.settlementFeePercent : 0.00
                                         }%
@@ -3269,7 +3269,7 @@ export default function Index({ params }: any) {
                                   )}
 
                                   {' '}
-                                  <span className="text-xl text-zinc-100 font-normal">
+                                  <span className="text-xl  font-normal">
                                     {
                                       item.agentFeePercent ? item.agentFeePercent : 0.00
                                     }%
@@ -3291,7 +3291,7 @@ export default function Index({ params }: any) {
 
                                 <div className="w-full flex flex-row items-center justify-center gap-2
                                 border-b border-gray-300 pb-2">
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm ">
                                     {
                                       item.totalSettlementCount ? item.totalSettlementCount : 0
                                     }
@@ -3406,7 +3406,7 @@ export default function Index({ params }: any) {
                                   }}
                                   className="mb-2
                                   w-full
-                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  bg-blue-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-blue-700/80"
                                 >
                                   결제 및 정산내역
@@ -3434,7 +3434,7 @@ export default function Index({ params }: any) {
 
                                 <div className="w-full flex flex-row items-center justify-center gap-2
                                 border-b border-gray-300 pb-2">
-                                  <span className="text-sm text-zinc-100">
+                                  <span className="text-sm ">
                                     {
                                       item.totalPaymentConfirmedClearanceCount ? item.totalPaymentConfirmedClearanceCount : 0
                                     }
@@ -3492,7 +3492,7 @@ export default function Index({ params }: any) {
                                 className={`
                                   ${!isAdmin || insertingStore ? 'opacity-50 cursor-not-allowed' : ''}
                                   w-full mb-2
-                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  bg-blue-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-blue-700/80
                                 `}
                               >
@@ -3536,7 +3536,7 @@ export default function Index({ params }: any) {
 
 
                                 {/* settlementWalletAddress */}
-                                <span className="text-sm text-zinc-100">
+                                <span className="text-sm ">
                                   {item.settlementWalletAddress ? (
                                     <button
                                       onClick={() => {
@@ -3597,7 +3597,7 @@ export default function Index({ params }: any) {
                                 className={`
                                   ${!isAdmin || insertingStore ? 'opacity-50 cursor-not-allowed' : ''}
                                   w-full mb-2
-                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  bg-blue-700 text-sm  px-2 py-1 rounded-lg
                                   hover:bg-blue-700/80
                                 `}
                               >
@@ -3627,7 +3627,7 @@ export default function Index({ params }: any) {
                   {allStore?.map((item, index) => (
                     <div key={index} className="bg-white shadow-md rounded-lg p-4">
                       <h2 className="text-lg font-normal">{item.storeName}</h2>
-                      <p className="text-sm text-zinc-100">{item.storeDescription}</p>
+                      <p className="text-sm ">{item.storeDescription}</p>
                     </div>
                   ))}
 
@@ -3671,7 +3671,7 @@ export default function Index({ params }: any) {
             {/* 처음 페이지로 이동 */}
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/store?limit=${Number(limit)}&page=1`);
@@ -3684,7 +3684,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) <= 1}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/store?limit=${Number(limit)}&page=${Number(page) - 1}`);
@@ -3702,7 +3702,7 @@ export default function Index({ params }: any) {
 
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/store?limit=${Number(limit)}&page=${Number(page) + 1}`);
@@ -3715,7 +3715,7 @@ export default function Index({ params }: any) {
             {/* 마지막 페이지로 이동 */}
             <button
               disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm text-white px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
                 router.push(`/${params.lang}/admin/store?limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`);
@@ -3786,7 +3786,7 @@ const TradeDetail = (
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between text-zinc-100">
+          <div className="flex justify-between ">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -3802,15 +3802,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 text-zinc-100">
+          <div className="mt-4 ">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 text-zinc-100">
+        <div className="mt-6 border-t pt-4 ">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block text-zinc-100">I want to pay</label>
+              <label className="block ">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -3822,7 +3822,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">I will receive</label>
+              <label className="block ">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -3831,7 +3831,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block text-zinc-100">Commission</label>
+              <label className="block ">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -3843,7 +3843,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500 text-white px-4 py-2 rounded-lg"
+                className="bg-green-500  px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

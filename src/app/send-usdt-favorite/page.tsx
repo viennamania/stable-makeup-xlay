@@ -464,7 +464,7 @@ export default function SendUsdt() {
         */}
 
         <div className="flex justify-start space-x-4 mb-10">
-            <button onClick={() => router.push('/')} className="text-zinc-100 font-normal underline">Go Home</button>
+            <button onClick={() => router.push('/')} className=" font-normal underline">Go Home</button>
         </div>
         
 
@@ -537,11 +537,11 @@ export default function SendUsdt() {
             </div>
 
               {/* goto buy usdt page */}
-              <div className="text-sm font-normal text-zinc-100 mt-2 w-full text-right">
+              <div className="text-sm font-normal  mt-2 w-full text-right">
    
                 <a
                   href="/buy-usdt"
-                  className="text-zinc-100 underline"
+                  className=" underline"
                 >
                   Go Buy USDT
                 </a>
@@ -552,11 +552,11 @@ export default function SendUsdt() {
             <div className="w-full flex flex-col gap-2 items-start">
               <div className="text-sm">My Balance</div>
               <div className='w-full flex flex-row items-center justify-between'>
-                <div className="text-5xl font-normal text-white">
+                <div className="text-5xl font-normal ">
                   {Number(balance).toFixed(2)} <span className="text-lg">USDT</span>
                 </div>
 
-                <div className="text-xs font-normal text-white">
+                <div className="text-xs font-normal ">
                   {/* check box for receiver address input box */}
                   <input
                     type="checkbox"
@@ -691,7 +691,7 @@ export default function SendUsdt() {
                   disabled={true}
                   type="text"
                   placeholder="User wallet address"
-                  className="w-full p-2 border border-gray-300 rounded text-white text-sm xl:text-lg font-normal"
+                  className="w-full p-2 border border-gray-300 rounded  text-sm xl:text-lg font-normal"
                   value={recipient?.walletAddress}
                   onChange={(e) => {
   
@@ -730,7 +730,7 @@ export default function SendUsdt() {
                     disabled={sending}
                     type="text"
                     placeholder="Enter wallet address"
-                    className="w-full p-2 border border-gray-300 rounded text-white bg-black text-sm xl:text-2xl font-normal"
+                    className="w-full p-2 border border-gray-300 rounded  bg-black text-sm xl:text-2xl font-normal"
                     value={recipient.walletAddress}
                     onChange={(e) => setRecipient({
                       ...recipient,
@@ -754,7 +754,7 @@ export default function SendUsdt() {
                           height: '38px',
                         }}
                       />
-                      <div className="text-white">{recipient?.nickname}</div>
+                      <div className="">{recipient?.nickname}</div>
                       <Image
                         src="/verified.png"
                         alt="check"
@@ -799,7 +799,7 @@ export default function SendUsdt() {
                     ${
                     !address || !recipient?.walletAddress || !amount || sending
                     ?'bg-gray-300 text-gray-400'
-                    : 'bg-green-500 text-white'
+                    : 'bg-green-500 '
                     }
                    
                    `}
@@ -825,7 +825,7 @@ export default function SendUsdt() {
                     />
                   </div>
                 )}
-                <div className="text-white">
+                <div className="">
                   {sending ? 'Sending...' : ''}
                 </div>
 
