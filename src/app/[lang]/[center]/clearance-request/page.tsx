@@ -3108,7 +3108,7 @@ const [tradeSummary, setTradeSummary] = useState({
             //className="p-2 text-sm bg-zinc-800 text-white rounded"
 
 
-            className="p-2 text-sm bg-transparent text-zinc-800 rounded"
+            className="p-2 text-sm bg-zinc-800 text-white rounded"
 
             onChange={(e) => {
               const lang = e.target.value;

@@ -1234,7 +1234,7 @@ export default function Index({ params }: any) {
             //className="p-2 text-sm bg-zinc-800 text-white rounded"
 
 
-            className="p-2 text-sm bg-transparent text-zinc-800 rounded"
+            className="p-2 text-sm bg-zinc-800 text-white rounded"
             value={params.lang}
             onChange={(e) => {
               const lang = e.target.value;

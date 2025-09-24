@@ -1633,49 +1633,6 @@ export default function Index({ params }: any) {
               )}
 
 
-              {!address && (
-                <ConnectButton
-                  client={client}
-                  wallets={wallets}
-
-                  /*
-                  accountAbstraction={{
-                    chain: arbitrum,
-                    sponsorGas: true
-                  }}
-                  */
-                  
-                  theme={"light"}
-
-                  // button color is dark skyblue convert (49, 103, 180) to hex
-                  connectButton={{
-                      style: {
-                          backgroundColor: "#3167b4", // dark skyblue
-                          color: "#f3f4f6", // gray-300
-                          padding: "2px 10px",
-                          borderRadius: "10px",
-                          fontSize: "14px",
-                          width: "60x",
-                          height: "38px",
-                      },
-                      label: "X-Ray 로그인",
-                  }}
-
-                  connectModal={{
-                    size: "wide", 
-                    //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                    showThirdwebBranding: false,
-                  }}
-
-                  locale={"ko_KR"}
-                  //locale={"en_US"}
-                />
-              )}
-
-
-
-
             </div>
         )}
 
@@ -1689,15 +1646,14 @@ export default function Index({ params }: any) {
           {/* right space */}
           {/* background transparent */}
           <select
-            //className="p-2 text-sm bg-zinc-800 text-white rounded"
+            className="p-2 text-sm bg-zinc-800 text-white rounded"
 
-
-            className="p-2 text-sm bg-transparent text-zinc-800 rounded"
+            ///className="p-2 text-sm bg-transparent text-zinc-100 rounded"
 
             onChange={(e) => {
               const lang = e.target.value;
               router.push(
-                "/" + lang + "/" + params.agentcode + "/center"
+                "/" + lang + "/" + params.agentcode
               );
             }}
           >
@@ -2074,12 +2030,12 @@ export default function Index({ params }: any) {
             //className="p-2 text-sm bg-zinc-800 text-white rounded"
 
 
-            className="p-2 text-sm bg-transparent text-zinc-800 rounded"
+            className="p-2 text-sm bg-zinc-800 text-white rounded"
 
             onChange={(e) => {
               const lang = e.target.value;
               router.push(
-                "/" + lang + "/" + params.agentcode + "/center"
+                "/" + lang + "/" + params.agentcode
               );
             }}
           >
