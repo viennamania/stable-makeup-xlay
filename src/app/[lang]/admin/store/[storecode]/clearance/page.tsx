@@ -3088,7 +3088,7 @@ export default function Index({ params }: any) {
                                     }</span>
 
                                     <button
-                                      className="text-sm text-blue-600 font-normal
+                                      className="text-sm text-blue-500 font-normal
                                         border border-blue-600 rounded-lg p-2
                                         bg-blue-100
                                         w-full text-center

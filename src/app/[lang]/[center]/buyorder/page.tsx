@@ -5242,7 +5242,7 @@ const fetchBuyOrders = async () => {
                                   className="rounded-sm w-5 h-5"
                                 />
                                 <button
-                                  className="text-sm text-blue-600 font-normal
+                                  className="text-sm text-blue-500 font-normal
                                   underline
                                   "
                                   onClick={() => {
@@ -5431,7 +5431,7 @@ const fetchBuyOrders = async () => {
                                     className="w-5 h-5"
                                   />
                                   <button
-                                    className="text-sm text-blue-600 font-normal underline"
+                                    className="text-sm text-blue-500 font-normal underline"
                                     onClick={() => {
                                       navigator.clipboard.writeText(item?.escrowWallet.address);
                                       toast.success(Copied_Wallet_Address);
@@ -5643,7 +5643,7 @@ const fetchBuyOrders = async () => {
                                     className="rounded-sm w-5 h-5"
                                   />
                                   <button
-                                    className="text-sm text-blue-600 font-normal
+                                    className="text-sm text-blue-500 font-normal
                                     underline
                                     "
                                     onClick={() => {
@@ -5677,7 +5677,7 @@ const fetchBuyOrders = async () => {
 
                               <div className="flex flex-col gap-2 items-center justify-center">
                                 <button
-                                  className="text-sm text-blue-600 font-normal
+                                  className="text-sm text-blue-500 font-normal
                                     border border-blue-600 rounded-lg p-2
                                     bg-blue-100
                                     w-full text-center
@@ -5701,7 +5701,7 @@ const fetchBuyOrders = async () => {
                                   href={`${paymentUrl}/ko/${clientId}/${item?.storecode}/pay-usdt-reverse/${item?._id}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-600 font-normal hover:underline"
+                                  className="text-sm text-blue-500 font-normal hover:underline"
                                 >
                                   새창
                                 </a>
@@ -5767,7 +5767,7 @@ const fetchBuyOrders = async () => {
                                   href={`${paymentUrl}/ko/${clientId}/${item?.storecode}/pay-usdt-reverse/${item?._id}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-600 font-normal hover:underline"
+                                  className="text-sm text-blue-500 font-normal hover:underline"
                                 >
                                   새창
                                 </a>
@@ -5817,7 +5817,7 @@ const fetchBuyOrders = async () => {
                                     href={`${paymentUrl}/ko/${clientId}/${item?.storecode}/pay-usdt-reverse/${item?._id}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-sm text-blue-600 font-normal hover:underline"
+                                    className="text-sm text-blue-500 font-normal hover:underline"
                                   >
                                     새창
                                   </a>
@@ -5865,7 +5865,7 @@ const fetchBuyOrders = async () => {
                                   href={`${paymentUrl}/ko/${clientId}/${item?.storecode}/pay-usdt-reverse/${item?._id}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-600 font-normal hover:underline"
+                                  className="text-sm text-blue-500 font-normal hover:underline"
                                 >
                                   새창
                                 </a>
@@ -5945,7 +5945,7 @@ const fetchBuyOrders = async () => {
                               </div>
                             
 
-                              <span className="text-sm text-purple-600 font-normal">
+                              <span className="text-sm text-zinc-100 font-normal">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date(item.paymentConfirmedAt).getTime() - new Date(item.paymentRequestedAt).getTime() < 1000 * 60 ? (
@@ -6026,7 +6026,7 @@ const fetchBuyOrders = async () => {
                               </div>
 
 
-                              <span className="text-sm text-purple-600 font-normal">
+                              <span className="text-sm text-zinc-100 font-normal">
                                 {params.lang === 'ko' ? (
                                   <p>{
                                     new Date().getTime() - new Date(item.paymentRequestedAt).getTime() < 1000 * 60 ? (
@@ -6096,7 +6096,7 @@ const fetchBuyOrders = async () => {
                                   <button
                                     disabled={acceptingBuyOrder[index] || !agreementForTrade[index]}
                                     className="
-                                      text-sm text-blue-600 font-normal
+                                      text-sm text-blue-500 font-normal
                                       border border-blue-600 rounded-lg p-2
                                       bg-blue-100
                                       w-full text-center
@@ -6839,7 +6839,7 @@ const fetchBuyOrders = async () => {
                             <button
                               className="
                                 flex flex-row gap-2 items-center justify-between
-                                text-sm text-blue-600 font-normal
+                                text-sm text-blue-500 font-normal
                                 border border-blue-600 rounded-lg p-2
                                 bg-blue-100
                                 w-full text-center
@@ -6941,7 +6941,7 @@ const fetchBuyOrders = async () => {
                           && (
                             <button
                               className={`
-                                ${item.status === 'cancelled' ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-purple-600'}
+                                ${item.status === 'cancelled' ? 'bg-red-100 text-red-600' : 'bg-purple-100 text-zinc-100'}
                                 flex flex-row gap-2 items-center justify-between
                                 text-sm font-normal
                                 border border-purple-600 rounded-lg p-2
@@ -7245,7 +7245,7 @@ const fetchBuyOrders = async () => {
                                       />
                                       <button
                                         className="
-                                          text-sm text-blue-600 underline font-normal
+                                          text-sm text-blue-500 underline font-normal
                                           hover:text-blue-800
                                           hover:cursor-pointer
                                           transition-all duration-200 ease-in-out
@@ -7296,12 +7296,12 @@ const fetchBuyOrders = async () => {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-lg font-normal text-blue-600">
+                                      <span className="text-lg font-normal text-blue-500">
                                         {item.nickname}
                                       </span>
                                     </button>
 
-                                    <span className="text-sm text-blue-600 font-normal"
+                                    <span className="text-sm text-blue-500 font-normal"
                                       style={{
                                         fontFamily: 'monospace',
                                       }}
@@ -7324,11 +7324,11 @@ const fetchBuyOrders = async () => {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-lg font-normal text-blue-600">
+                                      <span className="text-lg font-normal text-blue-500">
                                         {item.nickname}
                                       </span>
                                     </div>
-                                    <span className="text-sm text-blue-600 font-normal"
+                                    <span className="text-sm text-blue-500 font-normal"
                                       style={{
                                         fontFamily: 'monospace',
                                       }}

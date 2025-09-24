@@ -24,7 +24,9 @@
 
 		/* background is golden-50 */
 
-		@apply bg-yellow-50 text-neutral-900;
+		/*@apply bg-yellow-50 text-neutral-900;*/
+		/* dark mode */
+		@apply bg-yellow-50 text-zinc-400;
 
 	}
 }

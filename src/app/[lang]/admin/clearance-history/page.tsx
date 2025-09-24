@@ -2922,7 +2922,7 @@ export default function Index({ params }: any) {
 
           <div className="flex flex-col xl:flex-row items-center justify-between gap-2
             w-full
-            bg-zinc-200
+            bg-zinc-600
             p-4 rounded-lg shadow-md
             ">
 
@@ -3153,7 +3153,7 @@ export default function Index({ params }: any) {
                                   toast.success('거래번호가 복사되었습니다.');
                                 }}
                                 className="text-sm text-zinc-500 font-normal
-                                  hover:text-blue-600 cursor-pointer
+                                  hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                 title="거래번호 복사"
                               >
@@ -3571,7 +3571,7 @@ export default function Index({ params }: any) {
                               && item?.transactionHash !== '0x'
                               && (
                                 <button
-                                  className="text-sm text-blue-600 font-normal
+                                  className="text-sm text-blue-500 font-normal
                                     border border-blue-600 rounded-lg p-2
                                     bg-blue-100
                                     w-full text-center
@@ -3628,7 +3628,7 @@ export default function Index({ params }: any) {
                               && item?.settlement?.txid !== '0x'
                               && (
                                 <button
-                                  className="text-sm text-blue-600 font-normal
+                                  className="text-sm text-blue-500 font-normal
                                     border border-blue-600 rounded-lg p-2
                                     bg-blue-100
                                     w-full text-center

@@ -4158,7 +4158,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                   </span>
 
                                   <button
-                                    className="text-sm text-blue-600 font-normal
+                                    className="text-sm text-blue-500 font-normal
                                       border border-blue-600 rounded-lg p-2
                                       bg-blue-100
                                       w-full text-center
@@ -4208,7 +4208,7 @@ const [tradeSummary, setTradeSummary] = useState({
                                   && item?.settlement?.txid !== '0x'
                                   && (
                                     <button
-                                      className="text-sm text-blue-600 font-normal
+                                      className="text-sm text-blue-500 font-normal
                                         border border-blue-600 rounded-lg p-2
                                         bg-blue-100
                                         w-full text-center

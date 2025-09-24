@@ -1946,7 +1946,7 @@ const fetchBuyOrders = async () => {
 
           <div className="flex flex-col xl:flex-row items-start justify-between gap-2
             w-full
-            bg-zinc-200
+            bg-zinc-600
             p-4 rounded-lg shadow-md
             ">
 

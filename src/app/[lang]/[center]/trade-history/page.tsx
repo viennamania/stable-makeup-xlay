@@ -3865,7 +3865,7 @@ const fetchBuyOrders = async () => {
                                   toast.success('거래번호가 복사되었습니다.');
                                 }}
                                 className="text-sm text-zinc-500 font-normal
-                                  hover:text-blue-600 cursor-pointer
+                                  hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                 title="거래번호 복사"
                               >
@@ -3883,7 +3883,7 @@ const fetchBuyOrders = async () => {
                               flex flex-col items-center justify-center gap-2">
 
                                 {/* buyer nickname */}
-                                <div className="text-lg text-blue-600 font-normal">
+                                <div className="text-lg text-blue-500 font-normal">
                                   {item?.nickname}
                                 </div>
 
@@ -3894,7 +3894,7 @@ const fetchBuyOrders = async () => {
                                     toast.success('지갑주소가 복사되었습니다.');
                                   }}
                                   className="text-sm text-zinc-500 font-normal
-                                  hover:text-blue-600 cursor-pointer
+                                  hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                   title="지갑주소 복사"
                                 >
@@ -3987,7 +3987,7 @@ const fetchBuyOrders = async () => {
                             <div className="
                               w-24
                               flex flex-col gap-2 items-center justify-center">
-                              <span className="text-lg font-normal text-blue-600">
+                              <span className="text-lg font-normal text-blue-500">
                                 {
                                   item.seller?.nickname
                                 }
@@ -4032,7 +4032,7 @@ const fetchBuyOrders = async () => {
                                   toast.success('판매자 통장번호가 복사되었습니다.');
                                 }}
                                 className="text-sm text-zinc-500 font-normal
-                                  hover:text-blue-600 cursor-pointer
+                                  hover:text-blue-500 cursor-pointer
                                   hover:underline"
                                 title="판매자 통장번호 복사"
                               >

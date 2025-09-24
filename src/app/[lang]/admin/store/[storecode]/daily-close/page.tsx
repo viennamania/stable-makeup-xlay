@@ -1629,7 +1629,7 @@ const fetchBuyOrders = async () => {
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-blue-600 font-normal text-right">
+                          <td className="px-4 py-2 text-sm text-blue-500 font-normal text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
                               <span className="text-green-400">
                                 {Number(order.totalEscrowWithdrawAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
@@ -1643,7 +1643,7 @@ const fetchBuyOrders = async () => {
                                   withdrawEscrow(order.date, order.totalAgentFeeAmount + order.totalFeeAmount)
                                   
                                 }}
-                                className="text-blue-600 hover:underline"
+                                className="text-blue-500 hover:underline"
                               >
                                 {Number(order.totalAgentFeeAmount + order.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
                                 출금하기

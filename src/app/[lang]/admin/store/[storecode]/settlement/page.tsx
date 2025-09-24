@@ -2403,7 +2403,7 @@ const fetchBuyOrders = async () => {
                                 
                                 <div className="flex flex-row gap-2 items-center">
 
-                                  <div className="text-sm text-blue-600 font-normal">
+                                  <div className="text-sm text-blue-500 font-normal">
                                     {item?.nickname}
                                   </div>
 

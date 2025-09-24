@@ -2992,7 +2992,7 @@ const fetchBuyOrders = async () => {
                                     toast.success('거래번호가 복사되었습니다.');
                                   }}
                                   className="text-sm text-zinc-500 font-normal
-                                    hover:text-blue-600 cursor-pointer
+                                    hover:text-blue-500 cursor-pointer
                                     hover:underline"
                                   title="거래번호 복사"
                                 >
@@ -3081,7 +3081,7 @@ const fetchBuyOrders = async () => {
                                       toast.success('가맹점코드가 복사되었습니다.');
                                     }}
                                     className="text-sm text-zinc-500 font-normal
-                                    hover:text-blue-600 cursor-pointer
+                                    hover:text-blue-500 cursor-pointer
                                     hover:underline"
                                     title="가맹점코드 복사"
                                   >
@@ -3100,7 +3100,7 @@ const fetchBuyOrders = async () => {
                                 
                                 <div className="flex flex-col gap-2 items-center">
 
-                                  <div className="text-sm text-blue-600 font-normal">
+                                  <div className="text-sm text-blue-500 font-normal">
                                     {item?.nickname}
                                   </div>
 
@@ -3111,7 +3111,7 @@ const fetchBuyOrders = async () => {
                                       toast.success('지갑주소가 복사되었습니다.');
                                     }}
                                     className="text-sm text-zinc-500 font-normal
-                                    hover:text-blue-600 cursor-pointer
+                                    hover:text-blue-500 cursor-pointer
                                     hover:underline"
                                     title="지갑주소 복사"
                                   >
@@ -3209,7 +3209,7 @@ const fetchBuyOrders = async () => {
                                     toast.success('판매자 통장번호가 복사되었습니다.');
                                   }}
                                   className="text-sm text-zinc-500 font-normal
-                                    hover:text-blue-600 cursor-pointer
+                                    hover:text-blue-500 cursor-pointer
                                     hover:underline"
                                   title="판매자 통장번호 복사"
                                 >
@@ -3423,7 +3423,7 @@ const fetchBuyOrders = async () => {
                                 && item?.transactionHash !== '0x'
                                 && (
                                   <button
-                                    className="text-sm text-blue-600 font-normal
+                                    className="text-sm text-blue-500 font-normal
                                       border border-blue-600 rounded-lg p-2
                                       bg-blue-100
                                       w-full text-center

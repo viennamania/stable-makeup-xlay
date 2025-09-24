@@ -4064,7 +4064,7 @@ const fetchBuyOrders = async () => {
                                 className="w-5 h-5"
                               />
                               <button
-                                className="text-sm text-blue-600 font-normal underline
+                                className="text-sm text-blue-500 font-normal underline
                                 "
                                 onClick={() => {
                                   navigator.clipboard.writeText(item.walletAddress);
@@ -4365,7 +4365,7 @@ const fetchBuyOrders = async () => {
                                 {/* wallet address */}
                                 <div className="flex flex-row items-center justify-center gap-2">
                                   <button
-                                    className="text-sm text-blue-600 font-normal
+                                    className="text-sm text-blue-500 font-normal
                                       border border-blue-600 rounded-lg p-2
                                       bg-blue-100
                                       w-full text-center
@@ -4409,7 +4409,7 @@ const fetchBuyOrders = async () => {
 
                               <div className="flex flex-col gap-2 items-center justify-center">
                                 <button
-                                  className="text-sm text-blue-600 font-normal
+                                  className="text-sm text-blue-500 font-normal
                                     border border-blue-600 rounded-lg p-2
                                     bg-blue-100
                                     w-full text-center
@@ -4637,7 +4637,7 @@ const fetchBuyOrders = async () => {
                                   href={`https://www.cryptoss.beauty/ko/${item?.storecode}/pay-usdt-reverse/${item?._id}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-600 font-normal hover:underline"
+                                  className="text-sm text-blue-500 font-normal hover:underline"
                                 >
                                   새창
                                 </a>
@@ -4807,7 +4807,7 @@ const fetchBuyOrders = async () => {
                                   <button
                                     disabled={acceptingBuyOrder[index] || !agreementForTrade[index]}
                                     className="
-                                      text-sm text-blue-600 font-normal
+                                      text-sm text-blue-500 font-normal
                                       border border-blue-600 rounded-lg p-2
                                       bg-blue-100
                                       w-full text-center
@@ -5487,7 +5487,7 @@ const fetchBuyOrders = async () => {
                             <button
                               className="
                                 flex flex-row gap-2 items-center justify-between
-                                text-sm text-blue-600 font-normal
+                                text-sm text-blue-500 font-normal
                                 border border-blue-600 rounded-lg p-2
                                 bg-blue-100
                                 w-full text-center
@@ -5798,7 +5798,7 @@ const fetchBuyOrders = async () => {
                                       />
                                       <button
                                         className="
-                                          text-sm text-blue-600 underline font-normal
+                                          text-sm text-blue-500 underline font-normal
                                           hover:text-blue-800
                                           hover:cursor-pointer
                                           transition-all duration-200 ease-in-out
@@ -5837,11 +5837,11 @@ const fetchBuyOrders = async () => {
                                         height={20}
                                         className="w-5 h-5"
                                       />
-                                      <span className="text-lg font-normal text-blue-600">
+                                      <span className="text-lg font-normal text-blue-500">
                                         {item.nickname}
                                       </span>
                                     </div>
-                                    <span className="text-sm text-blue-600 font-normal"
+                                    <span className="text-sm text-blue-500 font-normal"
                                       style={{
                                         fontFamily: 'monospace',
                                       }}

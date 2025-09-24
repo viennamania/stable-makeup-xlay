@@ -3497,7 +3497,7 @@ const fetchBuyOrders = async () => {
 
 
 
-                                  <span className="text-lg text-blue-600 font-bold">
+                                  <span className="text-lg text-blue-500 font-bold">
                                     {
                                       item?.nickname?.length > 3 ?
                                       item?.nickname?.substring(0, 3) + '...' :
@@ -3752,7 +3752,7 @@ const fetchBuyOrders = async () => {
 
                                   <div className="flex flex-col gap-2 items-center justify-center">
                                     <button
-                                      className="text-sm text-blue-600 font-normal
+                                      className="text-sm text-blue-500 font-normal
                                         border border-blue-600 rounded-lg p-2
                                         bg-blue-100
                                         w-full text-center
@@ -4046,7 +4046,7 @@ const fetchBuyOrders = async () => {
                                         <button
                                           disabled={acceptingBuyOrder[index] || !agreementForTrade[index]}
                                           className="
-                                            text-sm text-blue-600 font-normal
+                                            text-sm text-blue-500 font-normal
                                             border border-blue-600 rounded-lg p-2
                                             bg-blue-100
                                             w-full text-center

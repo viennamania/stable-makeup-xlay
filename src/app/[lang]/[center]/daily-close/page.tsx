@@ -1763,7 +1763,7 @@ export default function Index({ params }: any) {
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-blue-600 font-normal text-right">
+                          <td className="px-4 py-2 text-sm text-blue-500 font-normal text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
                               <span className="text-green-400"
                                 style={{ fontFamily: 'monospace' }}
