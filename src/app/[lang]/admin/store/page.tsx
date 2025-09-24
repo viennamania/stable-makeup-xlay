@@ -2148,14 +2148,14 @@ export default function Index({ params }: any) {
               <div className="w-full flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 거래수(건)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-xl font-normal ">
                     {tradeSummary.totalCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 거래금액(원)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-xl font-normal ">
                     {tradeSummary.totalKrwAmount?.toLocaleString()} 원
                   </div>
                 </div>
@@ -2170,7 +2170,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <div className="text-xl font-normal text-zinc-500">
+                    <div className="text-xl font-normal ">
                       {tradeSummary.totalUsdtAmount?.toFixed(3).toLocaleString()}
                     </div>
                   </div>
@@ -2185,7 +2185,7 @@ export default function Index({ params }: any) {
 
                 <div className="w-32 flex flex-col gap-2 items-center">
                   <div className="text-sm">총 결제수(건)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-xl font-normal ">
                     {tradeSummary.totalSettlementCount?.toLocaleString()}
                   </div>
                 </div>
@@ -2195,7 +2195,7 @@ export default function Index({ params }: any) {
                   <div className="w-full flex flex-row items-end justify-center gap-2">
                     <div className="w-full flex flex-col gap-2 items-end justify-center">
                       <div className="text-sm">총 결제금액(원)</div>
-                      <div className="text-xl font-normal text-zinc-500">
+                      <div className="text-xl font-normal ">
                         {tradeSummary.totalSettlementAmountKRW?.toLocaleString()} 원
                       </div>
                     </div>
@@ -2209,7 +2209,7 @@ export default function Index({ params }: any) {
                           height={20}
                           className="w-5 h-5"
                         />
-                        <div className="text-xl font-normal text-zinc-500">
+                        <div className="text-xl font-normal ">
                           {tradeSummary.totalSettlementAmount?.toFixed(3).toLocaleString()}
                         </div>
                       </div>
@@ -2219,7 +2219,7 @@ export default function Index({ params }: any) {
                   <div className="w-full flex flex-row items-end justify-center gap-2">
                     <div className="w-full flex flex-col gap-2 items-end justify-center">
                       <div className="text-sm">총 수수료금액(원)</div>
-                      <div className="text-xl font-normal text-zinc-500">
+                      <div className="text-xl font-normal ">
                         {tradeSummary.totalFeeAmountKRW?.toLocaleString()} 원
                       </div>
                     </div>
@@ -2233,7 +2233,7 @@ export default function Index({ params }: any) {
                           height={20}
                           className="w-5 h-5"
                         />
-                        <div className="text-xl font-normal text-zinc-500">
+                        <div className="text-xl font-normal ">
                           {tradeSummary.totalFeeAmount?.toFixed(3).toLocaleString()}
                         </div>
                       </div>
@@ -2251,14 +2251,14 @@ export default function Index({ params }: any) {
                 flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 청산수(건)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-xl font-normal ">
                     {tradeSummary.totalClearanceCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
                   <div className="text-sm">총 청산금액(원)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-xl font-normal ">
                     {tradeSummary.totalClearanceAmount?.toLocaleString()} 원
                   </div>
                 </div>
@@ -2273,7 +2273,7 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5"
                     />
-                    <div className="text-xl font-normal text-zinc-500">
+                    <div className="text-xl font-normal ">
                       {tradeSummary.totalClearanceAmountUSDT?.toFixed(3).toLocaleString()}
                     </div>
                   </div>
@@ -2291,8 +2291,8 @@ export default function Index({ params }: any) {
 
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm text-zinc-500">검색수량</div>
-                  <div className="flex flex-row items-center gap-2 text-lg font-normal text-zinc-500">
+                  <div className="text-sm ">검색수량</div>
+                  <div className="flex flex-row items-center gap-2 text-lg font-normal ">
                     {
 
                         totalCount || 0
@@ -2336,7 +2336,9 @@ export default function Index({ params }: any) {
                       );
 
                     } }
-                    className="w-48 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-48 p-2
+                    bg-zinc-800 text-zinc-100
+                    border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">
                       에이전트 전체
@@ -2371,7 +2373,9 @@ export default function Index({ params }: any) {
 
                     } }
                     placeholder="가맹점 이름"
-                    className="w-52 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-52 p-2
+                    bg-zinc-800 text-zinc-100
+                    border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   
                   <button
@@ -2458,7 +2462,9 @@ export default function Index({ params }: any) {
                     value={searchStore}
                     onChange={(e) => setSearchStorecode(e.target.value)}
                     placeholder="가맹점 코드, 이름"
-                    className="w-48 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-48 p-2
+                    bg-zinc-800 text-zinc-100
+                    border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
 
                   <button
@@ -2488,7 +2494,7 @@ export default function Index({ params }: any) {
               <div className="w-full flex flex-row items-center justify-end gap-2">
 
                 <div className="flex flex-row items-center justify-center gap-2
-                bg-white/80
+                bg-zinc-700/50
                 p-2 rounded-lg shadow-md
                 backdrop-blur-md
                 ">
@@ -2546,7 +2552,7 @@ export default function Index({ params }: any) {
                 {/* Clearance Orders */}
                 {version !== 'bangbang' && (
                 <div className="flex flex-row items-center justify-center gap-2
-                bg-white/80
+                bg-zinc-700/50
                 p-2 rounded-lg shadow-md
                 backdrop-blur-md
                 ">
@@ -2616,10 +2622,15 @@ export default function Index({ params }: any) {
 
                 <div className="w-full overflow-x-auto">
 
-                  <table className="w-full table-auto border-collapse border border-zinc-800 rounded-md">
+                  <table className=" w-full table-auto border-collapse border border-zinc-400
+                    bg-zinc-700/50
+                    backdrop-blur-md
+                    rounded-lg
+                    shadow-lg
+                    ">
 
                     <thead
-                      className="bg-zinc-800 text-white text-sm font-thin
+                      className="bg-zinc-800 text-sm
                        w-full"
                       style={{
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -2836,7 +2847,7 @@ export default function Index({ params }: any) {
                                         navigator.clipboard.writeText(item.storecode);
                                         toast.success('가맹점 코드가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-zinc-100 hover:text-blue-400
+                                      className="text-sm text-zinc-100 hover:text-blue-500
                                       hover:underline"
                                     >
                                       {item.storecode}
@@ -2877,8 +2888,8 @@ export default function Index({ params }: any) {
                                   className={`
                                     ${!isAdmin || insertingStore ? 'opacity-50 cursor-not-allowed' : ''}
                                     w-full
-                                    bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                    hover:bg-gray-700/80
+                                    bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                    hover:bg-blue-700/80
                                   `}
                                 >
                                   설정하기
@@ -2944,8 +2955,8 @@ export default function Index({ params }: any) {
                                   );
                                 }}
                                 className="w-full mb-2
-                                bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                hover:bg-gray-700/80"
+                                bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                hover:bg-blue-700/80"
                               >
                                 회원관리
                               </button>
@@ -2995,7 +3006,7 @@ export default function Index({ params }: any) {
                                     toast.success('복사되었습니다');
                                   }
                                 }
-                                className="text-sm text-blue-400 hover:underline"
+                                className="text-sm text-blue-500 hover:underline"
                                 >
                                   회원 복사
                                 </button>
@@ -3006,9 +3017,9 @@ export default function Index({ params }: any) {
                                   }
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-400 hover:underline"
+                                  className="text-sm text-blue-500 hover:underline"
                                 >
-                                  회원용 홈페이지
+                                  회원용
                                 </a>
                                 {/*
                                 <button
@@ -3019,7 +3030,7 @@ export default function Index({ params }: any) {
                                     toast.success('복사되었습니다');
                                   }
                                 }
-                                className="text-sm text-blue-400 hover:underline"
+                                className="text-sm text-blue-500 hover:underline"
                                 >
                                   관리자 복사
                                 </button>
@@ -3030,9 +3041,9 @@ export default function Index({ params }: any) {
                                   }
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-sm text-blue-400 hover:underline"
+                                  className="text-sm text-blue-500 hover:underline"
                                 >
-                                  관리자용 홈페이지
+                                  관리자용
                                 </a>
 
                               </div>
@@ -3100,7 +3111,7 @@ export default function Index({ params }: any) {
                                         toast.success('복사되었습니다');
                                       }
                                     }
-                                    className="text-sm text-blue-400 hover:underline"
+                                    className="text-sm text-blue-500 hover:underline"
                                     >
                                       {item.sellerWalletAddress.substring(0, 6) + '...' + item.sellerWalletAddress.substring(item.sellerWalletAddress.length - 4)
                                       }
@@ -3179,8 +3190,8 @@ export default function Index({ params }: any) {
                                   }}
                                   className="mb-2
                                   w-full
-                                  bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80"
+                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  hover:bg-blue-700/80"
                                 >
                                   P2P 거래내역
                                 </button>
@@ -3212,7 +3223,7 @@ export default function Index({ params }: any) {
                                           toast.success('복사되었습니다');
                                         }
                                       }
-                                      className="text-sm text-blue-400 hover:underline"
+                                      className="text-sm text-blue-500 hover:underline"
                                       >
                                         {item.settlementFeeWalletAddress.substring(0, 6) + '...'
                                         }
@@ -3246,7 +3257,7 @@ export default function Index({ params }: any) {
                                       }
                                     }
                                     // underline text
-                                    className="text-sm text-blue-400 hover:underline"
+                                    className="text-sm text-blue-500 hover:underline"
                                     >
                                       {item.agentFeeWalletAddress?.substring(0, 6) + '...'
                                       }
@@ -3395,8 +3406,8 @@ export default function Index({ params }: any) {
                                   }}
                                   className="mb-2
                                   w-full
-                                  bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80"
+                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  hover:bg-blue-700/80"
                                 >
                                   결제 및 정산내역
                                 </button>
@@ -3481,8 +3492,8 @@ export default function Index({ params }: any) {
                                 className={`
                                   ${!isAdmin || insertingStore ? 'opacity-50 cursor-not-allowed' : ''}
                                   w-full mb-2
-                                  bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80
+                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  hover:bg-blue-700/80
                                 `}
                               >
                                 청산관리
@@ -3534,7 +3545,7 @@ export default function Index({ params }: any) {
                                         );
                                         toast.success('결제용 USDT지갑주소가 복사되었습니다.');
                                       }}
-                                      className="text-sm text-blue-400 hover:underline"
+                                      className="text-sm text-blue-500 hover:underline"
                                     >
                                       { item.settlementWalletAddress.substring(0, 6) + '...' + item.settlementWalletAddress.substring(item.settlementWalletAddress.length - 4)
                                       }
@@ -3586,8 +3597,8 @@ export default function Index({ params }: any) {
                                 className={`
                                   ${!isAdmin || insertingStore ? 'opacity-50 cursor-not-allowed' : ''}
                                   w-full mb-2
-                                  bg-gray-700 text-sm text-white px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80
+                                  bg-blue-700 text-sm text-white px-2 py-1 rounded-lg
+                                  hover:bg-blue-700/80
                                 `}
                               >
                                 잔액 확인하기
@@ -3684,7 +3695,7 @@ export default function Index({ params }: any) {
             </button>
 
 
-            <span className="text-sm text-zinc-500">
+            <span className="text-sm ">
               {page} / {Math.ceil(Number(totalCount) / Number(limit))}
             </span>
 
@@ -3770,7 +3781,7 @@ const TradeDetail = (
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
           <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
+          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
