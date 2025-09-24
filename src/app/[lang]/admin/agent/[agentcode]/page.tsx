@@ -2119,7 +2119,7 @@ export default function Index({ params }: any) {
        
             
             {/* store */}
-            <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+            <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
               
               <div className="w-full flex flex-col xl:flex-row items-center justify-start gap-2">
 
@@ -2309,7 +2309,7 @@ export default function Index({ params }: any) {
             </div>
             
             
-            <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+            <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
               
 
               <div className="w-full flex flex-col xl:flex-row items-center justify-start gap-2">
@@ -2453,7 +2453,7 @@ export default function Index({ params }: any) {
 
 
             {/* total number of trades, total buy amount krw, total usdt amount */}
-            <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+            <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
 
               <div className="w-full flex flex-col xl:flex-row items-center justify-start gap-2">
 
@@ -2523,7 +2523,7 @@ export default function Index({ params }: any) {
               </div>
 
               <div className="w-full flex flex-col items-center justify-center gap-2
-                bg-white shadow-md rounded-lg p-4 mt-4">
+                bg-zinc-800 shadow-md rounded-lg p-4 mt-4">
 
                 <div className="flex flex-row items-center justify-center gap-2">
                 
@@ -2723,7 +2723,7 @@ export default function Index({ params }: any) {
 
 
             {/* total number of trades, total buy amount krw, total usdt amount */}
-            <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+            <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
 
               <div className="w-full flex flex-col xl:flex-row items-center justify-start gap-2">
 

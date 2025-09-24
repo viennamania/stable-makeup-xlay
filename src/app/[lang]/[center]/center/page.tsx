@@ -2236,7 +2236,7 @@ export default function Index({ params }: any) {
 
             <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4">
               
-              <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+              <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
                 
                 <div className="w-full flex flex-row items-center justify-between gap-2">
 
@@ -2309,7 +2309,7 @@ export default function Index({ params }: any) {
 
 
               {/* total number of orders, total buy amount krw, total usdt amount */}
-              <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+              <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
                 
                 <div className="w-full flex flex-row items-center justify-between gap-2">
 
@@ -2468,7 +2468,7 @@ export default function Index({ params }: any) {
 
 
               {/* 최근 거래내역 */}
-              <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+              <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
                   
                 <div className="w-full flex flex-row items-center justify-between gap-2">
 
@@ -2672,7 +2672,7 @@ export default function Index({ params }: any) {
 
               {/* 최근 판매내역(거래소) */}
               {version !== 'bangbang' && (
-              <div className="w-full flex flex-col items-start justify-start gap-2  bg-white shadow-md rounded-lg p-4">
+              <div className="w-full flex flex-col items-start justify-start gap-2  bg-zinc-800 shadow-md rounded-lg p-4">
                   
                 <div className="w-full flex flex-row items-center justify-between gap-2">
 
