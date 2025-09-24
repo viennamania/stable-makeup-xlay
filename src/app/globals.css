@@ -26,7 +26,7 @@
 
 		/*@apply bg-yellow-50 text-neutral-900;*/
 		/* dark mode */
-		@apply bg-yellow-50 text-zinc-400;
+		@apply bg-yellow-50 text-zinc-200;
 
 	}
 }
