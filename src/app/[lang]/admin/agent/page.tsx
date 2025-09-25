@@ -1712,7 +1712,11 @@ export default function Index({ params }: any) {
 
                     } }
                     placeholder="에이전트 코드"
-                    className="hidden w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="hidden w-full p-2
+                    bg-zinc-800
+                    text-zinc-200
+                    border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                    "
                   />
                   <input
                     disabled={!isAdmin || insertingAgent}
@@ -1724,7 +1728,11 @@ export default function Index({ params }: any) {
 
                     } }
                     placeholder="에이전트 이름"
-                    className="w-52 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-52 p-2
+                    bg-zinc-800
+                    text-zinc-200
+                    border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                    "
                   />
                   
                   <button
@@ -1766,7 +1774,11 @@ export default function Index({ params }: any) {
                     value={searchAgent}
                     onChange={(e) => setSearchAgentcode(e.target.value)}
                     placeholder="에이전트 코드, 이름"
-                    className="w-48 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
+                    className="w-48 p-2
+                    bg-zinc-800
+                    text-zinc-200
+                    border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                    "
                   />
 
                   <button
