@@ -1730,7 +1730,7 @@ export default function Index({ params }: any) {
             <div className="xl:w-1/4 flex flex-row items-center justify-between gap-2">
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 P2P 거래수(건)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalCount?.toLocaleString()}
                 </div>
               </div>
@@ -1774,7 +1774,7 @@ export default function Index({ params }: any) {
 
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 결제수(건)</div>
-                  <span className="text-xl font-normal text-zinc-500">
+                  <span className="text-xl font-normal ">
                     {tradeSummary.totalSettlementCount?.toLocaleString()}
                   </span>
               </div>
@@ -1893,20 +1893,20 @@ export default function Index({ params }: any) {
             <div className="xl:w-1/4 flex flex-row items-center justify-center gap-2">
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산수(건)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalClearanceCount?.toLocaleString()}
                 </div>
               </div>
 
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산금액(원)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalClearanceAmount?.toLocaleString()} 원
                 </div>
               </div>
               <div className="flex flex-col gap-2 items-center">
                 <div className="text-sm">총 청산수량(USDT)</div>
-                <div className="text-xl font-normal text-zinc-500">
+                <div className="text-xl font-normal ">
                   {tradeSummary.totalClearanceAmountUSDT?.toLocaleString()} USDT
                 </div>
               </div>
@@ -2041,9 +2041,13 @@ export default function Index({ params }: any) {
 
               <div className="w-full overflow-x-auto">
 
-                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
-
-                  <thead className="bg-zinc-200">
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
+                  <thead className="bg-zinc-800/80">
                     <tr>
                       <th className="px-4 py-2 text-left text-sm font-normal ">
                         날짜
@@ -2073,12 +2077,17 @@ export default function Index({ params }: any) {
                   </thead>
                   <tbody>
                     {buyOrders.map((order, index) => (
-                      <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                        <td className="px-4 py-2 text-sm text-zinc-700">
+                      <tr key={index}
+                        className="border-b
+                        hover:bg-zinc-700/80
+                        hover:cursor-pointer
+                        "
+                      >
+                        <td className="px-4 py-2 text-sm">
                           {new Date(order.date).toLocaleDateString('ko-KR')}
                         </td>
                         {/* align right */}
-                        <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                        <td className="px-4 py-2 text-sm text-right">
                           {order.totalCount ? order.totalCount.toLocaleString() : 0}
                         </td>
 
@@ -2145,7 +2154,7 @@ export default function Index({ params }: any) {
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colSpan={4} className="px-4 py-2 text-sm text-zinc-500">
+                      <td colSpan={4} className="px-4 py-2 text-sm ">
                         
                       </td>
                     </tr>
@@ -2155,11 +2164,6 @@ export default function Index({ params }: any) {
               </div>
 
             </div>
-
-      
-
-
-
 
             
           </div>

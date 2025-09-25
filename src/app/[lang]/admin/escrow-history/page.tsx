@@ -1797,9 +1797,13 @@ export default function Index({ params }: any) {
             
             <div className="w-full flex flex-col items-start justify-start gap-2 mt-4">
 
-              <table className="w-full table-auto border-collapse border border-zinc-800 rounded-md">
-
-                <thead className="bg-zinc-200">
+              <table className=" w-full table-auto border-collapse border border-zinc-400
+                bg-zinc-700/50
+                backdrop-blur-md
+                rounded-lg
+                shadow-lg
+                ">
+                <thead className="bg-zinc-800/80">
                   <tr>
                     <th className="px-4 py-2 text-left text-sm font-normal ">
                       날짜
@@ -1824,8 +1828,9 @@ export default function Index({ params }: any) {
                   {
                   escrowHistory && escrowHistory.length > 0 &&
                   escrowHistory.map((escrow, index) => (
-                    <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                      <td className="px-4 py-2 text-sm text-zinc-700">
+                    <tr key={index} className="border-b border-zinc-800 hover:bg-zinc-700/50">
+
+                      <td className="px-4 py-2 text-sm ">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
 

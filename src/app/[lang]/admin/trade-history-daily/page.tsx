@@ -2236,12 +2236,12 @@ const fetchBuyOrders = async () => {
 
               <div className="w-full overflow-x-auto">
 
-                  <table className=" w-full table-auto border-collapse border border-zinc-400
-                    bg-zinc-700/50
-                    backdrop-blur-md
-                    rounded-lg
-                    shadow-lg
-                    ">
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
                   <thead className="bg-zinc-800">
                     <tr>
                       <th className="px-4 py-2 text-left text-sm font-normal ">
