@@ -2301,7 +2301,7 @@ export default function Index({ params }: any) {
                     className="w-5 h-5"
                   />
                   <span className="text-lg font-normal text-zinc-500">
-                    가맹점 정산
+                    가맹점 결제
                   </span>
                 </div>
 

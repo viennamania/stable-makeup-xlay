@@ -3692,7 +3692,7 @@ const fetchBuyOrders = async () => {
                     className="w-5 h-5"
                   />
                   <span className="text-lg font-normal ">
-                    가맹점 정산
+                    가맹점 결제
                   </span>
                 </div>
 
@@ -4047,8 +4047,8 @@ const fetchBuyOrders = async () => {
 
               {/* 가맹점 보유량 */}
               {version !== 'bangbang' && (
-              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
-                bg-zinc-600 backdrop-blur-sm p-2 rounded-lg shadow-md">
+                <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
+                bg-zinc-800/50 p-2 rounded-lg">
 
                   <div className="flex flex-col items-start xl:items-center gap-2 mb-2 xl:mb-0">                
                     <div className="flex flex-row gap-2 items-center">

@@ -1948,14 +1948,13 @@ export default function Index({ params }: any) {
 
 
 
+          <div className="w-full flex flex-col xl:flex-row items-center justify-end gap-2 mt-4">
 
-          <div className="w-full flex flex-col items-end justify-end gap-2
-            border-b border-zinc-300 pb-2">
 
             {/* 가맹점 보유량 */}
             {version !== 'bangbang' && (
-            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
-            bg-zinc-800/50 p-2 rounded-lg">
+              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
+              bg-zinc-800/50 p-2 rounded-lg">
 
               <div className="flex flex-col items-start xl:items-center gap-2 mb-2 xl:mb-0">                
                 <div className="flex flex-row gap-2 items-center">
@@ -2091,7 +2090,7 @@ export default function Index({ params }: any) {
 
 
 
-            {/* 가맹점 정산금 */}
+            {/* 가맹점 결제금 */}
             <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
               <div className="flex flex-row gap-2 items-center">
                 <Image
@@ -2102,7 +2101,7 @@ export default function Index({ params }: any) {
                   className="w-5 h-5"
                 />
                 <span className="text-lg font-normal ">
-                  가맹점 정산
+                  가맹점 결제
                 </span>
               </div>
 

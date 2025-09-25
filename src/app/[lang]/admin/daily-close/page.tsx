@@ -1939,9 +1939,15 @@ const fetchBuyOrders = async () => {
 
               <div className="w-full overflow-x-auto">
 
-                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
-                  <thead className="bg-zinc-200">
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
+
+                  <thead className="bg-zinc-800/80">
                     <tr>
                       <th className="px-4 py-2 text-left text-sm font-normal ">
                         날짜
@@ -1968,12 +1974,18 @@ const fetchBuyOrders = async () => {
                   </thead>
                   <tbody>
                     {buyOrders.map((order, index) => (
-                      <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                        <td className="px-4 py-2 text-sm text-zinc-700">
+
+                      <tr key={index} className={`
+                        ${
+                          index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
+                        }
+                      `}>
+
+                        <td className="px-4 py-2 text-sm ">
                           {new Date(order.date).toLocaleDateString('ko-KR')}
                         </td>
                         {/* align right */}
-                        <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                        <td className="px-4 py-2 text-sm  text-right">
                           {order.totalCount ? order.totalCount.toLocaleString() : 0}
                         </td>
 
@@ -1990,7 +2002,7 @@ const fetchBuyOrders = async () => {
                         </td>
 
                         {/*
-                        <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                        <td className="px-4 py-2 text-sm  text-right">
                           {order.totalSettlementCount ? order.totalSettlementCount.toLocaleString() : 0}
                           {' / '}
                           {(order.totalCount || 0) - (order.totalSettlementCount || 0)}

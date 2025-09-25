@@ -3741,11 +3741,6 @@ const fetchBuyOrders = async () => {
                       <tr key={index} className={`
                         ${
                           index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
-
-
-                          //item.walletAddress === address ?
-                          
-
                         }
                       `}>
                       

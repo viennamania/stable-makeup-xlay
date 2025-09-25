@@ -1325,19 +1325,17 @@ export default function Index({ params }: any) {
                 <div className="text-xl font-normal ">
                   통계(일별)
                 </div>
-
             </div>
 
 
 
+            <div className="w-full flex flex-col xl:flex-row items-center justify-end gap-2 mt-4">
 
-            <div className="w-full flex flex-col items-end justify-end gap-2
-            border-b border-zinc-300 pb-2">
 
               {/* 가맹점 보유량 */}
               {version !== 'bangbang' && (
               <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
-                bg-zinc-200 backdrop-blur-sm p-2 rounded-lg shadow-md">
+              bg-zinc-800/50 p-2 rounded-lg">
 
                 <div className="flex flex-col items-start xl:items-center gap-2 mb-2 xl:mb-0">                
                   <div className="flex flex-row gap-2 items-center">
@@ -1349,7 +1347,7 @@ export default function Index({ params }: any) {
                         height={20}
                         className="w-5 h-5"
                       />
-                      <span className="text-lg font-normal text-zinc-500">
+                      <span className="text-lg font-normal ">
                         현재 보유량
                       </span>
                     </div>
@@ -1377,7 +1375,7 @@ export default function Index({ params }: any) {
 
                   {/* 오늘 수수료 차감량 */}
                   <div className="flex flex-row gap-2 items-center">
-                    <span className="text-sm text-zinc-500 font-normal">
+                    <span className="text-sm  font-normal">
                       오늘 수수료 차감량
                     </span>
                     <div className="
@@ -1431,7 +1429,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
+                  <span className="text-lg font-normal ">
                     가맹점 거래
                   </span>
                 </div>
@@ -1463,7 +1461,7 @@ export default function Index({ params }: any) {
                       .toLocaleString('ko-KR')
                     }
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm ">
                     원
                   </span>
                 </div>
@@ -1472,7 +1470,7 @@ export default function Index({ params }: any) {
 
 
 
-              {/* 가맹점 정산금 */}
+              {/* 가맹점 결제금 */}
               <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
                 <div className="flex flex-row gap-2 items-center">
                   <Image
@@ -1482,8 +1480,8 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
-                    가맹점 정산
+                  <span className="text-lg font-normal ">
+                    가맹점 결제
                   </span>
                 </div>
 
@@ -1514,7 +1512,7 @@ export default function Index({ params }: any) {
                       .toLocaleString('ko-KR')
                     }
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm ">
                     원
                   </span>
                 </div>
@@ -1532,7 +1530,7 @@ export default function Index({ params }: any) {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal text-zinc-500">
+                  <span className="text-lg font-normal ">
                     가맹점 판매
                   </span>
                 </div>
@@ -1564,7 +1562,7 @@ export default function Index({ params }: any) {
                       .toLocaleString('ko-KR')
                     }
                   </span>
-                  <span className="text-sm text-zinc-500">
+                  <span className="text-sm ">
                     원
                   </span>
                 </div>
@@ -1617,7 +1615,7 @@ export default function Index({ params }: any) {
                   escrowHistory && escrowHistory.length > 0 &&
                   escrowHistory.map((escrow, index) => (
                     <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                      <td className="px-4 py-2 text-sm text-zinc-700">
+                      <td className="px-4 py-2 text-sm ">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
                       <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
@@ -1668,9 +1666,20 @@ export default function Index({ params }: any) {
 
             <div className="w-full overflow-x-auto mt-4">
 
-                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
 
-                  <thead className="bg-zinc-200">
+                    <thead
+                      className="bg-zinc-600 text-sm font-normal"
+                      style={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                      }}
+                    >
+
                     <tr>
                       <th className="px-4 py-2 text-left text-sm font-normal ">
                         날짜
@@ -1706,13 +1715,17 @@ export default function Index({ params }: any) {
                       {/*
                       {new Date(order.date).toLocaleDateString('ko-KR') !== new Date().toLocaleDateString('ko-KR') && (
                       */}
+                        <tr key={index} className={`
+                          ${
+                            index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
+                          }
+                        `}>
 
-                        <tr key={index} className="border-b border-zinc-300 hover:bg-zinc-100">
-                          <td className="px-4 py-2 text-sm text-zinc-700">
+                          <td className="px-4 py-2 text-sm ">
                             {new Date(order.date).toLocaleDateString('ko-KR')}
                           </td>
                           {/* align right */}
-                          <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                          <td className="px-4 py-2 text-sm  text-right">
                             {order.totalCount ? order.totalCount.toLocaleString() : 0}
                           </td>
 
@@ -1729,7 +1742,7 @@ export default function Index({ params }: any) {
                           </td>
 
                           {/*
-                          <td className="px-4 py-2 text-sm text-zinc-700 text-right">
+                          <td className="px-4 py-2 text-sm  text-right">
                             {order.totalSettlementCount ? order.totalSettlementCount.toLocaleString() : 0}
                             {' / '}
                             {(order.totalCount || 0) - (order.totalSettlementCount || 0)}
@@ -1795,7 +1808,7 @@ export default function Index({ params }: any) {
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colSpan={4} className="px-4 py-2 text-sm text-zinc-500">
+                      <td colSpan={4} className="px-4 py-2 text-sm ">
                         
                       </td>
                     </tr>

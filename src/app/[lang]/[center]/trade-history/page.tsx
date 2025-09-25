@@ -3184,7 +3184,7 @@ const fetchBuyOrders = async () => {
                     className="w-5 h-5"
                   />
                   <span className="text-lg font-normal ">
-                    가맹점 정산
+                    가맹점 결제
                   </span>
                 </div>
 
@@ -3797,18 +3797,11 @@ const fetchBuyOrders = async () => {
 
                       {buyOrders.map((item, index) => (
 
-                        
                         <tr key={index} className={`
                           ${
                             index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
-
-
-                            //item.walletAddress === address ?
-                            
-  
                           }
-                        `}>
-                        
+                        `}>               
 
                           <td className="p-2">
 
