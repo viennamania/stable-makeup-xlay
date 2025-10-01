@@ -1694,30 +1694,6 @@ export default function Index({ params }: any) {
             }`}>
               
               
-              <button
-                onClick={() => {
-                  router.push('/' + params.lang + '/' + params.center + '/center');
-                }}
-                className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-              >
-
-                <div className="flex flex-row items-center gap-2">
-                  <Image
-                      src={store?.storeLogo || "/logo-xlay.jpg"}
-                      alt="Store"
-                      width={35}
-                      height={35}
-                      className="rounded-lg w-12 h-12 object-cover"
-                  />
-                  <span className="text-sm text-zinc-50">
-                    {
-                      store && store?.storeName + " (" + store?.storecode + ")" + " 가맹점"
-                    }
-                  </span>
-
-                </div>
-
-              </button>
 
               {/* 가맹점 설정 */}
               {version === 'bangbang' &&
@@ -1738,49 +1714,6 @@ export default function Index({ params }: any) {
 
 
               <div className="flex flex-row items-center gap-2">
-                
-
-                <div className="w-full flex flex-row items-center justify-end gap-2">
-                  {!address && (
-                    <ConnectButton
-                      client={client}
-                      wallets={wallets}
-
-                      /*
-                      accountAbstraction={{
-                        chain: arbitrum,
-                        sponsorGas: true
-                      }}
-                      */
-                      
-                      theme={"light"}
-
-                      // button color is dark skyblue convert (49, 103, 180) to hex
-                      connectButton={{
-                          style: {
-                              backgroundColor: "#3167b4", // dark skyblue
-                              color: "#f3f4f6", // gray-300
-                              padding: "2px 10px",
-                              borderRadius: "10px",
-                              fontSize: "14px",
-                              width: "60x",
-                              height: "38px",
-                          },
-                          label: "X-Ray 로그인",
-                      }}
-
-                      connectModal={{
-                        size: "wide", 
-                        //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                        showThirdwebBranding: false,
-                      }}
-
-                      locale={"ko_KR"}
-                      //locale={"en_US"}
-                    />
-                  )}
-                </div>
 
             
                 {address && !loadingUser && (

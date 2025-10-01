@@ -162,11 +162,12 @@ export default function RootLayout({
 
           {/* chain image */}
           {/* dark background */}
+
           <div className="
           bg-zinc-900
           flex flex-col items-center justify-center p-4 bg-rounded-lg shadow-md mb-4">
 
-            {/* fixed position left and vertically top */}
+            {/*}
             <div className="fixed top-2 left-2 z-50 flex flex-col items-start justify-center">
               <button
                 className="flex flex-row items-center justify-center gap-2
@@ -192,6 +193,7 @@ export default function RootLayout({
                 <CenterConsole />
               </div>
             </div>
+            */}
 
             {/* fixed position vertically top */}
             <div className="fixed top-2 right-2 z-50 flex flex-col items-end justify-center">
