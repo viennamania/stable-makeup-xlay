@@ -2608,20 +2608,52 @@ export default function Index({ params }: any) {
                           </td>
                         
                           <td className="p-2">
-                            <div className="
-                              w-40
-                              xl:w-64
-                              flex flex-col xl:flex-row items-center justify-between gap-2">
-                              <span className="
-                                w-1/2
-                                text-lg font-normal">
-                                {item.nickname}
-                              </span>
-                              <span className="
-                                w-1/2
-                                text-sm ">
-                                {item?.store?.storeName}{' '}({item?.store?.storecode})
-                              </span>
+                            <div className="flex flex-col items-start justify-center gap-2">
+                              <div className="
+                                w-40
+                                xl:w-64
+                                flex flex-col xl:flex-row items-center justify-between gap-2">
+                                
+                                <div className="flex flex-row items-center justify-center gap-2">
+
+                                  {item?.userType === ''
+                                  ? <span className="bg-gray-500 text-white px-2 py-1 rounded-lg text-xs">일반</span>
+                                  : item?.userType === 'AAA'
+                                    ? <span className="bg-red-500 text-white px-2 py-1 rounded-lg text-xs">1등급</span>
+                                    : item?.userType === 'BBB'
+                                      ? <span className="bg-orange-500 text-white px-2 py-1 rounded-lg text-xs">2등급</span>
+                                      : item?.userType === 'CCC'
+                                        ? <span className="bg-yellow-500 text-white px-2 py-1 rounded-lg text-xs">3등급</span>
+                                        : item?.userType === 'DDD'
+                                          ? <span className="bg-green-500 text-white px-2 py-1 rounded-lg text-xs">4등급</span>
+                                          : <span className="bg-gray-500 text-white px-2 py-1 rounded-lg text-xs">일반</span>
+                                  }
+                                  <span className="text-lg font-normal">
+                                    {item.nickname}
+                                  </span>
+
+                                </div>
+
+
+
+
+                                <span className="text-sm">
+                                  {item?.store?.storeName}{' '}({item?.store?.storecode})
+                                </span>
+                              </div>
+
+                              <button
+                                onClick={() => {
+                                  router.push(
+                                    `/${params.lang}/admin/member-settings?storecode=${item?.storecode}&walletAddress=${item?.walletAddress}`
+                                  );
+                                }}
+                                className="mt-2 bg-[#3167b4] text-sm px-2 py-1 rounded-lg
+                                  hover:bg-[#3167b4]/80"
+                              >
+                                변경하기
+                              </button>
+
                             </div>
                           </td>
 
@@ -2644,7 +2676,7 @@ export default function Index({ params }: any) {
                                 </div>
                               ) : (
                                 <div className="flex flex-row items-center justify-center gap-2">
-                                  0 건
+                                  0
                                 </div>
                               )}
                                 
@@ -2653,22 +2685,20 @@ export default function Index({ params }: any) {
 
                                 <div className="flex flex-row items-center justify-center gap-2">
                                   {Number(item?.totalPaymentConfirmedKrwAmount)?.toLocaleString('ko-KR')}
-                                  {' '}원
                                 </div>
                               ) : (
                                 <div className="flex flex-row items-center justify-center gap-2">
-                                  0 원
+                                  0
                                 </div>
                               )}
 
                               {item?.totalPaymentConfirmedUsdtAmount ? (
                                 <div className="flex flex-row items-center justify-center gap-2">
                                   {Number(item?.totalPaymentConfirmedUsdtAmount)?.toLocaleString('ko-KR')}
-                                  {' '}USDT
                                 </div>
                               ) : (
                                 <div className="flex flex-row items-center justify-center gap-2">
-                                  0 USDT
+                                  0
                                 </div>
                               )}
 
@@ -2732,8 +2762,8 @@ export default function Index({ params }: any) {
                                   openModal();
 
                                 }}
-                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80"
+                                className="bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-[#3167b4]/80"
                               >
                                 보기
                               </button>
@@ -2754,8 +2784,8 @@ export default function Index({ params }: any) {
                                   );
                                   toast.success('회원 홈페이지 링크가 복사되었습니다.');
                                 }}
-                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80"
+                                className="bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-[#3167b4]/80"
                               >
                                 복사
                               </button>
@@ -2775,8 +2805,8 @@ export default function Index({ params }: any) {
                                   );
                                   toast.success('회원 홈페이지를 새창으로 열었습니다.');
                                 }}
-                                className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-gray-700/80"
+                                className="bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-[#3167b4]/80"
                               >
                                 새창열기
                               </button>
@@ -2856,8 +2886,8 @@ export default function Index({ params }: any) {
                                  }}
                                  className={`
                                    w-full mb-2
-                                   bg-gray-700 text-sm  px-2 py-1 rounded-lg
-                                   hover:bg-gray-700/80
+                                   bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
+                                   hover:bg-[#3167b4]/80
                                  `}
                                >
                                  잔액 확인하기
@@ -2873,8 +2903,8 @@ export default function Index({ params }: any) {
                                  }}
                                  className={`
                                    w-full mb-2
-                                   bg-gray-700 text-sm  px-2 py-1 rounded-lg
-                                   hover:bg-gray-700/80
+                                   bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
+                                   hover:bg-[#3167b4]/80
                                  `}
                                >
                                  잔액 회수하기
