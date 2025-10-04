@@ -966,7 +966,7 @@ export default function SettingsPage({ params }: any) {
             <div className="py-0 w-full">
         
 
-                <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-500 text-lg"
+                <div className="w-full flex flex-row gap-2 items-center justify-start"
                 >
                     {/* go back button */}
                     <div className="w-full flex justify-start items-center gap-2">
@@ -982,50 +982,16 @@ export default function SettingsPage({ params }: any) {
                             />
                         </button>
                         {/* title */}
-                        <span className="text-sm  font-normal">
+                        <span className="text-sm font-normal">
                             돌아가기
                         </span>
                     </div>
 
 
-
-                    {!address && (
-                    <ConnectButton
-                        client={client}
-                        wallets={wallets}
-                        chain={arbitrum}
-                        theme={"light"}
-
-                        // button color is dark skyblue convert (49, 103, 180) to hex
-                        connectButton={{
-                            style: {
-                                backgroundColor: "#3167b4", // dark skyblue
-                                color: "#f3f4f6", // gray-300
-                                padding: "2px 10px",
-                                borderRadius: "10px",
-                                fontSize: "14px",
-                                width: "60x",
-                                height: "38px",
-                            },
-                            label: "X-Ray 로그인",
-                        }}
-
-                        connectModal={{
-                        size: "wide", 
-                        //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                        showThirdwebBranding: false,
-                        }}
-
-                        locale={"ko_KR"}
-                        //locale={"en_US"}
-                    />
-                    )}
-
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                            <span className="text-sm text-zinc-500">
+                            <span className="text-sm">
                             {user?.nickname || "프로필"}
                             </span>
 
@@ -1037,7 +1003,10 @@ export default function SettingsPage({ params }: any) {
 
 
 
-                <div className="flex flex-col items-start justify-center space-y-4">
+                <div className="
+                    mt-4
+                    w-full
+                    flex flex-col items-start justify-center space-y-4">
 
                     <div className='flex flex-row items-center space-x-4'>
                         <Image
@@ -1060,11 +1029,16 @@ export default function SettingsPage({ params }: any) {
                     <div className='w-full  flex flex-col gap-5 '>
 
                         <div className='w-full flex flex-col gap-2'>
-                            <div className='text-sm text-zinc-500'>
+                            <div className='text-sm'>
                                 메모를 입력하세요
                             </div>
                             <textarea
-                                className='w-full h-32 p-2 border border-gray-300 rounded-md'
+                                className='w-full h-32 p-2 border
+                                text-sm text-zinc-700
+                                rounded-md
+                                focus:outline-none focus:ring-2 focus:ring-blue-500
+                                resize-none
+                                '
                                 placeholder='메모를 입력하세요'
                                 value={storeMemo}
                                 onChange={(e) => setStoreMemo(e.target.value)}

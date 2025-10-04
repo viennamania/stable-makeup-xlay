@@ -194,7 +194,7 @@ export default function RootLayout({
                   height={25}
                 />
 
-                <span className="text-sm text-white">
+                <span className="text-sm">
                   {showCenter ? 'Hide Wallet' : 'Show Wallet'}
                 </span>
             </button>
