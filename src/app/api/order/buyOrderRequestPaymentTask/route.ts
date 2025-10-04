@@ -153,7 +153,7 @@ export async function POST(request: NextRequest) {
           agentUrl: 'https://test.com',
           agentDescription: '테스트입니다.',
           agentLogo: 'https://vzrcy5vcsuuocnf3.public.blob.vercel-storage.com/iK9vg4m-tQ1U5qPHkmoG3iPyendGrLbLz4jflx.png',
-          agentBanner: 'https://cryptoss.beauty/logo-xlay.jpg',
+          agentBanner: 'https://cryptoss.beauty/logo.png',
           createdAt: '2025-05-23T16:59:17.883Z',
           adminWalletAddress: '0x880c0E9B2C388a4365c9ba145Cf3355D889731E1',
           agentFeeWalletAddress: '0x80bBe3A61124339780E90e8eB2BF58F26e189312',
@@ -232,10 +232,11 @@ export async function POST(request: NextRequest) {
       }
 
 
+      console.log("mobile", mobile);
 
       const orderer_email = buyOrder.buyer?.email;
-      const trade_usage = "USDT구매";
-      const identity_number = buyOrder.walletAddress;
+      const trade_usage = "지출증빙용";
+      const identity_number = '';
 
       
       const payactionUrl = "https://api.payaction.app/order";
@@ -377,6 +378,101 @@ export async function POST(request: NextRequest) {
       }
 
 
+    } else {
+
+
+
+
+      /*
+      post
+      https://order.ausua.workers.dev/api/order
+
+      body
+      {
+          "order_number": "ORDER20250914002",
+          "order_amount": 50000,
+          "order_date": "2025-09-14 19:19:30+09:00",
+          "billing_name": "이경래",
+          "orderer_name": "이경래",
+          "orderer_phone_number": "010-1234-5678",
+          "orderer_email": "kimjiyun@example.com",
+          "trade_usage": "소득공제용",
+          "identity_number": "010-1234-5678",
+          "auto_confirm": 0
+      }
+      */
+
+      const payactionUrl = "https://order.ausua.workers.dev/api/order";
+      const payactionBody = {
+        order_number: buyOrder.tradeId,
+        order_amount: buyOrder.krwAmount,
+        order_date: new Date().toISOString(),
+        billing_name: buyOrder.buyer.depositName,
+        orderer_name: buyOrder.buyer.depositName,
+        orderer_phone_number: buyOrder.mobile,
+        orderer_email: buyOrder?.email || 'abc@gmail.com',
+        trade_usage: "지출증빙용",
+        identity_number: buyOrder.mobile,
+        auto_confirm: 0,
+      };
+
+
+      const payactionHeaders: Record<string, string> = {
+        "Content-Type": "application/json",
+      };
+      const payactionOptions = {
+        method: "POST",
+        headers: payactionHeaders,
+        body: JSON.stringify(payactionBody),
+      };
+
+      try {
+        const payactionResponse = await fetch(payactionUrl, payactionOptions);
+
+        const payactionResult = await payactionResponse.json();
+        console.log("buyOrderRequestPayment payactionResult", payactionResult);
+        /*
+        { status: 'success', response: {} }
+        */
+
+        // updateBuyOrderPayactionResult
+        await updateBuyOrderPayactionResult({
+          orderId: orderId,
+          api: "/api/order/buyOrderRequestPayment",
+          payactionResult: payactionResult,
+        });
+
+
+
+        if (payactionResponse.status !== 200) {
+          console.error("Payaction API error", payactionResult);
+          ////throw new Error("Payaction API error");
+        }
+
+
+        if (payactionResult.status !== "success") {
+          console.error("Payaction API error", payactionResult);
+          ////throw new Error("Payaction API error");
+        }
+
+        
+      
+      } catch (error) {
+        // Error calling Payaction API
+        console.error("Error calling Payaction API", error);
+        
+        /*
+        return NextResponse.json({
+          error: "Error calling Payaction API",
+          details: error instanceof Error ? error.message : "Unknown error",
+        }, { status: 500 });
+        */
+
+      }
+
+
+
+
     }
 
 
@@ -398,11 +494,12 @@ export async function POST(request: NextRequest) {
       orderId: orderId,
       transactionHash: transactionHash,
 
-      bankInfo: bankInfo,
+      /////////////bankInfo: bankInfo,
+
     });
     
 
-    console.log("result", result);
+    /////console.log("result", result);
 
 
     reaultArray.push(buyOrder.tradeId);
