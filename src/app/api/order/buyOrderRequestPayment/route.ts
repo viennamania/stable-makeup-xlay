@@ -308,7 +308,6 @@ export async function POST(request: NextRequest) {
 
 
 
-
   if (!result) {
     return NextResponse.json({
       error: "Failed to request payment for the order",
