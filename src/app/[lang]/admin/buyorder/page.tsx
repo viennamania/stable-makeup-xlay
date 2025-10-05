@@ -2915,6 +2915,7 @@ const fetchBuyOrders = async () => {
   // totalNumberOfBuyOrders
   const [loadingTotalNumberOfBuyOrders, setLoadingTotalNumberOfBuyOrders] = useState(false);
   const [totalNumberOfBuyOrders, setTotalNumberOfBuyOrders] = useState(0);
+  const [processingBuyOrders, setProcessingBuyOrders] = useState([] as BuyOrder[]);
   const [totalNumberOfAudioOnBuyOrders, setTotalNumberOfAudioOnBuyOrders] = useState(0);
 
 
@@ -2936,8 +2937,9 @@ const fetchBuyOrders = async () => {
     const data = await response.json();
     //console.log('getTotalNumberOfBuyOrders data', data);
     setTotalNumberOfBuyOrders(data.result.totalCount);
-    setTotalNumberOfAudioOnBuyOrders(data.result.audioOnCount);
+    setProcessingBuyOrders(data.result.orders);
 
+    setTotalNumberOfAudioOnBuyOrders(data.result.audioOnCount);
     setLoadingTotalNumberOfBuyOrders(false);
   };
 
@@ -2968,7 +2970,8 @@ const fetchBuyOrders = async () => {
 
   useEffect(() => {
     if (totalNumberOfAudioOnBuyOrders > 0 && loadingTotalNumberOfBuyOrders === false) {
-      const audio = new Audio('/notification.wav');
+      const audio = new Audio('/notification-buy-order.wav');
+
       audio.play();
     }
   }, [totalNumberOfAudioOnBuyOrders, loadingTotalNumberOfBuyOrders]);
@@ -2981,6 +2984,7 @@ const fetchBuyOrders = async () => {
   // totalNumberOfClearanceOrders
   const [loadingTotalNumberOfClearanceOrders, setLoadingTotalNumberOfClearanceOrders] = useState(false);
   const [totalNumberOfClearanceOrders, setTotalNumberOfClearanceOrders] = useState(0);
+  const [processingClearanceOrders, setProcessingClearanceOrders] = useState([] as BuyOrder[]);
   useEffect(() => {
     if (!address) {
       setTotalNumberOfClearanceOrders(0);
@@ -3004,7 +3008,7 @@ const fetchBuyOrders = async () => {
       const data = await response.json();
       //console.log('getTotalNumberOfClearanceOrders data', data);
       setTotalNumberOfClearanceOrders(data.result.totalCount);
-
+      setProcessingClearanceOrders(data.result.orders);
       setLoadingTotalNumberOfClearanceOrders(false);
     };
 
@@ -3199,6 +3203,232 @@ const fetchBuyOrders = async () => {
   return (
 
     <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
+
+
+      {/* fixed position right and vertically center */}
+
+      <div className="
+        flex
+        fixed right-4 top-1/2 transform -translate-y-1/2
+        z-40
+        ">
+
+          <div className="w-full flex flex-col items-end justify-center gap-4">
+
+
+
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+              {loadingTotalNumberOfBuyOrders ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-buyorder.png"
+                  alt="Buy Order"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+              {/* array of processingBuyOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingBuyOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.buyer.depositName || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingBuyOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingBuyOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+              <p className="text-lg text-red-500 font-semibold">
+                {
+                totalNumberOfBuyOrders
+                }
+              </p>
+
+              {totalNumberOfBuyOrders > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                </div>
+              )}
+            </div>
+
+
+            {/* Clearance Orders */}
+            {version !== 'bangbang' && (
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+
+              {loadingTotalNumberOfClearanceOrders ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-clearance.png"
+                  alt="Clearance"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+              {/* array of processingClearanceOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingClearanceOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.buyer.depositName || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingClearanceOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingClearanceOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+
+              <p className="text-lg text-yellow-500 font-semibold">
+                {
+                totalNumberOfClearanceOrders
+                }
+              </p>
+
+              {totalNumberOfClearanceOrders > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/admin/clearance-history');
+                    }}
+                    className="flex items-center justify-center gap-2
+                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  >
+                    <span className="text-sm">
+                      청산<br />관리
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+            )}
+
+
+            {/* P2P 거래수 */}
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+              <Image
+                src="/icon-trade.png"
+                alt="P2P"
+                width={35}
+                height={35}
+                className="w-6 h-6"
+              />
+              <p className="text-lg text-green-500 font-semibold">
+                {
+                buyOrderStats.totalCount
+                }
+              </p>
+            </div>
+
+            {/* 가맹점 결제수 */}
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+              <Image
+                src="/icon-payment.png"
+                alt="Merchant"
+                width={35}
+                height={35}
+                className="w-6 h-6"
+              />
+              <p className="text-lg text-green-500 font-semibold">
+                {
+                buyOrderStats.totalSettlementCount
+                }
+              </p>
+            </div>
+
+        
+          </div>
+
+      </div>
 
 
       <div className="py-0 w-full">
@@ -3501,7 +3731,7 @@ const fetchBuyOrders = async () => {
                 alt="Trade"
                 width={35}
                 height={35}
-                className="w-6 h-6"
+                className="w-6 h-6 bg-yellow-500 p-1 rounded-lg"
               />
 
               <div className="text-xl font-normal ">
@@ -4019,7 +4249,7 @@ const fetchBuyOrders = async () => {
           </div>
 
 
-
+          {/*
           <div className="w-full flex flex-row items-center justify-end gap-2">
 
             <div className="flex flex-row items-center justify-center gap-2
@@ -4066,8 +4296,6 @@ const fetchBuyOrders = async () => {
               )}
             </div>
 
-
-            {/* Clearance Orders */}
             {version !== 'bangbang' && (
             <div className="flex flex-row items-center justify-center gap-2
             bg-white/80
@@ -4126,6 +4354,7 @@ const fetchBuyOrders = async () => {
             )}
         
           </div>
+          */}
 
 
           {/* table view is horizontal scroll */}
@@ -5048,16 +5277,9 @@ const fetchBuyOrders = async () => {
                               </div>
                               */}
                               <button
-                                className="text-sm text-yellow-500 font-normal
-                                  border border-yellow-600 rounded-lg p-2
-                                  bg-yellow-100
-                                  w-full text-center
-                                  hover:bg-yellow-200
-                                  cursor-pointer
-                                  transition-all duration-200 ease-in-out
-                                  hover:scale-105
-                                  hover:shadow-lg
-                                  hover:shadow-yellow-500/50
+                                className="text-sm text-yellow-600 font-normal
+                                bg-gray-100
+                                border border-yellow-600 rounded-lg p-2
                                 "
                                 onClick={() => {
                                   setSelectedItem(item);
@@ -5106,16 +5328,9 @@ const fetchBuyOrders = async () => {
                                 </div>
                                 */}
                                 <button
-                                  className="text-sm text-red-500 font-normal
+                                  className="text-sm text-red-600 font-normal
+                                    bg-gray-100
                                     border border-red-600 rounded-lg p-2
-                                    bg-red-100
-                                    w-full text-center
-                                    hover:bg-red-200
-                                    cursor-pointer
-                                    transition-all duration-200 ease-in-out
-                                    hover:scale-105
-                                    hover:shadow-lg
-                                    hover:shadow-red-500/50
                                   "
                                   onClick={() => {
                                     setSelectedItem(item);
@@ -5174,16 +5389,9 @@ const fetchBuyOrders = async () => {
 
 
                               <button
-                                className="text-sm text-green-400 font-normal
+                                className="text-sm text-green-600 font-normal
+                                  bg-gray-100
                                   border border-green-600 rounded-lg p-2
-                                  bg-green-100
-                                  w-full text-center
-                                  hover:bg-green-200
-                                  cursor-pointer
-                                  transition-all duration-200 ease-in-out
-                                  hover:scale-105
-                                  hover:shadow-lg
-                                  hover:shadow-green-500/50
                                 "
                                 onClick={() => {
                                   setSelectedItem(item);

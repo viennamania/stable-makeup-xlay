@@ -7392,7 +7392,11 @@ export async function getTotalNumberOfBuyOrders(
   }: {
     storecode: string;
   }
-): Promise<{ totalCount: number; audioOnCount: number }> {
+): Promise<{
+  totalCount: number;
+  orders: any[];
+  audioOnCount: number
+}> {
   const client = await clientPromise;
   const collection = client.db(dbName).collection('buyorders');
   // get total number of buy orders
@@ -7408,6 +7412,21 @@ export async function getTotalNumberOfBuyOrders(
       status: { $in: ['ordered', 'accepted', 'paymentRequested'] },
     }
   );
+
+  const results = await collection.find<UserProps>(
+    {
+      storecode: {
+        $regex: storecode || '', // if storecode is empty, it will match all
+        $options: 'i',
+      },
+      privateSale: { $ne: true },
+      status: { $in: ['ordered', 'accepted', 'paymentRequested'] },
+    },
+    { projection: { tradeId: 1, store: 1, buyer: 1, createdAt: 1 } }
+  )
+    .sort({ createdAt: -1 })
+    .toArray();
+
 
 
   // count of audioOn is true
@@ -7425,6 +7444,7 @@ export async function getTotalNumberOfBuyOrders(
 
   return {
     totalCount: totalCount,
+    orders: results,
     audioOnCount: audioOnCount,
   }
 }
@@ -7432,8 +7452,9 @@ export async function getTotalNumberOfBuyOrders(
 
 
 
+
 // getTotalNumberOfClearanceOrders
-export async function getTotalNumberOfClearanceOrders(): Promise<{ totalCount: number }> {
+export async function getTotalNumberOfClearanceOrders(): Promise<{ totalCount: number, orders: any[] }> {
   const client = await clientPromise;
   const collection = client.db(dbName).collection('buyorders');
   // get total number of buy orders
@@ -7442,19 +7463,36 @@ export async function getTotalNumberOfClearanceOrders(): Promise<{ totalCount: n
       privateSale: true,
       //status: 'paymentConfirmed',
       status: { $in: ['paymentConfirmed'] },
+      
       'buyer.depositCompleted': false, // buyer has not completed deposit
+      //'buyer.depositCompleted': { $ne: true }, // buyer has not completed deposit
+
     }
   );
 
   ///console.log('getTotalNumberOfClearanceOrders totalCount: ' + totalCount);
 
+  const results = await collection.find<any>(
+    {
+      privateSale: true,
+      status: { $in: ['paymentConfirmed'] },
+      
+      'buyer.depositCompleted': false, // buyer has not completed deposit
+      //'buyer.depositCompleted': { $ne: true }, // buyer has not completed deposit
+
+    },
+    { projection: { tradeId: 1, store: 1, buyer: 1, createdAt: 1 } }
+  )
+    .sort({ createdAt: -1 })
+    .toArray();
+
+
+
   return {
     totalCount: totalCount,
+    orders: results,
   }
 }
-
-
-
 
 
 
