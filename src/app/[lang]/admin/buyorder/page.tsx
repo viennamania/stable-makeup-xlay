@@ -7026,7 +7026,7 @@ const fetchBuyOrders = async () => {
                                       // Handle user click
                                       // copy item.nickname
                                       navigator.clipboard.writeText(item.nickname);
-                                      toast.success('회원아이디가 복사되었습니다.');
+                                      toast.success('회원 아이디가 복사되었습니다.');
                                     }}
                                     className="flex flex-row gap-1 items-center justify-center p-2
                                     hover:bg-zinc-700 rounded-lg

@@ -1123,7 +1123,7 @@ export default function Index({ params }: any) {
     });
     if (!response.ok) {
       setInsertingUserCode(false);
-      toast.error('회원아이디 추가에 실패했습니다.');
+      toast.error('회원 아이디 추가에 실패했습니다.');
       return;
     }
 
@@ -1134,7 +1134,7 @@ export default function Index({ params }: any) {
     //console.log('setBuyerWithoutWalletAddressByStorecode data', data);
 
     if (data.result) {
-      toast.success('회원아이디가 추가되었습니다.');
+      toast.success('회원 아이디가 추가되었습니다.');
       setUserCode('');
       setUserPassword('');
       setUserName('');
@@ -1147,7 +1147,7 @@ export default function Index({ params }: any) {
       // fetch all buyer user
       fetchAllBuyer();
     } else {
-      toast.error('회원아이디 추가에 실패했습니다.');
+      toast.error('회원 아이디 추가에 실패했습니다.');
     }
 
 
@@ -2074,7 +2074,7 @@ export default function Index({ params }: any) {
                   setUserCode(e.target.value);
 
                 } }
-                placeholder="회원아이디"
+                placeholder="회원 아이디"
                 className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
 
@@ -2346,7 +2346,7 @@ export default function Index({ params }: any) {
                     type="text"
                     value={searchBuyer}
                     onChange={(e) => setSearchBuyer(e.target.value)}
-                    placeholder="회원아이디"
+                    placeholder="회원 아이디"
                     className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
 
@@ -2549,7 +2549,7 @@ export default function Index({ params }: any) {
 
                         <th className="p-2">
                           <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
-                            <span>회원아이디</span>
+                            <span>회원 아이디</span>
                             <span>가맹점 </span>
                           </div>
                         </th>

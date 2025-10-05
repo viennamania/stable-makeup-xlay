@@ -2207,9 +2207,9 @@ export default function Index({ params }: any) {
 
                 <div className="w-full flex flex-col items-end justify-center gap-2
                 border-b-2 border-b-[#3167b4]">
-                  <h2 className="text-lg font-normal">총 회원수</h2>
+                  <h2 className="text-lg font-normal">총 회원수(명)</h2>
                   <p className="text-lg ">
-                    {storeSummary.totalNumberOfBuyers}명
+                    {storeSummary.totalNumberOfBuyers}
                   </p>
                 </div>
 
@@ -2219,7 +2219,7 @@ export default function Index({ params }: any) {
                   <table className="min-w-full">
                     <thead>
                       <tr className="bg-zinc-600">
-                        <th className="px-4 py-2 text-left">회원아이디</th>
+                        <th className="px-4 py-2 text-left">회원 아이디</th>
                         <th className="px-4 py-2 text-left">입금자명</th>
                         <th className="px-4 py-2 text-left">가입일</th>
                       </tr>
@@ -2289,17 +2289,7 @@ export default function Index({ params }: any) {
                     </p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
-                    <h2 className="text-lg font-normal">총 구매금액(원)</h2>
-                    <div className="flex flex-row items-center justify-end gap-2">
-                      <p className="text-lg text-yellow-500"
-                        style={{ fontFamily: 'monospace' }}>
-                        {Number(storeSummary.totalBuyKrwAmount)?.toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-center justify-center gap-2">
                     <h2 className="text-lg font-normal">총 구매량(USDT)</h2>
-
                     <div className="flex flex-row items-center justify-center gap-2">
                       <Image
                         src="/icon-tether.png"
@@ -2315,7 +2305,15 @@ export default function Index({ params }: any) {
                         ).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                       </p>
                     </div>
-
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <h2 className="text-lg font-normal">총 구매금액(원)</h2>
+                    <div className="flex flex-row items-center justify-end gap-2">
+                      <p className="text-lg text-yellow-500"
+                        style={{ fontFamily: 'monospace' }}>
+                        {Number(storeSummary.totalBuyKrwAmount)?.toLocaleString()}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -2327,24 +2325,15 @@ export default function Index({ params }: any) {
                     <thead>
                       <tr className="bg-zinc-600">
                         <th className="px-4 py-2 text-left">거래번호</th>
-                        <th className="px-4 py-2 text-left">거래금액(원)</th>
-                        <th className="px-4 py-2 text-left">거래량(USDT)</th>
+                        <th className="px-4 py-2 text-left">구매량(USDT)</th>
+                        <th className="px-4 py-2 text-left">구매금액(원)</th>
                         <th className="px-4 py-2 text-left">거래상태</th>
                       </tr>
                     </thead>
                     <tbody>
                       {storeSummary.latestOrders.map((order, index) => (
                         <tr key={index} className="border-b">
-                          <td className="px-4 py-2">#{order.tradeId}</td>
-                          <td className="px-4 py-2">
-                            <div className="flex flex-row items-center justify-end gap-2">
-                              <span className="text-lg text-yellow-500"
-                                style={{ fontFamily: 'monospace' }}>
-                                {Number(order.krwAmount)?.toLocaleString()}
-                              </span>
-                            </div>
-                          </td>
-                          
+                          <td className="px-4 py-2">#{order.tradeId}</td>                          
                           <td className="px-4 py-2">
                             <div className="
                               w-20
@@ -2362,7 +2351,14 @@ export default function Index({ params }: any) {
                               </span>
                             </div>
                           </td>
-
+                          <td className="px-4 py-2">
+                            <div className="flex flex-row items-center justify-end gap-2">
+                              <span className="text-lg text-yellow-500"
+                                style={{ fontFamily: 'monospace' }}>
+                                {Number(order.krwAmount)?.toLocaleString()}
+                              </span>
+                            </div>
+                          </td>
                           <td className="px-4 py-2">
 
                             {order.status === 'ordered' && (
@@ -2449,15 +2445,6 @@ export default function Index({ params }: any) {
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-normal">총 거래금액(원)</h2>
-                      <div className="flex flex-row items-center justify-end gap-2">
-                        <p className="text-lg text-yellow-500"
-                          style={{ fontFamily: 'monospace' }}>
-                          {Number(storeSummary.totalTradeKrwAmount)?.toLocaleString()}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
                       <h2 className="text-lg font-normal">총 거래량(USDT)</h2>
 
                       <div className="flex flex-row items-center justify-center gap-2">
@@ -2473,7 +2460,15 @@ export default function Index({ params }: any) {
                           {Number(storeSummary.totalTradeUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         </p>
                       </div>
-
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <h2 className="text-lg font-normal">총 거래금액(원)</h2>
+                      <div className="flex flex-row items-center justify-end gap-2">
+                        <p className="text-lg text-yellow-500"
+                          style={{ fontFamily: 'monospace' }}>
+                          {Number(storeSummary.totalTradeKrwAmount)?.toLocaleString()}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -2489,15 +2484,6 @@ export default function Index({ params }: any) {
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-normal">총 결제금액(원)</h2>
-                      <div className="flex flex-row items-center justify-end gap-2">
-                        <p className="text-lg text-yellow-500"
-                          style={{ fontFamily: 'monospace' }}>
-                          {Number(storeSummary.totalSettlementAmountKRW)?.toLocaleString()}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
                       <h2 className="text-lg font-normal">총 결제량(USDT)</h2>
                       <div className="flex flex-row items-center justify-center gap-2">
                         <Image
@@ -2510,6 +2496,15 @@ export default function Index({ params }: any) {
                         <p className="text-lg text-green-400"
                           style={{ fontFamily: 'monospace' }}>
                           {Number(storeSummary.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <h2 className="text-lg font-normal">총 결제금액(원)</h2>
+                      <div className="flex flex-row items-center justify-end gap-2">
+                        <p className="text-lg text-yellow-500"
+                          style={{ fontFamily: 'monospace' }}>
+                          {Number(storeSummary.totalSettlementAmountKRW)?.toLocaleString()}
                         </p>
                       </div>
                     </div>
@@ -2529,8 +2524,8 @@ export default function Index({ params }: any) {
                           hidden xl:table-cell
                           px-4 py-2 text-left">거래번호</th>
                           <th className="px-4 py-2 text-left">구매자</th>
-                          <th className="px-4 py-2 text-right">거래금액(원)</th>
                           <th className="px-4 py-2 text-right">거래량(USDT)</th>
+                          <th className="px-4 py-2 text-right">거래금액(원)</th>
                           <th className="
                           hidden xl:table-cell
                           px-4 py-2 text-left">거래일시</th>
@@ -2550,18 +2545,7 @@ export default function Index({ params }: any) {
                               <span className="text-sm text-zinc-400">
                                 {trade.buyer?.depositName || '입금자명 없음'}
                               </span>
-                            </td>
-                            <td className="px-4 py-2">
-                              <div className="
-                                w-full
-                                flex flex-row items-center justify-end gap-2">
-                                <span className="text-lg text-yellow-500"
-                                  style={{ fontFamily: 'monospace' }}>
-                                  {Number(trade.krwAmount)?.toLocaleString()}
-                                </span>
-                              </div>
-                            </td>
-                            
+                            </td>                            
                             <td className="px-4 py-2">
                               <div className="w-full flex flex-row items-center justify-end gap-1">
                                 <Image
@@ -2577,8 +2561,16 @@ export default function Index({ params }: any) {
                                 </span>
                               </div>
                             </td>
-
-
+                            <td className="px-4 py-2">
+                              <div className="
+                                w-full
+                                flex flex-row items-center justify-end gap-2">
+                                <span className="text-lg text-yellow-500"
+                                  style={{ fontFamily: 'monospace' }}>
+                                  {Number(trade.krwAmount)?.toLocaleString()}
+                                </span>
+                              </div>
+                            </td>
                             <td className="
                             hidden xl:table-cell
                             px-4 py-2">
@@ -2653,18 +2645,6 @@ export default function Index({ params }: any) {
                       </p>
                     </div>
                     <div className="flex flex-col items-center justify-center gap-2">
-                      <h2 className="text-lg font-normal">총 판매금액(원)</h2>
-                      <div className="flex flex-row items-center justify-end gap-2">
-                        <p className="text-lg text-yellow-500"
-                          style={{ fontFamily: 'monospace' }}>
-                          {Number(storeSummary.totalClearanceKrwAmount)?.toLocaleString()}
-                        </p>
-                        <span className="text-lg ">
-                          원
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-2">
                       <h2 className="text-lg font-normal">총 판매량(USDT)</h2>
                       <div className="flex flex-row items-center justify-center gap-2">
                         <Image
@@ -2680,8 +2660,16 @@ export default function Index({ params }: any) {
                         </p>
                       </div>
                     </div>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <h2 className="text-lg font-normal">총 판매금액(원)</h2>
+                      <div className="flex flex-row items-center justify-end gap-2">
+                        <p className="text-lg text-yellow-500"
+                          style={{ fontFamily: 'monospace' }}>
+                          {Number(storeSummary.totalClearanceKrwAmount)?.toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-
  
                 </div>
 
@@ -2697,8 +2685,8 @@ export default function Index({ params }: any) {
                           hidden xl:table-cell
                           px-4 py-2 text-left">판매번호</th>
                           <th className="px-4 py-2 text-left">구매자</th>
-                          <th className="px-4 py-2 text-left">판매금액(원)</th>
                           <th className="px-4 py-2 text-left">판매량(USDT)</th>
+                          <th className="px-4 py-2 text-left">판매금액(원)</th>
                           {/*
                           <th className="px-4 py-2 text-left">판매상태</th>
                           */}
@@ -2731,21 +2719,7 @@ export default function Index({ params }: any) {
                                   </span>
                                 </div>
                               )}
-
                             </td>
-
-                            <td className="px-4 py-2">
-                              <div className="w-20 flex flex-row items-center justify-end gap-1">
-                                <span className="text-lg text-yellow-500"
-                                  style={{ fontFamily: 'monospace' }}>
-                                  {Number(trade.krwAmount)?.toLocaleString()}
-                                </span>
-                                <span className="text-sm ">
-                                  원
-                                </span>
-                              </div>
-                            </td>
-
                             <td className="px-4 py-2">
                               <div className="
                                 w-20
@@ -2761,10 +2735,16 @@ export default function Index({ params }: any) {
                                   style={{ fontFamily: 'monospace' }}>
                                   {Number(trade.usdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                                 </span>
-
                               </div>
                             </td>
-
+                            <td className="px-4 py-2">
+                              <div className="w-20 flex flex-row items-center justify-end gap-1">
+                                <span className="text-lg text-yellow-500"
+                                  style={{ fontFamily: 'monospace' }}>
+                                  {Number(trade.krwAmount)?.toLocaleString()}
+                                </span>
+                              </div>
+                            </td>
                             {/*
                             <td className="px-4 py-2">
                               {trade.status === 'paymentConfirmed' && (
