@@ -135,6 +135,8 @@ interface BuyOrder {
 
   adminWalletAddress: string;
   agentFeeWalletAddress: string;
+
+  store: any;
 }
 
 
@@ -1143,39 +1145,43 @@ export default function Index({ params }: any) {
 
 
   
+
   // totalNumberOfBuyOrders
   const [loadingTotalNumberOfBuyOrders, setLoadingTotalNumberOfBuyOrders] = useState(false);
   const [totalNumberOfBuyOrders, setTotalNumberOfBuyOrders] = useState(0);
+  const [processingBuyOrders, setProcessingBuyOrders] = useState([] as BuyOrder[]);
   const [totalNumberOfAudioOnBuyOrders, setTotalNumberOfAudioOnBuyOrders] = useState(0);
 
-  useEffect(() => {
-    const fetchTotalBuyOrders = async (): Promise<void> => {
-      if (!address) {
-        setTotalNumberOfBuyOrders(0);
-        return;
-      }
-      
-      setLoadingTotalNumberOfBuyOrders(true);
-      const response = await fetch('/api/order/getTotalNumberOfBuyOrders', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-        }),
-      });
-      if (!response.ok) {
-        console.error('Failed to fetch total number of buy orders');
-        setLoadingTotalNumberOfBuyOrders(false);
-        return;
-      }
-      const data = await response.json();
-      //console.log('getTotalNumberOfBuyOrders data', data);
-      setTotalNumberOfBuyOrders(data.result.totalCount);
-      setTotalNumberOfAudioOnBuyOrders(data.result.audioOnCount);
 
+  // Move fetchTotalBuyOrders outside of useEffect to avoid self-reference error
+  const fetchTotalBuyOrders = async (): Promise<void> => {
+    setLoadingTotalNumberOfBuyOrders(true);
+    const response = await fetch('/api/order/getTotalNumberOfBuyOrders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({}),
+    });
+    if (!response.ok) {
+      console.error('Failed to fetch total number of buy orders');
       setLoadingTotalNumberOfBuyOrders(false);
-    };
+      return;
+    }
+    const data = await response.json();
+    //console.log('getTotalNumberOfBuyOrders data', data);
+    setTotalNumberOfBuyOrders(data.result.totalCount);
+    setProcessingBuyOrders(data.result.orders);
+
+    setTotalNumberOfAudioOnBuyOrders(data.result.audioOnCount);
+    setLoadingTotalNumberOfBuyOrders(false);
+  };
+
+  useEffect(() => {
+    if (!address) {
+      setTotalNumberOfBuyOrders(0);
+      return;
+    }
 
     fetchTotalBuyOrders();
 
@@ -1186,14 +1192,25 @@ export default function Index({ params }: any) {
 
   }, [address]);
 
+      
+  /*
+  useEffect(() => {
+    if (totalNumberOfBuyOrders > 0 && loadingTotalNumberOfBuyOrders === false) {
+      const audio = new Audio('/notification.wav'); 
+      audio.play();
+    }
+  }, [totalNumberOfBuyOrders, loadingTotalNumberOfBuyOrders]);
+  */
+
   useEffect(() => {
     if (totalNumberOfAudioOnBuyOrders > 0 && loadingTotalNumberOfBuyOrders === false) {
-      const audio = new Audio('/notification.wav');
+      const audio = new Audio('/notification-buy-order.wav');
+
       audio.play();
     }
   }, [totalNumberOfAudioOnBuyOrders, loadingTotalNumberOfBuyOrders]);
 
-  
+
 
 
 
@@ -1201,6 +1218,7 @@ export default function Index({ params }: any) {
   // totalNumberOfClearanceOrders
   const [loadingTotalNumberOfClearanceOrders, setLoadingTotalNumberOfClearanceOrders] = useState(false);
   const [totalNumberOfClearanceOrders, setTotalNumberOfClearanceOrders] = useState(0);
+  const [processingClearanceOrders, setProcessingClearanceOrders] = useState([] as BuyOrder[]);
   useEffect(() => {
     if (!address) {
       setTotalNumberOfClearanceOrders(0);
@@ -1224,7 +1242,7 @@ export default function Index({ params }: any) {
       const data = await response.json();
       //console.log('getTotalNumberOfClearanceOrders data', data);
       setTotalNumberOfClearanceOrders(data.result.totalCount);
-
+      setProcessingClearanceOrders(data.result.orders);
       setLoadingTotalNumberOfClearanceOrders(false);
     };
 
@@ -1244,7 +1262,7 @@ export default function Index({ params }: any) {
     }
   }, [totalNumberOfClearanceOrders, loadingTotalNumberOfClearanceOrders]);
 
-  
+
 
 
   // check table view or card view
@@ -1355,6 +1373,203 @@ export default function Index({ params }: any) {
     <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
 
 
+      {/* fixed position right and vertically center */}
+      <div className="
+        flex
+        fixed right-4 top-1/2 transform -translate-y-1/2
+        z-40
+        ">
+
+          <div className="w-full flex flex-col items-end justify-center gap-4">
+
+
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+              {loadingTotalNumberOfBuyOrders ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-buyorder.png"
+                  alt="Buy Order"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+
+              {/* array of processingBuyOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingBuyOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.buyer.depositName || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingBuyOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingBuyOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+
+              <p className="text-lg text-red-500 font-semibold">
+                {
+                totalNumberOfBuyOrders
+                }
+              </p>
+
+              {totalNumberOfBuyOrders > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/admin/buyorder');
+                    }}
+                    className="flex items-center justify-center gap-2
+                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  >
+                    <span className="text-sm">
+                      구매<br />관리
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+
+
+            {/* Clearance Orders */}
+            {version !== 'bangbang' && (
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+
+              {loadingTotalNumberOfClearanceOrders ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-clearance.png"
+                  alt="Clearance"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+              {/* array of processingClearanceOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingClearanceOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.buyer?.depositName || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingClearanceOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingClearanceOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+
+
+              <p className="text-lg text-yellow-500 font-semibold">
+                {
+                totalNumberOfClearanceOrders
+                }
+              </p>
+
+              {totalNumberOfClearanceOrders > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/admin/clearance-history');
+                    }}
+                    className="flex items-center justify-center gap-2
+                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  >
+                    <span className="text-sm">
+                      청산<br />관리
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+            )}
+
+        
+          </div>
+
+      </div>
+
+
       <div className="py-0 w-full">
 
 
@@ -1447,51 +1662,6 @@ export default function Index({ params }: any) {
 
 
           )}
-
-
-          {!address && (
-            <ConnectButton
-              client={client}
-              wallets={wallets}
-
-              /*
-              accountAbstraction={{
-                chain: arbitrum,
-                sponsorGas: true
-              }}
-              */
-              
-              theme={"light"}
-
-              // button color is dark skyblue convert (49, 103, 180) to hex
-              connectButton={{
-                style: {
-                  backgroundColor: "#3167b4", // dark skyblue
-
-                  color: "#f3f4f6", // gray-300 
-                  padding: "2px 2px",
-                  borderRadius: "10px",
-                  fontSize: "14px",
-                  //width: "40px",
-                  height: "38px",
-                },
-                label: "X-Ray 로그인",
-              }}
-
-              connectModal={{
-                size: "wide", 
-                //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                showThirdwebBranding: false,
-              }}
-
-              locale={"ko_KR"}
-              //locale={"en_US"}
-            />
-
-          )}
-
-
 
 
         </div>
@@ -1654,7 +1824,7 @@ export default function Index({ params }: any) {
                   alt="Agent"
                   width={35}
                   height={35}
-                  className="w-6 h-6"
+                  className="w-6 h-6 p-1 rounded-lg bg-yellow-500"
                 />
 
                 <div className="text-xl font-normal ">
@@ -1803,125 +1973,6 @@ export default function Index({ params }: any) {
 
               </div>
 
-
-              <div className="w-full flex flex-row items-center justify-end gap-2">
-
-                <div className="flex flex-row items-center justify-center gap-2
-                bg-white/80
-                p-2 rounded-lg shadow-md
-                backdrop-blur-md
-                ">
-                  {loadingTotalNumberOfBuyOrders ? (
-                    <Image
-                      src="/loading.png"
-                      alt="Loading"
-                      width={20}
-                      height={20}
-                      className="w-6 h-6 animate-spin"
-                    />
-                  ) : (
-                    <Image
-                      src="/icon-buyorder.png"
-                      alt="Buy Order"
-                      width={35}
-                      height={35}
-                      className="w-6 h-6"
-                    />
-                  )}
-
-
-                  <p className="text-lg text-red-500 font-normal">
-                    {
-                    totalNumberOfBuyOrders
-                    }
-                  </p>
-
-                  {totalNumberOfBuyOrders > 0 && (
-                    <div className="flex flex-row items-center justify-center gap-2">
-                      <Image
-                        src="/icon-notification.gif"
-                        alt="Notification"
-                        width={50}
-                        height={50}
-                        className="w-15 h-15 object-cover"
-                        
-                      />
-                      <button
-                        onClick={() => {
-                          router.push('/' + params.lang + '/admin/buyorder');
-                        }}
-                        className="flex items-center justify-center gap-2
-                        bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-                      >
-                        <span className="text-sm">
-                          구매주문관리
-                        </span>
-                      </button>
-                    </div>
-                  )}
-                </div>
-
-
-                {/* Clearance Orders */}
-                {version !== 'bangbang' && (
-                <div className="flex flex-row items-center justify-center gap-2
-                bg-white/80
-                p-2 rounded-lg shadow-md
-                backdrop-blur-md
-                ">
-
-                  {loadingTotalNumberOfClearanceOrders ? (
-                    <Image
-                      src="/loading.png"
-                      alt="Loading"
-                      width={20}
-                      height={20}
-                      className="w-6 h-6 animate-spin"
-                    />
-                  ) : (
-                    <Image
-                      src="/icon-clearance.png"
-                      alt="Clearance"
-                      width={35}
-                      height={35}
-                      className="w-6 h-6"
-                    />
-                  )}
-
-                  <p className="text-lg text-yellow-500 font-normal">
-                    {
-                    totalNumberOfClearanceOrders
-                    }
-                  </p>
-
-                  {totalNumberOfClearanceOrders > 0 && (
-                    <div className="flex flex-row items-center justify-center gap-2">
-                      <Image
-                        src="/icon-notification.gif"
-                        alt="Notification"
-                        width={50}
-                        height={50}
-                        className="w-15 h-15 object-cover"
-                        
-                      />
-                      <button
-                        onClick={() => {
-                          router.push('/' + params.lang + '/admin/clearance-history');
-                        }}
-                        className="flex items-center justify-center gap-2
-                        bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-                      >
-                        <span className="text-sm">
-                          청산관리
-                        </span>
-                      </button>
-                    </div>
-                  )}
-                </div>
-                )}
-
-            
-              </div>
 
 
               {/*

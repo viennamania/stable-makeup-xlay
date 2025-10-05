@@ -3899,7 +3899,7 @@ const fetchBuyOrders = async () => {
                     alt="Calendar"
                     width={20}
                     height={20}
-                    className="rounded-lg w-5 h-5"
+                    className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
                   />
                   <input
                     type="date"
@@ -3917,7 +3917,7 @@ const fetchBuyOrders = async () => {
                     alt="Calendar"
                     width={20}
                     height={20}
-                    className="rounded-lg w-5 h-5"
+                    className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
                   />
                   <input
                     type="date"
@@ -4489,7 +4489,7 @@ const fetchBuyOrders = async () => {
 
                             //className="w-5 h-5 animate-spin"
                             className={`
-                              w-5 h-5
+                              w-5 h-5 p-1 bg-white object-cover rounded-full
                               ${buyOrders.filter((item) => item.status === 'paymentRequested').length > 0 ? 'animate-spin' : ''}
                             `}
                           />
@@ -4653,7 +4653,7 @@ const fetchBuyOrders = async () => {
                               width={20}
                               height={20}
                               //className="w-5 h-5"
-                              className={`w-5 h-5
+                              className={`w-5 h-5 p-1 bg-white object-cover rounded-full
                                 ${item?.status === 'cancelled' || (item?.status === 'paymentConfirmed' && item?.transactionHash !== '0x') ? '' : 'animate-spin'}`}
                             />
                             <span className="text-sm  font-normal">
@@ -5459,9 +5459,9 @@ const fetchBuyOrders = async () => {
                                 <Image
                                   src="/icon-payaction.png"
                                   alt="Bank Check"
-                                  width={20}
-                                  height={20}
-                                  className="w-5 h-5 rounded-full"
+                                  width={30}
+                                  height={30}
+                                  className="w-6 h-6 rounded-full p-1 bg-white object-cover"
                                 />
                                 <span className="text-sm font-normal ">
                                   자동입금확인
@@ -5474,9 +5474,9 @@ const fetchBuyOrders = async () => {
                                 <Image
                                   src="/icon-bank-check.png"
                                   alt="Bank Check"
-                                  width={20}
-                                  height={20}
-                                  className="w-5 h-5 rounded-full"
+                                  width={30}
+                                  height={30}
+                                  className="w-6 h-6 rounded-full p-1 bg-white object-cover"
                                 />
                                 <span className="text-sm font-normal ">
                                   수동입금확인
@@ -5547,9 +5547,9 @@ const fetchBuyOrders = async () => {
                                 <Image
                                   src="/token-mkrw-icon.png"
                                   alt="MKRW"
-                                  width={20}
-                                  height={20}
-                                  className="w-5 h-5 rounded-full"
+                                  width={30}
+                                  height={30}
+                                  className="w-6 h-6 rounded-full p-1 bg-white object-cover"
                                 />
                                 <span className="text-sm font-normal ">
                                   MKRW
@@ -5565,7 +5565,7 @@ const fetchBuyOrders = async () => {
                                     alt="Bank Auto"
                                     width={30}
                                     height={30}
-                                    className="rounded-full"
+                                    className="rounded-full w-6 h-6 p-1 bg-white object-cover"
                                   />
                                   {item?.autoConfirmPayment === true ? (
                                     <span className="text-sm font-normal ">
