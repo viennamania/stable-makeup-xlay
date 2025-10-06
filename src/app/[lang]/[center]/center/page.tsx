@@ -1973,14 +1973,14 @@ export default function Index({ params }: any) {
 
 
             {/* 가맹점 거래 */}
-            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+            <div className="flex flex-col items-start xl:items-center gap-2">
               <div className="flex flex-row gap-2 items-center">
                 <Image
                   src="/icon-trade.png"
                   alt="Trade"
                   width={20}
                   height={20}
-                  className="w-5 h-5"
+                  className="w-5 h-5 p-1 rounded-lg bg-white"
                 />
                 <span className="text-lg font-normal ">
                   가맹점 거래
@@ -2031,7 +2031,7 @@ export default function Index({ params }: any) {
                   alt="Settlement"
                   width={20}
                   height={20}
-                  className="w-5 h-5"
+                  className="w-5 h-5 p-1 rounded-lg bg-white"
                 />
                 <span className="text-lg font-normal ">
                   가맹점 결제
@@ -2081,7 +2081,7 @@ export default function Index({ params }: any) {
                   alt="Clearance"
                   width={20}
                   height={20}
-                  className="w-5 h-5"
+                  className="w-5 h-5 p-1 rounded-lg bg-white"
                 />
                 <span className="text-lg font-normal ">
                   가맹점 판매
