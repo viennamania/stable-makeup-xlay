@@ -123,6 +123,8 @@ interface BuyOrder {
   transactionHash: string;
 
   storecode: string;
+
+  store: any;
 }
 
 
@@ -1542,6 +1544,124 @@ export default function Index({ params }: any) {
 
 
 
+
+  // totalNumberOfBuyOrders
+  const [loadingTotalNumberOfBuyOrders, setLoadingTotalNumberOfBuyOrders] = useState(false);
+  const [totalNumberOfBuyOrders, setTotalNumberOfBuyOrders] = useState(0);
+  const [processingBuyOrders, setProcessingBuyOrders] = useState([] as BuyOrder[]);
+  const [totalNumberOfAudioOnBuyOrders, setTotalNumberOfAudioOnBuyOrders] = useState(0);
+
+  useEffect(() => {
+
+    const fetchTotalBuyOrders = async (): Promise<void> => {
+      setLoadingTotalNumberOfBuyOrders(true);
+      const response = await fetch('/api/order/getTotalNumberOfBuyOrders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          storecode: params.center,
+        })
+      });
+      if (!response.ok) {
+        console.error('Failed to fetch total number of buy orders');
+        setLoadingTotalNumberOfBuyOrders(false);
+        return;
+      }
+      const data = await response.json();
+      //console.log('getTotalNumberOfBuyOrders data', data);
+      setTotalNumberOfBuyOrders(data.result.totalCount);
+      setProcessingBuyOrders(data.result.orders);
+      setTotalNumberOfAudioOnBuyOrders(data.result.audioOnCount);
+
+      setLoadingTotalNumberOfBuyOrders(false);
+    };
+
+
+    if (!address) {
+      setTotalNumberOfBuyOrders(0);
+      return;
+    }
+
+    fetchTotalBuyOrders();
+
+    const interval = setInterval(() => {
+      fetchTotalBuyOrders();
+    }, 5000);
+    return () => clearInterval(interval);
+
+  }, [address, params.center]);
+
+
+
+      
+  /*
+  useEffect(() => {
+    if (totalNumberOfBuyOrders > 0 && loadingTotalNumberOfBuyOrders === false) {
+      const audio = new Audio('/notification-buy-order.wav'); 
+      audio.play();
+    }
+  }, [totalNumberOfBuyOrders, loadingTotalNumberOfBuyOrders]);
+  */
+
+
+
+
+
+    
+  // get count of status is 'paymentRequested' from api
+  const [paymentRequestedCount, setPaymentRequestedCount] = useState(0);
+  const [loadingPaymentRequestedCount, setLoadingPaymentRequestedCount] = useState(false);
+  const [processingPaymentRequestedOrders, setProcessingPaymentRequestedOrders] = useState([] as BuyOrder[]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoadingPaymentRequestedCount(true);
+      try {
+        const response = await fetch('/api/order/getCountOfPaymentRequested', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            storecode: params.center,
+            walletAddress: address,
+          }),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setPaymentRequestedCount(data.result.totalCount || 0);
+          setProcessingPaymentRequestedOrders(data.result.orders || []);
+        }
+      } catch (error) {
+        console.error("Error fetching payment requested count: ", error);
+      }
+
+      setLoadingPaymentRequestedCount(false);
+    };
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [address, params.center]);
+  
+
+  useEffect(() => {
+    if (paymentRequestedCount > 0 && loadingPaymentRequestedCount === false) {
+      const audio = new Audio('/audio-notification-order-private.wav'); 
+      audio.play();
+    }
+  }, [paymentRequestedCount, loadingPaymentRequestedCount]);
+
+
+
+
+
+
+
   useEffect(() => {
     // Dynamically load the Binance widget script
     const script = document.createElement("script");
@@ -1749,50 +1869,6 @@ export default function Index({ params }: any) {
 
               )}
 
-
-              {!address && (
-                <ConnectButton
-                  client={client}
-                  wallets={wallets}
-
-                  /*
-                  accountAbstraction={{
-                    chain: arbitrum,
-                    sponsorGas: true
-                  }}
-                  */
-                  
-                  theme={"light"}
-
-                  // button color is dark skyblue convert (49, 103, 180) to hex
-                  connectButton={{
-                      style: {
-                          backgroundColor: "#3167b4", // dark skyblue
-                          color: "#f3f4f6", // gray-300
-                          padding: "2px 10px",
-                          borderRadius: "10px",
-                          fontSize: "14px",
-                          width: "60x",
-                          height: "38px",
-                      },
-                      label: "X-Ray 로그인",
-                  }}
-
-                  connectModal={{
-                    size: "wide", 
-                    //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                    showThirdwebBranding: false,
-                  }}
-
-                  locale={"ko_KR"}
-                  //locale={"en_US"}
-                />
-              )}
-
-
-
-
             </div>
         )}
 
@@ -1971,1368 +2047,1461 @@ export default function Index({ params }: any) {
     <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
 
 
-      <div className="py-0 w-full">
-
-
-          <div className={`w-full flex flex-col xl:flex-row items-center justify-between gap-2
-            p-2 rounded-lg mb-4
-            ${store?.backgroundColor ?
-              "bg-" + store.backgroundColor + " " :
-              "bg-black/10"
-            }`}>
-              
-              
-              <button
-                onClick={() => {
-                  router.push('/' + params.lang + '/' + params.center + '/center');
-                }}
-                className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-              >
-
-                <div className="flex flex-row items-center gap-2">
-                  <Image
-                      src={store?.storeLogo || "/logo-xlay.jpg"}
-                      alt="Store"
-                      width={35}
-                      height={35}
-                      className="rounded-lg w-5 h-5 object-cover"
-                  />
-                  <span className="text-sm text-zinc-50">
-                    {
-                      store && store?.storeName + " (" + store?.storecode + ")"
-                    }
-                  </span>
-
-                </div>
-
-              </button>
-
-
-              <div className="flex flex-row items-center gap-2">
-                
-
-                <div className="w-full flex flex-row items-center justify-end gap-2">
-                  {!address && (
-                    <ConnectButton
-                      client={client}
-                      wallets={wallets}
-
-                      /*
-                      accountAbstraction={{
-                        chain: arbitrum,
-                        sponsorGas: true
-                      }}
-                      */
-                      
-                      theme={"light"}
-
-                      // button color is dark skyblue convert (49, 103, 180) to hex
-                      connectButton={{
-                          style: {
-                              backgroundColor: "#3167b4", // dark skyblue
-                              color: "#f3f4f6", // gray-300
-                              padding: "2px 10px",
-                              borderRadius: "10px",
-                              fontSize: "14px",
-                              width: "60x",
-                              height: "38px",
-                          },
-                          label: "X-Ray 로그인",
-                      }}
-
-                      connectModal={{
-                        size: "wide", 
-                        //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                        showThirdwebBranding: false,
-                      }}
-
-                      locale={"ko_KR"}
-                      //locale={"en_US"}
-                    />
-                  )}
-                </div>
-
-            
-                {address && !loadingUser && (
-                    <div className="w-full flex flex-row items-center justify-end gap-2">
-
-                      <button
-                        onClick={() => {
-                          router.push('/' + params.lang + '/' + params.center + '/profile-settings');
-                        }}
-                        className="
-                        items-center justify-center
-                        bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-                      >
-                        <div className="
-                          w-40 xl:w-48
-                          flex flex-col xl:flex-row items-center justify-center gap-2">
-                          <span className="text-sm text-zinc-50">
-                            {user?.nickname || "프로필"}
-                          </span>
-                          {isAdmin && (
-                            <div className="flex flex-row items-center justify-center gap-2">
-                              <Image
-                                src="/icon-admin.png"
-                                alt="Admin"
-                                width={20}
-                                height={20}
-                                className="rounded-lg w-5 h-5"
-                              />
-                              <span className="text-sm text-yellow-500">
-                                가맹점 관리자
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </button>
-
-                      {/* logout button */}
-                      <button
-                          onClick={() => {
-                              confirm("로그아웃 하시겠습니까?") && activeWallet?.disconnect()
-                              .then(() => {
-
-                                  toast.success('로그아웃 되었습니다');
-
-                                  //router.push(
-                                  //    "/admin/" + params.center
-                                  //);
-                              });
-                          } }
-
-                          className="
-                            w-32
-                            flex items-center justify-center gap-2
-                            bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-                      >
-                        <Image
-                          src="/icon-logout.webp"
-                          alt="Logout"
-                          width={20}
-                          height={20}
-                          className="rounded-lg w-5 h-5"
-                        />
-                        <span className="text-sm">
-                          로그아웃
-                        </span>
-                      </button>
-
-                  </div>
-                )}
-
-
-              </div>
-
-
-          </div>
-            
-       
-          <div className="flex flex-col items-start justify-center gap-2">
-     
-
-
-            {/* USDT 가격 binance market price */}
-            {/*
-            <div
-              className="
-              h-20
-                w-full flex
-                binance-widget-marquee
-              flex-row items-center justify-center gap-2
-              p-2
-              "
-
-
-              data-cmc-ids="1,1027,52,5426,3408,74,20947,5994,24478,13502,35336,825"
-              data-theme="dark"
-              data-transparent="true"
-              data-locale="ko"
-              data-fiat="KRW"
-              //data-powered-by="Powered by X-RAY"
-              //data-disclaimer="Disclaimer"
-            ></div>
-            */}
-
-
-
-            {/*
-            <div className="w-full flex flex-col items-end justify-end gap-2
-            border-b border-zinc-300 pb-2">
-
-              {version !== 'bangbang' && (
-              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
-                bg-zinc-200 backdrop-blur-sm p-2 rounded-lg shadow-md">
-
-                <div className="flex flex-col items-start xl:items-center gap-2 mb-2 xl:mb-0">                
-                  <div className="flex flex-row gap-2 items-center">
-                    <div className="flex flex-row gap-2 items-center">
-                      <Image
-                        src="/icon-escrow.png"
-                        alt="Escrow"
-                        width={20}
-                        height={20}
-                        className="w-5 h-5"
-                      />
-                      <span className="text-lg font-normal text-zinc-500">
-                        현재 보유량
-                      </span>
-                    </div>
-
-                    <div className="
-                      w-32
-                      flex flex-row gap-2 items-center justify-between
-                    ">
-                      <Image
-                        src="/icon-tether.png"
-                        alt="Tether"
-                        width={20}
-                        height={20}
-                        className="w-5 h-5"
-                      />
-                      <span className="text-lg text-green-400 font-normal"
-                        style={{ fontFamily: 'monospace' }}
-                      >
-                        {
-                          escrowBalance.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                        }
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-row gap-2 items-center">
-                    <span className="text-sm text-zinc-500 font-normal">
-                      오늘 수수료 차감량
-                    </span>
-                    <div className="
-                      w-32
-                      flex flex-row gap-2 items-center justify-between
-                    ">
-                      <Image
-                        src="/icon-tether.png"
-                        alt="Tether"
-                        width={20}
-                        height={20}
-                        className="w-5 h-5"
-                      />
-                      <span className="text-lg text-red-500 font-normal"
-                        style={{ fontFamily: 'monospace' }}
-                      >
-                        {
-                          todayMinusedEscrowAmount && todayMinusedEscrowAmount > 0 ?
-                          todayMinusedEscrowAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') :
-                          '0.000'
-                        }
-                      </span>
-                    </div>
-                  </div>
-
-                </div>
-
-                <button
-                  onClick={() => {
-                    router.push('/' + params.lang + '/' + params.center + '/escrow-history');
-                  }}
-                  className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80
-                  flex items-center justify-center gap-2
-                  border border-zinc-300 hover:border-[#3167b4]"
-                >
-                  보유량 내역
-                </button>
-
-              </div>
-              )}
-
-              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
-                <div className="flex flex-row gap-2 items-center">
-                  <Image
-                    src="/icon-trade.png"
-                    alt="Trade"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-lg font-normal text-zinc-500">
-                    가맹점 거래
-                  </span>
-                </div>
-
-                <div className="flex flex-row items-center gap-2">
-                  <Image
-                    src="/icon-tether.png"
-                    alt="Tether"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-lg text-green-400 font-normal"
-                    style={{ fontFamily: 'monospace' }}
-                  >
-                    {
-                      Number(store?.totalUsdtAmount ? store?.totalUsdtAmount : 0)
-                      .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                    }
-                  </span>
-                </div>
-
-                <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-500 font-normal"
-                    style={{ fontFamily: 'monospace' }}
-                  >
-                    {
-                      Number(store?.totalKrwAmount ? store?.totalKrwAmount : 0)
-                      .toLocaleString('ko-KR')
-                    }
-                  </span>
-                  <span className="text-sm text-zinc-500">
-                    원
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
-                <div className="flex flex-row gap-2 items-center">
-                  <Image
-                    src="/icon-settlement.png"
-                    alt="Settlement"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-lg font-normal text-zinc-500">
-                    가맹점 결제
-                  </span>
-                </div>
-
-                <div className="flex flex-row items-center gap-2">
-                  <Image
-                    src="/icon-tether.png"
-                    alt="Tether"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-lg text-green-400 font-normal"
-                    style={{ fontFamily: 'monospace' }}
-                  >
-                    {
-                      Number(store?.totalSettlementAmount ? store?.totalSettlementAmount : 0)
-                      .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                    }
-                  </span>
-                </div>
-
-                <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-500 font-normal"
-                    style={{ fontFamily: 'monospace' }}
-                  >
-                    {
-                      Number(store?.totalSettlementAmountKRW ? store?.totalSettlementAmountKRW : 0)
-                      .toLocaleString('ko-KR')
-                    }
-                  </span>
-                  <span className="text-sm text-zinc-500">
-                    원
-                  </span>
-                </div>
-              </div>
-
-              {version !== 'bangbang' && (
-              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
-                <div className="flex flex-row gap-2 items-center">
-                  <Image
-                    src="/icon-clearance.png"
-                    alt="Clearance"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-lg font-normal text-zinc-500">
-                    가맹점 판매
-                  </span>
-                </div>
-
-                <div className="flex flex-row items-center gap-2">
-                  <Image
-                    src="/icon-tether.png"
-                    alt="Tether"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5"
-                  />
-                  <span className="text-lg text-green-400 font-normal"
-                    style={{ fontFamily: 'monospace' }}
-                  >
-                    {
-                      Number(store?.totalUsdtAmountClearance || 0)
-                      .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                    }
-                  </span>
-                </div>
-
-                <div className="flex flex-row gap-1 items-center">
-                  <span className="text-lg text-yellow-500 font-normal"
-                    style={{ fontFamily: 'monospace' }}
-                  >
-                    {
-                      Number(store?.totalKrwAmountClearance || 0)
-                      .toLocaleString('ko-KR')
-                    }
-                  </span>
-                  <span className="text-sm text-zinc-500">
-                    원
-                  </span>
-                </div>
-
-              </div> 
-              )}
-
-            </div>
-            */}
-
-
-
-
-
-            <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 mb-4">
-
-
-                  <div className='flex w-32 items-center justify-center gap-2
-                    bg-yellow-500 text-[#3167b4] text-sm rounded-lg p-2'>
-                      <Image
-                        src="/icon-user.png"
-                        alt="Trade"
-                        width={35}
-                        height={35}
-                        className="w-4 h-4"
-                      />
-                      <div className="text-sm font-normal">
-                        회원관리
-                      </div>
-                  </div>
-
-                  <button
-                      onClick={() => router.push('/' + params.lang + '/' + params.center + '/buyorder')}
-                      className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                      hover:bg-gray-700/80
-                      hover:cursor-pointer
-                      hover:scale-105
-                      transition-transform duration-200 ease-in-out
-                      ">
-                      구매주문관리
-                  </button>
-
-                  <button
-                      onClick={() => router.push('/' + params.lang + '/' + params.center + '/trade-history')}
-                      className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                      hover:bg-gray-700/80
-                      hover:cursor-pointer
-                      hover:scale-105
-                      transition-transform duration-200 ease-in-out
-                      ">
-                      P2P 거래내역
-                  </button>
-
-                  {version !== 'bangbang' && (
-                  <button
-                      onClick={() => router.push('/' + params.lang + '/' + params.center + '/clearance-history')}
-                      className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                      hover:bg-gray-700/80
-                      hover:cursor-pointer
-                      hover:scale-105
-                      transition-transform duration-200 ease-in-out
-                      ">
-                      판매(거래소)
-                  </button>
-                  )}
-
-                  {version !== 'bangbang' && (
-                  <button
-                    onClick={() => router.push('/' + params.lang + '/' + params.center + '/clearance-request')}
-                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-gray-700/80
-                    hover:cursor-pointer
-                    hover:scale-105
-                    transition-transform duration-200 ease-in-out
-                    ">
-                      출금(회원)
-                  </button>
-                  )}
-
-                  <button
-                    onClick={() => router.push('/' + params.lang + '/' + params.center + '/daily-close')}
-                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-gray-700/80
-                    hover:cursor-pointer
-                    hover:scale-105
-                    transition-transform duration-200 ease-in-out
-                    ">
-                      통계(일별)
-                  </button>
-
-
-            </div>
-
-
-
-
-
-            <div className='flex flex-row items-center space-x-4'>
+      {/* fixed position right and vertically center */}
+      <div className="
+        flex
+        fixed right-4 top-1/2 transform -translate-y-1/2
+        z-40
+        ">
+
+          <div className="w-full flex flex-col items-end justify-center gap-4">
+
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+              {loadingTotalNumberOfBuyOrders ? (
                 <Image
-                  src="/icon-user.png"
-                  alt="Buyer"
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-buyorder.png"
+                  alt="Buy Order"
                   width={35}
                   height={35}
                   className="w-6 h-6"
                 />
+              )}
 
-                <div className="text-xl font-normal ">
-                  회원관리
+              {/* array of processingBuyOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingBuyOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.buyer.depositName || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingBuyOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingBuyOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+              <p className="text-lg text-red-500 font-semibold">
+                {
+                totalNumberOfBuyOrders
+                }
+              </p>
+
+              {totalNumberOfBuyOrders > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/' + params.center + '/buyorder');
+                    }}
+                    className="flex items-center justify-center gap-2
+                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  >
+                    <span className="text-sm">
+                      구매<br />주문
+                    </span>
+                  </button>
                 </div>
+              )}
+            </div>
+
+
+            {/* Clearance Orders */}
+            
+            {version !== 'bangbang' && (
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+
+              {loadingPaymentRequestedCount ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-clearance.png"
+                  alt="Clearance"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+              {/* array of processingPaymentRequestedOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingPaymentRequestedOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.seller?.bankInfo?.accountHolder || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingPaymentRequestedOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingPaymentRequestedOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+              <p className="text-lg text-yellow-500 font-semibold">
+                {
+                paymentRequestedCount
+                }
+              </p>
+
+              {paymentRequestedCount > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/' + params.center + '/clearance-history');
+                    }}
+                    className="flex items-center justify-center gap-2
+                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  >
+                    <span className="text-sm">
+                      거래소<br />판매
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+            )}
+
+        
+          </div>
+
+      </div>
+
+
+
+      <div className="py-0 w-full">
+
+
+        <div className={`w-full flex flex-col xl:flex-row items-center justify-between gap-2
+          p-2 rounded-lg mb-4
+          ${store?.backgroundColor ?
+            "bg-" + store.backgroundColor + " " :
+            "bg-black/10"
+          }`}>
+            
+          <button
+            onClick={() => {
+              router.push('/' + params.lang + '/' + params.center + '/center');
+            }}
+            className="flex bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+          >
+            <span className="text-sm text-zinc-50 font-bold">
+              홈
+            </span>
+          </button>
+
+
+            <div className="flex flex-row items-center gap-2">
+              
+          
+              {address && !loadingUser && (
+                  <div className="w-full flex flex-row items-center justify-end gap-2">
+
+                    <button
+                      onClick={() => {
+                        router.push('/' + params.lang + '/' + params.center + '/profile-settings');
+                      }}
+                      className="
+                      items-center justify-center
+                      bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                    >
+                      <div className="
+                        w-40 xl:w-48
+                        flex flex-col xl:flex-row items-center justify-center gap-2">
+                        <span className="text-sm text-zinc-50">
+                          {user?.nickname || "프로필"}
+                        </span>
+                        {isAdmin && (
+                          <div className="flex flex-row items-center justify-center gap-2">
+                            <Image
+                              src="/icon-admin.png"
+                              alt="Admin"
+                              width={20}
+                              height={20}
+                              className="rounded-lg w-5 h-5"
+                            />
+                            <span className="text-sm text-yellow-500">
+                              가맹점 관리자
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </button>
+
+                    {/* logout button */}
+                    <button
+                        onClick={() => {
+                            confirm("로그아웃 하시겠습니까?") && activeWallet?.disconnect()
+                            .then(() => {
+
+                                toast.success('로그아웃 되었습니다');
+
+                                //router.push(
+                                //    "/admin/" + params.center
+                                //);
+                            });
+                        } }
+
+                        className="
+                          w-32
+                          flex items-center justify-center gap-2
+                          bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                    >
+                      <Image
+                        src="/icon-logout.webp"
+                        alt="Logout"
+                        width={20}
+                        height={20}
+                        className="rounded-lg w-5 h-5"
+                      />
+                      <span className="text-sm">
+                        로그아웃
+                      </span>
+                    </button>
+
+                </div>
+              )}
+
 
             </div>
+
+
+        </div>
+            
+      
+        <div className="flex flex-col items-start justify-center gap-2">
+    
+
+
+          {/* USDT 가격 binance market price */}
+          {/*
+          <div
+            className="
+            h-20
+              w-full flex
+              binance-widget-marquee
+            flex-row items-center justify-center gap-2
+            p-2
+            "
+
+
+            data-cmc-ids="1,1027,52,5426,3408,74,20947,5994,24478,13502,35336,825"
+            data-theme="dark"
+            data-transparent="true"
+            data-locale="ko"
+            data-fiat="KRW"
+            //data-powered-by="Powered by X-RAY"
+            //data-disclaimer="Disclaimer"
+          ></div>
+          */}
+
+
+
+          {/*
+          <div className="w-full flex flex-col items-end justify-end gap-2
+          border-b border-zinc-300 pb-2">
+
+            {version !== 'bangbang' && (
+            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2
+              bg-zinc-200 backdrop-blur-sm p-2 rounded-lg shadow-md">
+
+              <div className="flex flex-col items-start xl:items-center gap-2 mb-2 xl:mb-0">                
+                <div className="flex flex-row gap-2 items-center">
+                  <div className="flex flex-row gap-2 items-center">
+                    <Image
+                      src="/icon-escrow.png"
+                      alt="Escrow"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-lg font-normal text-zinc-500">
+                      현재 보유량
+                    </span>
+                  </div>
+
+                  <div className="
+                    w-32
+                    flex flex-row gap-2 items-center justify-between
+                  ">
+                    <Image
+                      src="/icon-tether.png"
+                      alt="Tether"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-lg text-green-400 font-normal"
+                      style={{ fontFamily: 'monospace' }}
+                    >
+                      {
+                        escrowBalance.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                      }
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-row gap-2 items-center">
+                  <span className="text-sm text-zinc-500 font-normal">
+                    오늘 수수료 차감량
+                  </span>
+                  <div className="
+                    w-32
+                    flex flex-row gap-2 items-center justify-between
+                  ">
+                    <Image
+                      src="/icon-tether.png"
+                      alt="Tether"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-lg text-red-500 font-normal"
+                      style={{ fontFamily: 'monospace' }}
+                    >
+                      {
+                        todayMinusedEscrowAmount && todayMinusedEscrowAmount > 0 ?
+                        todayMinusedEscrowAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') :
+                        '0.000'
+                      }
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <button
+                onClick={() => {
+                  router.push('/' + params.lang + '/' + params.center + '/escrow-history');
+                }}
+                className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80
+                flex items-center justify-center gap-2
+                border border-zinc-300 hover:border-[#3167b4]"
+              >
+                보유량 내역
+              </button>
+
+            </div>
+            )}
+
+            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+              <div className="flex flex-row gap-2 items-center">
+                <Image
+                  src="/icon-trade.png"
+                  alt="Trade"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-lg font-normal text-zinc-500">
+                  가맹점 거래
+                </span>
+              </div>
+
+              <div className="flex flex-row items-center gap-2">
+                <Image
+                  src="/icon-tether.png"
+                  alt="Tether"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-lg text-green-400 font-normal"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {
+                    Number(store?.totalUsdtAmount ? store?.totalUsdtAmount : 0)
+                    .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                  }
+                </span>
+              </div>
+
+              <div className="flex flex-row gap-1 items-center">
+                <span className="text-lg text-yellow-500 font-normal"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {
+                    Number(store?.totalKrwAmount ? store?.totalKrwAmount : 0)
+                    .toLocaleString('ko-KR')
+                  }
+                </span>
+                <span className="text-sm text-zinc-500">
+                  원
+                </span>
+              </div>
+            </div>
+
+            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+              <div className="flex flex-row gap-2 items-center">
+                <Image
+                  src="/icon-settlement.png"
+                  alt="Settlement"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-lg font-normal text-zinc-500">
+                  가맹점 결제
+                </span>
+              </div>
+
+              <div className="flex flex-row items-center gap-2">
+                <Image
+                  src="/icon-tether.png"
+                  alt="Tether"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-lg text-green-400 font-normal"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {
+                    Number(store?.totalSettlementAmount ? store?.totalSettlementAmount : 0)
+                    .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                  }
+                </span>
+              </div>
+
+              <div className="flex flex-row gap-1 items-center">
+                <span className="text-lg text-yellow-500 font-normal"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {
+                    Number(store?.totalSettlementAmountKRW ? store?.totalSettlementAmountKRW : 0)
+                    .toLocaleString('ko-KR')
+                  }
+                </span>
+                <span className="text-sm text-zinc-500">
+                  원
+                </span>
+              </div>
+            </div>
+
+            {version !== 'bangbang' && (
+            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+              <div className="flex flex-row gap-2 items-center">
+                <Image
+                  src="/icon-clearance.png"
+                  alt="Clearance"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-lg font-normal text-zinc-500">
+                  가맹점 판매
+                </span>
+              </div>
+
+              <div className="flex flex-row items-center gap-2">
+                <Image
+                  src="/icon-tether.png"
+                  alt="Tether"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5"
+                />
+                <span className="text-lg text-green-400 font-normal"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {
+                    Number(store?.totalUsdtAmountClearance || 0)
+                    .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                  }
+                </span>
+              </div>
+
+              <div className="flex flex-row gap-1 items-center">
+                <span className="text-lg text-yellow-500 font-normal"
+                  style={{ fontFamily: 'monospace' }}
+                >
+                  {
+                    Number(store?.totalKrwAmountClearance || 0)
+                    .toLocaleString('ko-KR')
+                  }
+                </span>
+                <span className="text-sm text-zinc-500">
+                  원
+                </span>
+              </div>
+
+            </div> 
+            )}
+
+          </div>
+          */}
+
+
+
+
+
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 mb-4">
+
+
+                <div className='flex w-32 items-center justify-center gap-2
+                  bg-yellow-500 text-[#3167b4] text-sm rounded-lg p-2'>
+                    <Image
+                      src="/icon-user.png"
+                      alt="Trade"
+                      width={35}
+                      height={35}
+                      className="w-4 h-4"
+                    />
+                    <div className="text-sm font-normal">
+                      회원관리
+                    </div>
+                </div>
+
+                <button
+                    onClick={() => router.push('/' + params.lang + '/' + params.center + '/buyorder')}
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
+                    hover:cursor-pointer
+                    hover:scale-105
+                    transition-transform duration-200 ease-in-out
+                    ">
+                    구매주문관리
+                </button>
+
+                <button
+                    onClick={() => router.push('/' + params.lang + '/' + params.center + '/trade-history')}
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
+                    hover:cursor-pointer
+                    hover:scale-105
+                    transition-transform duration-200 ease-in-out
+                    ">
+                    P2P 거래내역
+                </button>
+
+                {version !== 'bangbang' && (
+                <button
+                    onClick={() => router.push('/' + params.lang + '/' + params.center + '/clearance-history')}
+                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                    hover:bg-gray-700/80
+                    hover:cursor-pointer
+                    hover:scale-105
+                    transition-transform duration-200 ease-in-out
+                    ">
+                    판매(거래소)
+                </button>
+                )}
+
+                {version !== 'bangbang' && (
+                <button
+                  onClick={() => router.push('/' + params.lang + '/' + params.center + '/clearance-request')}
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
+                  hover:cursor-pointer
+                  hover:scale-105
+                  transition-transform duration-200 ease-in-out
+                  ">
+                    출금(회원)
+                </button>
+                )}
+
+                <button
+                  onClick={() => router.push('/' + params.lang + '/' + params.center + '/daily-close')}
+                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
+                  hover:bg-gray-700/80
+                  hover:cursor-pointer
+                  hover:scale-105
+                  transition-transform duration-200 ease-in-out
+                  ">
+                    통계(일별)
+                </button>
+
+
+          </div>
+
+
+
+
+
+          <div className='flex flex-row items-center space-x-4'>
+              <Image
+                src="/icon-user.png"
+                alt="Buyer"
+                width={35}
+                height={35}
+                className="w-6 h-6 p-1 bg-yellow-500 rounded-lg"
+              />
+
+              <div className="text-xl font-normal ">
+                회원관리
+              </div>
+
+          </div>
+
+
+            <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-3">
+
+
+              <div className="w-full flex flex-row items-center justify-end gap-5">
+
+
+                <div className="flex flex-col gap-2 items-center">
+                  <div className="text-sm">{Total}</div>
+                  <div className="flex flex-row items-center gap-2">
+                    {
+                      fetchingAllBuyer ? (
+                        <Image
+                          src="/loading.png"
+                          alt="Loading"
+                          width={20}
+                          height={20}
+                          className="animate-spin"
+                        />
+                      ) : (
+                        totalCount
+                      )
+                    }
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div className="w-full flex flex-col xl:flex-row items-center justify-between gap-5 mt-4">
+
+              {/* 바이어 추가 input and button */}
+              <div className="
+                w-full xl:w-1/2
+                flex flex-col xl:flex-col items-center justify-center gap-2">
+
+
+                <div className="w-full flex flex-row items-between justify-center gap-2">
+
+                  <input
+                    disabled={insertingUserCode}
+                    type="text"
+                    value={userCode}
+                    onChange={(e) => {
+
+
+                      setUserCode(e.target.value);
+
+                    } }
+                    placeholder="회원 아이디"
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+                  {/* userPassword */}
+                  <input
+                    disabled={insertingUserCode}
+                    type="text"
+                    value={userPassword}
+                    onChange={(e) => setUserPassword(e.target.value)}
+                    placeholder="회원 비밀번호"
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+
+      
+                  <input
+                    disabled={insertingUserCode}
+                    type="text"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    placeholder="회원 이름"
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+                </div>
+
+
+                <div className="w-full flex flex-row items-between justify-center gap-2">
+
+
+                  {/* userBankDepositName */}
+                  <input
+                    disabled={insertingUserCode}
+                    type="text"
+                    value={userBankDepositName}
+                    onChange={(e) => setUserBankDepositName(e.target.value)}
+                    placeholder="회원 입금자명"
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+
+
+                  {/* userBankName */}
+                  <select
+                    disabled={insertingUserCode}
+                    value={userBankName}
+                    onChange={(e) => setUserBankName(e.target.value)}
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="" selected={userBankName === ""}>
+                      은행선택
+                    </option>
+                    <option value="카카오뱅크" selected={userBankName === "카카오뱅크"}>
+                      카카오뱅크
+                    </option>
+                    <option value="케이뱅크" selected={userBankName === "케이뱅크"}>
+                      케이뱅크
+                    </option>
+                    <option value="토스뱅크" selected={userBankName === "토스뱅크"}>
+                      토스뱅크
+                    </option>
+                    <option value="국민은행" selected={userBankName === "국민은행"}>
+                      국민은행
+                    </option>
+                    <option value="우리은행" selected={userBankName === "우리은행"}>
+                      우리은행
+                    </option>
+                    <option value="신한은행" selected={userBankName === "신한은행"}>
+                      신한은행
+                    </option>
+                    <option value="농협" selected={userBankName === "농협"}>
+                      농협
+                    </option>
+                    <option value="새마을금고" selected={userBankName === "새마을금고"}>
+                      새마을금고
+                    </option>
+                    <option value="우체국" selected={userBankName === "우체국"}>
+                      우체국
+                    </option>
+                    <option value="산림조합" selected={userBankName === "산림조합"}>
+                      산림조합
+                    </option>
+                    <option value="SC제일은행" selected={userBankName === "SC제일은행"}>
+                      SC제일은행
+                    </option>
+                    <option value="기업은행" selected={userBankName === "기업은행"}>
+                      기업은행
+                    </option>
+                    <option value="하나은행" selected={userBankName === "하나은행"}>
+                      하나은행
+                    </option>
+                    <option value="외환은행" selected={userBankName === "외환은행"}>
+                      외환은행
+                    </option>
+                    <option value="부산은행" selected={userBankName === "부산은행"}>
+                      부산은행
+                    </option>
+                    <option value="경남은행" selected={userBankName === "경남은행"}>
+                      경남은행
+                    </option>
+                    <option value="대구은행" selected={userBankName === "대구은행"}>
+                      대구은행
+                    </option>
+                    <option value="전북은행" selected={userBankName === "전북은행"}>
+                      전북은행
+                    </option>
+                    <option value="경북은행" selected={userBankName === "경북은행"}>
+                      경북은행
+                    </option>
+                    <option value="광주은행" selected={userBankName === "광주은행"}>
+                      광주은행
+                    </option>
+                    <option value="제주은행" selected={userBankName === "제주은행"}>
+                      제주은행
+                    </option>
+                    <option value="수협" selected={userBankName === "수협"}>
+                      수협
+                    </option>
+                    <option value="신협" selected={userBankName === "신협"}>
+                      신협
+                    </option>
+                    <option value="저축은행" selected={userBankName === "저축은행"}>
+                      저축은행
+                    </option>
+                    <option value="씨티은행" selected={userBankName === "씨티은행"}>
+                      씨티은행
+                    </option>
+                    <option value="대신은행" selected={userBankName === "대신은행"}>
+                      대신은행
+                    </option>
+                    <option value="동양종합금융" selected={userBankName === "동양종합금융"}>
+                      동양종합금융
+                    </option>
+                    <option value="산업은행" selected={userBankName === "산업은행"}>
+                      산업은행
+                    </option>
+                  </select>
+
+                  {/* userBankAccountNumber */}
+                  <input
+                    disabled={insertingUserCode}
+                    type="text"
+                    value={userBankAccountNumber}
+                    onChange={(e) => setUserBankAccountNumber(e.target.value)}
+                    placeholder="회원 계좌번호"
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+
+                </div>
+
+            
+                
+                <button
+                  disabled={insertingUserCode}
+                  onClick={() => {
+
+                    // check if store name length is less than 2
+                    if (userName.length < 2) {
+                      toast.error('회원 이름은 2자 이상이어야 합니다.');
+                      return;
+                    }
+                    // check if store name length is less than 20
+                    if (userName.length > 10) {
+                      toast.error('회원 이름은 10자 이하여야 합니다.');
+                      return;
+                    }
+
+                    confirm(
+                      `정말 ${userCode} (${userName})을 추가하시겠습니까?`
+                    ) && insertBuyer();
+
+                  }}
+                  className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg w-full
+                    ${insertingUserCode ? 'opacity-50 cursor-not-allowed' : ''}`}
+                >
+                  {insertingUserCode ? '회원추가 중...' : '회원추가'}
+                </button>
+              </div>
+
+
+
+
+
+
+              <div className="flex flex-row items-center gap-2">
+
+
+                <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
+                  {/* search nickname */}
+                  <div className="flex flex-row items-center gap-2">
+                    <input
+                      type="text"
+                      value={searchBuyer}
+                      onChange={(e) => setSearchBuyer(e.target.value)}
+                      placeholder="회원 아이디"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                    />
+
+                  </div>
+
+                  <div className="flex flex-row items-center gap-2">
+                    <input
+                      type="text"
+                      value={searchDepositName}
+                      onChange={(e) => setSearchDepositName(e.target.value)}
+                      placeholder="입금자명"
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                    />
+
+                  </div>
+                </div>
+
+
+                {/* 검색 버튼 */}
+                <div className="
+                w-32
+                flex flex-row items-center gap-2">
+                  <button
+                    onClick={() => {
+                      setPageValue(1);
+                      fetchAllBuyer();
+                    }}
+                    className="bg-gray-700  px-4 py-2 rounded-lg w-full"
+                    disabled={fetchingAllBuyer}
+                  >
+                    <div className="flex flex-row items-center justify-between gap-2">
+                      <Image
+                        src="/icon-search.png"
+                        alt="Search"
+                        width={20}
+                        height={20}
+                        className="rounded-lg w-5 h-5"
+                      />
+                      <span className="text-sm">
+                        {fetchingAllBuyer ? '검색중...' : '검색'}
+                      </span>
+                    </div>
+
+                  </button>
+                </div>
+                
+              </div>
+
+
+
+            </div>
+
 
 
 
             {/*
-            <div className="w-full flex flex-col xl:flwx-row items-start justify-center gap-2 mt-4">
-
-
-  
-                <div className="flex flex-row items-center justify-start gap-2">  
-                  <Image
-                    src="/icon-homepage.png"
-                    alt="Homepage"
-                    width={20}
-                    height={20}
-                    className="rounded-lg w-6 h-6"
-                  />
-                  <span className="text-sm text-zinc-500">
-                    회원 홈페이지
-                  </span>
-                </div>
-                <div className="flex flex-row items-center justify-start gap-2">
-                  <button
-                    onClick={() => {
-                      window.open(`${paymentUrl}/${params.lang}/${clientId}/${store?.storecode}/paymaster`, '_blank');
-                    }}
-                    className="text-sm text-zinc-500 underline"
-                  >
-                    {paymentUrl + '/' + params.lang + '/' + clientId + '/' + store?.storecode + '/paymaster'}
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(`${paymentUrl}/${params.lang}/${clientId}/${store?.storecode}/center`);
-                      toast.success('가맹점 홈페이지 링크가 복사되었습니다.');
-                    }}
-                    className="bg-gray-700 text-sm text-[#f3f4f6] px-2 py-1 rounded-lg hover:bg-gray-700/80"
-                  >
-                    복사
-                  </button>
-                </div>
-
-
-            </div>
+            {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
             */}
 
+            {/* table view is horizontal scroll */}
+            {tableView ? (
 
 
+              <div className="w-full overflow-x-auto">
 
-
-              <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-3">
-
-     
-
-
-
-
-                <div className="w-full flex flex-row items-center justify-end gap-5">
-
-
-                  <div className="flex flex-col gap-2 items-center">
-                    <div className="text-sm">{Total}</div>
-                    <div className="flex flex-row items-center gap-2">
-                      {
-                        fetchingAllBuyer ? (
-                          <Image
-                            src="/loading.png"
-                            alt="Loading"
-                            width={20}
-                            height={20}
-                            className="animate-spin"
-                          />
-                        ) : (
-                          totalCount
-                        )
-                      }
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <div className="w-full flex flex-col xl:flex-row items-center justify-between gap-5 mt-4">
-
-                {/* 바이어 추가 input and button */}
-                <div className="
-                  w-full xl:w-1/2
-                  flex flex-col xl:flex-col items-center justify-center gap-2">
-
-
-                  <div className="w-full flex flex-row items-between justify-center gap-2">
-
-                    <input
-                      disabled={insertingUserCode}
-                      type="text"
-                      value={userCode}
-                      onChange={(e) => {
-
-
-                        setUserCode(e.target.value);
-
-                      } }
-                      placeholder="회원 아이디"
-                      className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-
-                    {/* userPassword */}
-                    <input
-                      disabled={insertingUserCode}
-                      type="text"
-                      value={userPassword}
-                      onChange={(e) => setUserPassword(e.target.value)}
-                      placeholder="회원 비밀번호"
-                      className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-
-
-        
-                    <input
-                      disabled={insertingUserCode}
-                      type="text"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                      placeholder="회원 이름"
-                      className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-
-                  </div>
-
-
-                  <div className="w-full flex flex-row items-between justify-center gap-2">
-
-
-                    {/* userBankDepositName */}
-                    <input
-                      disabled={insertingUserCode}
-                      type="text"
-                      value={userBankDepositName}
-                      onChange={(e) => setUserBankDepositName(e.target.value)}
-                      placeholder="회원 입금자명"
-                      className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-
-
-
-                    {/* userBankName */}
-                    <select
-                      disabled={insertingUserCode}
-                      value={userBankName}
-                      onChange={(e) => setUserBankName(e.target.value)}
-                      className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                      <option value="" selected={userBankName === ""}>
-                        은행선택
-                      </option>
-                      <option value="카카오뱅크" selected={userBankName === "카카오뱅크"}>
-                        카카오뱅크
-                      </option>
-                      <option value="케이뱅크" selected={userBankName === "케이뱅크"}>
-                        케이뱅크
-                      </option>
-                      <option value="토스뱅크" selected={userBankName === "토스뱅크"}>
-                        토스뱅크
-                      </option>
-                      <option value="국민은행" selected={userBankName === "국민은행"}>
-                        국민은행
-                      </option>
-                      <option value="우리은행" selected={userBankName === "우리은행"}>
-                        우리은행
-                      </option>
-                      <option value="신한은행" selected={userBankName === "신한은행"}>
-                        신한은행
-                      </option>
-                      <option value="농협" selected={userBankName === "농협"}>
-                        농협
-                      </option>
-                      <option value="새마을금고" selected={userBankName === "새마을금고"}>
-                        새마을금고
-                      </option>
-                      <option value="우체국" selected={userBankName === "우체국"}>
-                        우체국
-                      </option>
-                      <option value="산림조합" selected={userBankName === "산림조합"}>
-                        산림조합
-                      </option>
-                      <option value="SC제일은행" selected={userBankName === "SC제일은행"}>
-                        SC제일은행
-                      </option>
-                      <option value="기업은행" selected={userBankName === "기업은행"}>
-                        기업은행
-                      </option>
-                      <option value="하나은행" selected={userBankName === "하나은행"}>
-                        하나은행
-                      </option>
-                      <option value="외환은행" selected={userBankName === "외환은행"}>
-                        외환은행
-                      </option>
-                      <option value="부산은행" selected={userBankName === "부산은행"}>
-                        부산은행
-                      </option>
-                      <option value="경남은행" selected={userBankName === "경남은행"}>
-                        경남은행
-                      </option>
-                      <option value="대구은행" selected={userBankName === "대구은행"}>
-                        대구은행
-                      </option>
-                      <option value="전북은행" selected={userBankName === "전북은행"}>
-                        전북은행
-                      </option>
-                      <option value="경북은행" selected={userBankName === "경북은행"}>
-                        경북은행
-                      </option>
-                      <option value="광주은행" selected={userBankName === "광주은행"}>
-                        광주은행
-                      </option>
-                      <option value="제주은행" selected={userBankName === "제주은행"}>
-                        제주은행
-                      </option>
-                      <option value="수협" selected={userBankName === "수협"}>
-                        수협
-                      </option>
-                      <option value="신협" selected={userBankName === "신협"}>
-                        신협
-                      </option>
-                      <option value="저축은행" selected={userBankName === "저축은행"}>
-                        저축은행
-                      </option>
-                      <option value="씨티은행" selected={userBankName === "씨티은행"}>
-                        씨티은행
-                      </option>
-                      <option value="대신은행" selected={userBankName === "대신은행"}>
-                        대신은행
-                      </option>
-                      <option value="동양종합금융" selected={userBankName === "동양종합금융"}>
-                        동양종합금융
-                      </option>
-                      <option value="산업은행" selected={userBankName === "산업은행"}>
-                        산업은행
-                      </option>
-                    </select>
-
-                    {/* userBankAccountNumber */}
-                    <input
-                      disabled={insertingUserCode}
-                      type="text"
-                      value={userBankAccountNumber}
-                      onChange={(e) => setUserBankAccountNumber(e.target.value)}
-                      placeholder="회원 계좌번호"
-                      className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-
-                  </div>
-
-              
-                  
-                  <button
-                    disabled={insertingUserCode}
-                    onClick={() => {
-
-                      // check if store name length is less than 2
-                      if (userName.length < 2) {
-                        toast.error('회원 이름은 2자 이상이어야 합니다.');
-                        return;
-                      }
-                      // check if store name length is less than 20
-                      if (userName.length > 10) {
-                        toast.error('회원 이름은 10자 이하여야 합니다.');
-                        return;
-                      }
-
-                      confirm(
-                        `정말 ${userCode} (${userName})을 추가하시겠습니까?`
-                      ) && insertBuyer();
-
+                <table className=" w-full table-auto border-collapse border border-zinc-400
+                  bg-zinc-700/50
+                  backdrop-blur-md
+                  rounded-lg
+                  shadow-lg
+                  ">
+                  <thead
+                    className="bg-zinc-600 text-sm font-normal"
+                    style={{
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
                     }}
-                    className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg w-full
-                      ${insertingUserCode ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
-                    {insertingUserCode ? '회원추가 중...' : '회원추가'}
-                  </button>
-                </div>
+                    <tr>
+                      <th className="p-2">등록일</th>
+                      <th className="p-2">회원 아이디</th>
+                      <th className="p-2">회원 통장</th>
+                      <th className="p-2">구매수(건)</th>
+                      <th className="p-2 text-right">
+                        구매량(USDT)
+                        <br />
+                        구매금액(원)
+                      </th>
+                      <th className="p-2">충전금액</th>
+                      <th className="p-2">회원 결제페이지</th>
+                      <th className="p-2">회원 USDT지갑</th>
+                      <th className="p-2">주문상태</th>
+                      <th className="p-2">잔액확인</th>
+                    </tr>
+                  </thead>
 
+                  {/* if my trading, then tr has differenc color */}
+                  <tbody>
 
+                    {allBuyer.map((item, index) => (
 
+                      
+                      <tr key={index} className={`
+                        ${
+                          index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
+                        }
+                      `}>
+                      
+                        <td className="p-2">
+                          <div className="w-32 flex flex-col items-start justify-center gap-1">
+                            <span className="text-sm">
+                              {new Date(item.createdAt).toLocaleDateString('ko-KR', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit',
+                              })}
+                            </span>
+                            <span className="text-sm">
+                              {new Date(item.createdAt).toLocaleTimeString('ko-KR', {
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                second: '2-digit',
+                              })}
+                            </span>
+                          </div>
+                        </td>
 
+                        <td className="p-2">
+                          <div className="
+                          w-32
+                          flex flex-row items-center justify-start gap-1">
+                            <Image
+                              src="/icon-user.png"
+                              alt="Buyer"
+                              width={20}
+                              height={20}
+                              className="rounded-lg w-5 h-5"
+                            />
+                            <span className="text-sm">
+                              {item.nickname}
+                            </span>
+                          </div>
+                        </td>
 
+                        <td className="p-2">
+                          <div className="flex flex-col items-end justify-center gap-1">
+                            <span className="text-sm">
+                              {item?.buyer?.depositBankName}
+                            </span>
+                            <span className="text-sm">
+                              {item?.buyer?.depositBankAccountNumber}
+                            </span>
+                            <span className="text-sm">
+                              {item?.buyer?.depositName}
+                            </span>
+                          </div>
+                        </td>
 
-                <div className="flex flex-row items-center gap-2">
+                        <td className="p-2">
+                          <div className="w-20 flex flex-col items-end justify-center gap-1">
+                            {item?.totalPaymentConfirmedCount || 0}
+                          </div>
+                        </td>
+                        <td className="p-2">
+                          <div className="
+                            mr-5
+                            w-48
+                            flex flex-col items-end justify-center gap-1">
 
-
-                  <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
-                    {/* search nickname */}
-                    <div className="flex flex-row items-center gap-2">
-                      <input
-                        type="text"
-                        value={searchBuyer}
-                        onChange={(e) => setSearchBuyer(e.target.value)}
-                        placeholder="회원 아이디"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                      />
-
-                    </div>
-
-                    <div className="flex flex-row items-center gap-2">
-                      <input
-                        type="text"
-                        value={searchDepositName}
-                        onChange={(e) => setSearchDepositName(e.target.value)}
-                        placeholder="입금자명"
-                        className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                      />
-
-                    </div>
-                  </div>
-
-
-                  {/* 검색 버튼 */}
-                  <div className="
-                  w-32
-                  flex flex-row items-center gap-2">
-                    <button
-                      onClick={() => {
-                        setPageValue(1);
-                        fetchAllBuyer();
-                      }}
-                      className="bg-gray-700  px-4 py-2 rounded-lg w-full"
-                      disabled={fetchingAllBuyer}
-                    >
-                      <div className="flex flex-row items-center justify-between gap-2">
-                        <Image
-                          src="/icon-search.png"
-                          alt="Search"
-                          width={20}
-                          height={20}
-                          className="rounded-lg w-5 h-5"
-                        />
-                        <span className="text-sm">
-                          {fetchingAllBuyer ? '검색중...' : '검색'}
-                        </span>
-                      </div>
-
-                    </button>
-                  </div>
-                  
-                </div>
-
-
-
-              </div>
-
-
-
-
-              {/*
-              {"storecode":"teststorecode","storeName":"테스트상점","storeType":"test","storeUrl":"https://test.com","storeDescription":"설명입니다.","storeLogo":"https://test.com/logo-xlay.jpg","storeBanner":"https://test.com/banner.png"}
-              */}
-
-              {/* table view is horizontal scroll */}
-              {tableView ? (
-
-
-                <div className="w-full overflow-x-auto">
-
-                  <table className=" w-full table-auto border-collapse border border-zinc-400
-                    bg-zinc-700/50
-                    backdrop-blur-md
-                    rounded-lg
-                    shadow-lg
-                    ">
-                    <thead
-                      className="bg-zinc-600 text-sm font-normal"
-                      style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                      }}
-                    >
-                      <tr>
-                        <th className="p-2">등록일</th>
-                        <th className="p-2">회원 아이디</th>
-                        <th className="p-2">회원 통장</th>
-                        <th className="p-2">구매수(건)</th>
-                        <th className="p-2 text-right">
-                          구매량(USDT)
-                          <br />
-                          구매금액(원)
-                        </th>
-                        <th className="p-2">충전금액</th>
-                        <th className="p-2">회원 결제페이지</th>
-                        <th className="p-2">회원 USDT지갑</th>
-                        <th className="p-2">주문상태</th>
-                        <th className="p-2">잔액확인</th>
-                      </tr>
-                    </thead>
-
-                    {/* if my trading, then tr has differenc color */}
-                    <tbody>
-
-                      {allBuyer.map((item, index) => (
-
-                        
-                        <tr key={index} className={`
-                          ${
-                            index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
-                          }
-                        `}>
-                        
-                          <td className="p-2">
-                            {new Date(item.createdAt).toLocaleDateString('ko-KR', {
-                              year: 'numeric',
-                              month: '2-digit',
-                              day: '2-digit',
-                              hour: '2-digit',
-                              minute: '2-digit',
-                              second: '2-digit',
-                            })}
-                          </td>
-
-                          <td className="p-2">
-                            <div className="
-                            w-32
-                            flex flex-row items-center justify-start gap-1">
+                            <div className="w-full flex flex-row items-center justify-end gap-1">
                               <Image
-                                src="/icon-user.png"
-                                alt="Buyer"
-                                width={20}
-                                height={20}
-                                className="rounded-lg w-5 h-5"
-                              />
-                              <span className="text-sm">
-                                {item.nickname}
-                              </span>
-                            </div>
-                          </td>
-
-                          <td className="p-2">
-                            <div className="flex flex-col items-end justify-center gap-1">
-                              <span className="text-sm">
-                                {item?.buyer?.depositBankName}
-                              </span>
-                              <span className="text-sm">
-                                {item?.buyer?.depositBankAccountNumber}
-                              </span>
-                              <span className="text-sm">
-                                {item?.buyer?.depositName}
-                              </span>
-                            </div>
-                          </td>
-
-                          <td className="p-2">
-                            <div className="w-20 flex flex-col items-end justify-center gap-1">
-                              {item?.totalPaymentConfirmedCount || 0}
-                            </div>
-                          </td>
-                          <td className="p-2">
-                            <div className="
-                              mr-5
-                              w-48
-                              flex flex-col items-end justify-center gap-1">
-
-                              <div className="w-full flex flex-row items-center justify-end gap-1">
-                                <Image
-                                  src="/icon-tether.png"
-                                  alt="Tether"
-                                  width={20}
-                                  height={20}
-                                  className="w-5 h-5"
-                                />
-                                <span className="text-lg text-green-400 font-normal"
-                                  style={{ fontFamily: 'monospace' }}
-                                >
-                                {
-                                Number(item?.totalPaymentConfirmedUsdtAmount ?
-                                  item?.totalPaymentConfirmedUsdtAmount
-                                  : 0)
-                                  .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                                }
-                                </span>
-                              </div>
-                              <div className="w-full flex flex-row items-center justify-end gap-1">
-                                <span className="text-lg text-yellow-500 font-normal"
-                                  style={{ fontFamily: 'monospace' }}
-                                >
-                                {item?.totalPaymentConfirmedKrwAmount && item?.totalPaymentConfirmedKrwAmount.toLocaleString('ko-KR') || 0}
-                                </span>
-                              </div>
-
-                            </div>
-                          </td>
-
-                          <td className="p-2">
-                            <div className="flex flex-col xl:flex-row items-start justify-center gap-2">
-                              <input
-                                type="text"
-                                value={depositAmountKrw[index]}
-                                onChange={(e) => {
-                                  setDepositAmountKrw((prev) => {
-                                    const newDepositAmountKrw = [...prev];
-                                    newDepositAmountKrw[index] = Number(e.target.value);
-                                    return newDepositAmountKrw;
-                                  });
-                                }}
-                                placeholder="충전금액"
-                                className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                              />
-                            </div>
-                          </td>
-
-
-
-                          <td className="p-2">
-
-                            <div className="
-                              w-64
-                              flex flex-col items-center justify-center gap-2">
-
-                              <div className="w-full flex flex-row items-center justify-between gap-2">
-
-                                {/* Modal open */}
-                                <button
-                                  onClick={() => {
-                                    setSelectedItem({
-                                      ...item,
-                                      depositAmountKrw: depositAmountKrw[index],
-                                    });
-                                    openModal();
-                                  }}
-                                  className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
-                                    hover:bg-blue-600"
-                                >
-                                  보기
-                                </button>
-
-
-
-                                {/* 복사 버튼 */}
-                                <button
-                                  onClick={() => {
-                                    navigator.clipboard.writeText(
-                                      paymentUrl + '/' + params.lang + '/' + clientId + '/' + item.storecode + '/payment?'
-                                      + 'storeUser=' + item.nickname
-                                      + '&depositBankName='+ item?.buyer?.depositBankName
-                                      + '&depositBankAccountNumber=' + item?.buyer?.depositBankAccountNumber
-                                      + '&depositName=' + item?.buyer?.depositName
-                                      + '&depositAmountKrw=' + depositAmountKrw[index]
-                                    );
-                                    toast.success('회원 결제페이지 링크가 복사되었습니다.');
-                                  }}
-                                  className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
-                                    hover:bg-blue-600"
-                                >
-                                  링크 복사
-                                </button>
-
-                              </div>
-
-                              <div className="w-full flex flex-row items-center justify-between gap-2">
-
-
-                                {/* copy javascript code */}
-                                <button
-                                  onClick={() => {
-                                    navigator.clipboard.writeText(
-                                      `<script src="${paymentUrl}/${params.lang}/${clientId}/${item.storecode}/payment?storeUser=${item.nickname}&depositBankName=${item?.buyer?.depositBankName}&depositBankAccountNumber=${item?.buyer?.depositBankAccountNumber}&depositName=${item?.buyer?.depositName}&depositAmountKrw=${depositAmountKrw[index]}">결제하기</script>`
-                                    );
-                                    toast.success('회원 결제페이지 스크립트가 복사되었습니다.');
-                                  }}
-                                  className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
-                                    hover:bg-blue-600"
-                                >
-                                  스크립트 복사
-                                </button>
-                                      
-
-
-                                {/* 새창 열기 버튼 */}
-                                <button
-                                  onClick={() => {
-                                    window.open(
-                                      paymentUrl + '/' + params.lang + '/' + clientId + '/' + item.storecode + '/payment?'
-                                      + 'storeUser=' + item.nickname
-                                      + '&depositBankName=' + item?.buyer?.depositBankName
-                                      + '&depositBankAccountNumber=' + item?.buyer?.depositBankAccountNumber
-                                      + '&depositName=' + item?.buyer?.depositName
-                                      + '&depositAmountKrw=' + depositAmountKrw[index]
-                                      ,
-                                      '_blank'
-                                    );
-                                    toast.success('회원 홈페이지를 새창으로 열었습니다.');
-                                  }}
-                                  className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
-                                    hover:bg-blue-600"
-                                >
-                                  새창열기
-                                </button>
-
-                              </div>
-
-
-                            </div>
-
-                          </td>
-
-
-                          <td className="p-2">
-
-                            <div className="flex flex-row items-center justify-center gap-1">
-                              <Image
-                                src="/icon-shield.png"
-                                alt="Wallet"
+                                src="/icon-tether.png"
+                                alt="Tether"
                                 width={20}
                                 height={20}
                                 className="w-5 h-5"
                               />
-                              <button
-                                onClick={() => {
-                                  navigator.clipboard.writeText(item?.walletAddress);
-                                  toast.success(Copied_Wallet_Address);
-                                }}
-                                className="text-sm underline"
+                              <span className="text-lg text-green-400 font-normal"
+                                style={{ fontFamily: 'monospace' }}
                               >
                               {
-                                  item?.walletAddress && (
-                                    item.walletAddress.substring(0, 6) + '...' + item.walletAddress.substring(item.walletAddress.length - 4)
-                                  )
-                                }
-                              </button>
-                            </div>
-
-                          </td>
-
- 
-                          <td className="p-2">
-                            <div className="
-                              w-32
-                              flex flex-col xl:flex-row items-start justify-center gap-2">
-                              <span className="text-sm text-zinc-500">
-                                {
-                                item?.buyOrderStatus === 'ordered' ? (
-                                  <span className="text-lg text-yellow-500 font-normal">
-                                    구매주문
-                                  </span>
-                                ) : item?.buyOrderStatus === 'accepted' ? (
-                                  <span className="text-lg text-green-500 font-normal">
-                                    판매자확정
-                                  </span>
-                                ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                  <span className="text-lg text-red-500 font-normal">
-                                    결제요청
-                                  </span>
-                                ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
-                                  <span className="text-lg text-green-500 font-normal">
-                                    결제완료
-                                  </span>
-                                ) : item?.buyOrderStatus === 'cancelled' ? (
-                                  <span className="text-lg text-red-500 font-normal">
-                                    거래취소
-                                  </span>
-                                ) : ''
-                                }
-
+                              Number(item?.totalPaymentConfirmedUsdtAmount ?
+                                item?.totalPaymentConfirmedUsdtAmount
+                                : 0)
+                                .toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                              }
                               </span>
                             </div>
-                          </td>
-
-                          {/* 잔고확인 버튼 */}
-                          {/* USDT 잔액 */}
-                          <td className="p-2">
-                            <div className="w-24
-                              flex flex-col items-between justify-between gap-2">
-
-                              {/*
-                              <div className="w-full flex flex-col items-center justify-center gap-2">
-
-                                <span className="text-lg text-green-400"
-                                  style={{ fontFamily: 'monospace' }}
-                                >
-                                  {usdtBalance[index] ?
-                                    usdtBalance[index].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0.000'}{' USDT'}
-                                </span>
-         
-                              </div>
-                              */}
-
-
-                              {/* button to getBalance of USDT */}
-                              <button
-                                //disabled={!isAdmin || insertingStore}
-                                onClick={() => {
-                                  //if (!isAdmin || insertingStore) return;
-                                  //getBalance(item.storecode);
-
-                                  getBalanceOfWalletAddress(item.walletAddress);
-          
-
-                                  //toast.success('잔액을 가져왔습니다.');
-
-                                  // toast usdtBalance[index] is updated
-                                  //toast.success(`잔액을 가져왔습니다. 현재 잔액: ${usdtBalance[index] ? usdtBalance[index].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0.000'} USDT`);
-
-                                }}
-                                className={`
-                                  w-full mb-2
-                                  bg-blue-500 text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-blue-600
-                                `}
+                            <div className="w-full flex flex-row items-center justify-end gap-1">
+                              <span className="text-lg text-yellow-500 font-normal"
+                                style={{ fontFamily: 'monospace' }}
                               >
-                                잔액 확인하기
-                              </button>
+                              {item?.totalPaymentConfirmedKrwAmount && item?.totalPaymentConfirmedKrwAmount.toLocaleString('ko-KR') || 0}
+                              </span>
+                            </div>
+
+                          </div>
+                        </td>
+
+                        <td className="p-2">
+                          <div className="flex flex-col xl:flex-row items-start justify-center gap-2">
+                            <input
+                              type="text"
+                              value={depositAmountKrw[index]}
+                              onChange={(e) => {
+                                setDepositAmountKrw((prev) => {
+                                  const newDepositAmountKrw = [...prev];
+                                  newDepositAmountKrw[index] = Number(e.target.value);
+                                  return newDepositAmountKrw;
+                                });
+                              }}
+                              placeholder="충전금액"
+                              className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                            />
+                          </div>
+                        </td>
 
 
-                              {/* function call button clearanceWalletAddress */}
+
+                        <td className="p-2">
+
+                          <div className="
+                            w-64
+                            flex flex-col items-center justify-center gap-2">
+
+                            <div className="w-full flex flex-row items-center justify-between gap-2">
+
+                              {/* Modal open */}
                               <button
                                 onClick={() => {
-                                  clearanceWalletAddress(item.walletAddress);
-                                  toast.success('잔액을 회수했습니다.');
+                                  setSelectedItem({
+                                    ...item,
+                                    depositAmountKrw: depositAmountKrw[index],
+                                  });
+                                  openModal();
                                 }}
-                                className={`
-                                  w-full mb-2
-                                  bg-blue-500 text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-blue-600
-                                `}
+                                className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-blue-600"
                               >
-                                잔액 회수하기
+                                보기
                               </button>
 
 
 
+                              {/* 복사 버튼 */}
+                              <button
+                                onClick={() => {
+                                  navigator.clipboard.writeText(
+                                    paymentUrl + '/' + params.lang + '/' + clientId + '/' + item.storecode + '/payment?'
+                                    + 'storeUser=' + item.nickname
+                                    + '&depositBankName='+ item?.buyer?.depositBankName
+                                    + '&depositBankAccountNumber=' + item?.buyer?.depositBankAccountNumber
+                                    + '&depositName=' + item?.buyer?.depositName
+                                    + '&depositAmountKrw=' + depositAmountKrw[index]
+                                  );
+                                  toast.success('회원 결제페이지 링크가 복사되었습니다.');
+                                }}
+                                className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-blue-600"
+                              >
+                                링크 복사
+                              </button>
 
                             </div>
-                          </td>
+
+                            <div className="w-full flex flex-row items-center justify-between gap-2">
 
 
-                        </tr>
-
-                      ))}
-
-                    </tbody>
-
-                  </table>
-
-                </div>
-
-
-              ) : (
-
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-
-                  {allBuyer.map((item, index) => (
-                    <div key={index} className="bg-white shadow-md rounded-lg p-4">
-                      <h2 className="text-lg font-normal">{item.nickname}</h2>
-
-                    </div>
-                  ))}
-
-                </div>
-
-              )}
+                              {/* copy javascript code */}
+                              <button
+                                onClick={() => {
+                                  navigator.clipboard.writeText(
+                                    `<script src="${paymentUrl}/${params.lang}/${clientId}/${item.storecode}/payment?storeUser=${item.nickname}&depositBankName=${item?.buyer?.depositBankName}&depositBankAccountNumber=${item?.buyer?.depositBankAccountNumber}&depositName=${item?.buyer?.depositName}&depositAmountKrw=${depositAmountKrw[index]}">결제하기</script>`
+                                  );
+                                  toast.success('회원 결제페이지 스크립트가 복사되었습니다.');
+                                }}
+                                className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-blue-600"
+                              >
+                                스크립트 복사
+                              </button>
+                                    
 
 
+                              {/* 새창 열기 버튼 */}
+                              <button
+                                onClick={() => {
+                                  window.open(
+                                    paymentUrl + '/' + params.lang + '/' + clientId + '/' + item.storecode + '/payment?'
+                                    + 'storeUser=' + item.nickname
+                                    + '&depositBankName=' + item?.buyer?.depositBankName
+                                    + '&depositBankAccountNumber=' + item?.buyer?.depositBankAccountNumber
+                                    + '&depositName=' + item?.buyer?.depositName
+                                    + '&depositAmountKrw=' + depositAmountKrw[index]
+                                    ,
+                                    '_blank'
+                                  );
+                                  toast.success('회원 홈페이지를 새창으로 열었습니다.');
+                                }}
+                                className="w-full bg-blue-500 text-sm  px-2 py-1 rounded-lg
+                                  hover:bg-blue-600"
+                              >
+                                새창열기
+                              </button>
 
-          </div>
-
-      
-
-          {/* pagination */}
-          {/* url query string */}
-          {/* 1 2 3 4 5 6 7 8 9 10 */}
-          {/* ?limit=10&page=1 */}
-          {/* submit button */}
-          {/* totalPage = Math.ceil(totalCount / limit) */}
-          <div className="mt-4 flex flex-row items-center justify-center gap-4">
+                            </div>
 
 
-            <div className="flex flex-row items-center gap-2">
-                <select
-                  value={limit}
-                  onChange={(e) =>
-                    
-                    router.push(`/${params.lang}/${params.center}/member?limit=${Number(e.target.value)}&page=${page}`)
+                          </div>
 
-                  }
+                        </td>
 
-                  className="text-sm bg-zinc-800 text-zinc-200 px-2 py-1 rounded-md"
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={50}>50</option>
-                  <option value={100}>100</option>
-                </select>
+
+                        <td className="p-2">
+
+                          <div className="flex flex-row items-center justify-center gap-1">
+                            <Image
+                              src="/icon-shield.png"
+                              alt="Wallet"
+                              width={20}
+                              height={20}
+                              className="w-5 h-5"
+                            />
+                            <button
+                              onClick={() => {
+                                navigator.clipboard.writeText(item?.walletAddress);
+                                toast.success(Copied_Wallet_Address);
+                              }}
+                              className="text-sm underline"
+                            >
+                            {
+                                item?.walletAddress && (
+                                  item.walletAddress.substring(0, 6) + '...' + item.walletAddress.substring(item.walletAddress.length - 4)
+                                )
+                              }
+                            </button>
+                          </div>
+
+                        </td>
+
+
+                        <td className="p-2">
+                          <div className="
+                            w-32
+                            flex flex-col xl:flex-row items-start justify-center gap-2">
+                            <span className="text-sm text-zinc-500">
+                              {
+                              item?.buyOrderStatus === 'ordered' ? (
+                                <span className="text-lg text-yellow-500 font-normal">
+                                  구매주문
+                                </span>
+                              ) : item?.buyOrderStatus === 'accepted' ? (
+                                <span className="text-lg text-green-500 font-normal">
+                                  판매자확정
+                                </span>
+                              ) : item?.buyOrderStatus === 'paymentRequested' ? (
+                                <span className="text-lg text-red-500 font-normal">
+                                  결제요청
+                                </span>
+                              ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
+                                <span className="text-lg text-green-500 font-normal">
+                                  결제완료
+                                </span>
+                              ) : item?.buyOrderStatus === 'cancelled' ? (
+                                <span className="text-lg text-red-500 font-normal">
+                                  거래취소
+                                </span>
+                              ) : ''
+                              }
+
+                            </span>
+                          </div>
+                        </td>
+
+                        {/* 잔고확인 버튼 */}
+                        {/* USDT 잔액 */}
+                        <td className="p-2">
+                          <div className="w-24
+                            flex flex-col items-between justify-between gap-2">
+
+                            {/*
+                            <div className="w-full flex flex-col items-center justify-center gap-2">
+
+                              <span className="text-lg text-green-400"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {usdtBalance[index] ?
+                                  usdtBalance[index].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0.000'}{' USDT'}
+                              </span>
+        
+                            </div>
+                            */}
+
+
+                            {/* button to getBalance of USDT */}
+                            <button
+                              //disabled={!isAdmin || insertingStore}
+                              onClick={() => {
+                                //if (!isAdmin || insertingStore) return;
+                                //getBalance(item.storecode);
+
+                                getBalanceOfWalletAddress(item.walletAddress);
+        
+
+                                //toast.success('잔액을 가져왔습니다.');
+
+                                // toast usdtBalance[index] is updated
+                                //toast.success(`잔액을 가져왔습니다. 현재 잔액: ${usdtBalance[index] ? usdtBalance[index].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0.000'} USDT`);
+
+                              }}
+                              className={`
+                                w-full mb-2
+                                bg-blue-500 text-sm  px-2 py-1 rounded-lg
+                                hover:bg-blue-600
+                              `}
+                            >
+                              잔액 확인하기
+                            </button>
+
+
+                            {/* function call button clearanceWalletAddress */}
+                            <button
+                              onClick={() => {
+                                clearanceWalletAddress(item.walletAddress);
+                                toast.success('잔액을 회수했습니다.');
+                              }}
+                              className={`
+                                w-full mb-2
+                                bg-blue-500 text-sm  px-2 py-1 rounded-lg
+                                hover:bg-blue-600
+                              `}
+                            >
+                              잔액 회수하기
+                            </button>
+
+
+
+
+                          </div>
+                        </td>
+
+
+                      </tr>
+
+                    ))}
+
+                  </tbody>
+
+                </table>
+
               </div>
 
 
-            <button
-              disabled={Number(page) <= 1}
-              className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
-              onClick={() => {
-                
-                router.push(`/${params.lang}/${params.center}/member?limit=${Number(limit)}&page=${Number(page) - 1}`);
+            ) : (
 
-              }}
-            >
-              이전
-            </button>
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
+                {allBuyer.map((item, index) => (
+                  <div key={index} className="bg-white shadow-md rounded-lg p-4">
+                    <h2 className="text-lg font-normal">{item.nickname}</h2>
 
-            <span className="text-sm text-zinc-500">
-              {page} / {Math.ceil(Number(totalCount) / Number(limit))}
-            </span>
+                  </div>
+                ))}
+
+              </div>
+
+            )}
 
 
-            <button
-              disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-              className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
-              onClick={() => {
-                
-                router.push(`/${params.lang}/${params.center}/member?limit=${Number(limit)}&page=${Number(page) + 1}`);
 
-              }}
-            >
-              다음
-            </button>
+        </div>
 
-          </div>
+      
+
+        {/* pagination */}
+        {/* url query string */}
+        {/* 1 2 3 4 5 6 7 8 9 10 */}
+        {/* ?limit=10&page=1 */}
+        {/* submit button */}
+        {/* totalPage = Math.ceil(totalCount / limit) */}
+        <div className="mt-4 flex flex-row items-center justify-center gap-4">
+
+
+          <div className="flex flex-row items-center gap-2">
+              <select
+                value={limit}
+                onChange={(e) =>
+                  
+                  router.push(`/${params.lang}/${params.center}/member?limit=${Number(e.target.value)}&page=${page}`)
+
+                }
+
+                className="text-sm bg-zinc-800 text-zinc-200 px-2 py-1 rounded-md"
+              >
+                <option value={10}>10</option>
+                <option value={20}>20</option>
+                <option value={50}>50</option>
+                <option value={100}>100</option>
+              </select>
+            </div>
+
+
+          <button
+            disabled={Number(page) <= 1}
+            className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+            onClick={() => {
+              
+              router.push(`/${params.lang}/${params.center}/member?limit=${Number(limit)}&page=${Number(page) - 1}`);
+
+            }}
+          >
+            이전
+          </button>
+
+
+          <span className="text-sm text-zinc-500">
+            {page} / {Math.ceil(Number(totalCount) / Number(limit))}
+          </span>
+
+
+          <button
+            disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
+            className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+            onClick={() => {
+              
+              router.push(`/${params.lang}/${params.center}/member?limit=${Number(limit)}&page=${Number(page) + 1}`);
+
+            }}
+          >
+            다음
+          </button>
+
+        </div>
 
 
 
 
           
-        </div>
+      </div>
 
         
-        <ModalUser isOpen={isModalOpen} onClose={closeModal}>
-            <UserHomePage
-                closeModal={closeModal}
-                selectedItem={selectedItem}
-            />
-        </ModalUser>
+      <ModalUser isOpen={isModalOpen} onClose={closeModal}>
+          <UserHomePage
+              closeModal={closeModal}
+              selectedItem={selectedItem}
+          />
+      </ModalUser>
         
 
 
-      </main>
+    </main>
 
   );
 
