@@ -163,7 +163,10 @@ export default function RootLayout({
 
             {/* storeLogo and storeName and storecode */}
             {store && (
-              <div className="flex flex-row items-center justify-center">
+              <div className="flex flex-row items-center justify-center
+                bg-white bg-opacity-20 backdrop-blur-md
+                p-2 rounded-lg shadow-lg mb-2
+              ">
                 {store.storeLogo && (
                   <Image
                     src={store.storeLogo}
@@ -184,7 +187,8 @@ export default function RootLayout({
               className="
               w-32 
               flex flex-row items-center justify-center gap-2
-              mb-2 px-4 py-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-75"
+              mb-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg
+              "
               onClick={() => setShowCenter(!showCenter)}
             >
                 <Image

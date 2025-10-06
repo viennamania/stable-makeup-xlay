@@ -16,6 +16,8 @@ export async function POST(request: NextRequest) {
     storecode,
   });
 
+  ///console.log('Total number of buy orders:', result);
+
   return NextResponse.json({
 
     result,
