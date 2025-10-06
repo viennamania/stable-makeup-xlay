@@ -109,9 +109,10 @@ export default function RootLayout({
             fixed top-2 left-2 z-50 flex flex-col items-start justify-start">
               <button
                 className="
-                w-32
+                w-32 
                 flex flex-row items-center justify-center gap-2
-                mb-2 px-4 py-2 bg-black bg-opacity-50 text-white rounded hover:bg-opacity-75"
+                mb-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-lg
+                "
                 onClick={() => setShowCenter(!showCenter)}
               >
                   <Image

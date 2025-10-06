@@ -2040,7 +2040,7 @@ export default function Index({ params }: any) {
       <div className="py-0 w-full">
 
 
-        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-black/10 p-2 rounded-lg mb-4">
+        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-white/80 p-2 rounded-lg mb-4">
             
            <div className="w-full flex flex-row items-center justify-start gap-2">
              <button
@@ -2053,13 +2053,13 @@ export default function Index({ params }: any) {
                 transition-transform duration-200 ease-in-out"
 
              >
-               <Image
-                 src="/logo-xlay.jpg"
-                 alt="logo"
-                 width={100}
-                 height={100}
-                 className="h-10 w-10 rounded-full"
-               />
+              <Image
+                src="/logo-xlay.jpg"
+                alt="logo"
+                width={50}
+                height={50}
+                className="h-10 w-10 rounded-lg object-cover"
+              />
              </button>
            </div>
 

@@ -204,6 +204,8 @@ export default function RootLayout({
               {/* button bg is transparent black */}
               <button
                 className="
+                w-32
+                flex flex-row items-center justify-center gap-2
                 mb-2 px-4 py-2 bg-black bg-opacity-50  rounded hover:bg-opacity-75"
                 onClick={() => setShowChain(!showChain)}
               >

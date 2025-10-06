@@ -3434,7 +3434,7 @@ const fetchBuyOrders = async () => {
       <div className="py-0 w-full">
 
 
-        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-black/10 p-2 rounded-lg mb-4">
+        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-white/80 p-2 rounded-lg mb-4">
             
           <div className="w-full flex flex-row items-center justify-start gap-2">
             <button
@@ -3450,9 +3450,9 @@ const fetchBuyOrders = async () => {
               <Image
                 src="/logo-xlay.jpg"
                 alt="logo"
-                width={100}
-                height={100}
-                className="h-10 w-10 rounded-full"
+                width={50}
+                height={50}
+                className="h-10 w-10 rounded-lg object-cover"
               />
             </button>
           </div>
@@ -3524,56 +3524,6 @@ const fetchBuyOrders = async () => {
 
 
           )}
-
-
-          {!address && (
-            <ConnectButton
-              client={client}
-              wallets={wallets}
-
-              chain={chain === "ethereum" ? ethereum :
-                      chain === "polygon" ? polygon :
-                      chain === "arbitrum" ? arbitrum :
-                      chain === "bsc" ? bsc : arbitrum}
-
-              /*
-              accountAbstraction={{
-                chain: arbitrum,
-                sponsorGas: true
-              }}
-              */
-              
-              theme={"light"}
-
-              // button color is dark skyblue convert (49, 103, 180) to hex
-              connectButton={{
-                style: {
-                  backgroundColor: "#3167b4", // dark skyblue
-
-                  color: "#f3f4f6", // gray-300 
-                  padding: "2px 2px",
-                  borderRadius: "10px",
-                  fontSize: "14px",
-                  //width: "40px",
-                  height: "38px",
-                },
-                label: "X-Ray 로그인",
-              }}
-
-              connectModal={{
-                size: "wide", 
-                //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                showThirdwebBranding: false,
-              }}
-
-              locale={"ko_KR"}
-              //locale={"en_US"}
-            />
-
-          )}
-
-
 
 
         </div>

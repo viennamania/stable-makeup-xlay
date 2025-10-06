@@ -1091,7 +1091,7 @@ export default function Index({ params }: any) {
       <div className="py-0 w-full">
 
 
-        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-black/10 p-2 rounded-lg mb-4">
+        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-white/80 p-2 rounded-lg mb-4">
             
           <div className="w-full flex flex-row items-center justify-start gap-2">
             <Image
