@@ -3846,8 +3846,6 @@ const fetchBuyOrders = async () => {
                       setPageValue(1);
                       
                       fetchBuyOrders();
-
-                      getTradeSummary();
                     }}
                     //className="bg-gray-700  px-4 py-2 rounded-lg w-full"
                     className={`${
