@@ -1881,7 +1881,10 @@ export default function Index({ params }: any) {
 
 
 
-          <div className="w-full flex flex-col xl:flex-row items-center justify-end gap-2 mt-4">
+          <div className="w-full flex flex-col xl:flex-row items-between justify-between
+            gap-4
+            bg-zinc-600/50 p-4 rounded-lg
+            ">
 
 
             {/* 가맹점 보유량 */}
@@ -1972,19 +1975,19 @@ export default function Index({ params }: any) {
             )}
 
 
-            {/* 가맹점 거래 */}
-            <div className="flex flex-col items-start xl:items-center gap-2">
+            {/* P2P 거래 */}
+            <div className="flex flex-col items-end justify-center gap-2">
               <div className="flex flex-row gap-2 items-center">
+                <span className="text-lg font-normal ">
+                  P2P 거래
+                </span>
                 <Image
                   src="/icon-trade.png"
                   alt="Trade"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 p-1 rounded-lg bg-white"
+                  width={30}
+                  height={30}
+                  className="w-10 h-10 p-1 rounded-lg bg-white"
                 />
-                <span className="text-lg font-normal ">
-                  가맹점 거래
-                </span>
               </div>
 
               <div className="flex flex-row items-center gap-2">
@@ -2024,18 +2027,18 @@ export default function Index({ params }: any) {
 
 
             {/* 가맹점 결제금 */}
-            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+            <div className="flex flex-col items-end justify-center gap-2">
               <div className="flex flex-row gap-2 items-center">
-                <Image
-                  src="/icon-settlement.png"
-                  alt="Settlement"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 p-1 rounded-lg bg-white"
-                />
                 <span className="text-lg font-normal ">
-                  가맹점 결제
+                  결제
                 </span>
+                <Image
+                  src="/icon-payment.png"
+                  alt="Settlement"
+                  width={30}
+                  height={30}
+                  className="w-10 h-10 p-1 rounded-lg bg-white"
+                />
               </div>
 
               <div className="flex flex-row items-center gap-2">
@@ -2074,18 +2077,18 @@ export default function Index({ params }: any) {
 
             {/* 가맹점 판매금 */}
             {version !== 'bangbang' && (
-            <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+            <div className="flex flex-col items-end justify-center gap-2">
               <div className="flex flex-row gap-2 items-center">
+                <span className="text-lg font-normal ">
+                  판매
+                </span>
                 <Image
                   src="/icon-clearance.png"
                   alt="Clearance"
-                  width={20}
-                  height={20}
-                  className="w-5 h-5 p-1 rounded-lg bg-white"
+                  width={30}
+                  height={30}
+                  className="w-10 h-10 p-1 rounded-lg bg-white"
                 />
-                <span className="text-lg font-normal ">
-                  가맹점 판매
-                </span>
               </div>
 
               <div className="flex flex-row items-center gap-2">
@@ -2135,9 +2138,9 @@ export default function Index({ params }: any) {
               <Image
                 src="/icon-homepage.png"
                 alt="Homepage"
-                width={20}
-                height={20}
-                className="rounded-lg w-6 h-6"
+                width={30}
+                height={30}
+                className="rounded-lg w-10 h-10 p-1 bg-white"
               />
 
               <div className="flex flex-col xl:flex-row items-center justify-start gap-2">
