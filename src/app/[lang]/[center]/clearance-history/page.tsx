@@ -129,6 +129,8 @@ interface BuyOrder {
   transactionHash: string;
 
   settlement: any;
+
+  store: any;
 }
 
 
@@ -2432,85 +2434,163 @@ export default function Index({ params }: any) {
 
 
 
-/*
-const [tradeSummary, setTradeSummary] = useState({
-    totalCount: 0,
-    totalKrwAmount: 0,
-    totalUsdtAmount: 0,
-    totalSettlementCount: 0,
-    totalSettlementAmount: 0,
-    totalSettlementAmountKRW: 0,
-    totalFeeAmount: 0,
-    totalFeeAmountKRW: 0,
-    orders: [] as BuyOrder[],
-
-    totalClearanceCount: 0,
-    totalClearanceAmount: 0,
-    totalClearanceAmountUSDT: 0,
-  });
-  const [loadingTradeSummary, setLoadingTradeSummary] = useState(false);
 
 
-  const getTradeSummary = async () => {
+  // totalNumberOfBuyOrders
+  const [loadingTotalNumberOfBuyOrders, setLoadingTotalNumberOfBuyOrders] = useState(false);
+  const [totalNumberOfBuyOrders, setTotalNumberOfBuyOrders] = useState(0);
+  const [processingBuyOrders, setProcessingBuyOrders] = useState([] as BuyOrder[]);
+  const [totalNumberOfAudioOnBuyOrders, setTotalNumberOfAudioOnBuyOrders] = useState(0);
+
+  useEffect(() => {
+
+    const fetchTotalBuyOrders = async (): Promise<void> => {
+      setLoadingTotalNumberOfBuyOrders(true);
+      const response = await fetch('/api/order/getTotalNumberOfBuyOrders', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          storecode: params.center,
+        })
+      });
+      if (!response.ok) {
+        console.error('Failed to fetch total number of buy orders');
+        setLoadingTotalNumberOfBuyOrders(false);
+        return;
+      }
+      const data = await response.json();
+      //console.log('getTotalNumberOfBuyOrders data', data);
+      setTotalNumberOfBuyOrders(data.result.totalCount);
+      setProcessingBuyOrders(data.result.orders);
+      setTotalNumberOfAudioOnBuyOrders(data.result.audioOnCount);
+
+      setLoadingTotalNumberOfBuyOrders(false);
+    };
+
+
     if (!address) {
+      setTotalNumberOfBuyOrders(0);
       return;
     }
-    setLoadingTradeSummary(true);
-    const response = await fetch('/api/summary/getTradeSummary', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        storecode: params.center,
-        walletAddress: address,
-        searchMyOrders: searchMyOrders,
-        searchOrderStatusCompleted: true,
-        //searchBuyer: searchBuyer,
-        //searchDepositName: searchDepositName,
 
-        //searchStoreBankAccountNumber: searchStoreBankAccountNumber,
+    fetchTotalBuyOrders();
 
-        fromDate: searchFromDate,
-        toDate: searchToDate,
-      })
-    });
-    if (!response.ok) {
-      setLoadingTradeSummary(false);
-      toast.error('Failed to fetch trade summary');
-      return;
+    const interval = setInterval(() => {
+      fetchTotalBuyOrders();
+    }, 5000);
+    return () => clearInterval(interval);
+
+  }, [address, params.center]);
+      
+  
+  useEffect(() => {
+    if (
+      user?.buyOrderAudioOn &&
+      totalNumberOfBuyOrders > 0 && loadingTotalNumberOfBuyOrders === false) {
+      const audio = new Audio('/notification.wav'); 
+      audio.play();
     }
-    const data = await response.json();
+  }, [
+    user?.buyOrderAudioOn,
+    totalNumberOfBuyOrders, loadingTotalNumberOfBuyOrders]);
+
+
+
+
+
     
-    console.log('getTradeSummary data', data);
+  // get count of status is 'paymentRequested' from api
+  const [paymentRequestedCount, setPaymentRequestedCount] = useState(0);
+  const [loadingPaymentRequestedCount, setLoadingPaymentRequestedCount] = useState(false);
+  const [processingPaymentRequestedOrders, setProcessingPaymentRequestedOrders] = useState([] as BuyOrder[]);
 
+  useEffect(() => {
+    const fetchData = async (): Promise<void> => {
+      setLoadingPaymentRequestedCount(true);
+      try {
+        const response = await fetch('/api/order/getCountOfPaymentRequested', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            storecode: params.center,
+            walletAddress: address,
+          }),
+        });
+        if (response.ok) {
+          const data = await response.json();
 
-    setTradeSummary(data.result);
-    setLoadingTradeSummary(false);
-    return data.result;
-  }
+          console.log("data=", data);
 
+          setPaymentRequestedCount(data.result.totalCount || 0);
+          setProcessingPaymentRequestedOrders(data.result.orders || []);
+        }
+      } catch (error) {
+        console.error("Error fetching payment requested count: ", error);
+      }
+
+      setLoadingPaymentRequestedCount(false);
+    };
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [address, params.center]);
+  
 
 
 
   useEffect(() => {
 
-    if (!address || !params.center || !searchFromDate || !searchToDate) {
+    if (paymentRequestedCount > 0 && loadingPaymentRequestedCount === false) {
+
+      const audio = new Audio('/audio-notification-order-private.wav'); 
+      audio.play();
+
+    }
+  }, [paymentRequestedCount, loadingPaymentRequestedCount]);
+ 
+
+
+
+
+  // handleUserBuyOrderAudioToggle
+  const handleUserBuyOrderAudioToggle = async (audioOn: boolean) => {
+    const response = await fetch('/api/user/toggleBuyOrderAudioNotification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        walletAddress: address,
+        storecode: params.center,
+        audioOn,
+      }),
+    });
+
+    if (!response.ok) {
+      console.error('Failed to toggle audio notification');
       return;
     }
 
-    getTradeSummary();
+    const data = await response.json();
+    console.log('Audio notification toggled:', data);
 
-    // fetch trade summary every 10 seconds
-    const interval = setInterval(() => {
-      getTradeSummary();
-    }, 10000);
-    return () => clearInterval(interval);
+    if (data.success) {
+      // update user audioOn state
+      setUser((prevUser: any) => ({
+        ...prevUser,
+        buyOrderAudioOn: audioOn,
+      }));
+    }
 
-  } , [address, searchMyOrders, params.center,
-    searchFromDate, searchToDate]);
+  };
 
-  */
 
 
 
@@ -2529,53 +2609,6 @@ const [tradeSummary, setTradeSummary] = useState({
     
 
 
-
-
-
-    
-  // get count of status is 'paymentRequested' from api
-  const [paymentRequestedCount, setPaymentRequestedCount] = useState(0);
-  const [loadingPaymentRequestedCount, setLoadingPaymentRequestedCount] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoadingPaymentRequestedCount(true);
-      try {
-        const response = await fetch('/api/order/getCountOfPaymentRequested', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            storecode: params.center,
-            walletAddress: address,
-          }),
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setPaymentRequestedCount(data.count || 0);
-        }
-      } catch (error) {
-        console.error("Error fetching payment requested count: ", error);
-      }
-
-      setLoadingPaymentRequestedCount(false);
-    };
-    fetchData();
-
-    const interval = setInterval(() => {
-      fetchData();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [address, params.center]);
-  
-
-  useEffect(() => {
-    if (paymentRequestedCount > 0) {
-      const audio = new Audio('/notification.wav'); 
-      audio.play();
-    }
-  }, [paymentRequestedCount]);
 
 
 
@@ -2969,6 +3002,210 @@ const [tradeSummary, setTradeSummary] = useState({
     <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
 
 
+      {/* fixed position right and vertically center */}
+      <div className="
+        hidden sm:flex
+        fixed right-4 top-1/2 transform -translate-y-1/2
+        z-40
+        ">
+
+          <div className="w-full flex flex-col items-end justify-center gap-4">
+
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+
+              <div className="flex flex-col items-center justify-center gap-1
+              border-r-2 border-gray-300 pr-2
+              ">
+                <span className="text-xl text-zinc-500 font-semibold">
+                  {user?.buyOrderAudioOn ? (
+                    '🔊'
+                  ) : (
+                    '🔇'
+                  )}
+                </span>
+                {/* audioOn off button */}
+                <button
+                  className="text-sm text-blue-600 font-semibold underline"
+                  onClick={() => handleUserBuyOrderAudioToggle(
+                    user?.buyOrderAudioOn ? false : true
+                  )}
+                >
+                  {user?.buyOrderAudioOn ? '끄기' : '켜기'}
+                </button>
+              </div>
+
+
+              {loadingTotalNumberOfBuyOrders ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-buyorder.png"
+                  alt="Buy Order"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+              {/* array of processingBuyOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+
+                {processingBuyOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.buyer.depositName || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingBuyOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingBuyOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+              <p className="text-lg text-red-500 font-semibold">
+                {
+                totalNumberOfBuyOrders
+                }
+              </p>
+
+              {totalNumberOfBuyOrders > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                  />
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/admin/buyorder');
+                    }}
+                    className="flex items-center justify-center gap-2
+                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                  >
+                    <span className="text-sm">
+                      구매<br />관리
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+
+            
+            
+            <div className="flex flex-row items-center justify-center gap-2
+            bg-white/80
+            p-2 rounded-lg shadow-md
+            backdrop-blur-md
+            ">
+
+              {loadingPaymentRequestedCount ? (
+                <Image
+                  src="/loading.png"
+                  alt="Loading"
+                  width={20}
+                  height={20}
+                  className="w-6 h-6 animate-spin"
+                />
+              ) : (
+                <Image
+                  src="/icon-clearance.png"
+                  alt="Clearance"
+                  width={35}
+                  height={35}
+                  className="w-6 h-6"
+                />
+              )}
+
+              {/* array of processingPaymentRequestedOrders store logos */}
+              <div className="flex flex-row items-center justify-center gap-1">
+                {processingPaymentRequestedOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
+
+                  <div className="flex flex-col items-center justify-center
+                  bg-white p-1 rounded-lg shadow-md
+                  "
+                  key={index}>
+                    <Image
+                      src={order?.store?.storeLogo || '/logo.png'}
+                      alt={order?.store?.storeName || 'Store'}
+                      width={20}
+                      height={20}
+                      className="w-5 h-5 rounded-lg object-cover"
+                    />
+                    <span className="text-xs text-gray-500">
+                      {order?.store?.storeName || 'Store'}
+                    </span>
+                    <span className="text-sm text-gray-800 font-semibold">
+                      {order?.seller?.bankInfo?.accountHolder || 'Buyer'}
+                    </span>
+                  </div>
+
+                ))}
+
+                {processingPaymentRequestedOrders.length > 3 && (
+                  <span className="text-sm text-gray-500">
+                    +{processingPaymentRequestedOrders.length - 3}
+                  </span>
+                )}
+              </div>
+
+              <p className="text-lg text-yellow-500 font-semibold">
+                {
+                paymentRequestedCount
+                }
+              </p>
+
+              {paymentRequestedCount > 0 && (
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <Image
+                    src="/icon-notification.gif"
+                    alt="Notification"
+                    width={50}
+                    height={50}
+                    className="w-15 h-15 object-cover"
+                    
+                  />
+                </div>
+              )}
+            </div>
+            
+
+          </div>
+
+      </div>
+
+
+
+
       <div className="py-0 w-full">
 
         <div className={`w-full flex flex-col xl:flex-row items-center justify-between gap-2
@@ -3288,293 +3525,230 @@ const [tradeSummary, setTradeSummary] = useState({
 
 
 
-              <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-5">
+            <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-5">
 
-        
-                <div className="hidden flex-row items-start gap-3">
-
-
+      
+              <div className="hidden flex-row items-start gap-3">
 
 
-                  {address && !loadingUser && (
 
-                    <div className="flex flex-row gap-5 items-center p-2">
+
+                {address && !loadingUser && (
+
+                  <div className="flex flex-row gap-5 items-center p-2">
+
+                    <div className="flex flex-row items-center gap-2">
+
 
                       <div className="flex flex-row items-center gap-2">
+                  
+                        
+                        <div className="flex flex-col gap-2">
 
-
-                        <div className="flex flex-row items-center gap-2">
-                    
-                          
-                          <div className="flex flex-col gap-2">
-
-                            <div className="flex flex-col xl:flex-row gap-2">
-                              <span className="text-sm">
-                                {
-                                  user && user.seller?.bankInfo.bankName
-                                }
-                              </span>
-                              <span className="text-sm">
-                                {
-                                  user && user.seller?.bankInfo.accountNumber
-                                }
-                              </span>
-                              <span className="text-sm">
-                                {
-                                  user && user.seller?.bankInfo.accountHolder
-                                }
-                              </span>
-                            </div>
-
-                            {/* go to profile */}
-                            {!user?.seller && (
-                              <button
-                                onClick={() => {
-                                  router.push('/' + params.lang + '/' + params.center + '/seller-settings');
-                                }}
-                                className="text-sm  underline"
-                              >
-                                판매를 위해서 판매자 설정을 해야합니다.
-                              </button>
-                            )}
-
+                          <div className="flex flex-col xl:flex-row gap-2">
+                            <span className="text-sm">
+                              {
+                                user && user.seller?.bankInfo.bankName
+                              }
+                            </span>
+                            <span className="text-sm">
+                              {
+                                user && user.seller?.bankInfo.accountNumber
+                              }
+                            </span>
+                            <span className="text-sm">
+                              {
+                                user && user.seller?.bankInfo.accountHolder
+                              }
+                            </span>
                           </div>
 
-                        </div>
-
-                      </div>
-
-
-                    </div>
-
-                  )}
-
-                </div>
-
-
-                {/*
-                {address && (
-                    <div className="flex
-                    mt-4 mb-2
-                    w-full flex-col xl:flex-row items-start justify-start gap-5
-                    border border-zinc-200 rounded-lg p-4
-                    bg-white shadow-md
-                    ">
-
-
-                      
-                      <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
-                        <div className="flex flex-row items-center justify-center gap-2">
-                            <Image
-                                src="/icon-shield.png"
-                                alt="Wallet"
-                                width={100}
-                                height={100}
-                                className="w-6 h-6"
-                            />
-                            <span className="text-sm ">
-                              USDT지갑
-                            </span>
+                          {/* go to profile */}
+                          {!user?.seller && (
                             <button
-                                className="text-lg  underline"
-                                onClick={() => {
-                                    navigator.clipboard.writeText(address);
-                                    toast.success(Copied_Wallet_Address);
-                                } }
+                              onClick={() => {
+                                router.push('/' + params.lang + '/' + params.center + '/seller-settings');
+                              }}
+                              className="text-sm  underline"
                             >
-                                {address.substring(0, 6)}...{address.substring(address.length - 4)}
+                              판매를 위해서 판매자 설정을 해야합니다.
                             </button>
-                        </div>
-                      
-                        <div className="flex flex-row items-center justify-center  gap-2">
-                            <span className="text-sm ">
-                                잔액
-                            </span>
-                            <span className="text-2xl xl:text-4xl font-normal text-green-400"
-                                style={{ fontFamily: 'monospace' }}
-                            >
-                                {
-                                  Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-                                }
-                            </span>
-                            {' '}
-                            <span className="text-sm">USDT</span>
+                          )}
+
                         </div>
 
                       </div>
-                      
-
 
                     </div>
+
+
+                  </div>
+
                 )}
-                */}
-
-
-
-
-
-
-
-
-
-
-                <div className="mt-4 flex flex-row items-center justify-between gap-2 w-full">
-
-
-                  {/* store.withdrawalBankInfo */}
-                  <div className="flex flex-col gap-2 items-start">
-                    <div className="flex flex-row items-start gap-2">
-                      <Image
-                        src="/icon-bank.png"
-                        alt="Bank"
-                        width={20}
-                        height={20}
-                        className="w-5 h-5"
-                      />
-                      <div className="text-sm ">
-                        결제통장 정보
-                      </div>
-                    </div>
-                    <div className="flex flex-row items-start gap-2 ">
-
-                      <span className="text-lg font-normal ">
-                        {store?.withdrawalBankInfo?.bankName}
-                      </span>
-                      <span className="text-lg font-normal ">
-                        {store?.withdrawalBankInfo?.accountNumber}
-                      </span>
-                      <span className="text-lg font-normal ">
-                        {store?.withdrawalBankInfo?.accountHolder}
-                      </span>
-
-                    </div>
-                  </div>
-
-                  <div className="flex flex-row items-start gap-5">
-
-                    {/*
-                    <div className="flex flex-col gap-2 items-center">
-                      <div className="text-sm">{Total}</div>
-                      <div className="text-xl font-normal ">
-                        {buyOrders.length} 
-                      </div>
-                    </div>
-                    */}
-
-                    {/* total count of buy orders */}
-
-
-
-                    {/*}
-                    <div className="flex flex-col gap-2 items-center">
-                      <div className="text-sm">
-                        {Buy_Order_Accept}
-                      </div>
-                      <div className="text-xl font-normal ">
-                        {buyOrders.filter((item) => item.status === 'accepted').length}
-                      </div>
-                    </div>
-                    */}
-
-                    {/*
-                    <div className="flex flex-col gap-2 items-center">
-                      <div className="text-sm">{Trades}</div>
-                      <div className="text-xl font-normal ">
-
-                        {
-                          buyOrders.filter((item) => item.status === 'accepted' || item.status === 'paymentRequested').length
-
-                        }
-
-                      </div>
-                    </div>
-                    */}
-
-                    {/* total count of buy orders with status 'paymentRequested' */}
-
-                    {/* buy order status */}
-                    {/*
-                    <div className="flex flex-col gap-2 items-center">
-                      <div className="text-sm">{Buy_Order_Opened}</div>
-                      <div className="text-xl font-normal ">
-                        {totalCount}
-                      </div>
-                    </div>
-                    */}
-
-
-                  </div>
-
-
-
-
-                </div>
-
 
               </div>
 
 
+              {/*
+              {address && (
+                  <div className="flex
+                  mt-4 mb-2
+                  w-full flex-col xl:flex-row items-start justify-start gap-5
+                  border border-zinc-200 rounded-lg p-4
+                  bg-white shadow-md
+                  ">
 
-              <div className="w-full flex flex-row items-center justify-end gap-2 mt-4">
-                
-                <div className="flex flex-row items-center justify-center gap-2
-                bg-zinc-600
-                p-2 rounded-lg shadow-md
-                backdrop-blur-md
-                ">
-                  <button
-                    className={`
-                      ${paymentRequestedCount > 0 ? 'bg-red-500 ' : 'bg-red-400 '}
-                      text-sm px-4 py-2 rounded-lg hover:bg-red-600
-                    `}
-                    onClick={() => {
-                      router.push('/' + params.lang + '/' + params.center + '/clearance-history');
-                    }}
-                  >
-                    판매(거래소)
-                  </button>
-                  {loadingPaymentRequestedCount ? (
+
+                    
+                    <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
+                      <div className="flex flex-row items-center justify-center gap-2">
+                          <Image
+                              src="/icon-shield.png"
+                              alt="Wallet"
+                              width={100}
+                              height={100}
+                              className="w-6 h-6"
+                          />
+                          <span className="text-sm ">
+                            USDT지갑
+                          </span>
+                          <button
+                              className="text-lg  underline"
+                              onClick={() => {
+                                  navigator.clipboard.writeText(address);
+                                  toast.success(Copied_Wallet_Address);
+                              } }
+                          >
+                              {address.substring(0, 6)}...{address.substring(address.length - 4)}
+                          </button>
+                      </div>
+                    
+                      <div className="flex flex-row items-center justify-center  gap-2">
+                          <span className="text-sm ">
+                              잔액
+                          </span>
+                          <span className="text-2xl xl:text-4xl font-normal text-green-400"
+                              style={{ fontFamily: 'monospace' }}
+                          >
+                              {
+                                Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                              }
+                          </span>
+                          {' '}
+                          <span className="text-sm">USDT</span>
+                      </div>
+
+                    </div>
+                    
+
+
+                  </div>
+              )}
+              */}
+
+
+
+
+
+
+
+
+
+
+              <div className="mt-4 flex flex-row items-center justify-between gap-2 w-full">
+
+
+                {/* store.withdrawalBankInfo */}
+                <div className="flex flex-col gap-2 items-start">
+                  <div className="flex flex-row items-start gap-2">
                     <Image
-                      src="/loading.png"
-                      alt="Loading"
+                      src="/icon-bank.png"
+                      alt="Bank"
                       width={20}
                       height={20}
-                      className="w-6 h-6 animate-spin"
+                      className="w-5 h-5"
                     />
-                  ) : (
-                    <Image
-                      src="/icon-buyorder.png"
-                      alt="Buy Order"
-                      width={35}
-                      height={35}
-                      className="w-6 h-6"
-                    />
-                  )}
-
-
-                  <p className="text-lg text-red-500 font-normal">
-                    {
-                      paymentRequestedCount > 0 ? (
-                        <span>{paymentRequestedCount.toLocaleString()}</span>
-                      ) : (
-                        <span>0</span>
-                      )}
-                  </p>
-
-                  {paymentRequestedCount > 0 && (
-                    <div className="flex flex-row items-center justify-center gap-2">
-                      <Image
-                        src="/icon-notification.gif"
-                        alt="Notification"
-                        width={50}
-                        height={50}
-                        className="w-15 h-15 object-cover"
-                      />
+                    <div className="text-sm ">
+                      결제통장 정보
                     </div>
-                  )}
+                  </div>
+                  <div className="flex flex-row items-start gap-2 ">
+
+                    <span className="text-lg font-normal ">
+                      {store?.withdrawalBankInfo?.bankName}
+                    </span>
+                    <span className="text-lg font-normal ">
+                      {store?.withdrawalBankInfo?.accountNumber}
+                    </span>
+                    <span className="text-lg font-normal ">
+                      {store?.withdrawalBankInfo?.accountHolder}
+                    </span>
+
+                  </div>
                 </div>
 
+                <div className="flex flex-row items-start gap-5">
+
+                  {/*
+                  <div className="flex flex-col gap-2 items-center">
+                    <div className="text-sm">{Total}</div>
+                    <div className="text-xl font-normal ">
+                      {buyOrders.length} 
+                    </div>
+                  </div>
+                  */}
+
+                  {/* total count of buy orders */}
+
+
+
+                  {/*}
+                  <div className="flex flex-col gap-2 items-center">
+                    <div className="text-sm">
+                      {Buy_Order_Accept}
+                    </div>
+                    <div className="text-xl font-normal ">
+                      {buyOrders.filter((item) => item.status === 'accepted').length}
+                    </div>
+                  </div>
+                  */}
+
+                  {/*
+                  <div className="flex flex-col gap-2 items-center">
+                    <div className="text-sm">{Trades}</div>
+                    <div className="text-xl font-normal ">
+
+                      {
+                        buyOrders.filter((item) => item.status === 'accepted' || item.status === 'paymentRequested').length
+
+                      }
+
+                    </div>
+                  </div>
+                  */}
+
+                  {/* total count of buy orders with status 'paymentRequested' */}
+
+                  {/* buy order status */}
+                  {/*
+                  <div className="flex flex-col gap-2 items-center">
+                    <div className="text-sm">{Buy_Order_Opened}</div>
+                    <div className="text-xl font-normal ">
+                      {totalCount}
+                    </div>
+                  </div>
+                  */}
+
+
+                </div>
+
+
+
+
               </div>
+
+
+            </div>
 
 
 
