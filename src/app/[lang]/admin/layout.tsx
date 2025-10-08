@@ -100,13 +100,64 @@ export default function RootLayout({
 
   const [showCenter, setShowCenter] = useState(false);
 
+
+
+  const [clientName, setClientName] = useState("");
+  const [clientDescription, setClientDescription] = useState("");
+  const [clientLogo, setClientLogo] = useState("");
+
+  useEffect(() => {
+      const fetchClientInfo = async () => {
+          const response = await fetch("/api/client/getClientInfo", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+          });
+
+          const data = await response.json();
+
+          //console.log("clientInfo", data);
+
+          if (data.result) {
+
+              setClientName(data.result.clientInfo?.name || "");
+              setClientDescription(data.result.clientInfo?.description || "");
+              setClientLogo(data.result.clientInfo?.avatar || "/logo.png");
+          }
+
+      };
+
+      fetchClientInfo();
+  }, []);
+
+
   return (
 
         <div className="w-full flex flex-col items-center justify-center p-0 bg-black rounded-lg shadow-md mb-4">
 
             {/* fixed position left and vertically top */}
             <div className="
-            fixed top-2 left-2 z-50 flex flex-col items-start justify-start">
+            fixed top-2 left-2 z-50 flex flex-col items-start justify-start gap-2
+            ">
+              
+              <div className="flex flex-row items-center justify-center
+                bg-white bg-opacity-90
+                p-2 rounded-lg shadow-lg
+                ">
+                <Image
+                  src={clientLogo || "/logo.png"}
+                  alt={clientName}
+                  width={50}
+                  height={50}
+                  className="rounded-lg bg-white p-1 mb-2 shadow-lg"
+                />
+                <div className="ml-2 flex flex-col items-start justify-center">
+                  <h1 className="text-lg font-bold text-black">{clientName || "Admin Console"}</h1>
+                  <p className="text-sm text-gray-600">{clientDescription || "Manage your application settings"}</p>
+                </div>
+              </div>              
+              
               <button
                 className="
                 w-32 

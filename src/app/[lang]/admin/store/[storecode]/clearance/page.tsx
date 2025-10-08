@@ -504,56 +504,41 @@ export default function Index({ params }: any) {
 
 
 
-    const router = useRouter();
+  const router = useRouter();
 
-    const activeAccount = useActiveAccount();
+  const activeAccount = useActiveAccount();
 
-    const address = activeAccount?.address;
+  const address = activeAccount?.address;
+
   
-  
 
 
-    const [rate, setRate] = useState(1380);
+  const [rate, setRate] = useState(1380);
+
+  // /api/client/getUsdtKRWRateSell
+  useEffect(() => {
+    const fetchRate = async () => {
+      try {
+        const response = await fetch('/api/client/getUsdtKRWRateSell', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+
+        console.log('getUsdtKRWRateSell data', data);
 
 
-    /*
-    const [usdtPrice, setUsdtPrice] = useState(0);
-    useEffect(() => {
-
-        if (!address) {
-            return;
+        if (data.result) {
+          setRate(data.result);
         }
-
-        const fetchData = async () => {
-
-            const response = await fetch("/api/order/getPrice", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    walletAddress: "0x91CA2566C3345026647aBbACB56093144eAA4c16",
-                }),
-            });
-
-            const data = await response.json();
-
-            ///console.log("getPrice data", data);
-
-            if (data.result) {
-                setUsdtPrice(data.result.usdtPrice);
-
-                setRate(data.result.usdtPrice);
-            }
-
-        };
-
-        fetchData();
+      } catch (error) {
+        console.error('Error fetching USDT/KRW rate:', error);
+      }
     }
-
-    , []);
-    */
-
+    fetchRate();
+  } , []);
 
 
 
