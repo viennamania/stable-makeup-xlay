@@ -510,8 +510,7 @@ export default function SettingsPage({ params }: any) {
             <div className="py-0 w-full">
         
 
-                <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-500 text-lg"
-                >
+                <div className="w-full flex flex-row gap-2 items-center justify-start mb-4">
                     {/* go back button */}
                     <div className="w-full flex justify-start items-center gap-2">
                         <button
@@ -526,7 +525,7 @@ export default function SettingsPage({ params }: any) {
                                 height={20}
                                 className="rounded-full"
                             />
-                            <span className="ml-2 text-sm text-gray-500 font-semibold">
+                            <span className="ml-2 text-sm text-gray-600 font-semibold">
                                 돌아가기
                             </span>
                         </button>
@@ -547,9 +546,9 @@ export default function SettingsPage({ params }: any) {
                                 alt="User Avatar"
                                 width={30}
                                 height={30}
-                                className="w-8 h-8 rounded-full"
+                                className="w-8 h-8 rounded-full bg-gray-200 object-cover"
                             />
-                            <span className="text-lg text-gray-500 font-semibold">
+                            <span className="text-lg  font-semibold">
                             {user?.nickname || "프로필"}
                             </span>
                         </div>
@@ -559,15 +558,15 @@ export default function SettingsPage({ params }: any) {
 
 
 
-                <div className="mt-5 flex flex-col items-start justify-center space-y-4">
+                <div className="mt-5 w-full flex flex-col items-start justify-center gap-4">
 
-                    <div className='flex flex-row items-center space-x-4'>
+                    <div className='flex flex-row items-center justify-start gap-2'>
                         <Image
                             src={"/icon-gear.png"}
                             alt="Settings"
-                            width={20}
-                            height={20}
-                            className="rounded-full"
+                            width={30}
+                            height={30}
+                            className="rounded-full bg-gray-200 p-2 object-cover"
                         />
                         <div className="text-xl font-semibold">
                             센터 설정
@@ -593,11 +592,11 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         CLIENTID
                                     </span>
                                 </div>
-                                <span className="text-sm text-gray-500">
+                                <span className="text-sm ">
                                     {clientId || 'Loading...'}
                                 </span>
                             </div>
@@ -613,7 +612,7 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         현재 체인
                                     </span>
                                 </div>
@@ -633,7 +632,7 @@ export default function SettingsPage({ params }: any) {
                                         style={{ objectFit: "cover" }}
                                     />
                                     <span className={`
-                                        ${chain === 'ethereum' ? 'text-blue-500' : 'text-gray-600'}
+                                        ${chain === 'ethereum' ? 'text-blue-500' : 'text-gray-200'}
                                         hover:text-blue-500
                                     `}>
                                         Ethereum
@@ -653,7 +652,7 @@ export default function SettingsPage({ params }: any) {
                                         style={{ objectFit: "cover" }}
                                     />
                                     <span className={`
-                                        ${chain === 'polygon' ? 'text-blue-500' : 'text-gray-600'}
+                                        ${chain === 'polygon' ? 'text-blue-500' : 'text-gray-200'}
                                         hover:text-blue-500
                                     `}>
                                         Polygon
@@ -673,7 +672,7 @@ export default function SettingsPage({ params }: any) {
                                         style={{ objectFit: "cover" }}
                                     />
                                     <span className={`
-                                        ${chain === 'bsc' ? 'text-blue-500' : 'text-gray-600'}
+                                        ${chain === 'bsc' ? 'text-blue-500' : 'text-gray-200'}
                                         hover:text-blue-500
                                     `}>
                                         BSC
@@ -693,7 +692,7 @@ export default function SettingsPage({ params }: any) {
                                         style={{ objectFit: "cover" }}
                                     />
                                     <span className={`
-                                        ${chain === 'arbitrum' ? 'text-blue-500' : 'text-gray-600'}
+                                        ${chain === 'arbitrum' ? 'text-blue-500' : 'text-gray-200'}
                                         hover:text-blue-500
                                     `}>
                                         Arbitrum
@@ -717,7 +716,7 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         센터 로고
                                     </span>
                                 </div>
@@ -737,7 +736,7 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         센터 이름
                                     </span>
                                 </div>
@@ -760,7 +759,7 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         센터 소개
                                     </span>
                                 </div>
@@ -775,7 +774,7 @@ export default function SettingsPage({ params }: any) {
 
                             {/*
                             <div className="w-full flex flex-col items-start justify-start space-y-2">
-                                <span className="text-sm text-gray-500 font-semibold">
+                                <span className="text-sm  font-semibold">
                                     센터 로고
                                 </span>
                                 <Uploader
@@ -797,7 +796,7 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         환율(살때) (USDT to ...)
                                     </span>
                                 </div>
@@ -805,7 +804,7 @@ export default function SettingsPage({ params }: any) {
                                 <div className="w-full grid grid-cols-2 gap-4">
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             USD
                                         </span>
                                         <input
@@ -824,7 +823,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             KRW
                                         </span>
                                         <input
@@ -843,7 +842,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             JPY
                                         </span>
                                         <input
@@ -862,7 +861,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             CNY
                                         </span>
                                         <input
@@ -881,7 +880,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             EUR
                                         </span>
                                         <input
@@ -913,13 +912,13 @@ export default function SettingsPage({ params }: any) {
                                         height={10}
                                         className="h-2.5 w-2.5"
                                     />
-                                    <span className="text-sm text-gray-500 font-semibold">
+                                    <span className="text-sm  font-semibold">
                                         환율(팔때) (USDT to ...)
                                     </span>
                                 </div>
                                 <div className="w-full grid grid-cols-2 gap-4">
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             USD
                                         </span>
                                         <input
@@ -938,7 +937,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             KRW
                                         </span>
                                         <input
@@ -957,7 +956,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             JPY
                                         </span>
                                         <input
@@ -976,7 +975,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             CNY
                                         </span>
                                         <input
@@ -995,7 +994,7 @@ export default function SettingsPage({ params }: any) {
                                     </div>
 
                                     <div className="flex flex-col items-start justify-start space-y-1">
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm ">
                                             EUR
                                         </span>
                                         <input
@@ -1028,7 +1027,7 @@ export default function SettingsPage({ params }: any) {
                         </div>
                     ) : (
                         <div className="w-full flex flex-col items-center justify-center">
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm ">
                                 Loading...
                             </span>
                         </div>
