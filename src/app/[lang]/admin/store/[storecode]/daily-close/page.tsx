@@ -91,6 +91,7 @@ import { useSearchParams } from 'next/navigation';
     */
 
 interface BuyOrder {
+  createdAt: string,
 
   date: string,
 
@@ -1027,11 +1028,27 @@ const fetchBuyOrders = async () => {
 
 
 
+  const [withdrawingEscrow, setWithdrawingEscrow] = useState([] as any) ;
+   useEffect(() => {
+    setWithdrawingEscrow([]);
+    const newArray: boolean[] = [];
+    for (let i = 0; i < buyOrders.length; i++) {
+      newArray.push(false);
+    }
+    setWithdrawingEscrow(newArray);
+  } , [buyOrders.length]);
 
 
-  
+  const withdrawEscrow = async (index: number, date: string, withdrawAmount: number) => {
 
-  const withdrawEscrow = async (date: string, withdrawAmount: number) => {
+    if (withdrawingEscrow[index]) {
+      return;
+    }
+
+    setWithdrawingEscrow(
+      withdrawingEscrow.map((item: boolean, idx: number): boolean => idx === index ? true : item)
+    );
+
 
     const response = await fetch('/api/escrow/withdraw', {
       method: 'POST',
@@ -1047,6 +1064,10 @@ const fetchBuyOrders = async () => {
 
     if (!response.ok) {
       toast.error('Failed to withdraw from escrow');
+      
+      setWithdrawingEscrow(
+        withdrawingEscrow.map((item: boolean, idx: number): boolean => idx === index ? false : item)
+      );
       return;
     }
 
@@ -1069,6 +1090,9 @@ const fetchBuyOrders = async () => {
 
     if (!responseStore.ok) {
       toast.error('Failed to fetch store data');
+      setWithdrawingEscrow(
+        withdrawingEscrow.map((item: boolean, idx: number): boolean => idx === index ? false : item)
+      );
       return;
     }
 
@@ -1096,10 +1120,7 @@ const fetchBuyOrders = async () => {
         }),
       });
 
-      if (!response.ok) {
-        toast.error('Failed to fetch escrow history');
-        return;
-      }
+
 
       const data = await response.json();
 
@@ -1108,6 +1129,9 @@ const fetchBuyOrders = async () => {
 
     fetchEscrowHistory();
 
+    setWithdrawingEscrow(
+      withdrawingEscrow.map((item: boolean, idx: number): boolean => idx === index ? false : item)
+    );
 
     return data.result;
 
@@ -1120,8 +1144,13 @@ const fetchBuyOrders = async () => {
   ///const [depositEscrowDate, setDepositEscrowDate] = useState("");
   
   const [depositEscrowAmount, setDepositEscrowAmount] = useState(0);
+  const [depositingEscrow, setDepositingEscrow] = useState(false);
 
   const depositEscrow = async (depositAmount: number) => {
+    if (depositingEscrow) {
+      return;
+    }
+    setDepositingEscrow(true);
 
     // date is set to today
     const date = new Date();
@@ -1143,10 +1172,12 @@ const fetchBuyOrders = async () => {
 
     if (!response.ok) {
       toast.error('Failed to deposit to escrow');
+      setDepositingEscrow(false);
       return;
     }
 
     toast.success('Escrow deposit successful');
+    setDepositEscrowAmount(0);
 
     const data = await response.json();
 
@@ -1165,6 +1196,7 @@ const fetchBuyOrders = async () => {
 
     if (!responseStore.ok) {
       toast.error('Failed to fetch store data');
+      setDepositingEscrow(false);
       return;
     }
 
@@ -1192,10 +1224,6 @@ const fetchBuyOrders = async () => {
         }),
       });
 
-      if (!response.ok) {
-        toast.error('Failed to fetch escrow history');
-        return;
-      }
 
       const data = await response.json();
 
@@ -1204,9 +1232,108 @@ const fetchBuyOrders = async () => {
 
     fetchEscrowHistory();
 
+    setDepositingEscrow(false);
+
     return data.result;
   };
   
+
+
+  // deduct Escrow function
+  const [deductEscrowAmount, setDeductEscrowAmount] = useState(0);
+  const [deductingEscrow, setDeductingEscrow] = useState(false);
+
+  const deductEscrow = async (deductAmount: number) => {
+    if (deductingEscrow) {
+      return;
+    }
+    setDeductingEscrow(true);
+
+    // date is set to today
+    const date = new Date();
+    date.setHours(date.getHours() + 9); // Adjust for Korean timezone (UTC+9)
+    const formattedDate = date.toISOString().split('T')[0]; // YYYY-MM-DD format
+
+   const response = await fetch('/api/escrow/deposit', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+       storecode: params.storecode,
+       date: formattedDate,
+       depositAmount: // deductAmount to minus -deductAmount
+       -deductAmount
+     }),
+   });
+
+   if (!response.ok) {
+     toast.error('Failed to deduct from escrow');
+     setDeductingEscrow(false);
+     return;
+   }
+
+   toast.success('Escrow deduction successful');
+   setDeductEscrowAmount(0);
+
+
+   const data = await response.json();
+
+   // get store.escrowAmountUSDT from storecode
+   // api getStoreEscrowAmountUSDT
+
+   const responseStore = await fetch('/api/store/getOneStore', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+       storecode: params.storecode,
+     }),
+   });
+
+   if (!responseStore.ok) {
+     toast.error('Failed to fetch store data');
+     setDeductingEscrow(false);
+     return;
+   }
+
+   const storeData = await responseStore.json();
+
+   //console.log("storeData", storeData);
+
+   if (storeData.result) {
+
+     setStore(storeData.result);
+
+   }
+
+   // get escrow history
+   const fetchEscrowHistory = async () => {
+     const response = await fetch('/api/escrow/history', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({
+         storecode: params.storecode,
+         limit: 100,
+         page: 1,
+       }),
+     });
+
+
+     const data = await response.json();
+
+     setEscrowHistory(data.result.escrows || []);
+   };
+
+   fetchEscrowHistory();
+
+   setDeductingEscrow(false);
+
+   return data.result;
+  };
 
 
 
@@ -1248,7 +1375,7 @@ const fetchBuyOrders = async () => {
       <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
         <div className="py-0 w-full">
           <h1 className="text-2xl font-bold text-red-500">잘못된 접근입니다.</h1>
-          <p className="">올바른 상점 코드를 입력해주세요.</p>
+          <p className="text-gray-500">올바른 상점 코드를 입력해주세요.</p>
         </div>
       </main>
     );
@@ -1287,7 +1414,7 @@ const fetchBuyOrders = async () => {
                             height={20}
                             className="rounded-full"
                         />
-                        <span className="ml-2 text-sm  font-normal">
+                        <span className="ml-2 text-sm text-gray-500 font-semibold">
                             돌아가기
                         </span>
                     </button>
@@ -1314,13 +1441,13 @@ const fetchBuyOrders = async () => {
                             width: "60x",
                             height: "38px",
                         },
-                        label: "X-Ray 로그인",
+                        label: "원클릭 로그인",
                     }}
 
                     connectModal={{
                     size: "wide", 
                     //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
+                    titleIcon: "https://www.stable.makeup/logo.png",                           
                     showThirdwebBranding: false,
                     }}
 
@@ -1333,7 +1460,7 @@ const fetchBuyOrders = async () => {
                 {address && !loadingUser && (
                     <div className="w-full flex flex-row items-center justify-end gap-2">
 
-                        <span className="text-lg  font-normal">
+                        <span className="text-lg text-gray-500 font-semibold">
                         {user?.nickname || "프로필"}
                         </span>
 
@@ -1347,20 +1474,19 @@ const fetchBuyOrders = async () => {
 
             <div className='
               mt-4 mb-2
-              w-full
               flex flex-row items-center justify-start gap-2'>
                 <Image
                     src={store?.storeLogo || "/icon-store.png"}
                     alt="Store Logo"
                     width={35}
                     height={35}
-                    className="w-10 h-10 rounded-full"
+                    className="w-10 h-10 rounded-full bg-gray-100 object-cover"
                 />
 
-                <div className="text-xl font-normal ">
+                <div className="text-xl font-semibold">
                 가맹점{' '}{
                     store && store.storeName + " (" + store.storecode + ")"
-                }{' '}에스크로관리
+                }{' '}보유금 관리
                 </div>
             </div>
 
@@ -1371,7 +1497,7 @@ const fetchBuyOrders = async () => {
             border-b border-zinc-300 pb-2">
   
               {/* 가맹점 보유 */}
-              <div className="flex flex-col xl:flex-row items-start xl:items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-start xl:items-center gap-2">
                 <div className="flex flex-row gap-2 items-center">
                   <Image
                     src="/icon-escrow.png"
@@ -1380,8 +1506,8 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg font-normal ">
-                    가맹점 보유수량(USDT)
+                  <span className="text-lg font-semibold ">
+                    가맹점 보유량(USDT)
                   </span>
                 </div>
   
@@ -1393,7 +1519,7 @@ const fetchBuyOrders = async () => {
                     height={20}
                     className="w-5 h-5"
                   />
-                  <span className="text-lg text-green-400 font-normal"
+                  <span className="text-lg text-[#409192] font-semibold"
                     style={{ fontFamily: 'monospace' }}
                   >
                     {
@@ -1408,68 +1534,144 @@ const fetchBuyOrders = async () => {
             </div>
 
 
-            {/* dpposit date picker and deposit amount and deposit escrow button */}
+            
             <div className="flex flex-row items-center justify-between gap-2 mt-4">
-              
-              <div className="flex flex-col items-start justify-start gap-2 w-full">
-                <label className="text-sm  font-normal">
-                  에스크로 입금 금액(USDT)
+
+              {/* deposit date picker and deposit amount and deposit escrow button */}
+              <div className="flex flex-col items-start justify-start gap-2 w-full
+              bg-gray-50 p-4 rounded-md border border-zinc-300">
+                <label className="text-zinc-700 text-sm font-semibold">
+                  가맹점 보유금 충전 금액(USDT)
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   value={depositEscrowAmount}
-                  onChange={(e) => setDepositEscrowAmount(Number(e.target.value))}
-                  className="w-full p-2
-                  bg-zinc-600 border border-zinc-300 rounded-md
-                  focus:outline-none focus:ring-2 focus:ring-blue-500
-                  "
-                  min={0}
-                  step={0.001}
+                  onChange={(e) => {
+                    // if prefix 0, then remove 0
+                    if (e.target.value.startsWith('0')) {
+                      e.target.value = e.target.value.replace(/^0+/, '');
+                    }
+
+                    const value = Number(e.target.value) || 0;
+                    if (value <= 0) {
+                      setDepositEscrowAmount(0);
+                    } else {
+                      setDepositEscrowAmount( Number(value.toFixed(3)) );
+                    }
+                  }}
+                  disabled={depositingEscrow}
+                  className={`w-72 h-10 px-3 py-2 border border-zinc-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                  text-lg font-semibold text-zinc-700
+                  ${depositingEscrow ? "bg-gray-100" : "bg-white"}
+                  `}
+                  placeholder="충전할 USDT 금액을 입력하세요"
                 />
+                <button
+                  //onClick={() => depositEscrow(depositEscrowAmount)}
+                  // onClick confirm
+                  onClick={() => {
+                    if (confirm(`정말로 ${depositEscrowAmount} USDT를 가맹점 보유금으로 충전하시겠습니까?`)) {
+                      depositEscrow(depositEscrowAmount);
+                    }
+                  }}
+                  disabled={depositEscrowAmount <= 0 || depositingEscrow}
+                  className={`
+                    ${depositEscrowAmount <= 0 || depositingEscrow ? "bg-gray-300 cursor-not-allowed" : "bg-green-500 hover:bg-green-600"}
+                    w-72 h-10 flex items-center justify-center
+                    text-white font-semibold py-2 px-4 rounded-md transition duration-200 ease-in-out
+                  `}
+                >
+                  {depositingEscrow ? "충전 처리중..." : "가맹점 보유금 충전 처리"}
+                </button>
+
               </div>
 
-              <button
-                onClick={() => depositEscrow(depositEscrowAmount)}
-                disabled={depositEscrowAmount <= 0}
-                className={`
-                  ${depositEscrowAmount <= 0 ? "bg-zinc-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 cursor-pointer"}
-                  w-72 h-10 flex items-center justify-center
-                   font-normal py-2 px-4 rounded-md transition duration-200 ease-in-out
-                `}
-              >
-                에스크로 입금
-              </button>
+              {/* deposit date picker and deduction amount and deduction escrow button */}
+              <div className="flex flex-col items-start justify-start gap-2 w-full
+              bg-gray-50 p-4 rounded-md border border-zinc-300">
+                <label className="text-zinc-700 text-sm font-semibold">
+                  가맹점 보유금 차감 금액(USDT)
+                </label>
+                <input
+                  type="number"
+                  value={deductEscrowAmount}
+                  ///onChange={(e) => setDeductEscrowAmount(Number(e.target.value))}
+                  // check plus number only
+                  onChange={(e) => {
+                    // if prefix 0, then remove 0
+                    if (e.target.value.startsWith('0')) {
+                      e.target.value = e.target.value.replace(/^0+/, '');
+                    }
+
+                    const value = Number(e.target.value) || 0;
+                    if (value <= 0) {
+                      setDeductEscrowAmount(0);
+                    } else {
+                      setDeductEscrowAmount( Number(value.toFixed(3)) );
+                    }
+                  }}
+                  disabled={deductingEscrow}
+                  className={`w-72 h-10 px-3 py-2 border border-zinc-300 rounded-md
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                  text-lg font-semibold text-zinc-700
+                  ${deductingEscrow ? "bg-gray-100" : "bg-white"}
+                  `}
+                  placeholder="차감할 USDT 금액을 입력하세요"
+                />
+                <button
+                  //onClick={() => deductEscrow(deductEscrowAmount)}
+                  // onClick confirm
+                  onClick={() => {
+                    if (confirm(`정말로 ${deductEscrowAmount} USDT를 가맹점 보유금에서 차감하시겠습니까?`)) {
+                      deductEscrow(deductEscrowAmount);
+                    }
+                  }}
+                  disabled={deductEscrowAmount <= 0 || deductingEscrow}
+                  className={`
+                    ${deductEscrowAmount <= 0 || deductingEscrow ? "bg-gray-300 cursor-not-allowed" : "bg-red-500 hover:bg-red-600"}
+                    w-72 h-10 flex items-center justify-center
+                    text-white font-semibold py-2 px-4 rounded-md transition duration-200 ease-in-out
+                  `}
+                >
+                  {deductingEscrow ? "차감 처리중..." : "가맹점 보유금 차감 처리"}
+                </button>
+
+              </div>
+
+
             </div>
 
 
             {/* escrow history table */}
             <div className="w-full flex flex-col items-start justify-start gap-2 mt-4">
 
-              <h2 className="text-lg font-normal ">
-                에스크로 입출금 내역
+              <h2 className="text-lg font-semibold ">
+                보유금 변동 내역
               </h2>
 
-              <table className="w-full
-                table-auto border-collapse border border-zinc-800 rounded-md">
+              <table className="w-full table-auto border-collapse border border-zinc-800 rounded-md">
 
-                <thead className="bg-zinc-800">
+                <thead className="bg-zinc-200 text-zinc-700">
                   <tr>
-                    <th className="px-4 py-2 text-left text-sm font-normal ">
-                      날짜
+
+                    <th className="px-4 py-2 text-left text-sm font-semibold ">
+                      처리시간
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal ">
-                      에스크로 출금량(USDT)
+                    <th className="px-4 py-2 text-left text-sm font-semibold ">
+                      정산날짜
                     </th>
-                    <th className="px-4 py-2 text-right text-sm font-normal ">
-                      에스크로 입금량(USDT)
+                    <th className="px-4 py-2 text-right text-sm font-semibold ">
+                      보유금 정산량(USDT)
                     </th>
-                    {/* 처리전 잔고 */}
-                    <th className="px-4 py-2 text-right text-sm font-normal ">
-                      처리전 잔고(USDT)
+                    <th className="px-4 py-2 text-right text-sm font-semibold ">
+                      보유금 충전량/차감량(USDT)
                     </th>
-                    {/* 처리후 잔고 */}
-                    <th className="px-4 py-2 text-right text-sm font-normal ">
-                      처리후 잔고(USDT)
+                    <th className="px-4 py-2 text-right text-sm font-semibold ">
+                      처리전 보유량(USDT)
+                    </th>
+                    <th className="px-4 py-2 text-right text-sm font-semibold ">
+                      처리후 보유량(USDT)
                     </th>
 
                   </tr>
@@ -1479,12 +1681,16 @@ const fetchBuyOrders = async () => {
                   {
                   escrowHistory && escrowHistory.length > 0 &&
                   escrowHistory.map((escrow, index) => (
-                    <tr key={index} className="border-b
-                      bg-zinc-700 border-zinc-300 hover:bg-zinc-600">
-                      <td className="px-4 py-2 text-sm">
+                    <tr key={index} className="
+                    bg-white border-b border-zinc-300 hover:bg-zinc-100
+                    ">
+                      <td className="px-4 py-2 text-sm text-zinc-700">
+                        {new Date(escrow.createdAt).toLocaleString('ko-KR')}
+                      </td>
+                      <td className="px-4 py-2 text-sm text-zinc-700">
                         {new Date(escrow.date).toLocaleDateString('ko-KR')}
                       </td>
-                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1493,7 +1699,7 @@ const fetchBuyOrders = async () => {
                           : 0
                         }
                       </td>
-                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1503,7 +1709,7 @@ const fetchBuyOrders = async () => {
                         }
                       </td>
                       {/* beforeBalance */}
-                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1513,7 +1719,7 @@ const fetchBuyOrders = async () => {
                         }
                       </td>
                       {/* afterBalance */}
-                      <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
+                      <td className="px-4 py-2 text-sm text-[#409192] font-semibold text-right"
                         style={{ fontFamily: 'monospace' }}
                       >
                         {
@@ -1530,41 +1736,48 @@ const fetchBuyOrders = async () => {
             </div>
 
             <div className="w-full overflow-x-auto mt-4">
-              <h2 className="text-lg font-normal ">
-                에스크로 출금처리
+              <h2 className="text-lg font-semibold ">
+                보유금 정산처리
               </h2>
 
-                <table className=" w-full
-                table-auto border-collapse border border-zinc-800 rounded-md">
+                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md mt-2">
 
-                  <thead className="bg-zinc-800">
+                  <thead className="bg-zinc-200 text-zinc-700">
                     <tr>
-                      <th className="px-4 py-2 text-left text-sm font-normal ">
-                        날짜
+                      <th className="px-4 py-2 text-left text-sm font-semibold ">
+                        정산날짜
                       </th>
                       {/* align right */}
-                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래수(건)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal ">P2P 거래금액(원)</th>
-
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">P2P 거래수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">
+                        P2P 거래량(USDT)
+                        <br />
+                        P2P 거래금액(원)
+                      </th>
+               
                       {/*
-                      <th className="px-4 py-2 text-right text-sm font-normal ">결제수(건)/미결제수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">결제수(건)/미결제수(건)</th>
                       */}
 
-                      <th className="px-4 py-2 text-right text-sm font-normal ">AG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal ">AG 수수료금액(원)</th>
-
-                      <th className="px-4 py-2 text-right text-sm font-normal ">PG 수수료량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal ">PG 수수료금액(원)</th>
-
-                      <th className="px-4 py-2 text-right text-sm font-normal ">결제량(USDT)</th>
-                      <th className="px-4 py-2 text-right text-sm font-normal ">결제금액(원)</th>
-
-                      {/* escrow withdraw */}
-                      <th className="px-4 py-2 text-right text-sm font-normal ">
-                        에스크로 출금
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">
+                        AG 수수료량(USDT)
+                        <br />
+                        AG 수수료금액(원)
                       </th>
-
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">
+                        PG 수수료량(USDT)
+                        <br />
+                        PG 수수료금액(원)
+                      </th>
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">
+                        결제량(USDT)
+                        <br />
+                        결제금액(원)
+                      </th>
+                      {/* escrow withdraw */}
+                      <th className="px-4 py-2 text-right text-sm font-semibold ">
+                        보유금 정산처리(USDT)
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -1577,88 +1790,115 @@ const fetchBuyOrders = async () => {
                       {new Date(order.date).toLocaleDateString('ko-KR') !== new Date().toLocaleDateString('ko-KR') && (
                       
 
-                        <tr key={index} className="border-b
-                          bg-zinc-700 border-zinc-300 hover:bg-zinc-600">
-                          <td className="px-4 py-2 text-sm ">
+
+                        <tr
+                        key={index}
+                        className="
+                        bg-white border-b border-zinc-300 hover:bg-zinc-100
+                        ">
+
+                          <td className="px-4 py-2 text-sm text-zinc-700">
                             {new Date(order.date).toLocaleDateString('ko-KR')}
                           </td>
+
                           {/* align right */}
-                          <td className="px-4 py-2 text-sm  text-right">
+                          <td className="px-4 py-2 text-sm text-zinc-700 text-right">
                             {order.totalCount ? order.totalCount.toLocaleString() : 0}
                           </td>
 
 
-                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                          </td>
-                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                          </td>
-
-                          {/*
-                          <td className="px-4 py-2 text-sm  text-right">
-                            {order.totalSettlementCount ? order.totalSettlementCount.toLocaleString() : 0}
-                            {' / '}
-                            {(order.totalCount || 0) - (order.totalSettlementCount || 0)}
-                          </td>
-                          */}
-
-                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalAgentFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                          </td>
-                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalAgentFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                          <td>
+                            <div className="flex flex-col px-4 py-2">
+                              <span className="text-sm font-semibold text-right text-[#409192]"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                              <span className="text-sm font-semibold text-right text-yellow-600"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                            </div>
                           </td>
 
-                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                          </td>
-                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                          </td>
-
-                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                          </td>
-                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
-                            style={{ fontFamily: 'monospace' }}
-                          >
-                            {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                          <td>
+                            <div className="flex flex-col px-4 py-2">
+                              <span className="text-sm font-semibold text-right text-[#409192]"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalAgentFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                              <span className="text-sm font-semibold text-right text-yellow-600"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalAgentFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                            </div>
                           </td>
 
+                          <td>
+                            <div className="flex flex-col px-4 py-2">
+                              <span className="text-sm font-semibold text-right text-[#409192]"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                              <span className="text-sm font-semibold text-right text-yellow-600"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalFeeAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                            </div>
+                          </td>
 
-                          <td className="px-4 py-2 text-sm text-blue-500 font-normal text-right">
+                          <td>
+                            <div className="flex flex-col px-4 py-2">
+                              <span className="text-sm font-semibold text-right text-[#409192]"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                              <span className="text-sm font-semibold text-right text-yellow-600"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                              </span>
+                            </div>
+                          </td>
+
+
+                          <td className="px-4 py-2 text-sm text-zinc-700 text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
-                              <span className="text-green-400">
+                              <span className="text-sm font-semibold text-right text-green-600"
+                                style={{ fontFamily: 'monospace' }}
+                              >
                                 {Number(order.totalEscrowWithdrawAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
-                                출금완료
+                                정산완료
                               </span>
                             ) : (
 
                               <button
                                 onClick={() => {
 
-                                  withdrawEscrow(order.date, order.totalAgentFeeAmount + order.totalFeeAmount)
+                                  withdrawEscrow(
+                                    index,
+                                    order.date,
+                                    order.totalAgentFeeAmount + order.totalFeeAmount
+                                  )
                                   
                                 }}
-                                className="text-blue-500 hover:underline"
+                                disabled={
+                                  withdrawingEscrow[index]
+                                  || (Number(store?.escrowAmountUSDT) < Number(order.totalAgentFeeAmount + order.totalFeeAmount))}
+                                className={`
+                                  ${withdrawingEscrow[index] ? "bg-gray-300 cursor-not-allowed" : (Number(store?.escrowAmountUSDT) < Number(order.totalAgentFeeAmount + order.totalFeeAmount) ? "bg-gray-300 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600")}
+                                  w-32 h-14 flex items-center justify-center
+                                  text-white font-semibold py-2 px-4 rounded-md transition duration-200 ease-in-out
+                                `}
                               >
                                 {Number(order.totalAgentFeeAmount + order.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
-                                출금하기
+                                {withdrawingEscrow[index] ? "보유금 정산중..." : " 보유금 정산하기"}
                               </button>
                             
                             )}
@@ -1687,8 +1927,6 @@ const fetchBuyOrders = async () => {
               </div>
 
             </div>
-
-      
 
 
 
@@ -1737,13 +1975,13 @@ const TradeDetail = (
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
         <div className="flex items-center">
           <span className="inline-block w-4 h-4 rounded-full bg-green-500 mr-2"></span>
-          <h2 className="text-lg font-normal text-black ">Iskan9</h2>
-          <span className="ml-2 text-blue-400 text-sm">318 trades</span>
+          <h2 className="text-lg font-semibold text-black ">Iskan9</h2>
+          <span className="ml-2 text-blue-500 text-sm">318 trades</span>
         </div>
         <p className="text-gray-600 mt-2">The offer is taken from another source. You can only use chat if the trade is open.</p>
         
         <div className="mt-4">
-          <div className="flex justify-between ">
+          <div className="flex justify-between text-gray-700">
             <span>Price</span>
             <span>{price} KRW</span>
           </div>
@@ -1759,15 +1997,15 @@ const TradeDetail = (
             <span>Seller&apos;s payment method</span>
             <span className="bg-yellow-100 text-yellow-800 px-2 rounded-full">Tinkoff</span>
           </div>
-          <div className="mt-4 ">
+          <div className="mt-4 text-gray-700">
             <p>24/7</p>
           </div>
         </div>
   
-        <div className="mt-6 border-t pt-4 ">
+        <div className="mt-6 border-t pt-4 text-gray-700">
           <div className="flex flex-col space-y-4">
             <div>
-              <label className="block ">I want to pay</label>
+              <label className="block text-gray-700">I want to pay</label>
               <input 
                 type="number"
                 value={amount}
@@ -1779,7 +2017,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block ">I will receive</label>
+              <label className="block text-gray-700">I will receive</label>
               <input 
                 type="text"
                 value={`${receiveAmount} USDT`}
@@ -1788,7 +2026,7 @@ const TradeDetail = (
               />
             </div>
             <div>
-              <label className="block ">Commission</label>
+              <label className="block text-gray-700">Commission</label>
               <input 
                 type="text"
                 value={`${commission} USDT`}
@@ -1800,7 +2038,7 @@ const TradeDetail = (
           
           <div className="mt-6 flex space-x-4">
             <button
-                className="bg-green-500  px-4 py-2 rounded-lg"
+                className="bg-green-500 text-white px-4 py-2 rounded-lg"
                 onClick={() => {
                     console.log('Buy USDT');
                     // go to chat

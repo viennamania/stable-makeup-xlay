@@ -7593,7 +7593,6 @@ export async function updateBuyOrderEscrowBalance(
 
 
 
-
 // escrows collection
 // date: 20240101, depositAmount, withdrawAmount, beforeBalance, afterBalance
 // deposit escrow
@@ -7629,6 +7628,7 @@ export async function depositEscrow(
   const escrowCollection = client.db(dbName).collection('escrows');
   const result = await escrowCollection.insertOne(
     {
+      createdAt: new Date().toISOString(),
       storecode: storecode,
       date: date,
       depositAmount: depositAmount,
@@ -7691,6 +7691,7 @@ export async function withdrawEscrow(
   const escrowCollection = client.db(dbName).collection('escrows');
   const result = await escrowCollection.insertOne(
     {
+      createdAt: new Date().toISOString(),
       storecode: storecode,
       date: date,
       withdrawAmount: withdrawAmount,
@@ -7717,6 +7718,7 @@ export async function withdrawEscrow(
     return false;
   }
 }
+
 
   
 

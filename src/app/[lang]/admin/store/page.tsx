@@ -2854,14 +2854,15 @@ export default function Index({ params }: any) {
                         <th className="
                           p-2">
                           <div className="flex flex-col items-center justify-center gap-2">
-
                             <span className="text-center">
                               판매자 원화통장
                             </span>
                             <span className="text-center">
                               판매자 USDT지갑
                             </span>
-
+                            <span className="text-center">
+                              전일 보유금(USDT)
+                            </span>
                           </div>
                         </th>
 
@@ -2946,9 +2947,6 @@ export default function Index({ params }: any) {
                         {version !== 'bangbang' && (
                         <th className="p-2">
                           <div className="flex flex-col items-center justify-center gap-2">
-                            <span className="text-center">
-                              전일 보유금(USDT)
-                            </span>
                             <span className="text-center">
                               결제용 USDT지갑
                             </span>
@@ -3292,6 +3290,35 @@ export default function Index({ params }: any) {
                                 </div>
 
                               </div>
+
+                              {/* escrowAmountUSDT */}
+                              <div className="w-full flex flex-row items-center justify-center gap-1">
+                                <Image
+                                  src="/icon-tether.png"
+                                  alt="Tether"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5"
+                                />
+                                <span className="text-xl text-green-400"
+                                  style={{ fontFamily: 'monospace' }}
+                                >
+                                  {item?.escrowAmountUSDT ? item?.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}
+                                </span>
+                              </div>
+
+                              <button
+                                  onClick={() => router.push(`/${params.lang}/admin/store/${item.storecode}/daily-close`)}
+                                  className={`
+                                    ${!isAdmin ? 'opacity-50 cursor-not-allowed' : ''}
+                                    w-full mb-2
+                                    bg-blue-700 text-sm  px-2 py-1 rounded-lg
+                                    hover:bg-blue-700/80
+                                  `}
+                                  disabled={!isAdmin}
+                              >
+                                  보유금 관리
+                              </button>
 
                             </div>
 
@@ -3683,24 +3710,6 @@ export default function Index({ params }: any) {
 
 
                               <div className="w-full flex flex-col items-center justify-center gap-2">
-
-
-                                {/* escrowAmountUSDT */}
-                                <div className="w-full flex flex-row items-center justify-center gap-1">
-                                  <Image
-                                    src="/icon-tether.png"
-                                    alt="Tether"
-                                    width={20}
-                                    height={20}
-                                    className="w-5 h-5"
-                                  />
-                                  <span className="text-xl text-green-400"
-                                    style={{ fontFamily: 'monospace' }}
-                                  >
-                                    {item?.escrowAmountUSDT ? item?.escrowAmountUSDT.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : 0}
-                                  </span>
-                                </div>
-
 
                                 {/* settlementWalletAddress */}
                                 <span className="text-sm ">

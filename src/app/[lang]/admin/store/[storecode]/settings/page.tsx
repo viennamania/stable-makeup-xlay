@@ -3130,15 +3130,6 @@ export default function SettingsPage({ params }: any) {
                                         </span>
                                     </div>
 
-                                    {/* route to daily-close page */}
-                                    <button
-                                        onClick={() => router.push(`/${params.lang}/admin/store/${params.storecode}/daily-close`)}
-                                        className="bg-gray-700  rounded-lg p-2 text-sm"
-                                        disabled={!address}
-                                    >
-                                        일일 마감 페이지로 이동
-                                    </button>
-
                                     {/*
                                     <input
                                         disabled={!address}
