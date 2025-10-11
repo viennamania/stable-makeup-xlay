@@ -3795,6 +3795,7 @@ export default function Index({ params }: any) {
                 </div>
               </div>
 
+              {/*
               {fetchingBuyOrders ? (
                 <div className="flex flex-row items-center justify-center gap-2">
                   <Image
@@ -3809,6 +3810,7 @@ export default function Index({ params }: any) {
               ) : (
                 <>  </>
               )}
+              */}
 
 
 
