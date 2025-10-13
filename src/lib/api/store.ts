@@ -193,6 +193,10 @@ export async function getStoreByStorecode(
 
         paymentUrl: 1,
         maxPaymentAmountKRW: 1,
+
+        accessToken: 1,
+
+        liveOnAndOff: 1,
       },
     },
   ]).toArray();
