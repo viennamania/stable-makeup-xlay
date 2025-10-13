@@ -896,6 +896,98 @@ export async function getAllStoresForAgent(
 
 
 
+// getAllStoresForBalanceInquiry
+export async function getAllStoresForBalanceInquiry(
+  {
+    limit,
+    page,
+    search,
+  }: {
+    limit: number;
+    page: number;
+    search: string;
+  }
+): Promise<any> {
+
+
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('stores');
+
+  const query: any = {};
+
+  if (search) {
+    query.storeName = { $regex: String(search), $options: 'i' };
+  }
+
+
+  // exclude if stroecode is 'admin' or 'agent'
+
+  query.storecode = { $nin: ['admin', 'agent'] };
+
+  
+
+  const totalCount = await collection.countDocuments(query);
+
+  //console.log('getAllStores totalCount', totalCount);
+
+
+  try {
+    const stores = await collection.aggregate([
+      { $match: query },
+      {
+        
+        $project: {
+          createdAt: 1,
+          storecode: 1,
+          storeName: 1,
+          storeLogo: 1,
+          backgroundColor: 1,
+
+          totalUsdtAmount: 1,
+
+          settlementWalletAddress: 1,
+
+          //liveOnAndOff: 1,
+          // if liveOnAndOff is not exist, set it to true
+          liveOnAndOff: { $ifNull: ['$liveOnAndOff', true] },
+       
+        },
+      },
+      
+      //{ $sort: { createdAt: -1 } }, // Sort by createdAt in descending order
+      // sort by totalUsdtAmount in descending order
+      { $sort: { totalUsdtAmount: -1, createdAt: -1 } }, // Sort by totalUsdtAmount in descending order and then by createdAt in descending order
+
+
+      { $skip: (page - 1) * limit },
+      { $limit: limit },
+    ]).toArray();
+
+
+
+
+
+    //console.log('getAllStores stores', stores);
+
+
+
+    return {
+      totalCount,
+      stores,
+    };
+
+  } catch (error) {
+    console.error('Error fetching stores:', error);
+    throw new Error('Failed to fetch stores');
+  }
+}
+
+
+
+
+
+
+
 
 // updatePayactionKeys
 export async function updatePayactionKeys(
@@ -1126,3 +1218,30 @@ export async function updateStoreEscrowAmountUSDT(
 }
 
 
+// updateLiveOnAndOff
+export async function updateLiveOnAndOff(
+  {
+    storecode,
+    liveOnAndOff,
+  }: {
+    storecode: string;
+    liveOnAndOff: boolean;
+  }
+): Promise<boolean> {
+
+  console.log('updateLiveOnAndOff', storecode, liveOnAndOff);
+
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('stores');
+
+  // update storecode
+  const result = await collection.updateOne(
+    { storecode: storecode },
+    { $set: { liveOnAndOff: liveOnAndOff } }
+  );
+  if (result) {
+    return true;
+  } else {
+    return false;
+  }
+}
