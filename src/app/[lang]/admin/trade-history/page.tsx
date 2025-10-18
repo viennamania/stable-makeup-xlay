@@ -2710,6 +2710,7 @@ const fetchBuyOrders = async () => {
 
         <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-white/80 p-2 rounded-lg mb-4">
             
+          {/*
           <div className="w-full flex flex-row items-center justify-start gap-2">
             <button
               onClick={() => router.push('/' + params.lang + '/admin')}
@@ -2730,6 +2731,7 @@ const fetchBuyOrders = async () => {
               />
             </button>
           </div>
+          */}
 
 
           {address && !loadingUser && (
@@ -2798,51 +2800,6 @@ const fetchBuyOrders = async () => {
 
 
           )}
-
-
-          {!address && (
-            <ConnectButton
-              client={client}
-              wallets={wallets}
-
-              /*
-              accountAbstraction={{
-                chain: arbitrum,
-                sponsorGas: true
-              }}
-              */
-              
-              theme={"light"}
-
-              // button color is dark skyblue convert (49, 103, 180) to hex
-              connectButton={{
-                style: {
-                  backgroundColor: "#3167b4", // dark skyblue
-
-                  color: "#f3f4f6", // gray-300 
-                  padding: "2px 2px",
-                  borderRadius: "10px",
-                  fontSize: "14px",
-                  //width: "40px",
-                  height: "38px",
-                },
-                label: "X-Ray 로그인",
-              }}
-
-              connectModal={{
-                size: "wide", 
-                //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                showThirdwebBranding: false,
-              }}
-
-              locale={"ko_KR"}
-              //locale={"en_US"}
-            />
-
-          )}
-
-
 
 
         </div>

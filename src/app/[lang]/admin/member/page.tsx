@@ -1932,6 +1932,7 @@ export default function Index({ params }: any) {
 
         <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-white/80 p-2 rounded-lg mb-4">
             
+          {/*
            <div className="w-full flex flex-row items-center justify-start gap-2">
              <button
                onClick={() => router.push('/' + params.lang + '/admin')}
@@ -1952,6 +1953,7 @@ export default function Index({ params }: any) {
               />
              </button>
            </div>
+          */}
 
 
           {address && !loadingUser && (

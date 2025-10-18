@@ -144,10 +144,15 @@ export default function RootLayout({
           fixed top-2 left-2 z-50 flex flex-col items-start justify-start gap-2
           ">
             
-            <div className="flex flex-row items-center justify-center
+            <button className="flex flex-row items-center justify-center
               bg-white bg-opacity-90
               p-2 rounded-lg shadow-lg
-              ">
+              hover:bg-opacity-100
+              hover:shadow-xl
+              transition-all duration-200
+              "
+              onClick={() => router.push(`/${params.lang}/admin`)}
+            >
               <Image
                 src={clientLogo || "/logo.png"}
                 alt={clientName}
@@ -159,7 +164,7 @@ export default function RootLayout({
                 <h1 className="text-lg font-bold text-black">{clientName || "Admin Console"}</h1>
                 <p className="text-sm text-gray-600">{clientDescription || "Manage your application settings"}</p>
               </div>
-            </div>              
+            </button>              
             
             <button
               className="
