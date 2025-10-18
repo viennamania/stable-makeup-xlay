@@ -6572,6 +6572,7 @@ const fetchBuyOrders = async () => {
                         (!item?.transactionHash || item?.transactionHash === '0x') && (
                           <div
                             className="
+                              w-full
                               flex flex-row gap-2 items-center justify-between
                               text-sm text-green-400 font-normal
                               border border-[#409192] rounded-lg p-2
