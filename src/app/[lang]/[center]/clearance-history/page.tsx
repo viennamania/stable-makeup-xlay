@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, use, act } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Image from "next/image";
 
@@ -1634,138 +1634,114 @@ export default function Index({ params }: any) {
 
 
 
+
+
+  const [sendingTransaction, setSendingTransaction] = useState([] as boolean[]);
+  useEffect(() => {
+    setSendingTransaction([]);
+    const newArray: boolean[] = [];
+    for (let i = 0; i < buyOrders.length; i++) {
+      newArray.push(false);
+    }
+    setSendingTransaction(newArray);
+  } , [buyOrders.length]);
+
+
+  const isProcessingSendTransaction = useRef(false);
+  //const [isProcessingSendTransaction, setIsProcessingSendTransaction] = useState(false);
+
+
   // confirm payment
   const confirmPayment = async (
 
     index: number,
     orderId: string,
-    paymentAmount: number,
-    paymentAmountUsdt: number,
+    //////paymentAmount: number,
+    krwAmount: number,
+    //////paymentAmountUsdt: number,
+
+    usdtAmount: number,
+
+    buyerWalletAddress: string,
 
   ) => {
-    // confirm payment
-    // send usdt to buyer wallet address
-
-
-    // if escrowWalletAddress balance is less than paymentAmount, then return
-
-    //console.log('escrowBalance', escrowBalance);
-    //console.log('paymentAmountUsdt', paymentAmountUsdt);
-    
-    /*
-    if (escrowBalance < paymentAmountUsdt) {
-      toast.error(Escrow_balance_is_less_than_payment_amount);
+ 
+    if (isProcessingSendTransaction.current) {
+      alert('USDT 전송이 처리중입니다. 잠시후 다시 시도해주세요.');
       return;
     }
-    
-    // if escrowNativeBalance is less than 0.1, then return
-    if (escrowNativeBalance < 0.1) {
-      toast.error('ETH balance is less than 0.1');
-      return;
-    }
-      */
-
-    if (!address) {
-      toast.error('Please connect your wallet');
-      return;
-    }
+    isProcessingSendTransaction.current = true;
 
     /*
-    if (isWithoutEscrow && balance < paymentAmountUsdt) {
-      toast.error(Insufficient_balance);
-      return;
-    }
-    
-
-    if (!isWithoutEscrow && escrowBalance < paymentAmountUsdt) {
-      toast.error(Escrow_balance_is_less_than_payment_amount);
+    if (sendingTransaction.some((item) => item === true)) {
+      alert('다른 USDT 전송이 처리중입니다. 잠시후 다시 시도해주세요.');
       return;
     }
     */
 
-    if (confirmingPayment[index]) {
+
+    setSendingTransaction(
+      sendingTransaction.map((item, idx) => idx === index ? true : item)
+    );
+    
+
+    ///setIsProcessingSendTransaction(true);
+
+
+
+
+    if (!address) {
+      toast.error('Please connect your wallet');
+      
+      //setIsProcessingSendTransaction(false);
+      isProcessingSendTransaction.current = false;
+      
+      setSendingTransaction(
+        sendingTransaction.map((item, idx) => idx === index ? false : item)
+      );
       return;
     }
 
-    setConfirmingPayment(
-      confirmingPayment.map((item, idx) =>  idx === index ? true : item)
-    );
+
+
+
+  
+    let balance = 0;
+    const result = await balanceOf({
+      contract,
+      address: address,
+    });
+
+
+    if (chain === 'bsc') {
+      balance = Number(result) / 10 ** 18;
+    } else {
+      balance = Number(result) / 10 ** 6;
+    }
+
+    // check balance
+    // if balance is less than paymentAmount, then return
+    if (balance < usdtAmount) {
+      toast.error(Insufficient_balance);
+      
+      //setIsProcessingSendTransaction(false);
+      isProcessingSendTransaction.current = false;
+
+      setSendingTransaction(
+        sendingTransaction.map((item, idx) => idx === index ? false : item)
+      );
+      return;
+    }
+
 
 
     try {
 
-      
-      if (!isWithoutEscrow) {
-      
-        const response = await fetch('/api/order/buyOrderConfirmPayment', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            lang: params.lang,
-            storecode: params.center,
-            orderId: orderId,
-            paymentAmount: paymentAmount,
-            ///isSmartAccount: activeWallet === inAppConnectWallet ? false : true,
-            isSmartAccount: false,
-          })
-        });
-
-        const data = await response.json();
-
-        //console.log('data', data);
-
-        if (data.result) {
-          
-          ///fetchBuyOrders();
-
-          // fetch Buy Orders
-          await fetch('/api/order/getAllCollectOrdersForSeller', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(
-              {
-                storecode: params.center,
-                limit: Number(limit),
-                page: Number(page),
-                walletAddress: address,
-                searchMyOrders: searchMyOrders,
-              }
-            ),
-          })
-          .then(response => response.json())
-          .then(data => {
-              ///console.log('data', data);
-              setBuyOrders(data.result.orders);
-
-              setTotalCount(data.result.totalCount);
-
-              setTotalClearanceCount(data.result.totalClearanceCount);
-              setTotalClearanceAmount(data.result.totalClearanceAmount);
-              setTotalClearanceAmountKRW(data.result.totalClearanceAmountKRW);
-          })
-
-
-
-          toast.success(Payment_has_been_confirmed);
-
-          playSong();
-
-
-        } else {
-          toast.error('결제확인이 실패했습니다.');
-        }
-
-      } else {
-
 
         // transfer my wallet to buyer wallet address
 
-        const buyerWalletAddress = buyOrders[index].walletAddress;
-        const usdtAmount = buyOrders[index].usdtAmount;
+        //const buyerWalletAddress = buyOrders[index].walletAddress;
+        //const usdtAmount = buyOrders[index].usdtAmount;
 
         const transaction = transfer({
           contract,
@@ -1781,9 +1757,6 @@ export default function Index({ params }: any) {
             transaction,
           });
 
-          console.log("transactionHash===", transactionHash);
-
-
 
           if (transactionHash) {
 
@@ -1796,7 +1769,7 @@ export default function Index({ params }: any) {
                 lang: params.lang,
                 storecode: params.center,
                 orderId: orderId,
-                paymentAmount: paymentAmount,
+                paymentAmount: krwAmount,
                 transactionHash: transactionHash,
                 ///isSmartAccount: activeWallet === inAppConnectWallet ? false : true,
                 isSmartAccount: false,
@@ -1808,78 +1781,64 @@ export default function Index({ params }: any) {
             //console.log('data', data);
 
             if (data.result) {
-              
-              ///fetchBuyOrders();
+            
 
-              // fetch Buy Orders
-              await fetch('/api/order/getAllCollectOrdersForSeller', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(
-                  {
-                    storecode: params.center,
-                    limit: Number(limit),
-                    page: Number(page),
-                    walletAddress: address,
-                    searchMyOrders: searchMyOrders,
+              setBuyOrders(
+                buyOrders.map((item, idx) => {
+                  if (idx === index) {
+                    return {
+                      ...item,
+                      status: 'paymentConfirmed',
+                      transactionHash: transactionHash,
+                    };
                   }
-                ),
-              })
-              .then(response => response.json())
-              .then(data => {
-                  ///console.log('data', data);
-                  setBuyOrders(data.result.orders);
+                  return item;
+                })
+              );
 
-                  setTotalCount(data.result.totalCount);
 
-                  setTotalClearanceCount(data.result.totalClearanceCount);
-                  setTotalClearanceAmount(data.result.totalClearanceAmount);
-                  setTotalClearanceAmountKRW(data.result.totalClearanceAmountKRW);
-              })
 
-              toast.success(Payment_has_been_confirmed);
-              playSong();
+              //toast.success(Payment_has_been_confirmed);
+
+              alert("USDT 전송이 완료되었습니다.");
+
+              /////playSong();
             } else {
-              toast.error('결제확인이 실패했습니다.');
+              ///toast.error('결제확인이 실패했습니다.');
+              alert("USDT 전송이 실패했습니다.");
             }
 
 
           } else {
-            toast.error('결제확인이 실패했습니다.');
+            //toast.error('결제확인이 실패했습니다.');
+            alert("USDT 전송이 실패했습니다.");
+
           }
 
         } catch (error) {
-          console.error('Error:', error);
-          toast.error('결제확인이 실패했습니다.');
+          console.error('Error:', JSON.stringify(error));
+          alert("USDT 전송이 실패했습니다.");
         }
-
-
-
-      }
-
-
 
 
 
 
     } catch (error) {
-      console.error('Error:', error);
-      toast.error('결제확인이 실패했습니다.');
+      console.error('Error:', JSON.stringify(error));
+      alert("USDT 전송이 실패했습니다.");
     }
 
 
-    setConfirmingPayment(
-      confirmingPayment.map((item, idx) => idx === index ? false : item)
-    );
+    //setIsProcessingSendTransaction(false);
+    isProcessingSendTransaction.current = false;
 
-    setConfirmPaymentCheck(
-      confirmPaymentCheck.map((item, idx) => idx === index ? false : item)
+    setSendingTransaction(
+      sendingTransaction.map((item, idx) => idx === index ? false : item)
     );
   
 
   }
+
 
 
 
@@ -2120,6 +2079,7 @@ export default function Index({ params }: any) {
 
       if (
         //!address || !searchMyOrders
+        /*
         agreementForTrade.some((item) => item === true)
         || acceptingBuyOrder.some((item) => item === true)
         || agreementForCancelTrade.some((item) => item === true)
@@ -2130,6 +2090,15 @@ export default function Index({ params }: any) {
         || requestingPayment.some((item) => item === true)
         || confirmingPayment.some((item) => item === true)
         || rollbackingPayment.some((item) => item === true)
+        */
+
+        cancellings.some((item) => item === true)
+        || sendingTransaction.some((item) => item === true)
+
+        ///|| isProcessingSendTransaction
+        || isProcessingSendTransaction.current
+
+
       ) {
         return;
       }
@@ -2206,7 +2175,6 @@ export default function Index({ params }: any) {
     
     
 
-
   } , [
     limit,
     page,
@@ -2214,13 +2182,18 @@ export default function Index({ params }: any) {
     searchMyOrders,
     agreementForTrade,
     acceptingBuyOrder,
-    escrowing,
-    requestingPayment,
-    confirmingPayment,
-    rollbackingPayment,
-    agreementForCancelTrade,
-    confirmPaymentCheck,
-    rollbackPaymentCheck,
+
+
+    //escrowing,
+    //requestingPayment,
+    //confirmingPayment,
+    //rollbackingPayment,
+    //agreementForCancelTrade,
+    //confirmPaymentCheck,
+    //rollbackPaymentCheck,
+
+    cancellings,
+
 
     latestBuyOrder,
     //playSong,
@@ -2228,8 +2201,13 @@ export default function Index({ params }: any) {
     params.center,
     searchFromDate,
     searchToDate,
-]);
 
+    sendingTransaction,
+
+    //isProcessingSendTransaction,
+    isProcessingSendTransaction.current
+
+]);
 
 
 
@@ -4516,7 +4494,9 @@ export default function Index({ params }: any) {
 
                           <td className="p-2">
 
-                            <div className="flex flex-row gap-2 items-start justify-start">
+                            <div className="
+                              w-32   
+                              flex flex-row gap-2 items-start justify-start">
 
                               {/*item.status === 'accepted' && item.seller && item.seller.walletAddress === address && (
                                 
@@ -4666,22 +4646,14 @@ export default function Index({ params }: any) {
 
 
 
-
-
-
-
-
-
-
                               {item.seller && item.seller.walletAddress === address &&   
                               item.status === 'paymentRequested' && (
 
-                                <div className="flex flex-row gap-2">
+                                <div className="w-full flex flex-row gap-2">
 
-                              
-                                  
-                                  <div className="flex flex-row gap-2">
+                                  <div className="w-full flex flex-col gap-2 items-start justify-center">
 
+                                    {/*
                                     <input
                                       disabled={confirmingPayment[index]}
                                       type="checkbox"
@@ -4697,43 +4669,80 @@ export default function Index({ params }: any) {
                                         );
                                       }}
                                     />
+                                    */}
 
                                     <button
-                                      disabled={confirmingPayment[index] || !confirmPaymentCheck[index]}
+                                      disabled={
+                                        //isProcessingSendTransaction
+                                        isProcessingSendTransaction.current
+                                      }
                                       className={`
-                                        w-28 
+                                        w-full h-8
                                         flex flex-row
                                         items-center justify-center
-                                        gap-1 text-sm  px-2 py-1 rounded-md ${confirmingPayment[index] || !confirmPaymentCheck[index] ? 'bg-gray-500' : 'bg-green-500'}`}
+                                        gap-1 text-sm text-white px-2 py-1 rounded-md ${
+                                        //isProcessingSendTransaction
+                                        isProcessingSendTransaction.current
+                                        ? 'bg-gray-500' : 'bg-green-500'}`}
 
-                              
-                                      onClick={() => {
+
+                                      onClick={(e) => {
+
+                                        //e.preventDefault();
+                                        //e.stopPropagation();
+
                                         confirmPayment(
                                           index,
                                           item._id,
-                                          paymentAmounts[index],
-                                          paymentAmountsUsdt[index]
+                                          //paymentAmounts[index],
+                                          item.krwAmount,
+
+                                          //paymentAmountsUsdt[index]
+                                          item.usdtAmount,
+
+                                          item.walletAddress
                                         );
                                       }}
 
                                     >
                                       
-                                      {confirmingPayment[index] && (
-                                        <Image
-                                          src="/loading.png"
-                                          alt="Loading"
-                                          width={20}
-                                          height={20}
-                                          className="w-4 h-4 animate-spin "
-                                        />
+                                      {sendingTransaction[index] ? (
+                                        <div className="flex flex-row gap-2 items-center justify-center">
+                                          <Image
+                                            src="/icon-transfer.png"
+                                            alt="Transferring"
+                                            width={20}
+                                            height={20}
+                                            className="w-4 h-4 animate-spin "
+                                          />
+                                          <span className="text-sm">
+                                            USDT 전송중...
+                                          </span>
+                                        </div>
+                                      ) : (
+                                        <span className="text-sm">
+                                          USDT 전송
+                                        </span>
                                       )}
-                                      <span className="text-sm">
-                                        거래완료
-                                        <br />
-                                        USDT 전송
-                                      </span>
 
                                     </button>
+
+                                    {/* warning message */}
+                                    {sendingTransaction[index] && (
+                                      <div className="flex flex-row gap-1 items-center justify-center">
+                                        <Image
+                                          src="/icon-warning.png"
+                                          alt="Warning"
+                                          width={16}
+                                          height={16}
+                                          className="w-4 h-4"
+                                        />
+                                        <span className="text-sm text-red-600">
+                                          전송중에 절대 새로고침하거나 뒤로가기를 하지 마세요.
+                                        </span>
+                                      </div>
+                                    )}
+
 
                                   </div>
 
@@ -4760,10 +4769,10 @@ export default function Index({ params }: any) {
                                       <button
                                         disabled={rollbackingPayment[index] || !rollbackPaymentCheck[index]}
                                         className={`
-                                          w-24 h-8
+                                          w-32 h-8
                                           flex flex-row
                                           items-center justify-center
-                                          gap-1 text-sm  px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
+                                          gap-1 text-sm text-white px-2 py-1 rounded-md ${rollbackingPayment[index] || !rollbackPaymentCheck[index] ? 'bg-gray-500' : 'bg-red-500'}`}
                                         onClick={() => {
                                           rollbackPayment(
                                             index,
@@ -4799,8 +4808,6 @@ export default function Index({ params }: any) {
 
 
                               )}
-
-                              
 
                             </div>
 
