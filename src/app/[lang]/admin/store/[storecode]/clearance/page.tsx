@@ -2378,11 +2378,11 @@ export default function Index({ params }: any) {
                         
                         <div className="
                         w-full
-                        flex flex-col xl:flex-row gap-5 xl:gap-20 items-center ">
+                        flex flex-col sm:flex-row gap-5 xl:gap-20 items-center ">
                             
                             <div className="flex flex-col gap-2 items-start">
 
-                              <p className="mt-4 text-xl font-bold ">1 USDT = {
+                              <p className="mt-4 text-xl font-bold text-zinc-400">1 USDT = {
                                 // currency format
                                 Number(rate)?.toLocaleString('ko-KR', {
                                   style: 'currency',
@@ -2394,14 +2394,23 @@ export default function Index({ params }: any) {
                                 
                                 <div className="flex flex-row items-center gap-2">
 
-                                  <span className="text-xl text-blue-400 font-bold ">
+                                  <span className="text-xl text-blue-500 font-bold ">
                                     매입금액
                                   </span>
 
                                   <input 
-                                    type="number"
+                                    type='text'
+                                    inputMode="numeric"
+                                    pattern="[0-9]*"
+                                    
+                                    // disable mouse wheel
+                                    onWheel={(e) => e.currentTarget.blur()}
+                                    // remove updown button
+                                    style={{ MozAppearance: 'textfield' }}
+
+
                                     className="
-                                      text-xl text-blue-400 font-bold
+                                      text-xl text-blue-500 font-bold
                                       w-40 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 "
                                     placeholder={Price}
                                     value={krwAmount}
@@ -2433,17 +2442,23 @@ export default function Index({ params }: any) {
                                     } }
                                   />
 
-                                  <span className="text-xl  font-bold">
+                                  <span className="text-2xl text-yellow-600 font-semibold"
+                                    style={{ fontFamily: 'monospace' }}
+                                  >
+                                    {krwAmount === 0 ? '0' : Number(krwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                  </span>
+                                  <span className="text-xl text-zinc-400 font-bold">
                                     원  
                                   </span>
 
+
                                 </div>
-                                {/* 매입수량 */}
-                                <span className="text-lg font-normal ">
-                                  매입수량(USDT)
+                                {/* 매입량 */}
+                                <span className="text-lg font-semibold text-zinc-400">
+                                  매입량(USDT)
                                 </span>
   
-                                <p className=" text-xl  font-bold">
+                                <p className=" text-xl text-zinc-400 font-bold">
                                   
 
 
@@ -2493,7 +2508,7 @@ export default function Index({ params }: any) {
                                         height={24}
                                       />
                                     </div>
-                                    <div className="">
+                                    <div className="text-zinc-400">
                                       신청중...
                                     </div>
                       
@@ -2501,11 +2516,11 @@ export default function Index({ params }: any) {
                               ) : (
                                   <button
                                       disabled={krwAmount === 0 || agreementPlaceOrder === false}
-                                      className={`text-lg   px-4 py-2 rounded-md ${krwAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
+                                      className={`text-lg text-white  px-4 py-2 rounded-md ${krwAmount === 0 || agreementPlaceOrder === false ? 'bg-gray-500' : 'bg-green-500'}`}
 
 
                                       onClick={() => {
-                                          console.log('Buy USDT');
+                                          //console.log('Buy USDT');
                                           // open trade detail
                                           // open modal of trade detail
                                           ///openModal();
