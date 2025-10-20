@@ -4125,6 +4125,8 @@ export async function getOneBuyOrder(
 
 
 
+
+
 // getOneBuyOrderByTradeId
 export async function getOneBuyOrderByTradeId(
   {
@@ -4149,8 +4151,23 @@ export async function getOneBuyOrderByTradeId(
 
 
 
+export async function getOneBuyOrderByOrderId(orderId: string): Promise<UserProps | null> {
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('buyorders');
 
+  if (!ObjectId.isValid(orderId)) {
+    return null;
+  }
 
+  const result = await collection.findOne<UserProps>(
+    { _id: new ObjectId(orderId) }
+  );
+  if (result) {
+    return result;
+  } else {
+    return null;
+  }
+}
 
 
 // getOneBuyOrderByNicknameAndStorecode
