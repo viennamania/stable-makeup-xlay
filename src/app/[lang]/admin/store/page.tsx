@@ -1742,54 +1742,6 @@ export default function Index({ params }: any) {
 
 
 
-
-  if (!address) {
-    return (
-      <div className="flex flex-col items-center justify-center">
-
-        <h1 className="text-2xl font-bold">로그인</h1>
-
-          <ConnectButton
-            client={client}
-            wallets={wallets}
-            chain={chain === "ethereum" ? ethereum :
-                    chain === "polygon" ? polygon :
-                    chain === "arbitrum" ? arbitrum :
-                    chain === "bsc" ? bsc : arbitrum}
-            
-            theme={"light"}
-
-            // button color is dark skyblue convert (49, 103, 180) to hex
-            connectButton={{
-              style: {
-                backgroundColor: "#3167b4", // dark skyblue
-
-                color: "#f3f4f6", // gray-300 
-                padding: "2px 2px",
-                borderRadius: "10px",
-                fontSize: "14px",
-                //width: "40px",
-                height: "38px",
-              },
-              label: "X-Ray 로그인",
-            }}
-
-            connectModal={{
-              size: "wide", 
-              //size: "compact",
-              titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-              showThirdwebBranding: false,
-            }}
-
-            locale={"ko_KR"}
-            //locale={"en_US"}
-          />
-
-      </div>
-    );
-  }
-
-
   if (address && !loadingUser && !isAdmin) {
     return (
       <div className="flex flex-col items-center justify-center">
@@ -3222,7 +3174,7 @@ export default function Index({ params }: any) {
                           <td className="
                             p-2">
                             <div className="h-56
-                              w-28
+                              w-40
                               flex flex-col items-between justify-between gap-2">
                               
                               <div className="flex flex-col items-center gap-2">
@@ -3231,20 +3183,119 @@ export default function Index({ params }: any) {
                                 
                                 {/* 판매자 통장 */}
                                 {item?.bankInfo ? (
-                                  <div className="flex flex-col xl:flex-row items-center gap-2">
-                                    <span className="text-sm ">
-                                      {
-                                        item?.bankInfo?.bankName
-                                      }
-                                    </span>
-                                    <span className="text-sm ">
-                                      {
-                                        item?.bankInfo?.accountHolder
-                                      }
-                                  </span>
+
+                                  <div className="w-full flex flex-col items-start justify-center">
+
+                                    {/* 일반 */}
+                                    {item?.bankInfo && (
+                                    <div className="flex flex-row items-center gap-1">
+                                      <div className="w-10 h-5 rounded-full bg-zinc-500 flex items-center justify-center">
+                                        <span className="text-xs text-white">일반</span>
+                                      </div>
+                                      <span className="text-sm">
+                                          {item?.bankInfo?.accountNumber.length > 5 ? (
+                                            <>
+                                              {item?.bankInfo?.accountHolder
+                                              + " " + item?.bankInfo?.bankName}
+                                            </>
+                                          ) : (
+                                            <>
+                                              {item?.bankInfo?.accountHolder
+                                              + " " + item?.bankInfo?.bankName}
+                                            </>
+                                          )}
+                                      </span>
+                                    </div>
+                                    )}
+                                    {/* 1등급 */}
+                                    {item?.bankInfoAAA && (
+                                    <div className="flex flex-row items-center gap-1">
+                                      <div className="w-10 h-5 rounded-full bg-red-500 flex items-center justify-center">
+                                        <span className="text-xs text-white">1등급</span>
+                                      </div>
+                                      <span className="text-sm">
+                                          {item?.bankInfoAAA?.accountNumber.length > 5 ? (
+                                            <>
+                                              {item?.bankInfoAAA?.accountHolder
+                                              + " " + item?.bankInfoAAA?.bankName}
+                                            </>
+                                          ) : (
+                                            <>
+                                              {item?.bankInfoAAA?.accountHolder
+                                              + " " + item?.bankInfoAAA?.bankName}
+                                            </>
+                                          )}
+                                      </span>
+                                    </div>
+                                    )}
+                                    {/* 2등급 */}
+                                    {item?.bankInfoBBB && (
+                                    <div className="flex flex-row items-center gap-1">
+                                      <div className="w-10 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                                        <span className="text-xs text-white">2등급</span>
+                                      </div>
+                                      <span className="text-sm">
+                                          {item?.bankInfoBBB?.accountNumber.length > 5 ? (
+                                            <>
+                                              {item?.bankInfoBBB?.accountHolder
+                                              + " " + item?.bankInfoBBB?.bankName}
+                                            </>
+                                          ) : (
+                                            <>
+                                              {item?.bankInfoBBB?.accountHolder
+                                              + " " + item?.bankInfoBBB?.bankName}
+                                            </>
+                                          )}
+                                      </span>
+                                    </div>
+                                    )}
+                                    {/* 3등급 */}
+                                    {item?.bankInfoCCC && (
+                                    <div className="flex flex-row items-center gap-1">
+                                      <div className="w-10 h-5 rounded-full bg-yellow-500 flex items-center justify-center">
+                                        <span className="text-xs text-white">3등급</span>
+                                      </div>
+                                      <span className="text-sm">
+                                          {item?.bankInfoCCC?.accountNumber.length > 5 ? (
+                                            <>
+                                              {item?.bankInfoCCC?.accountHolder
+                                              + " " + item?.bankInfoCCC?.bankName}
+                                            </>
+                                          ) : (
+                                            <>
+                                              {item?.bankInfoCCC?.accountHolder
+                                              + " " + item?.bankInfoCCC?.bankName}
+                                            </>
+                                          )}
+                                      </span>
+                                    </div>
+                                    )}
+                                    {/* 4등급 */}
+                                    {item?.bankInfoDDD && (
+                                    <div className="flex flex-row items-center gap-1">
+                                      <div className="w-10 h-5 rounded-full bg-green-500 flex items-center justify-center">
+                                        <span className="text-xs text-white">4등급</span>
+                                      </div>
+                                      <span className="text-sm">
+                                          {item?.bankInfoDDD?.accountNumber.length > 5 ? (
+                                            <>
+                                              {item?.bankInfoDDD?.accountHolder
+                                              + " " + item?.bankInfoDDD?.bankName}
+                                            </>
+                                          ) : (
+                                            <>
+                                              {item?.bankInfoDDD?.accountHolder
+                                              + " " + item?.bankInfoDDD?.bankName}
+                                            </>
+                                          )}
+                                      </span>
+                                    </div>
+                                    )}
+                                  
                                   </div>
+
                                 ) : (
-                                  <div className="flex flex-col xl:flex-row items-center gap-2">
+                                  <div className="flex flex-col sm:flex-row items-center gap-2">
                                     <span className="text-sm text-red-500">
                                       판매자 원화통장 없음
                                     </span>
@@ -3256,8 +3307,8 @@ export default function Index({ params }: any) {
                                         );
                                       }
                                       }
-                                      className="bg-gray-700 text-sm  px-2 py-1 rounded-lg
-                                      hover:bg-gray-700/80"
+                                      className="bg-[#3167b4] text-sm text-white px-2 py-1 rounded-lg
+                                      hover:bg-[#3167b4]/80"
                                     >
                                       통장관리
                                     </button>

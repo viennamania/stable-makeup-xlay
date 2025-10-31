@@ -1628,58 +1628,6 @@ export default function Index({ params }: any) {
 
 
 
-
-
-
-  if (!address) {
-    return (
-      <div className="flex flex-col items-center justify-center">
-
-        <h1 className="text-2xl font-bold">로그인</h1>
-
-          <ConnectButton
-            client={client}
-            wallets={wallets}
-            /*
-            chain={chain === "ethereum" ? ethereum :
-                    chain === "polygon" ? polygon :
-                    chain === "arbitrum" ? arbitrum :
-                    chain === "bsc" ? bsc : arbitrum}
-            */
-            
-            theme={"light"}
-
-            // button color is dark skyblue convert (49, 103, 180) to hex
-            connectButton={{
-              style: {
-                backgroundColor: "#3167b4", // dark skyblue
-
-                color: "#f3f4f6", // gray-300 
-                padding: "2px 2px",
-                borderRadius: "10px",
-                fontSize: "14px",
-                //width: "40px",
-                height: "38px",
-              },
-              label: "X-Ray 로그인",
-            }}
-
-            connectModal={{
-              size: "wide", 
-              //size: "compact",
-              titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-              showThirdwebBranding: false,
-            }}
-
-            locale={"ko_KR"}
-            //locale={"en_US"}
-          />
-
-      </div>
-    );
-  }
-
-
   if (address && !loadingUser && !isAdmin) {
     return (
       <div className="flex flex-col items-center justify-center">
