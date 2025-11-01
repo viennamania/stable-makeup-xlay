@@ -3107,7 +3107,7 @@ export default function Index({ params }: any) {
 
                         <td className="p-2">
                           <div className="
-                          w-32
+                          w-24 
                           flex flex-row items-center justify-start gap-1">
                             <Image
                               src="/icon-user.png"
@@ -3203,8 +3203,7 @@ export default function Index({ params }: any) {
                         </td>
                         <td className="p-2">
                           <div className="
-                            mr-5
-                            w-48
+                            w-32
                             flex flex-col items-end justify-center gap-1">
 
                             <div className="w-full flex flex-row items-center justify-end gap-1">
@@ -3238,7 +3237,9 @@ export default function Index({ params }: any) {
                         </td>
 
                         <td className="p-2">
-                          <div className="flex flex-col xl:flex-row items-start justify-center gap-2">
+                          <div className="
+                            w-28 
+                            flex flex-col xl:flex-row items-start justify-center gap-2">
                             <input
                               type="text"
                               value={depositAmountKrw[index]}
