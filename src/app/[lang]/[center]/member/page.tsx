@@ -125,6 +125,8 @@ interface BuyOrder {
   storecode: string;
 
   store: any;
+
+  userType: string;
 }
 
 
@@ -1108,7 +1110,7 @@ export default function Index({ params }: any) {
       return;
     }
     fetchAllBuyer();
-  } , [address, limitValue, pageValue]);
+  } , [address, params.center, limitValue, pageValue]);
 
 
 
@@ -1297,7 +1299,7 @@ export default function Index({ params }: any) {
       fetchAllUsers();
     } , 5000);
     return () => clearInterval(interval);
-  } , [address]);
+  } , [address, params.center]);
 
   /*
   {
@@ -2905,9 +2907,33 @@ export default function Index({ params }: any) {
                     className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
 
-                </div>
+                  {/* userType */}
+                  {/* select box */}
+                  {/* '', 'AAA', 'BBB', 'CCC', 'DDD', 'EEE' */}
+                  <select
+                    disabled={insertingUserCode}
+                    value={userType}
+                    onChange={(e) => setUserType(e.target.value)}
+                    className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="" selected={userType === ""}>
+                      일반 회원
+                    </option>
+                    <option value="AAA" selected={userType === "AAA"}>
+                      1등급 회원
+                    </option>
+                    <option value="BBB" selected={userType === "BBB"}>
+                      2등급 회원
+                    </option>
+                    <option value="CCC" selected={userType === "CCC"}>
+                      3등급 회원
+                    </option>
+                    <option value="DDD" selected={userType === "DDD"}>
+                      4등급 회원
+                    </option>
+                  </select>
 
-            
+                </div>
                 
                 <button
                   disabled={insertingUserCode}
@@ -3032,6 +3058,7 @@ export default function Index({ params }: any) {
                     <tr>
                       <th className="p-2">등록일</th>
                       <th className="p-2">회원 아이디</th>
+                      <th className="p-2">회원등급</th>
                       <th className="p-2">회원 통장</th>
                       <th className="p-2">구매수(건)</th>
                       <th className="p-2 text-right">
@@ -3092,6 +3119,66 @@ export default function Index({ params }: any) {
                             <span className="text-sm">
                               {item.nickname}
                             </span>
+                          </div>
+                        </td>
+
+                        {/* userType */}
+                        {/* '', 'AAA', 'BBB', 'CCC', 'DDD', 'EEE' */}
+                        {/* if '' or not exists then '일반회원' */}
+                        <td className="p-2">
+                          <div className="
+                          w-20
+                          flex flex-col items-center justify-center">
+                            {
+                              item?.userType === 'AAA' ? (
+                                <div className="
+                                  text-xs text-white bg-red-500 px-1 rounded-md
+                                  ">
+                                  1등급
+                                </div>
+                              )
+                              : item?.userType === 'BBB' ? (
+                                <div className="
+                                  text-xs text-white bg-orange-500 px-1 rounded-md
+                                  ">
+                                  2등급
+                                </div>
+                              )
+                              : item?.userType === 'CCC' ? (
+                                <div className="
+                                  text-xs text-white bg-yellow-500 px-1 rounded-md
+                                  ">
+                                  3등급
+                                </div>
+                              )
+                              : item?.userType === 'DDD' ? (
+                                <div className="
+                                  text-xs text-white bg-green-500 px-1 rounded-md
+                                  ">
+                                  4등급
+                                </div>
+                              )
+                              : (
+                                <div className="
+                                  text-xs text-white bg-gray-500 px-1 rounded-md
+                                  ">
+                                  일반
+                                </div>
+                              )
+                            }
+
+                            <button
+                              onClick={() => {
+                                router.push(
+                                  `/${params.lang}/admin/member-grade-settings?storecode=${item?.storecode}&walletAddress=${item?.walletAddress}`
+                                );
+                              }}
+                              className="mt-2 bg-[#3167b4] text-sm text-white px-2 py-1 rounded-lg
+                                hover:bg-[#3167b4]/80"
+                            >
+                              변경하기
+                            </button>
+
                           </div>
                         </td>
 
@@ -3205,6 +3292,7 @@ export default function Index({ params }: any) {
                                     + '&depositBankAccountNumber=' + item?.buyer?.depositBankAccountNumber
                                     + '&depositName=' + item?.buyer?.depositName
                                     + '&depositAmountKrw=' + depositAmountKrw[index]
+                                    + '&accessToken=' + store?.accessToken
                                   );
                                   toast.success('회원 결제페이지 링크가 복사되었습니다.');
                                 }}
@@ -3223,7 +3311,7 @@ export default function Index({ params }: any) {
                               <button
                                 onClick={() => {
                                   navigator.clipboard.writeText(
-                                    `<script src="${paymentUrl}/${params.lang}/${clientId}/${item.storecode}/payment?storeUser=${item.nickname}&depositBankName=${item?.buyer?.depositBankName}&depositBankAccountNumber=${item?.buyer?.depositBankAccountNumber}&depositName=${item?.buyer?.depositName}&depositAmountKrw=${depositAmountKrw[index]}">결제하기</script>`
+                                    `<script src="${paymentUrl}/${params.lang}/${clientId}/${item.storecode}/payment?storeUser=${item.nickname}&depositBankName=${item?.buyer?.depositBankName}&depositBankAccountNumber=${item?.buyer?.depositBankAccountNumber}&depositName=${item?.buyer?.depositName}&depositAmountKrw=${depositAmountKrw[index]}&accessToken=${store?.accessToken}">결제하기</script>`
                                   );
                                   toast.success('회원 결제페이지 스크립트가 복사되었습니다.');
                                 }}
@@ -3245,7 +3333,7 @@ export default function Index({ params }: any) {
                                     + '&depositBankAccountNumber=' + item?.buyer?.depositBankAccountNumber
                                     + '&depositName=' + item?.buyer?.depositName
                                     + '&depositAmountKrw=' + depositAmountKrw[index]
-                                    ,
+                                    + '&accessToken=' + store?.accessToken,
                                     '_blank'
                                   );
                                   toast.success('회원 홈페이지를 새창으로 열었습니다.');

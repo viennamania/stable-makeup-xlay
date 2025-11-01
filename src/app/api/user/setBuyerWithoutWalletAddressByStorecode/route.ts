@@ -7,6 +7,7 @@ import {
 
 import {
   getStoreByStorecode,
+  updateLiveOnAndOff,
 } from '@lib/api/store';
 
 
@@ -126,6 +127,9 @@ export async function POST(request: NextRequest) {
         walletAddress: user.walletAddress,
         storecode: user?.storecode,
         buyOrderStatus: user?.buyOrderStatus,
+        userType: user?.userType || '',
+
+        liveOnAndOff: user?.liveOnAndOff,
       });
     }
 
@@ -209,6 +213,7 @@ export async function POST(request: NextRequest) {
       mobile: mobile,
       password: password,
       buyer: buyer,
+      userType: userType,
     });
 
     // return wallet address to user
@@ -217,7 +222,9 @@ export async function POST(request: NextRequest) {
 
       result,
       walletAddress: userWalletAddress,
+      userType: userType,
       
+      liveOnAndOff: true,
     });
 
 

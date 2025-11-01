@@ -189,7 +189,9 @@ export async function insertOne(data: any) {
         depositBankAccountNumber: depositBankAccountNumber,
         depositBankName: depositBankName,
         depositName: depositName,
-      }
+      },
+
+      userType: data.userType,
     }
   );
 
@@ -971,8 +973,6 @@ export async function getAllUsers(
 
 
 
-
-
 // getAllBuyers
 // search by storecode
 export async function getAllBuyers(
@@ -1030,6 +1030,7 @@ export async function getAllBuyers(
           totalPaymentConfirmedKrwAmount: 1,
           totalPaymentConfirmedUsdtAmount: 1,
 
+          userType: 1,
         }
       }
     )
@@ -1548,7 +1549,6 @@ export async function getUserByEmail(
 }
 
 
-// getUserByNickname
 export async function getUserByNickname(
   storecode: string,
   nickname: string,
@@ -1564,8 +1564,29 @@ export async function getUserByNickname(
       storecode: storecode,
       nickname: nickname,
     },
+    { projection: {
+      _id: 0,
+      id: 1,
+      email: 1,
+      nickname: 1,
+      mobile: 1,
+      storecode: 1,
+      walletAddress: 1,
+      createdAt: 1,
+      settlementAmountOfFee: 1,
+      buyer: 1,
+      buyOrderStatus: 1,
+      latestBuyOrder: 1,
+      totalPaymentConfirmedCount: 1,
+      totalPaymentConfirmedKrwAmount: 1,
+      totalPaymentConfirmedUsdtAmount: 1,
+      userType: 1,
+
+      liveOnAndOff: { $ifNull: ['$liveOnAndOff', true] }
+    } }
   )
 }
+
 
 
 export async function checkUserByEmail(
