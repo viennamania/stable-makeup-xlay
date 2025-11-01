@@ -161,6 +161,10 @@ interface BuyOrder {
     transactionHash: string;
   };
 
+  sellerWalletAddressBalance: number; // balance of seller wallet address, added in version 1.1.5
+
+  userType: string; // added in version 1.2.0, user type (e.g., AAA, BBB, CCC, DDD, EEE)
+
 }
 
 
@@ -5072,7 +5076,43 @@ const fetchBuyOrders = async () => {
                                 width={20}
                                 height={20}
                                 className="rounded-sm w-5 h-5"
-                              />                         
+                              />
+                              {
+                              item?.userType === 'AAA'
+                              ? (<div className="
+                                    text-xs text-white bg-red-500 px-1 rounded-md
+                                    ">
+                                    1등급
+                                  </div>
+                              )
+                              : item?.userType === 'BBB'
+                              ? (<div className="
+                                    text-xs text-white bg-orange-500 px-1 rounded-md
+                                    ">
+                                    2등급
+                                  </div>
+                              )
+                              : item?.userType === 'CCC'
+                              ? (<div className="
+                                    text-xs text-white bg-yellow-500 px-1 rounded-md
+                                    ">
+                                    3등급
+                                  </div>
+                              )
+                              : item?.userType === 'DDD'
+                              ? (<div className="
+                                    text-xs text-white bg-green-500 px-1 rounded-md
+                                    ">
+                                    4등급
+                                  </div>
+                              )
+                              : (<div className="
+                                    text-xs text-white bg-zinc-500 px-1 rounded-md
+                                    ">
+                                    일반
+                                  </div>
+                              )
+                              }
                               <span className="text-lg  font-normal">
                                 {
                                   item?.nickname?.length > 10 ?
@@ -5109,7 +5149,7 @@ const fetchBuyOrders = async () => {
                             {/* buyer info */}
 
                             <div className="flex flex-row items-center gap-2">
-                              <span className="text-lgfont-bold">
+                              <span className="text-lg font-bold">
                                 {
                                   item?.buyer?.depositName
                                 }
@@ -5773,17 +5813,103 @@ const fetchBuyOrders = async () => {
                             </div>
 
                             {/* seller bank info */}
-                            <div className="flex flex-row gap-2 items-center justify-center">
-                              <span className="text-lg font-bold">
-                                {/*item.seller?.bankInfo?.accountHolder*/}
-                                {item.store?.bankInfo?.accountHolder}
-                              </span>
-                              <span className="text-sm ">
-                                {/*item.seller?.bankInfo?.bankName*/}
-                                {item.store?.bankInfo?.bankName}
-                              </span>
-
-                            </div>
+                            {item?.userType === '' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfo?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfo?.bankName}
+                                </span>
+                              </div>
+                            ) : (item?.userType === 'AAA' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoAAA?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfoAAA?.bankName}
+                                </span>
+                              </div>
+                            ) : (item?.userType === 'BBB' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoBBB?.accountHolder}
+                                </span>
+                                <span className="text-sm ">
+                                  {item.store?.bankInfoBBB?.bankName}
+                                </span>
+                              </div>
+                            ) : (item?.userType === 'CCC' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoCCC?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfoCCC?.bankName}
+                                </span>
+                              </div>
+                            ) : (item?.userType === 'DDD' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoDDD?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfoDDD?.bankName}
+                                </span>
+                              </div>
+                            ) : (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfo?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfo?.bankName}
+                                </span>
+                              </div>
+                            )))))}
 
                             {/* paymentAmount */}
                             <div className="flex flex-row gap-1 items-center justify-center">

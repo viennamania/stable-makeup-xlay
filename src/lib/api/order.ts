@@ -74,6 +74,8 @@ export interface UserProps {
   escrowWallet: any,
 
   latestBuyOrder: any,
+
+  userType: string,
 }
 
 export interface ResultProps {
@@ -1520,7 +1522,14 @@ export async function insertBuyOrder(data: any) {
         settlementWalletAddress: 1,
         settlementFeeWalletAddress: 1,
         settlementFeePercent: 1,
+        
         bankInfo: 1,
+        bankInfoAAA: 1,
+        bankInfoBBB: 1,
+        bankInfoCCC: 1,
+        bankInfoDDD: 1,
+        bankInfoEEE: 1,
+
         agentFeePercent: 1,
 
         totalSettlementAmount: 1,
@@ -1613,6 +1622,8 @@ export async function insertBuyOrder(data: any) {
 
   const avatar = user?.avatar;
 
+  const userType = user?.userType || '';
+
   
   //const seller = user.seller;
 
@@ -1620,14 +1631,8 @@ export async function insertBuyOrder(data: any) {
 
   const tradeId = Math.floor(Math.random() * 90000000) + 10000000 + '';
 
-  ///console.log('insertBuyOrder tradeId: ' + tradeId);
-
-
 
   const collection = client.db(dbName).collection('buyorders');
-
-
-
 
 
   const result = await collection.insertOne(
@@ -1646,6 +1651,7 @@ export async function insertBuyOrder(data: any) {
       nickname: nickname,
       mobile: mobile,
       avatar: avatar,
+      userType: userType,
       
       userStats: {
         totalPaymentConfirmedCount: user.totalPaymentConfirmedCount || 0,
@@ -1729,7 +1735,6 @@ export async function insertBuyOrder(data: any) {
   
 
 }
-
 
 
 
@@ -3278,15 +3283,19 @@ export async function acceptBuyOrder(data: any) {
 
 
 
-  // check validation of storecode
+  const buyorderCollection = client.db(dbName).collection('buyorders');
 
   const storeCollection = client.db(dbName).collection('stores');
-  const stores = await storeCollection.findOne<any>(
+  const userCollection = client.db(dbName).collection('users');
+
+
+
+  const store = await storeCollection.findOne<any>(
     {
       storecode: data.storecode,
     },
   );
-  if (!stores) {
+  if (!store) {
 
     console.log('acceptBuyOrder storecode is not valid: ' + data.storecode);
     return null;
@@ -3308,14 +3317,17 @@ export async function acceptBuyOrder(data: any) {
     .collection('buyorders')
     .findOne<any>(
       { _id: new ObjectId(data.orderId + '')},
-      { projection: { privateSale: 1 } }
+      { projection: {
+        privateSale: 1,
+        walletAddress: 1,
+      } }
     );
 
 
   if (order && order?.privateSale === false) {
     
 
-    const userCollection = client.db(dbName).collection('users');
+
     user = await userCollection.findOne<UserProps>(
       {
         walletAddress: data.sellerWalletAddress,
@@ -3337,17 +3349,44 @@ export async function acceptBuyOrder(data: any) {
 
 
 
+  // get buyer userType
+  const buyer = await userCollection.findOne<UserProps>(
+    {
+      storecode: data.storecode,
+      walletAddress: order?.walletAddress,
+    },
+    { projection: { userType: 1 } }
+  );
 
+  // userType is null or empty, or 'AAA', 'BBB', 'CCC', 'DDD'
+  const userType = buyer?.userType || '';
 
-
-  const sellerNickname = user?.nickname || '';
-  const sellerAvatar = user?.avatar || '';
-
+  /*
   const bankInfo = user?.seller?.bankInfo || {
     bankName: '',
     accountNumber: '',
     accountHolder: '',
   };
+  */
+
+  const bankInfo = userType === ''
+    ? store?.bankInfo
+    : userType === 'AAA'
+      ? store?.bankInfoAAA
+      : userType === 'BBB'
+        ? store?.bankInfoBBB
+        : userType === 'CCC'
+          ? store?.bankInfoCCC
+          : userType === 'DDD'
+            ? store?.bankInfoDDD
+            : store?.bankInfo;
+
+
+  const sellerNickname = user?.nickname || '';
+  const sellerAvatar = user?.avatar || '';
+
+
+
 
   const sellerMobile = user?.mobile || '';
 
@@ -3357,7 +3396,6 @@ export async function acceptBuyOrder(data: any) {
 
 
 
-  const collection = client.db(dbName).collection('buyorders');
 
 
 
@@ -3385,7 +3423,7 @@ export async function acceptBuyOrder(data: any) {
   // check condition and update status to accepted
   // *********************************************
 
-  const result = await collection.findOneAndUpdate(
+  const result = await buyorderCollection.findOneAndUpdate(
     { _id: new ObjectId(data.orderId + ''), status: 'ordered' },
     { $set: {
       status: 'accepted',
@@ -3416,12 +3454,11 @@ export async function acceptBuyOrder(data: any) {
 
 
 
-
   if (result) {
 
 
-
-    const updated = await collection.findOne<UserProps>(
+    /*
+    const updated = await buyorderCollection.findOne<any>(
       { _id: new ObjectId(data.orderId + '') }
     );
 
@@ -3430,6 +3467,10 @@ export async function acceptBuyOrder(data: any) {
 
 
     return updated;
+    */
+    
+    return result;
+    
 
   } else {
     
