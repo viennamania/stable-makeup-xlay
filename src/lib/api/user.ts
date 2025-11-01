@@ -975,6 +975,65 @@ export async function getAllUsers(
 
 
 
+
+// getAllAdmins (role is admin)
+export async function getAllAdmins(
+  {
+    limit,
+    page,
+  }: {
+    limit: number;
+    page: number;
+  }
+): Promise<ResultProps> {
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('users');
+  // walletAddress is not empty and not null
+  // order by nickname asc
+  // if storecode is empty, return all users
+
+  const users = await collection
+    .find<UserProps>(
+      {
+        storecode: 'admin',
+        role: 'admin',
+        walletAddress: { $exists: true, $ne: null },
+      },
+      {
+        projection:
+        {
+          id: 1,
+          createdAt: 1,
+          nickname: 1,
+          walletAddress: 1,
+          storecode: 1,
+          store: 1,
+          buyer: 1,
+          userType: 1,
+        }
+      }
+    )
+    .sort({ createdAt: -1 })
+    .toArray();
+
+  const totalCount = await collection.countDocuments(
+    {
+      storecode: 'admin',
+      role: 'admin',
+      walletAddress: { $exists: true, $ne: null },
+    }
+  );
+
+  return {
+    totalCount: totalCount,
+    totalResult: totalCount,
+    users,
+  };
+}
+
+
+
+
 // getAllBuyers
 // search by storecode
 export async function getAllBuyers(
@@ -1332,6 +1391,60 @@ export async function getAllSellersByStorecode(
 }
 
 
+
+
+// getAllSellersForBalanceInquiry
+export async function getAllSellersForBalanceInquiry(
+  {
+    limit,
+    page,
+  }: {
+    limit: number;
+    page: number;
+  }
+): Promise<any> {
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('users');
+  // walletAddress is not empty and not null
+  // seller is not empty and status is 'confirmed'
+  // order by nickname asc
+  // if storecode is empty, return all users
+  // projection: id, nickname, walletAddress
+
+  const users = await collection
+    .find<UserProps>(
+      {
+        walletAddress: { $exists: true, $ne: null },
+        seller: { $exists: true  , $ne: null},
+        'seller.status': 'confirmed',
+      },
+      {
+        projection: {
+          id: 1,
+          nickname: 1,
+          walletAddress: 1,
+        },
+      }
+    )
+    .sort({ nickname: 1 })
+    .limit(limit)
+    .skip((page - 1) * limit)
+    .toArray();
+
+  const totalCount = await collection.countDocuments(
+    {
+      walletAddress: { $exists: true, $ne: null },
+      seller: { $exists: true  , $ne: null},
+      'seller.status': 'confirmed',
+    }
+  );
+
+
+  return {
+    totalCount,
+    users ,
+  };
+}
 
 
 
