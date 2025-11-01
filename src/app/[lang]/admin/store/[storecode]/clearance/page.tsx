@@ -743,87 +743,78 @@ export default function Index({ params }: any) {
 
 
 
-    const [loadingFetchBuyOrders, setLoadingFetchBuyOrders] = useState(false);
+  const [loadingFetchBuyOrders, setLoadingFetchBuyOrders] = useState(false);
 
-    const fetchBuyOrders = async () => {
+  const fetchBuyOrders = async () => {
 
-      if (!address) {
-        return;
-      }
+    if (!address) {
+      return;
+    }
 
-      setLoadingFetchBuyOrders(true);
+    setLoadingFetchBuyOrders(true);
 
-      // api call
-      //const response = await fetch('/api/order/getAllBuyOrders', {
-      const response = await fetch('/api/order/getAllCollectOrdersForSeller', {
+    // api call
+    //const response = await fetch('/api/order/getAllBuyOrders', {
+    const response = await fetch('/api/order/getAllCollectOrdersForSeller', {
 
 
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          lang: params.lang,
-          storecode: params.storecode,
-          limit: Number(limitValue),
-          page: Number(pageValue),
-          walletAddress: address,
-          searchMyOrders: searchMyOrders,
-          privateSale: true,
-          fromDate: searchFromDate,
-          toDate: searchToDate,
-        })
-      });
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        lang: params.lang,
+        storecode: params.storecode,
+        limit: Number(limitValue),
+        page: Number(pageValue),
+        walletAddress: address,
+        searchMyOrders: searchMyOrders,
+        privateSale: true,
+        fromDate: searchFromDate,
+        toDate: searchToDate,
+      })
+    });
 
-      const data = await response.json();
+    const data = await response.json();
 
+    
+    //console.log('data', data);
+
+
+
+    if (data.result) {
+      setBuyOrders(data.result.orders);
+      setTotalCount(data.result.totalCount);
+
+      setTotalClearanceCount(data.result.totalClearanceCount);
+      setTotalClearanceAmount(data.result.totalClearanceAmount);
+      setTotalClearanceAmountKRW(data.result.totalClearanceAmountKRW);
       
-      //console.log('data', data);
 
+    }
 
+    setLoadingFetchBuyOrders(false);
 
-      if (data.result) {
-        setBuyOrders(data.result.orders);
-        setTotalCount(data.result.totalCount);
-
-        setTotalClearanceCount(data.result.totalClearanceCount);
-        setTotalClearanceAmount(data.result.totalClearanceAmount);
-        setTotalClearanceAmountKRW(data.result.totalClearanceAmountKRW);
-        
-
-      }
-
-      setLoadingFetchBuyOrders(false);
-
-    };
+  };
 
 
 
 
-    useEffect(() => {
+  useEffect(() => {      
+    if (!address) {
+      return;
+    }
 
-        
-        if (!address) {
-          return;
-        }
-        
-        
+    fetchBuyOrders();
 
+    // fetch sell orders every 10 seconds
   
-        fetchBuyOrders();
+    const interval = setInterval(() => {
+      fetchBuyOrders();
+    }, 10000);
 
-        // fetch sell orders every 10 seconds
-      
-        const interval = setInterval(() => {
-          fetchBuyOrders();
-        }, 10000);
-
-        return () => clearInterval(interval);
-
-
-    }, [address, searchMyOrders, params.lang, params.storecode, limitValue, pageValue, searchFromDate, searchToDate]);
-
-
+    return () => clearInterval(interval);
+  }, [address, searchMyOrders, params.lang, params.storecode, limitValue, pageValue, searchFromDate, searchToDate]);
 
 
 
@@ -843,10 +834,6 @@ export default function Index({ params }: any) {
     const [defaultKrWAmount, setDefaultKrwAmount] = useState(0);
 
     const [krwAmount, setKrwAmount] = useState(0);
-
-    console.log('usdtAmount', usdtAmount);
-
-
  
 
     useEffect(() => {
@@ -894,10 +881,6 @@ export default function Index({ params }: any) {
       if (buyOrdering) {
         return;
       }
-
-
-
-      
 
 
       if (agreementPlaceOrder === false) {
@@ -1039,65 +1022,7 @@ export default function Index({ params }: any) {
 
       setBuyOrdering(false);
 
-      
-
     };
-
-
-
-
-    
-    /*
-    const [cancellings, setCancellings] = useState([] as boolean[]);
-    useEffect(() => {
-      setCancellings(buyOrders.map(() => false));
-    }, [buyOrders]);
-
-
-
-    const cancelBuyOrder = async (orderId: string, index: number) => {
-
-      if (cancellings[index]) {
-        return;
-      }
-
-      setCancellings(cancellings.map((item, i) => i === index ? true : item));
-
-      const response = await fetch('/api/order/cancelBuyOrder', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          orderId: orderId,
-          walletAddress: address
-        })
-      });
-
-      const data = await response.json();
-
-      ///console.log('data', data);
-
-      if (data.result) {
-        toast.success(Order_has_been_cancelled);
-
-
-        fetchBuyOrders();
-
-
-      } else {
-        toast.error('Order has been failed');
-      }
-
-      setCancellings(cancellings.map((item, i) => i === index ? false : item));
-
-    }
-    */
-
-
-
-
-
 
 
 
@@ -1645,7 +1570,7 @@ export default function Index({ params }: any) {
     
     return (
 
-      <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
+      <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-xl mx-auto">
 
         <div className="py-0 w-full">
 
