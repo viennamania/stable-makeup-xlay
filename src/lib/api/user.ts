@@ -54,6 +54,8 @@ export interface UserProps {
 
   buyOrderAudioOn: boolean,  
 
+  liveOnAndOff: boolean;
+
 }
 
 export interface ResultProps {
