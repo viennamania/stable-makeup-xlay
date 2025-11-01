@@ -5147,27 +5147,37 @@ const fetchBuyOrders = async () => {
 
 
                             {/* buyer info */}
-
-                            <div className="flex flex-row items-center gap-2">
-                              <span className="text-lg font-bold">
-                                {
-                                  item?.buyer?.depositName
-                                }
-                              </span>
-                              <span className="
-                                hidden xl:flex
-                                text-sm ">
-                                {
-                                  item?.buyer?.depositBankName
-                                }
-                              </span>
-                              <span className="
-                                text-sm ">
-                                {
-                                  item?.buyer?.depositBanktAccountNumber &&
-                                  item?.buyer?.depositBanktAccountNumber.substring(0, 3) + '...'
-                                }
-                              </span>
+                            <div className="w-full flex flex-row items-center justify-start gap-1">
+                              <Image
+                                src="/icon-bank.png"
+                                alt="Deposit Name"
+                                width={20}
+                                height={20}
+                                className="w-5 h-5"
+                              />
+                              <div className="flex flex-row items-center gap-2">
+                                <span className="text-lg font-bold">
+                                  {
+                                    item?.buyer?.depositName
+                                  }
+                                </span>
+                                <span className="
+                                  hidden xl:flex
+                                  text-sm ">
+                                  {
+                                    item?.buyer?.depositBankName
+                                  }
+                                </span>
+                                {/*
+                                <span className="
+                                  text-sm ">
+                                  {
+                                    item?.buyer?.depositBanktAccountNumber &&
+                                    item?.buyer?.depositBanktAccountNumber.substring(0, 3) + '...'
+                                  }
+                                </span>
+                                */}
+                              </div>
                             </div>
 
                           </div>
@@ -5820,7 +5830,7 @@ const fetchBuyOrders = async () => {
                                   alt="Bank"
                                   width={20}
                                   height={20}
-                                  className="w-5 h-5 rounded-full"
+                                  className="w-5 h-5"
                                 />
                                 <span className="text-lg font-bold">
                                   {item.store?.bankInfo?.accountHolder}
@@ -5973,24 +5983,104 @@ const fetchBuyOrders = async () => {
                               </span>
                             </div>
 
-                            <div className="flex flex-col gap-2 items-center justify-center">
-                              <div className="flex flex-row items-center gap-2">
-                                <div className="text-lg font-bold">
-                                  {/*item.seller?.bankInfo?.accountHolder*/}
+                            {/* seller bank info */}
+                            {item?.userType === '' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
                                   {item.store?.bankInfo?.accountHolder}
-                                </div>
-                                <div className="text-sm ">
-                                  {/*item.seller?.bankInfo?.bankName*/}
+                                </span>
+                                <span className="text-sm">
                                   {item.store?.bankInfo?.bankName}
-                                </div>
+                                </span>
                               </div>
-                              {/*
-                              <div className="text-sm ">
-                                {item.store?.bankInfo?.accountNumber}
+                            ) : (item?.userType === 'AAA' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoAAA?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfoAAA?.bankName}
+                                </span>
                               </div>
-                              */}
-
-                            </div>
+                            ) : (item?.userType === 'BBB' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoBBB?.accountHolder}
+                                </span>
+                                <span className="text-sm ">
+                                  {item.store?.bankInfoBBB?.bankName}
+                                </span>
+                              </div>
+                            ) : (item?.userType === 'CCC' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoCCC?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfoCCC?.bankName}
+                                </span>
+                              </div>
+                            ) : (item?.userType === 'DDD' ? (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfoDDD?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfoDDD?.bankName}
+                                </span>
+                              </div>
+                            ) : (
+                              <div className="w-full flex flex-row gap-1 items-center justify-start">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Bank"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5 rounded-full"
+                                />
+                                <span className="text-lg font-bold">
+                                  {item.store?.bankInfo?.accountHolder}
+                                </span>
+                                <span className="text-sm">
+                                  {item.store?.bankInfo?.bankName}
+                                </span>
+                              </div>
+                            )))))}
 
                             {/* paymentAmount */}
                             <div className="flex flex-row gap-1 items-center justify-center">
