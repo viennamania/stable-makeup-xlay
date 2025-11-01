@@ -3866,6 +3866,49 @@ export async function buyOrderConfirmPayment(data: any) {
 
 
 
+// buyOrderConfirmPaymentCompleted
+export async function buyOrderConfirmPaymentCompleted(data: any) {
+  // queueId, transactionHash
+  if (!data.queueId || !data.transactionHash) {
+    return null;
+  }
+
+
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('buyorders');
+  const result = await collection.updateOne(
+    { queueId: data.queueId },
+    { $set: {
+      transactionHash: data.transactionHash,
+    } }
+  );
+  
+  return {
+    success: result.modifiedCount === 1,
+  };
+
+}
+
+
+// buyOrderConfirmPaymentReverted
+export async function buyOrderConfirmPaymentReverted(data: any) {
+  // tradeId
+  if (!data.tradeId) {
+    return null;
+  }
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('buyorders');
+  const result = await collection.updateOne(
+    { tradeId: data.tradeId },
+    { $set: {
+      queueId: null,
+    } }
+  );
+  return {
+    success: result.modifiedCount === 1,
+  };
+}
+
 
 
 
