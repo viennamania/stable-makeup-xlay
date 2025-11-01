@@ -2002,7 +2002,7 @@ export default function Index({ params }: any) {
 
                           {seller && (
                             <p className=" text-sm ">
-                              {Payment}: {Bank_Transfer} ({seller?.bankInfo.bankName} {seller?.bankInfo.accountNumber} {seller?.bankInfo.accountHolder})
+                              {Payment}: {Bank_Transfer} ({seller?.bankInfo?.bankName} {seller?.bankInfo?.accountNumber} {seller?.bankInfo?.accountHolder})
                             </p>
                           )}
 
