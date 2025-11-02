@@ -3602,10 +3602,8 @@ export async function buyOrderConfirmPayment(data: any) {
     return null;
   }
 
+
   const paymentAmount = data.paymentAmount || 0;
-
-
-
 
   const autoConfirmPayment = data.autoConfirmPayment;
 
@@ -3628,7 +3626,8 @@ export async function buyOrderConfirmPayment(data: any) {
         { $set: {
           status: 'paymentConfirmed',
           paymentAmount: paymentAmount,
-          queueId: data.queueId,
+          //queueId: data.queueId,
+          queueId: null,
           transactionHash: data.transactionHash,
           paymentConfirmedAt: new Date().toISOString(),
 
@@ -3649,7 +3648,8 @@ export async function buyOrderConfirmPayment(data: any) {
         { $set: {
           status: 'paymentConfirmed',
           paymentAmount: paymentAmount,
-          queueId: data.queueId,
+          //queueId: data.queueId,
+          queueId: null,
           transactionHash: data.transactionHash,
           paymentConfirmedAt: new Date().toISOString(),
 
