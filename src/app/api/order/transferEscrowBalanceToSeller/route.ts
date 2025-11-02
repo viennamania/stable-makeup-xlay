@@ -181,7 +181,7 @@ export async function POST(request: NextRequest) {
 
 
     let transactionHashResult = "";
-    let queueId = "";
+    let queueId = null;
 
 
 

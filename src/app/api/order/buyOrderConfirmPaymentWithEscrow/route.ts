@@ -89,6 +89,7 @@ export async function POST(request: NextRequest) {
     storecode,
     orderId,
     paymentAmount,
+    queueId,
     transactionHash,
     isSmartAccount
   } = body;
@@ -243,7 +244,6 @@ export async function POST(request: NextRequest) {
     console.log("escrowTransactionHash", escrowTransactionHash);
 
 
-    const queueId = "queueId";
 
     const result = await buyOrderConfirmPayment({
       lang: lang,
@@ -252,7 +252,6 @@ export async function POST(request: NextRequest) {
       paymentAmount: paymentAmount,
       
       queueId: queueId,
-
       transactionHash: transactionHash,
 
       escrowTransactionHash: escrowTransactionHash,
