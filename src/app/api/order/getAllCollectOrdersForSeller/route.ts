@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
     toDate,
   });
 
-  console.log('getCollectOrdersForSeller result: ' + result);
+  ////console.log('getCollectOrdersForSeller result: ' + result);
 
   return NextResponse.json({
 

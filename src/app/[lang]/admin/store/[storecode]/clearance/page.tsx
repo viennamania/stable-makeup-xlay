@@ -875,22 +875,17 @@ export default function Index({ params }: any) {
     const [checkInputKrwAmount, setCheckInputKrwAmount] = useState(true);
 
     const buyOrder = async () => {
-      // api call
-      // set sell order
 
       if (buyOrdering) {
         return;
       }
-
 
       if (agreementPlaceOrder === false) {
         toast.error('You must agree to the terms and conditions');
         return;
       }
 
-
       setBuyOrdering(true);
-
 
       let orderUsdtAmount = usdtAmount;
 
@@ -904,36 +899,13 @@ export default function Index({ params }: any) {
         headers: {
           'Content-Type': 'application/json'
         },
-
-        /*
         body: JSON.stringify({
           lang: params.lang,
-          chain: params.storecode,
-          walletAddress: address,
-          usdtAmount: orderUsdtAmount,
-          krwAmount: krwAmount,
-          rate: rate,
-          privateSale: privateBuyOrder,
-        })
-        */
-
-
-        body: JSON.stringify({
-          lang: params.lang,
-          
-          
-          ////////////////////////////////////storecode: params.storecode,
-
           storecode: params.storecode,
 
+          ////////////walletAddress: address,
+          walletAddress: store.sellerWalletAddress,
 
-
-          walletAddress: address,
-
-
-
-          nickname: nickname,
-          //storecode: storecode,
           usdtAmount: orderUsdtAmount,
           krwAmount: krwAmount,
           rate: rate,
@@ -944,21 +916,15 @@ export default function Index({ params }: any) {
           }
         })
 
-
-
-
       });
 
-      console.log('buyOrder response', response);
+      ////console.log('buyOrder response', response);
 
       if (!response.ok) {
         setBuyOrdering(false);
         toast.error('주문을 처리하는 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
         return;
       }
-
-
-
 
       const data = await response.json();
 
@@ -971,11 +937,11 @@ export default function Index({ params }: any) {
         );
 
         setUsdtAmount(0);
+        setKrwAmount(0);
         setprivateBuyOrder(false);
 
         setAgreementPlaceOrder(false);
      
-
 
         //await fetch('/api/order/getAllBuyOrders', {
         await fetch('/api/order/getAllCollectOrdersForSeller', {
@@ -1013,9 +979,6 @@ export default function Index({ params }: any) {
         });
 
 
-  
-
-
       } else {
         toast.error('Order has been failed');
       }
@@ -1023,7 +986,6 @@ export default function Index({ params }: any) {
       setBuyOrdering(false);
 
     };
-
 
 
 
