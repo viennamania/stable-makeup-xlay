@@ -3602,11 +3602,6 @@ export async function buyOrderConfirmPayment(data: any) {
     return null;
   }
 
-  if (!data.queueId) {
-    return null;
-  }
-
-
   const paymentAmount = data.paymentAmount || 0;
 
   const autoConfirmPayment = data.autoConfirmPayment;
