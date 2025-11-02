@@ -2057,9 +2057,15 @@ export default function SettingsPage({ params }: any) {
                     </div>
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
-
+                            <Image
+                                src={user?.avatar || "/icon-user.png"}
+                                alt="User Avatar"
+                                width={30}
+                                height={30}
+                                className="w-8 h-8 rounded-full"
+                            />
                             <span className="text-lg  font-normal">
-                            {user?.nickname || "프로필"}
+                                {user?.nickname || "프로필"}
                             </span>
 
                         </div>
