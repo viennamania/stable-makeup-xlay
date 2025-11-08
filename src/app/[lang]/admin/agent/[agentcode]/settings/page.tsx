@@ -1133,39 +1133,6 @@ export default function SettingsPage({ params }: any) {
 
 
 
-                    {!address && (
-                    <ConnectButton
-                        client={client}
-                        wallets={wallets}
-                        chain={arbitrum}
-                        theme={"light"}
-
-                        // button color is dark skyblue convert (49, 103, 180) to hex
-                        connectButton={{
-                            style: {
-                                backgroundColor: "#3167b4", // dark skyblue
-                                color: "#f3f4f6", // gray-300
-                                padding: "2px 10px",
-                                borderRadius: "10px",
-                                fontSize: "14px",
-                                width: "60x",
-                                height: "38px",
-                            },
-                            label: "X-Ray 로그인",
-                        }}
-
-                        connectModal={{
-                        size: "wide", 
-                        //size: "compact",
-                        titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                        showThirdwebBranding: false,
-                        }}
-
-                        locale={"ko_KR"}
-                        //locale={"en_US"}
-                    />
-                    )}
-
                     {address && !loadingUser && (
                         <div className="w-full flex flex-row items-center justify-end gap-2">
 
