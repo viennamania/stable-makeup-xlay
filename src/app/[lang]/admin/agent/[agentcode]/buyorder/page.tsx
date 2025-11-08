@@ -2571,7 +2571,7 @@ const fetchBuyOrders = async () => {
         setFetchingAgent(false);
     };
 
-    params.agentcode && address && fetchData();
+    params.agentcode && fetchData();
 
   } , [params.agentcode, address]);
 

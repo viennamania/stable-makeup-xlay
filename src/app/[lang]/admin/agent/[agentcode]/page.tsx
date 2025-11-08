@@ -1203,7 +1203,7 @@ export default function Index({ params }: any) {
         setFetchingAgent(false);
     };
 
-    params.agentcode && address && fetchData();
+    params.agentcode && fetchData();
 
   } , [params.agentcode, address]);
 
