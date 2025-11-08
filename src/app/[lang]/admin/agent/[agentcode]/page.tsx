@@ -910,7 +910,6 @@ export default function Index({ params }: any) {
         setUser(null);
         setSeller(null);
         setEscrowWalletAddress('');
-        setIsAdmin(false);
     });
 
     setLoadingUser(false);
@@ -1204,7 +1203,7 @@ export default function Index({ params }: any) {
         setFetchingAgent(false);
     };
 
-    params.agentcode && fetchData();
+    params.agentcode && address && fetchData();
 
   } , [params.agentcode, address]);
 

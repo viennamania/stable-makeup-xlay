@@ -716,7 +716,7 @@ export default function Index({ params }: any) {
 
     return () => clearInterval(interval);
 
-  } , [address, escrowWalletAddress, contract, "admin"]);
+  } , [address, escrowWalletAddress, contract]);
   
 
   //console.log('escrowBalance', escrowBalance);
@@ -2571,7 +2571,7 @@ const fetchBuyOrders = async () => {
         setFetchingAgent(false);
     };
 
-    params.agentcode && fetchData();
+    params.agentcode && address && fetchData();
 
   } , [params.agentcode, address]);
 
@@ -2825,49 +2825,6 @@ const fetchBuyOrders = async () => {
 
 
               )}
-
-
-              {!address && (
-                <ConnectButton
-                  client={client}
-                  wallets={wallets}
-
-                  /*
-                  accountAbstraction={{
-                    chain: arbitrum,
-                    sponsorGas: true
-                  }}
-                  */
-                  
-                  theme={"light"}
-
-                  // button color is dark skyblue convert (49, 103, 180) to hex
-                  connectButton={{
-                      style: {
-                          backgroundColor: "#3167b4", // dark skyblue
-                          color: "#f3f4f6", // gray-300
-                          padding: "2px 10px",
-                          borderRadius: "10px",
-                          fontSize: "14px",
-                          width: "60x",
-                          height: "38px",
-                      },
-                      label: "X-Ray 로그인",
-                  }}
-
-                  connectModal={{
-                    size: "wide", 
-                    //size: "compact",
-                    titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                    showThirdwebBranding: false,
-                  }}
-
-                  locale={"ko_KR"}
-                  //locale={"en_US"}
-                />
-              )}
-
-
 
 
             </div>
@@ -3463,45 +3420,6 @@ const fetchBuyOrders = async () => {
               
             </div>
 
-
-
-
-            {address && (
-                <div className="w-full flex flex-col xl:flex-row items-center justify-end gap-2">
-
-
-                    <div className="flex flex-row items-center justify-center gap-2">
-                        <span className="text-sm text-zinc-500">
-                          나의 USDT지갑
-                        </span>
-
-                        <Image
-                            src="/icon-shield.png"
-                            alt="Wallet"
-                            width={100}
-                            height={100}
-                            className="w-6 h-6"
-                        />
-                        <button
-                            className="text-lg  underline"
-                            onClick={() => {
-                                navigator.clipboard.writeText(address);
-                                toast.success(Copied_Wallet_Address);
-                            } }
-                        >
-                            {address.substring(0, 6)}...{address.substring(address.length - 4)}
-                        </button>
-
-                    </div>
-
-                    <div className="flex flex-row items-center justify-center  gap-2">
-                        <span className="text-2xl xl:text-4xl font-normal text-green-400">
-                            {Number(balance).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        </span>
-                    </div>
-
-                </div>
-            )}
 
 
             <div className="w-full flex flex-row items-center justify-end gap-2">

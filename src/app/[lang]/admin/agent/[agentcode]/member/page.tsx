@@ -1578,51 +1578,6 @@ export default function Index({ params }: any) {
           )}
 
 
-          {!address && (
-            <ConnectButton
-              client={client}
-              wallets={wallets}
-
-              /*
-              accountAbstraction={{
-                chain: arbitrum,
-                sponsorGas: true
-              }}
-              */
-              
-              theme={"light"}
-
-              // button color is dark skyblue convert (49, 103, 180) to hex
-              connectButton={{
-                style: {
-                  backgroundColor: "#3167b4", // dark skyblue
-
-                  color: "#f3f4f6", // gray-300 
-                  padding: "2px 2px",
-                  borderRadius: "10px",
-                  fontSize: "14px",
-                  //width: "40px",
-                  height: "38px",
-                },
-                label: "X-Ray 로그인",
-              }}
-
-              connectModal={{
-                size: "wide", 
-                //size: "compact",
-                titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-                showThirdwebBranding: false,
-              }}
-
-              locale={"ko_KR"}
-              //locale={"en_US"}
-            />
-
-          )}
-
-
-
-
         </div>
 
 
@@ -1656,7 +1611,7 @@ export default function Index({ params }: any) {
 
 
 
-          <div className="w-full flex flex-row gap-2 items-center justify-start text-zinc-500 text-lg"
+          <div className="w-full flex flex-row gap-2 items-center justify-start text-lg"
           >
 
       
@@ -2051,7 +2006,7 @@ export default function Index({ params }: any) {
                               </span>
                               <span className="
                                 w-1/2
-                                text-sm text-zinc-500">
+                                text-sm">
                                 {item?.store?.storeName}{' '}({item?.store?.storecode})
                               </span>
                             </div>
@@ -2134,7 +2089,7 @@ export default function Index({ params }: any) {
                                   navigator.clipboard.writeText(item?.walletAddress);
                                   toast.success(Copied_Wallet_Address);
                                 } }
-                                className="text-sm text-zinc-500 underline"
+                                className="text-sm underline"
                               >
                               {
                                   item?.walletAddress && (
@@ -2209,7 +2164,7 @@ export default function Index({ params }: any) {
                           {/*
                           <td className="p-2">
                             <div className="flex flex-col xl:flex-row items-start justify-center gap-2">
-                              <span className="text-sm text-zinc-500">
+                              <span className="text-sm">
                                 {
                                 item?.buyOrderStatus === 'ordered' ? (
                                   <span className="text-sm text-yellow-500">
@@ -2319,7 +2274,7 @@ export default function Index({ params }: any) {
             </button>
 
 
-            <span className="text-sm text-zinc-500">
+            <span className="text-sm">
               {page} / {Math.ceil(Number(totalCount) / Number(limit))}
             </span>
 
