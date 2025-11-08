@@ -434,7 +434,7 @@ const StabilityConsole = () => {
 
           <div className="mt-5 flex flex-row gap-2 justify-center items-center">
             {/* 로그인하고 나의 자산을 확인하세요 */}
-            <span className="text-sm ">
+            <span className="text-sm text-white bg-blue-500 px-3 py-1 rounded">
               로그인하고 나의 지갑주소에서 자산을 확인하세요
             </span>
 

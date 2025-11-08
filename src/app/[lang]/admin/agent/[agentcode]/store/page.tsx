@@ -1586,14 +1586,18 @@ export default function Index({ params }: any) {
 
               <div className="w-full flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 P2P 거래수(건)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-sm text-zinc-700">
+                    총 P2P 거래수(건)
+                  </div>
+                  <div className="text-xl font-normal text-blue-500">
                     {tradeSummary.totalCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 P2P 거래량(USDT)</div>
+                  <div className="text-sm text-zinc-700">
+                    총 P2P 거래량(USDT)
+                  </div>
                   <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
@@ -1601,7 +1605,9 @@ export default function Index({ params }: any) {
 
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 P2P 거래금액(원)</div>
+                  <div className="text-sm text-zinc-700">
+                    총 P2P 거래금액(원)
+                  </div>
                   <div className="text-xl font-normal text-yellow-500">
                     {tradeSummary.totalKrwAmount?.toLocaleString()}
                   </div>
@@ -1617,21 +1623,27 @@ export default function Index({ params }: any) {
 
               <div className="w-full flex flex-row items-center justify-center gap-2">
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 결제수(건)</div>
-                  <div className="text-xl font-normal text-zinc-500">
+                  <div className="text-sm text-zinc-700">
+                    총 결제수(건)
+                  </div>
+                  <div className="text-xl font-normal text-blue-500">
                     {tradeSummary.totalSettlementCount?.toLocaleString()}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 결제량(USDT)</div>
+                  <div className="text-sm text-zinc-700">
+                    총 결제량(USDT)
+                  </div>
                   <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalSettlementAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 결제금액(원)</div>
+                  <div className="text-sm text-zinc-700">
+                    총 결제금액(원)
+                  </div>
                   <div className="text-xl font-normal text-yellow-500">
                     {tradeSummary.totalSettlementAmountKRW?.toLocaleString()}
                   </div>
@@ -1639,14 +1651,18 @@ export default function Index({ params }: any) {
 
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 수수료량(USDT)</div>
+                  <div className="text-sm text-zinc-700">
+                    총 수수료량(USDT)
+                  </div>
                   <div className="text-xl font-normal text-green-400">
                     {Number(tradeSummary.totalFeeAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2 items-center">
-                  <div className="text-sm">총 수수료금액(원)</div>
+                  <div className="text-sm text-zinc-700">
+                    총 수수료금액(원)
+                  </div>
                   <div className="text-xl font-normal text-yellow-500">
                     {tradeSummary.totalFeeAmountKRW?.toLocaleString()}
                   </div>
@@ -1705,7 +1721,7 @@ export default function Index({ params }: any) {
               </div>
                
 
-              <div className="w-full flex flex-col xl:flex-row items-center justify-between gap-5">
+              <div className="hidden w-full flex-col xl:flex-row items-center justify-between gap-5">
 
                 {/* 가맹점 추가 input and button */}
                 <div className="flex flex-row items-center gap-2">
@@ -1719,7 +1735,9 @@ export default function Index({ params }: any) {
 
                     } }
                     placeholder="가맹점 이름"
-                    className="w-52 p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-52 p-2
+                      text-sm text-black
+                      border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4]"
                   />
                   
                   <button

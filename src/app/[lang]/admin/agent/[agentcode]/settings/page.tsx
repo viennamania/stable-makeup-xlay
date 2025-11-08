@@ -1677,9 +1677,8 @@ export default function SettingsPage({ params }: any) {
 
 
                             {/* agent usdtKRWRate */}
-                            <div className="w-full flex flex-col gap-5 items-center justify-between border border-gray-300 p-4 rounded-lg">
+                            <div className="hidden w-full flex-col gap-5 items-center justify-between border border-gray-300 p-4 rounded-lg">
                                 
-
                                 <div className='w-full flex flex-row items-center justify-start gap-2'>
                                     <Image
                                         src="/icon-exchange-rate.png"
