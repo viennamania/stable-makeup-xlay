@@ -2740,7 +2740,7 @@ const fetchBuyOrders = async () => {
 
 
         {params.agentcode && (
-          <div className={`w-full flex flex-col xl:flex-row items-center justify-start gap-2
+          <div className={`w-full flex flex-col items-center justify-start gap-2
             p-2 rounded-lg mb-4
               "bg-black/10"
             }`}>
@@ -2778,53 +2778,12 @@ const fetchBuyOrders = async () => {
               </div>
 
 
-              {address && !loadingUser && (
-
-
-                <div className="w-full flex flex-row items-center justify-end gap-2">
-                  <button
-                    onClick={() => {
-                      router.push('/' + params.lang + '/admin/profile-settings');
-                    }}
-                    className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-                  >
-                    {user?.nickname || "프로필"}
-                  </button>
-
-
-                  {/* logout button */}
-                  <button
-                      onClick={() => {
-                          confirm("로그아웃 하시겠습니까?") && activeWallet?.disconnect()
-                          .then(() => {
-
-                              toast.success('로그아웃 되었습니다');
-
-                              //router.push(
-                              //    "/admin/" + params.agentcode
-                              //);
-                          });
-                      } }
-
-                      className="flex items-center justify-center gap-2
-                        bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
-                  >
-                    <Image
-                      src="/icon-logout.webp"
-                      alt="Logout"
-                      width={20}
-                      height={20}
-                      className="rounded-lg w-5 h-5"
-                    />
-                    <span className="text-sm">
-                      로그아웃
-                    </span>
-                  </button>
-
-                </div>
-
-
-              )}
+              {/* 로그인을 유도하는 문구 */}
+              <div className="w-full flex flex-row items-center justify-start gap-2">
+                <span className="text-xl font-bold text-white">
+                  지갑을 연결해야 사용할 수 있습니다.
+                </span>
+              </div>
 
 
             </div>
