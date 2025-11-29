@@ -191,6 +191,11 @@ export default function Index({ params }: any) {
 
   const searchParamsStorecode = searchParams.get('storecode') || "";
   
+  const paramFromDate = searchParams.get('fromDate') || "";
+  const paramToDate = searchParams.get('toDate') || "";
+
+
+  const paramSearchTradeId = searchParams.get('searchTradeId') || "";
 
 
   const contract = getContract({
@@ -854,7 +859,7 @@ export default function Index({ params }: any) {
   
   
 
-
+  const [searchTradeId, setSearchTradeId] = useState("");
 
   const [searchBuyer, setSearchBuyer] = useState("");
 
@@ -878,8 +883,17 @@ export default function Index({ params }: any) {
 
   // search form date to date
   const [searchFromDate, setSearchFormDate] = useState(formattedDate);
-  const [searchToDate, setSearchToDate] = useState(formattedDate);
+  // fromDate parameter
+  useEffect(() => {
+    setSearchFormDate(paramFromDate || formattedDate);
+  }, [paramFromDate, formattedDate]);
 
+
+  const [searchToDate, setSearchToDate] = useState(formattedDate);
+  // toDate parameter
+  useEffect(() => {
+    setSearchToDate(paramToDate || formattedDate);
+  }, [paramToDate, formattedDate]);
 
 
 
@@ -1043,6 +1057,7 @@ export default function Index({ params }: any) {
 
                     searchOrderStatusCompleted: true,
 
+                    searchTradeId: searchTradeId,
                     searchBuyer: searchBuyer,
                     searchDepositName: searchDepositName,
 
@@ -1190,6 +1205,7 @@ export default function Index({ params }: any) {
 
               searchOrderStatusCompleted: true,
 
+              searchTradeId: searchTradeId,
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
@@ -1471,6 +1487,7 @@ export default function Index({ params }: any) {
 
                   //searchOrderStatusCompleted: true,
 
+                  searchTradeId: searchTradeId,
                   searchBuyer: searchBuyer,
                   searchDepositName: searchDepositName,
 
@@ -1701,6 +1718,7 @@ export default function Index({ params }: any) {
 
               //searchOrderStatusCompleted: true,
 
+              searchTradeId: searchTradeId,
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
@@ -1820,6 +1838,7 @@ export default function Index({ params }: any) {
 
           //searchOrderStatusCompleted: true,
 
+          searchTradeId: searchTradeId,
           searchBuyer: searchBuyer,
           searchDepositName: searchDepositName,
 
@@ -1933,6 +1952,7 @@ export default function Index({ params }: any) {
 
               //earchOrderStatusCompleted: true,
 
+              searchTradeId: searchTradeId,
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
@@ -2056,6 +2076,7 @@ export default function Index({ params }: any) {
     searchFromDate,
     searchToDate,
 
+    searchTradeId,
     searchBuyer,
     searchStoreBankAccountNumber,
     searchDepositName,
@@ -2901,119 +2922,157 @@ export default function Index({ params }: any) {
           <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-3">
 
 
-            {/* select storecode */}
-            <div className="flex flex-row items-center gap-2">
-              {fetchingAllStores ? (
-                <Image
-                  src="/loading.png"
-                  alt="Loading"
-                  width={20}
-                  height={20}
-                  className="animate-spin"
-                />
-              ) : (
-                <div className="flex flex-row items-center gap-2">
-
-                  
+            <div className="flex flex-col items-start justify-center gap-2">
+              {/* select storecode */}
+              <div className="flex flex-row items-center gap-2">
+                {fetchingAllStores ? (
                   <Image
-                    src="/icon-store.png"
-                    alt="Store"
+                    src="/loading.png"
+                    alt="Loading"
+                    width={20}
+                    height={20}
+                    className="animate-spin"
+                  />
+                ) : (
+                  <div className="flex flex-row items-center gap-2">
+
+                    
+                    <Image
+                      src="/icon-store.png"
+                      alt="Store"
+                      width={20}
+                      height={20}
+                      className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
+                    />
+
+                    <span className="
+                      w-32
+                      text-sm font-normal">
+                      가맹점선택
+                    </span>
+
+
+                    <select
+                      value={searchStorecode}
+                      
+                      //onChange={(e) => setSearchStorecode(e.target.value)}
+
+                      // storecode parameter is passed to fetchBuyOrders
+                      onChange={(e) => {
+                        router.push('/' + params.lang + '/admin/clearance-history?storecode=' + e.target.value
+                        + '&fromDate=' + searchFromDate +
+                        '&toDate=' + searchToDate +
+                        '&searchBuyer=' + searchBuyer +
+                        '&searchDepositName=' + searchDepositName +
+                        '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber +
+                        '&searchTradeId=' + searchTradeId
+                        );
+                      }}
+
+
+
+                      className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                    >
+                      <option value="">전체</option>
+                      {allStores && allStores.map((item, index) => (
+                        <option key={index} value={item.storecode}
+                          className="flex flex-row items-center justify-start gap-2"
+                        >
+                          
+                          {item.storeName}{' '}({item.storecode})
+
+                        </option>
+                      ))}
+                    </select>
+
+
+                  </div>
+
+                )}
+              </div>
+
+              {/* serach fromDate and toDate */}
+              {/* DatePicker for fromDate and toDate */}
+              <div className="flex flex-col xl:flex-row items-center gap-2">
+                <div className="flex flex-row items-center gap-2">
+                  <Image
+                    src="/icon-calendar.png"
+                    alt="Calendar"
                     width={20}
                     height={20}
                     className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
                   />
-
-                  <span className="
-                    w-32
-                    text-sm font-normal">
-                    가맹점선택
-                  </span>
-
-
-                  <select
-                    value={searchStorecode}
+                  <input
+                    type="date"
+                    value={searchFromDate}
                     
-                    //onChange={(e) => setSearchStorecode(e.target.value)}
+                    //onChange={(e) => setSearchFormDate(e.target.value)}
 
-                    // storecode parameter is passed to fetchBuyOrders
                     onChange={(e) => {
-                      router.push('/' + params.lang + '/admin/clearance-history?storecode=' + e.target.value);
+                      router.push('/' + params.lang + '/admin/clearance-history?storecode=' + searchStorecode +
+                      '&fromDate=' + e.target.value +
+                      '&toDate=' + searchToDate +
+                      '&searchBuyer=' + searchBuyer +
+                      '&searchDepositName=' + searchDepositName +
+                      '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber +
+                      '&searchTradeId=' + searchTradeId
+                      );
                     }}
 
 
 
                     className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                  >
-                    <option value="">전체</option>
-                    {allStores && allStores.map((item, index) => (
-                      <option key={index} value={item.storecode}
-                        className="flex flex-row items-center justify-start gap-2"
-                      >
-                        
-                        {item.storeName}{' '}({item.storecode})
-
-                      </option>
-                    ))}
-                  </select>
-
-
+                  />
                 </div>
 
-              )}
+                <span className="text-sm ">~</span>
+
+                <div className="flex flex-row items-center gap-2">
+                  <Image
+                    src="/icon-calendar.png"
+                    alt="Calendar"
+                    width={20}
+                    height={20}
+                    className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
+                  />
+                  <input
+                    type="date"
+                    value={searchToDate}
+                    
+                    //onChange={(e) => setSearchToDate(e.target.value)}
+                    onChange={(e) => {
+                      router.push('/' + params.lang + '/admin/clearance-history?storecode=' + searchStorecode +
+                      '&fromDate=' + searchFromDate +
+                      '&toDate=' + e.target.value +
+                      '&searchBuyer=' + searchBuyer +
+                      '&searchDepositName=' + searchDepositName +
+                      '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber +
+                      '&searchTradeId=' + searchTradeId
+                      );
+                    }}
+
+
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                  />
+                </div>
+              </div>
+
             </div>
 
 
-
-
-
-            {/* serach fromDate and toDate */}
-            {/* DatePicker for fromDate and toDate */}
+            
             <div className="flex flex-col xl:flex-row items-center gap-2">
+
+              {/* search tradeId */}
               <div className="flex flex-row items-center gap-2">
-                <Image
-                  src="/icon-calendar.png"
-                  alt="Calendar"
-                  width={20}
-                  height={20}
-                  className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
-                />
                 <input
-                  type="date"
-                  value={searchFromDate}
-                  onChange={(e) => setSearchFormDate(e.target.value)}
+                  type="text"
+                  value={searchTradeId}
+                  onChange={(e) => setSearchTradeId(e.target.value)}
+                  placeholder="거래번호"
                   className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                 />
               </div>
-
-              <span className="text-sm ">~</span>
-
-              <div className="flex flex-row items-center gap-2">
-                <Image
-                  src="/icon-calendar.png"
-                  alt="Calendar"
-                  width={20}
-                  height={20}
-                  className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
-                />
-                <input
-                  type="date"
-                  value={searchToDate}
-                  onChange={(e) => setSearchToDate(e.target.value)}
-                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                />
-              </div>
-            </div>
-
-
-
-
-
-
-
-
-            {/* search depositName */}
-            <div className="flex flex-col xl:flex-row items-center gap-2">
-
 
               <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
                 {/* search nickname */}
@@ -3287,13 +3346,23 @@ export default function Index({ params }: any) {
                         </div>
                       </th>
 
-                      <th className="p-2">입금통장</th>
+                      <th className="p-2">
+                        <div className="flex flex-col items-start justify-center">
+                          입금통장
+                        </div>
+                      </th>
                       <th className="p-2">입금액(원)</th>
                       <th className="p-2">{Status}</th>
                       <th className="p-2">거래소전송</th>
                       <th className="p-2">판매자</th>
 
                       <th className="p-2">출금상태</th>
+
+                      <th className="p-2">
+                        <div className="flex flex-col items-start justify-center">
+                          상세
+                        </div>
+                      </th>
 
                     </tr>
                   </thead>
@@ -4230,7 +4299,16 @@ export default function Index({ params }: any) {
                         </td>
 
 
-
+                        <td className="p-2">
+                          <button
+                            className="text-sm bg-blue-500 text-white px-2 py-1 rounded-md hover:bg-blue-600"
+                            onClick={() => {
+                              router.push(`/${params.lang}/admin/trade-details?tradeId=${item.tradeId}`);
+                            }}
+                          >
+                            상세보기
+                          </button>
+                        </td>
 
 
 
@@ -5188,7 +5266,18 @@ export default function Index({ params }: any) {
                 value={limit}
                 onChange={(e) =>
                   
-                  router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(e.target.value)}&page=${page}`)
+                  //router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(e.target.value)}&page=${page}`)
+                
+                  router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}`
+                    + `&limit=${Number(e.target.value)}&page=1`
+                    + `&fromDate=${searchFromDate}`
+                    + `&toDate=${searchToDate}`
+                    + `&searchBuyer=${searchBuyer}`
+                    + `&searchDepositName=${searchDepositName}`
+                    + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
+                    + `&searchTradeId=${searchTradeId}`
+                  )
+                
                 }
 
                 className="text-sm bg-zinc-800 text-zinc-200 px-2 py-1 rounded-md"
@@ -5205,7 +5294,18 @@ export default function Index({ params }: any) {
               disabled={Number(page) <= 1}
               className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
-                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=1`)
+                //router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=1`)
+              
+                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}`
+                  + `&limit=${Number(limit)}&page=1`
+                  + `&fromDate=${searchFromDate}`
+                  + `&toDate=${searchToDate}`
+                  + `&searchBuyer=${searchBuyer}`
+                  + `&searchDepositName=${searchDepositName}`
+                  + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
+                  + `&searchTradeId=${searchTradeId}`
+                )
+              
               }}
             >
               처음으로
@@ -5217,8 +5317,17 @@ export default function Index({ params }: any) {
               className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
-                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) - 1}`)
+                //router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) - 1}`)
 
+                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}`
+                  + `&limit=${Number(limit)}&page=${Number(page) - 1}`
+                  + `&fromDate=${searchFromDate}`
+                  + `&toDate=${searchToDate}`
+                  + `&searchBuyer=${searchBuyer}`
+                  + `&searchDepositName=${searchDepositName}`
+                  + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
+                  + `&searchTradeId=${searchTradeId}`
+                )
 
               }}
             >
@@ -5236,8 +5345,17 @@ export default function Index({ params }: any) {
               className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
-                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) + 1}`)
+                ///router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Number(page) + 1}`)
 
+                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}`
+                  + `&limit=${Number(limit)}&page=${Number(page) + 1}`
+                  + `&fromDate=${searchFromDate}`
+                  + `&toDate=${searchToDate}`
+                  + `&searchBuyer=${searchBuyer}`
+                  + `&searchDepositName=${searchDepositName}`
+                  + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
+                  + `&searchTradeId=${searchTradeId}`
+                )
               }}
             >
               다음
@@ -5249,8 +5367,17 @@ export default function Index({ params }: any) {
               className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
               onClick={() => {
                 
-                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`)
+                ///router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}&limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`)
 
+                router.push(`/${params.lang}/admin/clearance-history?storecode=${searchStorecode}`
+                  + `&limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}`
+                  + `&fromDate=${searchFromDate}`
+                  + `&toDate=${searchToDate}`
+                  + `&searchBuyer=${searchBuyer}`
+                  + `&searchDepositName=${searchDepositName}`
+                  + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
+                  + `&searchTradeId=${searchTradeId}`
+                )
               }}
             >
               마지막으로

@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
 
     privateSale,
 
+    searchTradeId,
     searchBuyer,
     searchDepositName,
 
@@ -32,8 +33,12 @@ export async function POST(request: NextRequest) {
     fromDate,
     toDate,
 
+    manualConfirmPayment,
 
   } = body;
+
+  // searchStoreBankAccountNumber
+  //console.log("getAllBuyOrders searchStoreBankAccountNumber", searchStoreBankAccountNumber);
 
 
   //console.log("getAllBuyOrders fromDate", fromDate);
@@ -43,7 +48,7 @@ export async function POST(request: NextRequest) {
 
   
 
-  ///console.log("getAllBuyOrders body", body);
+  console.log("getAllBuyOrders body", body);
 
 
 
@@ -76,6 +81,7 @@ export async function POST(request: NextRequest) {
 
     privateSale: privateSale || false,
 
+    searchTradeId: searchTradeId || "",
     searchBuyer: searchBuyer || "",
     searchDepositName: searchDepositName || "",
 
@@ -85,6 +91,8 @@ export async function POST(request: NextRequest) {
     fromDate: fromDate || "",
 
     toDate: toDate || "",
+
+    manualConfirmPayment: manualConfirmPayment || false,
 
   });
 
