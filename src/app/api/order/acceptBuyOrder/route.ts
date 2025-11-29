@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
     mobile: mobile,
     buyer: buyer,
     tradeId: tradeId,
-  } = result as UserProps;
+  } = result as OrderProps;
   */
 
   // if mobile number is not prefix with country code don't send sms

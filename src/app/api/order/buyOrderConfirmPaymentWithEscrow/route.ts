@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import {
-  UserProps,
+  OrderProps,
 	buyOrderConfirmPayment,
   buyOrderGetOrderById,
 
@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
       walletAddress: walletAddress,
       usdtAmount: usdtAmount,
       buyer: buyer,
-    } = order as UserProps;
+    } = order as OrderProps;
 
 
 
@@ -265,7 +265,7 @@ export async function POST(request: NextRequest) {
     const {
       nickname: nickname,
       tradeId: tradeId,
-    } = result as UserProps;
+    } = result as OrderProps;
   
   
   
