@@ -2714,7 +2714,14 @@ export async function getBuyOrders(
         ///...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
 
         // seller?.bankInfo?.accountNumber
-        ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+        /// ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+        // store.bankInfo.accountNumber or seller.bankInfo.accountNumber
+        ...(searchStoreBankAccountNumber ? { $or: [
+          { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } },
+          { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } }
+        ] } : {}),
+
 
         
         // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -4974,7 +4981,16 @@ export async function getAllBuyOrdersBySellerAccountNumber(
   const results = await collection.find<OrderProps>(
     {
       
-      'seller.bankInfo.accountNumber': accountNumber,
+      
+      ///'seller.bankInfo.accountNumber': accountNumber,
+      /// store.bankInfo.accountNumber or seller.bankInfo.accountNumber
+      ...(accountNumber ? { $or: [
+        { 'store.bankInfo.accountNumber': { $regex: String(accountNumber), $options: 'i' } },
+        { 'seller.bankInfo.accountNumber': { $regex: String(accountNumber), $options: 'i' } }
+      ] } : {}),
+      
+
+
       // if seller.bankInfo.accountNumber has spaces, remove spaces before compare
       //'seller.bankInfo.accountNumber': {
       //  $replaceAll: { input: '$seller.bankInfo.accountNumber', find: ' ', replacement: '' } , $eq: accountNumber
@@ -5006,10 +5022,19 @@ export async function getAllBuyOrdersBySellerAccountNumber(
     }
   ).sort({ paymentConfirmedAt: -1 })
     .limit(limit).skip((page - 1) * limit).toArray();
+
+
   // get total count of orders
   const totalCount = await collection.countDocuments(
     {
-      'seller.bankInfo.accountNumber': accountNumber,
+      ///'seller.bankInfo.accountNumber': accountNumber,
+      /// store.bankInfo.accountNumber or seller.bankInfo.accountNumber
+      ...(accountNumber ? { $or: [
+        { 'store.bankInfo.accountNumber': { $regex: String(accountNumber), $options: 'i' } },
+        { 'seller.bankInfo.accountNumber': { $regex: String(accountNumber), $options: 'i' } }
+      ] } : {}),
+
+
       // if seller.bankInfo.accountNumber has spaces, remove spaces before compare
       //'seller.bankInfo.accountNumber': {
       //  $replaceAll: { input: '$seller.bankInfo.accountNumber', find: ' ', replacement: '' } , $eq: accountNumber
