@@ -2109,6 +2109,7 @@ export async function insertBuyOrderForUser(data: any) {
 
 
 // get buy orders order by createdAt desc
+/*
 export async function getBuyOrders(
   {
     limit,
@@ -2170,20 +2171,13 @@ export async function getBuyOrders(
 
   //console.log('getBuyOrders agentcode: ==========>' + agentcode);
 
-  /*
-  getBuyOrders fromDate: 2025-04-04
-  getBuyOrders toDate: 2025-05-30
-  */
-
-  
-
 
   //console.log('getBuyOrders limit: ' + limit);
   //console.log('getBuyOrders page: ' + page);
 
 
   // searchStoreBankAccountNumber
-  //console.log('getBuyOrders searchStoreBankAccountNumber: ' + searchStoreBankAccountNumber);
+  console.log('getBuyOrders searchStoreBankAccountNumber: ' + searchStoreBankAccountNumber);
 
   // searchDepositName
   // 일렉스파크
@@ -2407,6 +2401,505 @@ export async function getBuyOrders(
 
 
         // filter by fromDate and toDate
+        createdAt: {
+          $gte: fromDateValue,
+          $lte: toDateValue,
+        }
+
+      },
+      
+      //{ projection: { _id: 0, emailVerified: 0 } }
+  
+    )
+    .sort({ createdAt: -1 })
+    .limit(limit).skip((page - 1) * limit)
+    .toArray();
+    //).sort({ paymentConfirmedAt: -1 }).limit(limit).skip((page - 1) * limit).toArray();
+
+    
+    
+    const totalResult = await collection.aggregate([
+      {
+        $match: {
+
+          //'seller.walletAddress': walletAddress,
+
+          //nickname: { $regex: searchNickname, $options: 'i' },
+
+
+          status: 'paymentConfirmed',
+
+          ///privateSale: { $ne: true },
+          privateSale: privateSale,
+
+
+          //agentcode: { $regex: agentcode, $options: 'i' },
+          ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+
+
+
+          //storecode: storecode,
+          storecode: { $regex: storecode, $options: 'i' },
+
+          nickname: { $regex: searchBuyer, $options: 'i' },
+
+          ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+          
+          ///'buyer.depositName': { $regex: searchDepositName, $options: 'i' },
+          ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } }, { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' } }] } : {}),
+
+
+
+          //'store.bankInfo.accountNumber': { $regex: searchStoreBankAccountNumber, $options: 'i' },
+                  // seller?.bankInfo?.accountNumber
+          ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+
+          // if manualConfirmPayment is true, autoConfirmPayment is not true
+          ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+
+
+          //paymentConfirmedAt: { $gte: startDate, $lt: endDate },
+
+          createdAt: { $gte: fromDateValue, $lt: toDateValue },
+        }
+      },
+      {
+        $group: {
+          _id: null,
+
+
+          totalCount: { $sum: 1 },
+          totalKrwAmount: { $sum: '$krwAmount' },
+          totalUsdtAmount: { $sum: '$usdtAmount' },
+
+
+        }
+
+      }
+
+    ]).toArray();
+
+
+
+
+
+    const totalResultSettlement = await collection.aggregate([
+      {
+        $match: {
+
+          //'seller.walletAddress': walletAddress,
+
+          //nickname: { $regex: searchNickname, $options: 'i' },
+
+
+          status: 'paymentConfirmed',
+          settlement: { $exists: true, $ne: null },
+
+          ///privateSale: { $ne: true },
+          privateSale: privateSale,
+
+
+          //agentcode: { $regex: agentcode, $options: 'i' },
+          ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+
+
+          //storecode: storecode,
+          storecode: { $regex: storecode, $options: 'i' },
+
+          nickname: { $regex: searchBuyer, $options: 'i' },
+
+          ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+          
+          ///'buyer.depositName': { $regex: searchDepositName, $options: 'i' },
+          ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } }, { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' } }] } : {}),
+
+
+
+          ///'store.bankInfo.accountNumber': { $regex: searchStoreBankAccountNumber, $options: 'i' },
+          // seller?.bankInfo?.accountNumber
+          ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+
+          // if manualConfirmPayment is true, autoConfirmPayment is not true
+          ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+
+
+          //paymentConfirmedAt: { $gte: startDate, $lt: endDate },
+
+          createdAt: { $gte: fromDateValue, $lt: toDateValue },
+        }
+      },
+      {
+        $group: {
+          _id: null,
+
+
+          totalSettlementCount: { $sum: 1 },
+          totalSettlementAmount: { $sum: { $toDouble: '$settlement.settlementAmount' } },
+          totalSettlementAmountKRW: { $sum: { $toDouble: '$settlement.settlementAmountKRW' } },
+          
+          totalFeeAmount: { $sum: { $toDouble: '$settlement.feeAmount' } },
+          totalFeeAmountKRW: { $sum: { $toDouble: '$settlement.feeAmountKRW' } },
+
+          totalAgentFeeAmount: { $sum: '$settlement.agentFeeAmount' },
+          totalAgentFeeAmountKRW: { $sum: { $toDouble: '$settlement.agentFeeAmountKRW' } },
+
+
+        }
+
+      }
+
+    ]).toArray();
+
+
+
+
+    
+
+    return {
+      totalCount: totalResult.length > 0 ? totalResult[0].totalCount : 0,
+      totalKrwAmount: totalResult.length > 0 ? totalResult[0].totalKrwAmount : 0,
+      totalUsdtAmount: totalResult.length > 0 ? totalResult[0].totalUsdtAmount : 0,
+
+      totalSettlementCount: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalSettlementCount : 0,
+      totalSettlementAmount: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalSettlementAmount : 0,
+      totalSettlementAmountKRW: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalSettlementAmountKRW : 0,
+      totalFeeAmount: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalFeeAmount : 0,
+      totalFeeAmountKRW: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalFeeAmountKRW : 0,
+      totalAgentFeeAmount: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalAgentFeeAmount : 0,
+      totalAgentFeeAmountKRW: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalAgentFeeAmountKRW : 0,
+
+      orders: results,
+    };
+
+  }
+
+
+}
+
+*/
+
+
+
+
+// get buy orders order by createdAt desc
+export async function getBuyOrders(
+  {
+    limit,
+    page,
+    agentcode,
+    storecode,
+    walletAddress,
+    searchMyOrders,
+    searchOrderStatusCancelled,
+    searchOrderStatusCompleted,
+
+    searchStoreName,
+
+    privateSale,
+
+    searchTradeId,
+    searchBuyer,
+    searchDepositName,
+
+    searchStoreBankAccountNumber,
+
+    fromDate,
+    toDate,
+
+    manualConfirmPayment,
+  }: {
+
+    limit: number;
+    page: number;
+    agentcode: string;
+    storecode: string;
+    walletAddress: string;
+    searchMyOrders: boolean;
+    searchOrderStatusCancelled: boolean;
+    searchOrderStatusCompleted: boolean;
+
+    searchStoreName: string;
+
+    privateSale: boolean;
+
+    searchTradeId: string;
+    searchBuyer: string;
+    searchDepositName: string;
+
+    searchStoreBankAccountNumber: string;
+
+    fromDate: string;
+    toDate: string;
+
+    manualConfirmPayment: boolean;
+  }
+
+): Promise<any> {
+
+
+  console.log('getBuyOrders fromDate: ' + fromDate);
+  console.log('getBuyOrders toDate: ' + toDate);
+
+
+  //console.log('getBuyOrders agentcode: ==========>' + agentcode);
+
+  /*
+  getBuyOrders fromDate: 2025-04-04
+  getBuyOrders toDate: 2025-05-30
+  */
+
+  
+
+
+  //console.log('getBuyOrders limit: ' + limit);
+  //console.log('getBuyOrders page: ' + page);
+
+
+  // searchStoreBankAccountNumber
+  //console.log('getBuyOrders searchStoreBankAccountNumber: ' + searchStoreBankAccountNumber);
+
+  // searchDepositName
+  // 일렉스파크
+  console.log('getBuyOrders searchDepositName: ' + searchDepositName);
+
+
+  const client = await clientPromise;
+  const collection = client.db(dbName).collection('buyorders');
+
+
+  // status is not 'paymentConfirmed'
+
+  // if searchMyOrders is true, get orders by wallet address is walletAddress
+  // else get all orders except paymentConfirmed
+  // sort status is accepted first, then createdAt desc
+
+  if (searchMyOrders) {
+
+    const results = await collection.find<OrderProps>(
+
+      //{ walletAddress: walletAddress, status: { $ne: 'paymentConfirmed' } },
+      {
+        ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+
+
+        storecode: storecode || { $ne: null },
+        walletAddress: walletAddress,
+        
+        status: (searchOrderStatusCancelled && searchOrderStatusCompleted ? { $in: ['cancelled', 'paymentConfirmed'] }
+          : (searchOrderStatusCancelled ? 'cancelled'
+          : (searchOrderStatusCompleted ? 'paymentConfirmed'
+          : { $ne: 'nothing' }))),
+
+        privateSale: privateSale || { $ne: true },
+        ...(searchStoreName ? { "store.storeName": { $regex: String(searchStoreName), $options: 'i' } } : {}),
+        ...(searchBuyer ? { nickname: { $regex: String(searchBuyer), $options: 'i' } } : {}),
+
+        //...(searchDepositName ? { "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } } : {}),
+        // searchDepositName is buyer.depositName or seller.bankInfo.accountHolder
+
+
+        // if searchTradeId is provided, search by tradeId
+        ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+
+        ...(searchDepositName ? {
+          $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } },
+            { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' }
+          }] } : {}),
+
+        
+        ///...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+        // seller?.bankInfo?.accountNumber
+        ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+        
+        // if manualConfirmPayment is true, autoConfirmPayment is not true
+        ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+
+
+        // filter by fromDate and toDate
+        // fromDate format: YYYY-MM-DD
+        // toDate format: YYYY-MM-DD
+        //createdAt: {
+        //  $gte: new Date(fromDate ? fromDate + 'T00:00:00Z' : '1970-01-01T00:00:00Z'),
+        //  $lte: new Date(toDate ? toDate + 'T23:59:59Z' : new Date().toISOString()),
+        //}
+
+        
+      },
+      
+      //{ projection: { _id: 0, emailVerified: 0 } }
+
+    )
+
+    .sort({ createdAt: -1 })
+    .limit(limit).skip((page - 1) * limit).toArray();
+
+
+    const totalCount = await collection.countDocuments(
+      {
+
+        ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+
+        storecode: storecode || { $ne: null },
+        
+        walletAddress: walletAddress,
+
+        status: (searchOrderStatusCancelled && searchOrderStatusCompleted ? { $in: ['cancelled', 'paymentConfirmed'] }
+          : (searchOrderStatusCancelled ? 'cancelled'
+          : (searchOrderStatusCompleted ? 'paymentConfirmed'
+          : { $ne: 'nothing' }))),
+
+        pirvateSale: { $ne: true },
+
+        ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+
+        ...(searchStoreName ? { "store.storeName": { $regex: String(searchStoreName), $options: 'i' } } : {}),
+
+        ...(searchBuyer ? { nickname: { $regex: String(searchBuyer), $options: 'i' } } : {}),
+        
+        
+        //...(searchDepositName ? { "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } } : {}),
+        ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } },
+          { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' }
+        }] } : {}),
+
+
+        /////...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+        // seller?.bankInfo?.accountNumber
+        ////...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+        // store.bankInfo.accountNumber or seller.bankInfo.accountNumber
+        ...(searchStoreBankAccountNumber ? { $or: [
+          { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } },
+          { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } }
+        ] } : {}),
+
+
+
+        // if manualConfirmPayment is true, autoConfirmPayment is not true
+        ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+
+
+
+
+        // filter by fromDate and toDate
+        ///createdAt: {
+        //  $gte: new Date(fromDate ? fromDate + 'T00:00:00Z' : '1970-01-01T00:00:00Z'),
+        //  $lte: new Date(toDate ? toDate + 'T23:59:59Z' : new Date().toISOString()),
+        //}
+
+      }
+    );
+
+
+
+    return {
+      totalCount: totalCount,
+      orders: results,
+    };
+
+  } else {
+
+    //const fromDateValue = fromDate ? fromDate + 'T00:00:00Z' : '1970-01-01T00:00:00Z';
+    //const toDateValue = toDate ? toDate + 'T23:59:59Z' : new Date().toISOString();
+    // korean timezone is UTC+9, so we need to convert to UTC time
+
+    //const fromDateValue = fromDate ? fromDate + 'T00:00:00Z' : '1970-01-01T00:00:00Z';
+
+    const fromDateValue = fromDate ? new Date(fromDate + 'T00:00:00+09:00').toISOString() : '1970-01-01T00:00:00Z';
+
+    //const toDateValue = toDate ? toDate + 'T23:59:59Z' : new Date().toISOString();
+
+    const toDateValue = toDate ? new Date(toDate + 'T23:59:59+09:00').toISOString() : new Date().toISOString();
+
+    
+    
+    //console.log('getBuyOrders fromDateValue: ' + fromDateValue);
+    //console.log('getBuyOrders toDateValue: ' + toDateValue);
+
+
+    const results = await collection.find<OrderProps>(
+      {
+        ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+
+
+        storecode: storecode || { $ne: null },
+
+        // search status is searchOrderStatusCancelled
+        // search status is searchOrderStatusCompleted
+        // search status is searchOrderStatusCancelled or searchOrderStatusCompleted
+        // search status is searchOrderStatusCancelled and searchOrderStatusCompleted
+
+        // status is "cancelled" or "paymentConfirmed"
+
+        // if searchOrderStatusCancelled is true and searchOrderStatusCompleted is true,
+        // then status is "cancelled" or "paymentConfirmed"
+
+        // if searchOrderStatusCancelled is true and searchOrderStatusCompleted is false,
+        // then status is "cancelled"
+        // if searchOrderStatusCancelled is false and searchOrderStatusCompleted is true,
+        // then status is "paymentConfirmed"
+        // if searchOrderStatusCancelled is false and searchOrderStatusCompleted is false,
+        // then status is ne "nothing"
+
+        status: (searchOrderStatusCancelled && searchOrderStatusCompleted ? { $in: ['cancelled', 'paymentConfirmed'] }
+          : (searchOrderStatusCancelled ? 'cancelled'
+          : (searchOrderStatusCompleted ? 'paymentConfirmed'
+          : { $ne: 'nothing' }))),
+
+        // exclude private sale
+        //privateSale: { $ne: true },
+        privateSale: privateSale || { $ne: true },
+
+
+        // if searchTradeId is provided, search by tradeId
+        ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+
+        // search store name
+        ...(searchStoreName ? { "store.storeName": { $regex: String(searchStoreName), $options: 'i' } } : {}),
+
+        // search buyer name
+        ...(searchBuyer ? { nickname: { $regex: String(searchBuyer), $options: 'i' } } : {}),
+        
+        
+        
+        // search deposit name
+        ///...(searchDepositName ? { "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } } : {}),
+
+        ...(searchDepositName ? { $or: [
+          { "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } },
+          { "seller.bankInfo.accountHolder": { $regex: String(searchDepositName), $options: 'i' } }
+        ] } : {}),
+
+
+        // search store bank account number
+        /////...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+        // seller?.bankInfo?.accountNumber
+        
+        
+        ////...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+
+        // store.bankInfo.accountNumber or seller.bankInfo.accountNumber
+        ...(searchStoreBankAccountNumber ? { $or: [
+          { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } },
+          { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } }
+        ] } : {}),
+
+
+
+        // if manualConfirmPayment is true, autoConfirmPayment is not true
+        ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+
+
+        // filter by fromDate and toDate
         /*
         createdAt
         "2025-06-03T07:24:10.135Z"
@@ -2609,6 +3102,13 @@ export async function getBuyOrders(
 
 
 }
+
+
+
+
+
+
+
 
 
 
