@@ -1847,7 +1847,7 @@ export async function insertBuyOrderForClearance(data: any) {
 
 
 
-  const tradeId = Math.floor(Math.random() * 90000000) + 10000000 + '';
+  const tradeId = Math.floor(Math.random() * 900000000) + 100000000 + '';
 
   ///console.log('insertBuyOrder tradeId: ' + tradeId);
 
@@ -1883,6 +1883,9 @@ export async function insertBuyOrderForClearance(data: any) {
       buyer: data.buyer,
 
       tradeId: tradeId,
+
+      transactionHash: '0x',
+      queueId: null,
     }
   );
 
