@@ -147,6 +147,16 @@ interface BuyOrder {
   autoConfirmPayment: boolean;
 
   agent: any;
+
+  paymentMethod: string;
+
+  userStats: {
+    totalPaymentConfirmedCount: number;
+    totalPaymentConfirmedUsdtAmount: number;
+    totalPaymentConfirmedKrwAmount: number;
+  };
+
+  userType: string;
 }
 
 
@@ -893,7 +903,24 @@ export default function Index({ params }: any) {
   const [buyOrders, setBuyOrders] = useState<BuyOrder[]>([]);
 
 
-  const [buyOrderStats, setBuyOrderStats] = useState({
+  const [buyOrderStats, setBuyOrderStats] = useState<{
+    totalCount: number;
+    totalKrwAmount: number;
+    totalUsdtAmount: number;
+    totalSettlementCount: number;
+    totalSettlementAmount: number;
+    totalSettlementAmountKRW: number;
+    totalFeeAmount: number;
+    totalFeeAmountKRW: number;
+    totalAgentFeeAmount: number;
+    totalAgentFeeAmountKRW: number;
+    totalByUserType: Array<{
+      _id: string;
+      totalCount: number;
+      totalKrwAmount: number;
+      totalUsdtAmount: number;
+    }>;
+  }>({
     totalCount: 0,
     totalKrwAmount: 0,
     totalUsdtAmount: 0,
@@ -904,6 +931,8 @@ export default function Index({ params }: any) {
     totalFeeAmountKRW: 0,
     totalAgentFeeAmount: 0,
     totalAgentFeeAmountKRW: 0,
+
+    totalByUserType: [],
   });
 
 
@@ -1074,6 +1103,7 @@ export default function Index({ params }: any) {
                   totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                   totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                   totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+                  totalByUserType: data.result.totalByUserType,
                 });
 
 
@@ -1220,6 +1250,7 @@ export default function Index({ params }: any) {
               totalFeeAmountKRW: data.result.totalFeeAmountKRW,
               totalAgentFeeAmount: data.result.totalAgentFeeAmount,
               totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+              totalByUserType: data.result.totalByUserType,
             });
 
           }
@@ -1498,6 +1529,7 @@ export default function Index({ params }: any) {
                   totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                   totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                   totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+                  totalByUserType: data.result.totalByUserType,
                 });
 
             })
@@ -1724,6 +1756,7 @@ export default function Index({ params }: any) {
               totalFeeAmountKRW: data.result.totalFeeAmountKRW,
               totalAgentFeeAmount: data.result.totalAgentFeeAmount,
               totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+              totalByUserType: data.result.totalByUserType,
             });
 
         })
@@ -1902,6 +1935,7 @@ export default function Index({ params }: any) {
               totalFeeAmountKRW: data.result.totalFeeAmountKRW,
               totalAgentFeeAmount: data.result.totalAgentFeeAmount,
               totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+              totalByUserType: data.result.totalByUserType,
             });
 
         })
@@ -2126,6 +2160,7 @@ export default function Index({ params }: any) {
         totalFeeAmountKRW: data.result.totalFeeAmountKRW,
         totalAgentFeeAmount: data.result.totalAgentFeeAmount,
         totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+        totalByUserType: data.result.totalByUserType,
       });
 
     }
@@ -2605,45 +2640,9 @@ const fetchBuyOrders = async () => {
     return (
       <div className="flex flex-col items-center justify-center">
 
-        <h1 className="text-2xl font-bold">로그인</h1>
 
-          <ConnectButton
-            client={client}
-            wallets={wallets}
-            /*
-            chain={chain === "ethereum" ? ethereum :
-                    chain === "polygon" ? polygon :
-                    chain === "arbitrum" ? arbitrum :
-                    chain === "bsc" ? bsc : arbitrum}
-            */
-            
-            theme={"light"}
-
-            // button color is dark skyblue convert (49, 103, 180) to hex
-            connectButton={{
-              style: {
-                backgroundColor: "#3167b4", // dark skyblue
-
-                color: "#f3f4f6", // gray-300 
-                padding: "2px 2px",
-                borderRadius: "10px",
-                fontSize: "14px",
-                //width: "40px",
-                height: "38px",
-              },
-              label: "X-Ray 로그인",
-            }}
-
-            connectModal={{
-              size: "wide", 
-              //size: "compact",
-              titleIcon: "https://xlay-tether.vercel.app/logo-xlay.jpg",                           
-              showThirdwebBranding: false,
-            }}
-
-            locale={"ko_KR"}
-            //locale={"en_US"}
-          />
+        <h1 className="text-2xl font-bold">지갑을 연결해주세요</h1>
+        <p className="text-lg">이 페이지에 접근하려면 지갑 연결이 필요합니다.</p>
 
       </div>
     );
@@ -3307,6 +3306,135 @@ const fetchBuyOrders = async () => {
 
             </div>
 
+
+
+            {/* divider */}
+            <div className="hidden xl:block w-0.5 h-10 bg-zinc-300"></div>
+            <div className="sm:hidden w-full h-0.5 bg-zinc-300"></div>
+
+
+            {/* buyOrderStats totalByUserTypeEmpty, AAA, BBB, CCCC, DDDD */}
+            {/*
+            [
+              {
+                _id: 'abc',
+                totalCount: 1,
+                totalKrwAmount: 1000000,
+                totalUsdtAmount: 666.67
+              },
+              {
+                _id: '',
+                totalCount: 292,
+                totalKrwAmount: 335860000,
+                totalUsdtAmount: 224333.96
+              },
+              {
+                _id: 'test',
+                totalCount: 8,
+                totalKrwAmount: 2450000,
+                totalUsdtAmount: 1633.33
+              },
+              {
+                _id: 'AAA',
+                totalCount: 111,
+                totalKrwAmount: 288795000,
+                totalUsdtAmount: 192821.26
+              }
+            ]
+            */}
+
+            <div className="xl:w-1/3 w-full
+              flex flex-col sm:flex-row items-start justify-center gap-4">
+
+              {['', 'AAA', 'BBB', 'CCC', 'DDD'].map((type, index) => (
+                <div key={index} className="flex flex-col gap-2 items-center">
+                  <div className="text-sm">
+                    {type === '' ? '일반회원'
+                      : type === 'AAA' ? '1등급'
+                      : type === 'BBB' ? '2등급'
+                      : type === 'CCC' ? '3등급'
+                      : type === 'DDD' ? '4등급'
+                      : ''
+                    }
+                  </div>
+                  <div className="text-sm font-semibold">
+                    {
+                      // if _id is '' or 'test' then sum totalCount of buyOrderStats.totalByUserType where _id is '' or 'test'
+                      type === ''
+                        ? buyOrderStats.totalByUserType
+                            ?.filter((item) => item._id === '' || item._id === 'test')
+                            .reduce((acc, item) => acc + (item.totalCount || 0), 0)
+                            .toLocaleString()
+                        : 
+                        buyOrderStats.totalByUserType?.find((item) => item._id === type)?.totalCount?.toLocaleString() || '0'
+                      
+                      //buyOrderStats.totalByUserType?.find((item) => item._id === type)?.totalCount?.toLocaleString() || '0'
+                    }
+                  </div>
+                  <div className="flex flex-row items-center justify-center gap-1">
+                    <Image
+                      src="/icon-tether.png"
+                      alt="Tether"
+                      width={20}
+                      height={20}
+                      className="w-5 h-5"
+                    />
+                    <span className="text-sm font-semibold text-green-400"
+                      style={{ fontFamily: 'monospace' }}>
+                      {
+
+                        /*
+                        buyOrderStats.totalByUserType?.find((item) => item._id === type)?.totalUsdtAmount
+                          ? buyOrderStats.totalByUserType.find((item) => item._id === type)?.totalUsdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                          : '0.000'
+                        */
+
+                        // if _id is '' or 'test' then sum totalUsdtAmount of buyOrderStats.totalByUserType where _id is '' or 'test'
+                        type === ''
+                          ? buyOrderStats.totalByUserType
+                              ?.filter((item) => item._id === '' || item._id === 'test')
+                              .reduce((acc, item) => acc + (item.totalUsdtAmount || 0), 0)
+                              .toFixed(3)
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                          :
+                          buyOrderStats.totalByUserType?.find((item) => item._id === type)?.totalUsdtAmount
+                            ? buyOrderStats.totalByUserType.find((item) => item._id === type)?.totalUsdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                            : '0.000'
+                      }
+                    </span>
+                  </div>
+                  <div className="flex flex-row items-center justify-center gap-1">
+                    <span className="text-sm font-semibold text-yellow-400"
+                      style={{ fontFamily: 'monospace' }}>
+                      {
+                        /*
+                        buyOrderStats.totalByUserType?.find((item) => item._id === type)?.totalKrwAmount
+                          ? buyOrderStats.totalByUserType.find((item) => item._id === type)?.totalKrwAmount.toLocaleString()
+                          : '0'
+                        */
+                       
+                        // if _id is '' or 'test' then sum totalKrwAmount of buyOrderStats.totalByUserType where _id is '' or 'test'
+                        type === ''
+                          ? buyOrderStats.totalByUserType
+                              ?.filter((item) => item._id === '' || item._id === 'test')
+                              .reduce((acc, item) => acc + (item.totalKrwAmount || 0), 0)
+                              .toLocaleString()
+                          :
+                          buyOrderStats.totalByUserType?.find((item) => item._id === type)?.totalKrwAmount
+                            ? buyOrderStats.totalByUserType.find((item) => item._id === type)?.totalKrwAmount.toLocaleString()
+                            : '0'
+                      }
+                    </span>
+                  </div>
+                </div>
+              ))}
+
+            </div>
+
+
+
+
+
             {/* divider */}
             {/*
             <div className="hidden xl:block w-0.5 h-10 bg-zinc-300"></div>
@@ -3616,55 +3744,57 @@ const fetchBuyOrders = async () => {
                 >
                   <tr>
 
-                    <th className="p-2">
-                      <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm ">
-                          구매신청시간
+                    <th className="p-2 text-start">
+                      <div className="flex flex-col items-start justify-center gap-2">
+                       <span className="text-sm font-normal">
+                          가맹점
                         </span>
-                        <span className="text-sm ">
-                          {TID}
+                       <span className="text-sm font-normal">
+                          P2P거래번호
+                        </span>
+                       <span className="text-sm font-normal">
+                          거래시작시간
                         </span>
                       </div>
                     </th>
 
-                    <th className="p-2">가맹점</th>
-
-                    <th className="p-2">
-                      <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm ">
+                    <th className="p-2 text-start">
+                      <div className="flex flex-col items-start justify-center gap-2">
+                       <span className="text-sm font-normal">
                           P2P구매자 아이디
                         </span>
-                        <span className="text-sm ">
-                          구매자 USDT지갑
+                       <span className="text-sm font-normal">
+                          USDT지갑
+                        </span>
+                       <span className="text-sm font-normal">
+                          입금자
                         </span>
                       </div>
                     </th>
 
-                    <th className="p-2">입금자</th>
-
-                    <th className="p-2">
-                      <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm ">
-                          {Price}(원)
-                        </span>
-                        <span className="text-sm ">
+                    <th className="p-2 text-end pr-4">
+                      <div className="flex flex-col items-end justify-center gap-2">
+                       <span className="text-sm font-normal">
                           {Buy_Amount}(USDT)
                         </span>
-                        <span className="text-sm ">
-                          단가(환율)
+                       <span className="text-sm font-normal">
+                          구매금액(원)
+                        </span>
+                       <span className="text-sm font-normal">
+                          개당금액(원)
                         </span>
                       </div>
                     </th>
 
 
-                    <th className="p-2">
-                      <div className="flex flex-col gap-2 items-center justify-center">
-                        <span className="text-sm ">
-                          P2P판매자 아이디
-                        </span>
-                        <span className="text-sm ">
-                          판매자 USDT지갑
-                        </span>
+                    <th className="p-2 text-start">
+                      <div className="flex flex-col items-start justify-center gap-2">
+                          <span className="text-sm font-normal">
+                            P2P판매자 아이디
+                          </span>
+                          <span className="text-sm font-normal">
+                            USDT지갑
+                          </span>
                       </div>
                     </th>
 
@@ -3702,190 +3832,353 @@ const fetchBuyOrders = async () => {
                       `}>
                       
 
-                        <td className="p-2">
+                        <td className="
+                          p-2
+                        "
+                        >
+                          {/* dark mode */}
 
                           <div className="
-                            w-24
-                            flex flex-col gap-2 items-center justify-center">
-
-
-
-                            <div className="flex flex-col gap-2 items-center justify-center">
-                              <span className="text-sm ">
-                                {item?.createdAt && new Date(item.createdAt)?.toLocaleString('ko-KR', {
-                                  year: 'numeric',
-                                  month: '2-digit',
-                                  day: '2-digit',
-                                })}
-                              </span>
-                              
-                              <span className="text-sm ">
-                                {item?.createdAt && new Date(item.createdAt)?.toLocaleString('en-US', {
-                                  hour: '2-digit',
-                                  minute: '2-digit',
-                                  second: '2-digit',
-                                })}
-                              </span>
-                              
-                            </div>
-
-                            <span className="text-sm  font-normal">
-                              {params.lang === 'ko' ? (
-                                <p>{
-                                  new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
-                                    ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000) + ' ' + seconds_ago
-                                  ) :
-                                  new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 * 60 ? (
-                                  ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60) + ' ' + minutes_ago
-                                  ) : (
-                                    ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) + ' ' + hours_ago
-                                  )
-                                }</p>
-                              ) : (
-                                <p>{
-                                  new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
-                                    ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000) + ' ' + seconds_ago
-                                  ) :
-                                  new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 * 60 ? (
-                                  ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60) + ' ' + minutes_ago
-                                  ) : (
-                                    ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) + ' ' + hours_ago
-                                  )
-                                }</p>
-                              )}
-                            </span>
-
-                            <button
-                              onClick={() => {
-                                // copy tradeId to clipboard
-                                navigator.clipboard.writeText(item.tradeId);
-                                toast.success('거래번호가 복사되었습니다.');
-                              }}
-                              className="text-sm  font-normal
-                                hover:text-blue-500 cursor-pointer
-                                hover:underline"
-                              title="거래번호 복사"
-                            >
-                              #{item?.tradeId}
-                            </button>
-
-
-
-                          </div>
-                        </td>
-
-                        <td className=" p-2">
+                            w-32
+                            border border-zinc-400
+                            flex flex-col items-start justify-start gap-2
+                            cursor-pointer
+                            hover:bg-zinc-500/50
+                            p-2 rounded-lg
+                            transition-all duration-200
+                            ease-in-out
+                            "
+                            onClick={() => {
+                              // copy traideId to clipboard
+                              navigator.clipboard.writeText(item.tradeId);
+                              toast.success("거래번호가 복사되었습니다.");
+                            }}
                           
+                          >
 
-                          <div className="
-                          w-32
-                          flex flex-row gap-2 items-center justify-start">
-                            
-                            <Image
-                              src={item?.store?.storeLogo || "/icon-store.png"}
-                              alt="Store"
-                              width={35}
-                              height={35}
-                              className="rounded-lg w-8 h-8 object-cover"
-                            />
-                            <div className="flex flex-col items-start justify-start">
-                              <span className="text-sm  font-bold">
-                                {
-                                  item?.store?.storeName
-                                }
-                              </span>
-                              <span className="text-sm ">
-                                {
-                                  item?.agent.agentName
-                                }
+                            <div className="flex flex-row items-center justify-start gap-2">
+                              <Image
+                                src={item?.store?.storeLogo || "/icon-store.png"}
+                                alt="Store Logo"
+                                width={35}
+                                height={35}
+                                className="
+                                rounded-lg
+                                w-8 h-8 object-cover"
+                              />
+                              
+                              <div className="flex flex-col items-start justify-start">
+                                <span className="text-sm  font-bold">
+                                  {
+                                    item?.store?.storeName?.length > 5 ?
+                                    item?.store?.storeName?.substring(0, 5) + '...' :
+                                    item?.store?.storeName
+                                  }
+                                </span>
+                                <span className="text-sm ">
+                                  {
+                                    item?.agent.agentName?.length > 5 ?
+                                    item?.agent.agentName?.substring(0, 5) + '...' :
+                                    item?.agent.agentName
+                                  }
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="flex flex-row items-start justify-start gap-1">
+                              <Image
+                                src="/icon-trade.png"
+                                alt="Trade Icon"
+                                width={20}
+                                height={20}
+                                //className="w-5 h-5"
+                                className={`w-5 h-5 p-1 bg-white object-cover rounded-full
+                                  ${item?.status === 'cancelled' || (item?.status === 'paymentConfirmed' && item?.transactionHash !== '0x') ? '' : 'animate-spin'}`}
+                              />
+                              <span className="text-sm  font-normal">
+                              {
+                                "#" + item.tradeId
+                              }
                               </span>
                             </div>
+
+                            <div className="w-full flex flex-row items-center justify-start gap-2">
+
+                              <div className="w-full flex flex-col items-start justify-start">
+
+                                <span className="text-sm  font-normal">
+                                  {new Date(item.createdAt).toLocaleTimeString('ko-KR', {
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                    second: '2-digit',
+                                  })}
+                                </span>
+                                {/*
+                                <span className="text-sm ">
+                                  {new Date(item.createdAt).toLocaleDateString('ko-KR', {
+                                    year: 'numeric',
+                                    month: '2-digit',
+                                    day: '2-digit',
+                                  })}
+                                </span>
+                                */}
+
+                                <div className="w-full flex flex-row items-center justify-between gap-1">
+                                  <span className="text-sm  font-normal">
+                                    {params.lang === 'ko' ? (
+                                      <p>{
+                                        new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
+                                          ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000) + ' ' + seconds_ago
+                                        ) :
+                                        new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 * 60 ? (
+                                        ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60) + ' ' + minutes_ago
+                                        ) : (
+                                          ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) + ' ' + hours_ago
+                                        )
+                                      }</p>
+                                    ) : (
+                                      <p>{
+                                        new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
+                                          ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000) + ' ' + seconds_ago
+                                        ) :
+                                        new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 * 60 ? (
+                                        ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60) + ' ' + minutes_ago
+                                        ) : (
+                                          ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) + ' ' + hours_ago
+                                        )
+                                      }</p>
+                                    )}
+                                  </span>
+                                </div>
+
+                              </div>
+                              {/*
+                              <span className="text-sm  font-normal">
+                                {params.lang === 'ko' ? (
+                                  <p>{
+                                    new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
+                                      ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000) + ' ' + seconds_ago
+                                    ) :
+                                    new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 * 60 ? (
+                                    ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60) + ' ' + minutes_ago
+                                    ) : (
+                                      ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) + ' ' + hours_ago
+                                    )
+                                  }</p>
+                                ) : (
+                                  <p>{
+                                    new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 ? (
+                                      ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000) + ' ' + seconds_ago
+                                    ) :
+                                    new Date().getTime() - new Date(item.createdAt).getTime() < 1000 * 60 * 60 ? (
+                                    ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60) + ' ' + minutes_ago
+                                    ) : (
+                                      ' ' + Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60 / 60) + ' ' + hours_ago
+                                    )
+                                  }</p>
+                                )}
+                              </span>
+                              */}
+                            </div>
+
                           </div>
 
                         </td>
 
-                        
+
                         <td className="p-2">
-                          <div className="flex flex-row items-center gap-2">
-
+                          <div className="
+                            w-40   
+                            flex flex-col items-start justify-start gap-2">
                             
-                            <div className="flex flex-col gap-2 items-center">
+                            <div className="w-full flex flex-col gap-2 items-center justify-start">
 
-                              <div className="text-lg text-blue-500 font-normal">
-                                {item?.nickname}
+                              <div className="w-full flex flex-row items-center justify-start gap-1">
+                                <Image
+                                  src={item?.buyer?.avatar || "/icon-user.png"}
+                                  alt="Avatar"
+                                  width={20}
+                                  height={20}
+                                  className="rounded-full w-5 h-5"
+                                  style={{
+                                    objectFit: 'cover',
+                                  }}
+                                />
+                                {
+                                item?.userType === 'AAA'
+                                ? (<div className="
+                                      text-xs text-white bg-red-500 px-1 rounded-md
+                                      ">
+                                      1등급
+                                    </div>
+                                )
+                                : item?.userType === 'BBB'
+                                ? (<div className="
+                                      text-xs text-white bg-orange-500 px-1 rounded-md
+                                      ">
+                                      2등급
+                                    </div>
+                                )
+                                : item?.userType === 'CCC'
+                                ? (<div className="
+                                      text-xs text-white bg-yellow-500 px-1 rounded-md
+                                      ">
+                                      3등급
+                                    </div>
+                                )
+                                : item?.userType === 'DDD'
+                                ? (<div className="
+                                      text-xs text-white bg-green-500 px-1 rounded-md
+                                      ">
+                                      4등급
+                                    </div>
+                                )
+                                : (<div className="
+                                      text-xs text-white bg-zinc-500 px-1 rounded-md
+                                      ">
+                                      일반
+                                    </div>
+                                )
+                                }
+                                <span className="text-sm  font-normal">
+                                  {
+                                    item?.nickname?.length > 10 ?
+                                    item?.nickname?.substring(0, 10) + '...' :
+                                    item?.nickname
+                                  }
+                                </span>
                               </div>
 
                               {/* wallet address */}
-                              <button
-                                onClick={() => {
-                                  navigator.clipboard.writeText(item.walletAddress);
-                                  toast.success('지갑주소가 복사되었습니다.');
-                                }}
-                                className="text-sm  font-normal
-                                hover:text-blue-500 cursor-pointer
-                                hover:underline"
-                                title="지갑주소 복사"
-                              >
-                                {item.walletAddress.substring(0, 10) + '...'}
-                              </button>
+                              <div className="w-full flex flex-row items-start justify-start gap-1">
+                                <Image
+                                  src="/icon-shield.png"
+                                  alt="Wallet Address"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5"
+                                />
+                                <button
+                                  className="text-sm text-blue-500 font-normal underline
+                                  "
+                                  onClick={() => {
+                                    navigator.clipboard.writeText(item.walletAddress);
+                                    toast.success(Copied_Wallet_Address);
+                                  }}
+                                >
+                                  {item.walletAddress.substring(0, 6)}...{item.walletAddress.substring(item.walletAddress.length - 4)}
+                                </button>
+                              </div>
+
+
+
+                              <div className="w-full flex flex-row items-center justify-start gap-1">
+                                <Image
+                                  src="/icon-bank.png"
+                                  alt="Deposit Name"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5"
+                                />
+                                  <div className="w-full flex flex-row items-center justify-start gap-2">
+                                    <span className="text-lg  font-bold">
+                                      {
+                                        item?.buyer?.depositName
+                                      }
+                                    </span>
+                                    <span className="
+                                      hidden xl:flex
+                                      text-sm ">
+                                      {
+                                        item?.buyer?.depositBankName
+                                      }
+                                    </span>
+                                    <span className="
+                                      text-sm ">
+                                      {
+                                        item?.buyer?.depositBanktAccountNumber &&
+                                        item?.buyer?.depositBanktAccountNumber.substring(0, 3) + '...'
+                                      }
+                                    </span>
+                                  </div>
+                              </div>
 
 
                             </div>
 
+
+                            {item?.userStats?.totalPaymentConfirmedCount ? (
+                              
+                              <div className="w-full flex flex-row items-center justify-between gap-2">
+
+                                <Image
+                                  src="/icon-user-stats.png"
+                                  alt="User Stats"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5"
+                                />
+
+                                <div className="w-full flex flex-row items-center justify-between gap-2">
+                                  <span className="text-sm ">
+                                    {
+                                      item?.userStats?.totalPaymentConfirmedCount
+                                      ? item?.userStats?.totalPaymentConfirmedCount.toLocaleString() + ' 건' :
+                                      0 + ' 건'
+                                    }
+                                  </span>
+
+                                  <div className="flex flex-col items-end justify-center gap-1">
+                                    <div className="flex flex-row items-center justify-center gap-1">
+                                      <Image
+                                        src="/icon-tether.png"
+                                        alt="Tether"
+                                        width={20}
+                                        height={20}
+                                        className="w-3 h-3"
+                                      />
+                                      <span className="text-sm text-green-400">
+                                        {
+                                          item?.userStats?.totalPaymentConfirmedUsdtAmount &&
+                                          Number(item?.userStats?.totalPaymentConfirmedUsdtAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                        }
+                                      </span>
+                                    </div>
+                                    <span className="text-sm text-yellow-500">
+                                      {
+                                        item?.userStats?.totalPaymentConfirmedKrwAmount &&
+                                        Number(item?.userStats?.totalPaymentConfirmedKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                                      }
+                                    </span>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            ) : (
+
+                              <div className="flex flex-row items-center justify-center gap-2">
+                                <Image
+                                  src="/icon-new-user.png"
+                                  alt="New User"
+                                  width={50}
+                                  height={50}
+                                  className="w-10 h-10"
+                                />
+                              </div>
+
+                            )}
+
                           </div>
+
                         </td>
-
-                        
-                        <td className="p-2">
-                          <div className="flex flex-row items-center gap-2">
-
-                            
-                            <div className="flex flex-col gap-2 items-center">
-
-                              <div className="text-sm text-yellow-500 font-normal">
-                                {
-                                  item?.buyer?.depositName
-
-                                }
-                              </div>
-                              <div className="text-sm  font-normal">
-                                {
-                                  item?.buyer?.depositBankName
-
-                                }
-                              </div>
-
-                              <div className="text-sm  font-normal">
-                                {
-                                  item?.buyer?.depositBankAccountNumber &&
-                                  item?.buyer?.depositBankAccountNumber.slice(0, 5) + '...'
-                                }
-                              </div>
-
-
-                            </div>
-
-                          </div>
-                        </td>
-
-
 
                         <td className="p-2">
                           <div className="
                             w-32
-                            flex flex-col gap-2 items-end justify-center">
+                            flex flex-col gap-2 items-end justify-start">
 
-                            <div className="flex flex-row items-center justify-end gap-1">
-                              <span className="text-lg text-yellow-500 font-normal"
-                                style={{
-                                  fontFamily: 'monospace',
-                                }}
-                              >
-                                {Number(item.krwAmount)?.toLocaleString()}
-                              </span>
-                            </div>
-
-                            <div className="flex flex-row items-center gap-1">
+                            <div className="flex flex-row items-center justify-end gap-2">
                               <Image
                                 src="/icon-tether.png"
                                 alt="Tether"
@@ -3893,12 +4186,27 @@ const fetchBuyOrders = async () => {
                                 height={20}
                                 className="w-5 h-5"
                               />
-                              <span className="text-lg text-green-400 font-normal"
+                              <span className="text-xl text-green-400 font-normal"
                                 style={{
                                   fontFamily: 'monospace',
-                                  }}
-                                >
-                                {item.usdtAmount}
+                                }}
+                              >
+                                {
+                                Number(item.usdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                                }
+                              </span>
+                            </div>
+
+
+                            <div className="flex flex-row items-center justify-end gap-1">
+                              <span className="text-xl text-yellow-500 font-normal"
+                                style={{
+                                  fontFamily: 'monospace',
+                                }}
+                              >
+                                {
+                                  item.krwAmount?.toLocaleString()
+                                }
                               </span>
                             </div>
 
@@ -3908,54 +4216,135 @@ const fetchBuyOrders = async () => {
                               }}
                             >
                               {
-                                Number(item.rate)
+                                Number(item.rate).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
                                 //Number(item.krwAmount / item.usdtAmount).toFixed(3)
                               }
                             </span>
 
+                            {/* paymentMethod */}
+                            <div className="flex flex-col items-end justify-end gap-2">
+                              
+                              <div className="flex flex-row items-center justify-center gap-2">
+                                <span className="text-sm ">
+                                  결제방법
+                                </span>
+                                <span className="text-sm ">
+                                  {item.paymentMethod === 'bank' ? '은행'
+                                  : item.paymentMethod === 'card' ? '카드'
+                                  : item.paymentMethod === 'pg' ? 'PG'
+                                  : item.paymentMethod === 'cash' ? '현금'
+                                  : item.paymentMethod === 'crypto' ? '암호화폐'
+                                  : item.paymentMethod === 'giftcard' ? '기프트카드'
+                                  : item.paymentMethod === 'mkrw' ? 'MKRW' : '기타'
+                                  }
+                                </span>
+                              </div>
+        
+                            </div>
+
                           </div>
                         </td>
 
 
-                        <td className=" p-2">
+                        <td className="p-2">
+
                           <div className="
-                            w-32
-                            flex flex-col gap-2 items-center justify-center">
-                            <span className="text-lg font-normal text-blue-500">
-                              {
-                                item.seller?.nickname
-                              }
-                            </span>
-                            {/* seller.walletAddress */}
-                            <button
-                              className="text-sm  font-normal
-                                hover:text-blue-400
-                                hover:underline
-                                cursor-pointer
-                                "
-                              title="지갑주소 복사"
+                            w-52
+                            flex flex-row items-start justify-start gap-2">
+                            {/* status */}
 
-                              onClick={() => {
+                            {item.status === 'ordered' ? (
+                              <span className="text-sm  font-normal">
                                 
-                                // copy to clipboard
-                                //navigator.clipboard.writeText(item.seller?.walletAddress || '');
+                              </span>
+                            ) : (
 
-                                navigator.clipboard.writeText(item.store.sellerWalletAddress || '');
+                              <div className="flex flex-col gap-2 items-start justify-start">
 
-                                toast.success('지갑주소가 복사되었습니다.');
-                              }}
-                            >
-                              {/*item.seller?.walletAddress &&
-                                item.seller?.walletAddress.substring(0, 10) + '...'*/}
+                                <div className="flex flex-row items-center justify-center gap-2"> 
+                                  <Image
+                                    src={item?.seller?.avatar || "/icon-seller.png"}
+                                    alt="Avatar"
+                                    width={20}
+                                    height={20}
+                                    className="rounded-full w-5 h-5"
+                                  />
+                                  <span className="text-lg font-normal ">
+                                    {
+                                      item.seller?.nickname &&
+                                      item.seller.nickname.length > 8 ?
+                                      item.seller.nickname.slice(0, 8) + '...' :
+                                      item.seller?.nickname
+                                    }
+                                  </span>
+                                </div>
 
-                              {item.store.sellerWalletAddress &&
-                                item.store.sellerWalletAddress.substring(0, 10) + '...'
-                              }
-                            </button>
+                                {/* wallet address */}
+                                <div className="flex flex-row items-center justify-center gap-1">
+                                  <Image
+                                    src="/icon-shield.png"
+                                    alt="Wallet Address"
+                                    width={20}
+                                    height={20}
+                                    className="w-5 h-5"
+                                  />
+                                  <button
+                                    className="text-sm text-blue-500 font-normal underline
+                                    "
+                                    onClick={() => {
+                                      navigator.clipboard.writeText(item.seller?.walletAddress);
+                                      toast.success(Copied_Wallet_Address);
+                                    }}
+                                  >
+                                    {item.seller?.walletAddress && item.seller?.walletAddress.substring(0, 6) + '...' + item.seller?.walletAddress.substring(item.seller?.walletAddress.length - 4)}
+                                  </button>
+                                </div>
+                                {/*
+                                <span className="text-sm ">
+                                  {
+                                    item.seller?.walletAddress &&
+                                    item.seller?.walletAddress.slice(0, 5) + '...' + item.seller?.walletAddress.slice(-5)
+                                  }
+                                </span>
+                                */}
+
+                                <div className="h-14 flex flex-row items-center justify-center gap-2">
+                                  <Image
+                                    src="/icon-matching-completed.png"
+                                    alt="Matching Completed"
+                                    width={20}
+                                    height={20}
+                                    className="w-5 h-5 rounded-full"
+                                  />
+                                  <span className="text-sm  font-normal">
+                                    자동매칭
+                                  </span>
+                                </div>
+
+                                {/*
+                                <span className="text-sm ">
+                                  {item?.seller?.userStats?.totalPaymentConfirmedCount
+                                    ? item?.seller?.userStats?.totalPaymentConfirmedCount.toLocaleString() + ' 건' :
+                                    0 + ' 건'
+                                  }
+                                </span>
+                                */}
+
+
+                              </div>
+                            )}
+
+
+                            {item.status === 'completed' && (
+                              <div className="flex flex-col gap-2 items-start justify-start">
+                                
+                                {Completed_at}
+                              </div>
+                            )}
+
                           </div>
+
                         </td>
-
-
 
                         <td className="p-2">
                           <div className="flex flex-col gap-2 items-center justify-center">

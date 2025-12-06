@@ -1922,9 +1922,9 @@ export default function Index({ params }: any) {
 
                           <button className={`
                             ${
-                              buyerBankInfo.accountNumber === store.bankInfo.accountNumber ? 'border-blue-400 bg-blue-50' : 'border-zinc-300/50'
+                              buyerBankInfo.accountNumber === store.bankInfo.accountNumber ? 'border-green-400 bg-green-50' : 'border-zinc-300/50'
                             }
-                            border-2
+                            border-4
                             flex flex-col gap-2
                             bg-white/50
                             p-4 rounded-lg shadow-md
@@ -1943,9 +1943,9 @@ export default function Index({ params }: any) {
                               <Image
                                 src="/icon-bank.png"
                                 alt="Bank"
-                                width={40}
-                                height={40}
-                                className="w-10 h-10"
+                                width={20}
+                                height={20}
+                                className="w-6 h-6"
                               />
                               <div className="flex flex-col">
                                 <span className="text-sm font-semibold">
@@ -1954,15 +1954,15 @@ export default function Index({ params }: any) {
                                 <span className="text-sm font-bold">
                                   {store.bankInfo.accountNumber}
                                 </span>
-                                <span className="text-sm">
+                                <span className="text-lg font-bold">
                                   {store.bankInfo.accountHolder}
                                 </span>
                               </div>
 
                               <div className="h-2" />
                               <span className={`
-                                ${buyerBankInfo.accountNumber === store.bankInfo.accountNumber ? 'text-blue-600' : 'text-zinc-100'}
-                                text-sm font-medium
+                                ${buyerBankInfo.accountNumber === store.bankInfo.accountNumber ? 'text-green-600' : 'text-zinc-100'}
+                                text-sm font-bold
                                 `}
                               >
                                 {buyerBankInfo.accountNumber === store.bankInfo.accountNumber ? '선택됨' : '선택하기'}
@@ -1979,8 +1979,8 @@ export default function Index({ params }: any) {
 
                         {store && store.bankInfoAAA && (
                           <button className={`
-                            ${buyerBankInfo.accountNumber === store.bankInfoAAA.accountNumber ? 'border-blue-400 bg-blue-50' : 'border-zinc-300/50'}
-                            border-2
+                            ${buyerBankInfo.accountNumber === store.bankInfoAAA.accountNumber ? 'border-green-400 bg-green-50' : 'border-zinc-300/50'}
+                            border-4
                             flex flex-col gap-2
                             bg-white/50
                             p-4 rounded-lg shadow-md
@@ -1999,9 +1999,9 @@ export default function Index({ params }: any) {
                               <Image
                                 src="/icon-bank.png"
                                 alt="Bank"
-                                width={40}
-                                height={40}
-                                className="w-10 h-10"
+                                width={20}
+                                height={20}
+                                className="w-6 h-6"
                               />
                               <div className="flex flex-col">
                                 <span className="text-sm font-semibold">
@@ -2010,15 +2010,15 @@ export default function Index({ params }: any) {
                                 <span className="text-sm font-bold">
                                   {store.bankInfoAAA.accountNumber}
                                 </span>
-                                <span className="text-sm">
+                                <span className="text-lg font-bold">
                                   {store.bankInfoAAA.accountHolder}
                                 </span>
                               </div>
 
                               <div className="h-2" />
                               <span className={`
-                                ${buyerBankInfo.accountNumber === store.bankInfoAAA.accountNumber ? 'text-blue-600' : 'text-zinc-100'}
-                                text-sm font-medium
+                                ${buyerBankInfo.accountNumber === store.bankInfoAAA.accountNumber ? 'text-green-600' : 'text-zinc-100'}
+                                text-sm font-bold
                                 `}
                               >
                                 {buyerBankInfo.accountNumber === store.bankInfoAAA.accountNumber ? '선택됨' : '선택하기'}
@@ -2030,8 +2030,8 @@ export default function Index({ params }: any) {
 
                         {store && store.bankInfoBBB && (
                           <button className={`
-                            ${buyerBankInfo.accountNumber === store.bankInfoBBB.accountNumber ? 'border-blue-400 bg-blue-50' : 'border-zinc-300/50'}
-                            border-2
+                            ${buyerBankInfo.accountNumber === store.bankInfoBBB.accountNumber ? 'border-green-400 bg-green-50' : 'border-zinc-300/50'}
+                            border-4
                             flex flex-col gap-2
                             bg-white/50
                             p-4 rounded-lg shadow-md
@@ -2050,9 +2050,9 @@ export default function Index({ params }: any) {
                               <Image
                                 src="/icon-bank.png"
                                 alt="Bank"
-                                width={40}
-                                height={40}
-                                className="w-10 h-10"
+                                width={20}
+                                height={20}
+                                className="w-6 h-6"
                               />
                               <div className="flex flex-col">
                                 <span className="text-sm font-semibold">
@@ -2061,14 +2061,14 @@ export default function Index({ params }: any) {
                                 <span className="text-sm font-bold">
                                   {store.bankInfoBBB.accountNumber}
                                 </span>
-                                <span className="text-sm">
+                                <span className="text-lg font-bold">
                                   {store.bankInfoBBB.accountHolder}
                                 </span>
                               </div>
                               <div className="h-2" />
                               <span className={`
-                                ${buyerBankInfo.accountNumber === store.bankInfoBBB.accountNumber ? 'text-blue-600' : 'text-zinc-100'}
-                                text-sm font-medium
+                                ${buyerBankInfo.accountNumber === store.bankInfoBBB.accountNumber ? 'text-green-600' : 'text-zinc-100'}
+                                text-sm font-bold
                                 `}
                               >
                                 {buyerBankInfo.accountNumber === store.bankInfoBBB.accountNumber ? '선택됨' : '선택하기'}
@@ -2080,8 +2080,8 @@ export default function Index({ params }: any) {
 
                         {store && store.bankInfoCCC && (
                           <button className={`
-                            ${buyerBankInfo.accountNumber === store.bankInfoCCC.accountNumber ? 'border-blue-400 bg-blue-50' : 'border-zinc-300/50'}
-                            border-2
+                            ${buyerBankInfo.accountNumber === store.bankInfoCCC.accountNumber ? 'border-green-400 bg-green-50' : 'border-zinc-300/50'}
+                            border-4
                             flex flex-col gap-2
                             bg-white/50
                             p-4 rounded-lg shadow-md
@@ -2100,9 +2100,9 @@ export default function Index({ params }: any) {
                               <Image
                                 src="/icon-bank.png"
                                 alt="Bank"
-                                width={40}
-                                height={40}
-                                className="w-10 h-10"
+                                width={20}
+                                height={20}
+                                className="w-6 h-6"
                               />
                               <div className="flex flex-col">
                                 <span className="text-sm font-semibold">
@@ -2111,14 +2111,14 @@ export default function Index({ params }: any) {
                                 <span className="text-sm font-bold">
                                   {store.bankInfoCCC.accountNumber}
                                 </span>
-                                <span className="text-sm">
+                                <span className="text-lg font-bold">
                                   {store.bankInfoCCC.accountHolder}
                                 </span>
                               </div>
                               <div className="h-2" />
                               <span className={`
-                                ${buyerBankInfo.accountNumber === store.bankInfoCCC.accountNumber ? 'text-blue-600' : 'text-zinc-100'}
-                                text-sm font-medium
+                                ${buyerBankInfo.accountNumber === store.bankInfoCCC.accountNumber ? 'text-green-600' : 'text-zinc-100'}
+                                text-sm font-bold
                                 `}
                               >
                                 {buyerBankInfo.accountNumber === store.bankInfoCCC.accountNumber ? '선택됨' : '선택하기'}
@@ -2129,8 +2129,8 @@ export default function Index({ params }: any) {
 
                         {store && store.bankInfoDDD && (
                           <button className={`
-                            ${buyerBankInfo.accountNumber === store.bankInfoDDD.accountNumber ? 'border-blue-400 bg-blue-50' : 'border-zinc-300/50'}
-                            border-2
+                            ${buyerBankInfo.accountNumber === store.bankInfoDDD.accountNumber ? 'border-green-400 bg-green-50' : 'border-zinc-300/50'}
+                            border-4
                             flex flex-col gap-2
                             bg-white/50
                             p-4 rounded-lg shadow-md
@@ -2149,9 +2149,9 @@ export default function Index({ params }: any) {
                               <Image
                                 src="/icon-bank.png"
                                 alt="Bank"
-                                width={40}
-                                height={40}
-                                className="w-10 h-10"
+                                width={20}
+                                height={20}
+                                className="w-6 h-6"
                               />
                               <div className="flex flex-col">
                                 <span className="text-sm font-semibold">
@@ -2160,14 +2160,14 @@ export default function Index({ params }: any) {
                                 <span className="text-sm font-bold">
                                   {store.bankInfoDDD.accountNumber}
                                 </span>
-                                <span className="text-sm">
+                                <span className="text-lg font-bold">
                                   {store.bankInfoDDD.accountHolder}
                                 </span>
                               </div>
                               <div className="h-2" />
                               <span className={`
-                                ${buyerBankInfo.accountNumber === store.bankInfoDDD.accountNumber ? 'text-blue-600' : 'text-zinc-100'}
-                                text-sm font-medium
+                                ${buyerBankInfo.accountNumber === store.bankInfoDDD.accountNumber ? 'text-green-600' : 'text-zinc-100'}
+                                text-sm font-bold
                                 `}
                               >
                                 {buyerBankInfo.accountNumber === store.bankInfoDDD.accountNumber ? '선택됨' : '선택하기'}

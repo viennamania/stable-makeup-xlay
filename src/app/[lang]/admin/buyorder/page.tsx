@@ -4658,6 +4658,7 @@ const fetchBuyOrders = async () => {
 
                         <div className="
                           w-32
+                          border border-zinc-400
                           flex flex-col items-start justify-start gap-2
                           cursor-pointer
                           hover:bg-zinc-500/50
