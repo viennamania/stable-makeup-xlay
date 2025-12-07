@@ -1068,6 +1068,7 @@ export async function getAllBuyers(
     depositName,
     limit,
     page,
+    userType,
   }: {
     agentcode: string;
     storecode: string;
@@ -1075,6 +1076,7 @@ export async function getAllBuyers(
     depositName: string;
     limit: number;
     page: number;
+    userType: string | null;
   }
 ): Promise<any> {
 
@@ -1095,11 +1097,19 @@ export async function getAllBuyers(
         $or: [
           { verified: { $exists: false } },
           { verified: false },
-
-        
         ],
-      },
 
+
+        ///...( userType === 'all'  ? {} : { userType: userType } )
+
+        // if userType is '', then userType is '' or 'test'
+        ...( userType === 'all'  ? {} :
+          ( userType === '' ?
+            { $or: [ { userType: '' }, { userType: 'test' } ] } :
+            { userType: userType }
+          ) )
+
+      },
       {
         projection:
         {
@@ -1134,9 +1144,16 @@ export async function getAllBuyers(
       $or: [
         { verified: { $exists: false } },
         { verified: false },
+      ],
 
+      ///...( userType === 'all'  ? {} : { userType: userType } )
 
-      ]
+      ...( userType === 'all'  ? {} :
+        ( userType === '' ?
+          { $or: [ { userType: '' }, { userType: 'test' } ] } :
+          { userType: userType }
+        ) )
+        
     }
   );
 

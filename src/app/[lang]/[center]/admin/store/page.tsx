@@ -1106,7 +1106,7 @@ export default function Index({ params }: any) {
       setUserCode('');
       setUserName('');
       setUserBankName('');
-      setUserType('test');
+      setUserType('');
 
 
       // fetch all buyer user

@@ -1249,7 +1249,7 @@ export default function Index({ params }: any) {
       setUserBankDepositName('');
       setUserBankName('');
       setUserBankAccountNumber('');
-      setUserType('test');
+      setUserType('');
 
 
       // fetch all buyer user

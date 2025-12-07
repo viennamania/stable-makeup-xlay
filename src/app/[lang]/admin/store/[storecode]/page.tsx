@@ -1229,7 +1229,7 @@ export default function Index({ params }: any) {
       setUserName('');
       setUserBankName('');
       setUserBankAccountNumber('');
-      setUserType('test');
+      setUserType('');
 
 
       // fetch all buyer user

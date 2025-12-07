@@ -18,6 +18,7 @@ export async function POST(request: NextRequest) {
     depositName,
     limit,
     page,
+    userType,
   } = body;
 
 
@@ -33,6 +34,8 @@ export async function POST(request: NextRequest) {
     depositName,
     limit: limit || 100,
     page: page || 1,
+
+    userType: userType,
   });
 
   //console.log("getAllBuyers result", result);
