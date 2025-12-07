@@ -35,10 +35,12 @@ export async function POST(request: NextRequest) {
 
     manualConfirmPayment,
 
+    userType,
+
   } = body;
 
   // searchStoreBankAccountNumber
-  ///console.log("getAllBuyOrders searchStoreBankAccountNumber", searchStoreBankAccountNumber);
+  //console.log("getAllBuyOrders searchStoreBankAccountNumber", searchStoreBankAccountNumber);
 
 
   //console.log("getAllBuyOrders fromDate", fromDate);
@@ -94,6 +96,8 @@ export async function POST(request: NextRequest) {
 
     manualConfirmPayment: manualConfirmPayment || false,
 
+    userType: userType === undefined ? 'all' : userType,
+
   });
 
   /*
@@ -110,6 +114,10 @@ export async function POST(request: NextRequest) {
   */
 
   //console.log("getAllBuyOrders result totalByUserType", result.totalByUserType);
+
+  //console.log("getAllBuyOrders result totalBySellerBankAccountNumber", result.totalBySellerBankAccountNumber);
+
+  //console.log("getAllBuyOrders result totalByBuyerBankAccountNumber", result.totalByBuyerBankAccountNumber);
 
  
   return NextResponse.json({

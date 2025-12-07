@@ -2614,6 +2614,8 @@ export async function getBuyOrders(
     toDate,
 
     manualConfirmPayment,
+
+    userType,
   }: {
 
     limit: number;
@@ -2639,6 +2641,8 @@ export async function getBuyOrders(
     toDate: string;
 
     manualConfirmPayment: boolean;
+
+    userType: string; // 'all', '', 'AAA', 'BBB', 'CCC', 'DDD'
   }
 
 ): Promise<any> {
@@ -2717,14 +2721,7 @@ export async function getBuyOrders(
         ///...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
 
         // seller?.bankInfo?.accountNumber
-        /// ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
-
-        // store.bankInfo.accountNumber or seller.bankInfo.accountNumber
-        ...(searchStoreBankAccountNumber ? { $or: [
-          { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } },
-          { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } }
-        ] } : {}),
-
+        ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
 
         
         // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -2782,14 +2779,7 @@ export async function getBuyOrders(
 
         /////...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
         // seller?.bankInfo?.accountNumber
-        ////...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
-
-        // store.bankInfo.accountNumber or seller.bankInfo.accountNumber
-        ...(searchStoreBankAccountNumber ? { $or: [
-          { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } },
-          { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } }
-        ] } : {}),
-
+        ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
 
 
         // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -2892,22 +2882,15 @@ export async function getBuyOrders(
         // search store bank account number
         /////...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
         // seller?.bankInfo?.accountNumber
-        
-        
-        ////...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
-
-        // store.bankInfo.accountNumber or seller.bankInfo.accountNumber
-        ...(searchStoreBankAccountNumber ? { $or: [
-          { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } },
-          { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } }
-        ] } : {}),
-
+        ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
 
 
         // if manualConfirmPayment is true, autoConfirmPayment is not true
         ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
 
 
+        // userType filter
+        ...(userType !== 'all' ? { userType: userType } : {}),
 
         // filter by fromDate and toDate
         /*
@@ -2976,6 +2959,8 @@ export async function getBuyOrders(
           ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
 
 
+          // userType filter
+          ...(userType !== 'all' ? { userType: userType } : {}),
 
           //paymentConfirmedAt: { $gte: startDate, $lt: endDate },
 
@@ -3054,6 +3039,9 @@ export async function getBuyOrders(
           ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
 
 
+          // userType filter
+          ...(userType !== 'all' ? { userType: userType } : {}),
+
 
           //paymentConfirmedAt: { $gte: startDate, $lt: endDate },
 
@@ -3101,7 +3089,8 @@ export async function getBuyOrders(
 
 
           status: 'paymentConfirmed',
-          settlement: { $exists: true, $ne: null },
+
+          //settlement: { $exists: true, $ne: null },
 
           ///privateSale: { $ne: true },
           privateSale: privateSale,
@@ -3132,6 +3121,8 @@ export async function getBuyOrders(
           ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
 
 
+          // userType filter
+          ...(userType !== 'all' ? { userType: userType } : {}),
 
           //paymentConfirmedAt: { $gte: startDate, $lt: endDate },
 
@@ -3154,8 +3145,79 @@ export async function getBuyOrders(
     ]).toArray();
 
 
+    // totalReaultGroup by seller.bankInfo.accountNumber
+    const totalReaultGroupBySellerBankAccountNumber = await collection.aggregate([
+      {
+        $match: {
+          status: 'paymentConfirmed',
+          
+          //settlement: { $exists: true, $ne: null },
 
-    
+          privateSale: privateSale,
+          ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+          storecode: { $regex: storecode, $options: 'i' },
+          nickname: { $regex: searchBuyer, $options: 'i' },
+          ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+          ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } }, { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' } }] } : {}),
+          ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+          ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+          // userType filter
+          ...(userType !== 'all' ? { userType: userType } : {}),
+
+          createdAt: { $gte: fromDateValue, $lt: toDateValue },
+        }
+      },
+      {
+        $group: {
+          _id: '$seller.bankInfo.accountNumber',
+          totalCount: { $sum: 1 },
+          totalKrwAmount: { $sum: '$krwAmount' },
+          totalUsdtAmount: { $sum: '$usdtAmount' },
+        }
+      },
+      // sort by totalUsdtAmount desc
+      { $sort: { totalUsdtAmount: -1 } }
+    ]).toArray();
+
+
+
+    // totalReaultGroup by buyer.bankInfo.accountNumber
+    const totalReaultGroupByBuyerBankAccountNumber = await collection.aggregate([
+      {
+        $match: {
+          status: 'paymentConfirmed',
+          
+          //settlement: { $exists: true, $ne: null },
+
+          privateSale: privateSale,
+          ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
+          storecode: { $regex: storecode, $options: 'i' },
+          nickname: { $regex: String(searchBuyer), $options: 'i' },
+          ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
+          ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } }, { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' } }] } : {}),
+          ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+          ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
+
+          // userType filter
+          ...(userType !== 'all' ? { userType: userType } : {}),
+
+          createdAt: { $gte: fromDateValue, $lt: toDateValue },
+        }
+      },
+      {
+        $group: {
+          _id: '$buyer.bankInfo.accountNumber',
+          totalCount: { $sum: 1 },
+          totalKrwAmount: { $sum: '$krwAmount' },
+          totalUsdtAmount: { $sum: '$usdtAmount' },
+        }
+      },
+      // sort by totalUsdtAmount desc
+      { $sort: { totalUsdtAmount: -1 } }
+    ]).toArray();
+
+
 
     return {
       totalCount: totalResult.length > 0 ? totalResult[0].totalCount : 0,
@@ -3171,6 +3233,10 @@ export async function getBuyOrders(
       totalAgentFeeAmountKRW: totalResultSettlement.length > 0 ? totalResultSettlement[0].totalAgentFeeAmountKRW : 0,
 
       totalByUserType: totalReaultGroupByUserType,
+      
+      totalBySellerBankAccountNumber: totalReaultGroupBySellerBankAccountNumber,
+
+      totalByBuyerBankAccountNumber: totalReaultGroupByBuyerBankAccountNumber,
 
       orders: results,
     };
@@ -3179,15 +3245,6 @@ export async function getBuyOrders(
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 

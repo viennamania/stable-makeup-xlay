@@ -146,6 +146,8 @@ interface BuyOrder {
   agentcode: string;
 
   agent: any;
+
+  userType: string;
 }
 
 
@@ -843,8 +845,30 @@ export default function Index({ params }: any) {
     
   const [buyOrders, setBuyOrders] = useState<BuyOrder[]>([]);
 
-
-  const [buyOrderStats, setBuyOrderStats] = useState({
+  const [buyOrderStats, setBuyOrderStats] = useState<{
+    totalCount: number;
+    totalKrwAmount: number;
+    totalUsdtAmount: number;
+    totalSettlementCount: number;
+    totalSettlementAmount: number;
+    totalSettlementAmountKRW: number;
+    totalFeeAmount: number;
+    totalFeeAmountKRW: number;
+    totalAgentFeeAmount: number;
+    totalAgentFeeAmountKRW: number;
+    totalByUserType: Array<{
+      _id: string;
+      totalCount: number;
+      totalKrwAmount: number;
+      totalUsdtAmount: number;
+    }>;
+    totalBySellerBankAccountNumber: Array<{
+      _id: string;
+      totalCount: number;
+      totalKrwAmount: number;
+      totalUsdtAmount: number;
+    }>;
+  }>({
     totalCount: 0,
     totalKrwAmount: 0,
     totalUsdtAmount: 0,
@@ -855,7 +879,11 @@ export default function Index({ params }: any) {
     totalFeeAmountKRW: 0,
     totalAgentFeeAmount: 0,
     totalAgentFeeAmountKRW: 0,
+
+    totalByUserType: [],
+    totalBySellerBankAccountNumber: [],
   });
+
   
 
 
@@ -1015,6 +1043,9 @@ export default function Index({ params }: any) {
                   totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                   totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                   totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+                  totalByUserType: data.result.totalByUserType,
+                  totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
                 });
 
 
@@ -1148,6 +1179,9 @@ export default function Index({ params }: any) {
               totalFeeAmountKRW: data.result.totalFeeAmountKRW,
               totalAgentFeeAmount: data.result.totalAgentFeeAmount,
               totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+              totalByUserType: data.result.totalByUserType,
+              totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
             });
 
 
@@ -1425,6 +1459,9 @@ export default function Index({ params }: any) {
                     totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                     totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                     totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+                    totalByUserType: data.result.totalByUserType,
+                    totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
                   });
 
 
@@ -1544,6 +1581,9 @@ export default function Index({ params }: any) {
                   totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                   totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                   totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+                  totalByUserType: data.result.totalByUserType,
+                  totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
                 });
 
             })
@@ -1762,6 +1802,9 @@ export default function Index({ params }: any) {
                 totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                 totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                 totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+                totalByUserType: data.result.totalByUserType,
+                totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
               });
 
           })
@@ -1860,6 +1903,9 @@ export default function Index({ params }: any) {
                   totalFeeAmountKRW: data.result.totalFeeAmountKRW,
                   totalAgentFeeAmount: data.result.totalAgentFeeAmount,
                   totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+                  totalByUserType: data.result.totalByUserType,
+                  totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
                 });                
 
             })
@@ -2039,6 +2085,9 @@ export default function Index({ params }: any) {
               totalFeeAmountKRW: data.result.totalFeeAmountKRW,
               totalAgentFeeAmount: data.result.totalAgentFeeAmount,
               totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+              totalByUserType: data.result.totalByUserType,
+              totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
             });
 
         })
@@ -2171,6 +2220,9 @@ export default function Index({ params }: any) {
         totalFeeAmountKRW: data.result.totalFeeAmountKRW,
         totalAgentFeeAmount: data.result.totalAgentFeeAmount,
         totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+        totalByUserType: data.result.totalByUserType,
+        totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
       });
 
     }
@@ -2289,6 +2341,9 @@ const fetchBuyOrders = async () => {
     totalFeeAmountKRW: data.result.totalFeeAmountKRW,
     totalAgentFeeAmount: data.result.totalAgentFeeAmount,
     totalAgentFeeAmountKRW: data.result.totalAgentFeeAmountKRW,
+
+    totalByUserType: data.result.totalByUserType,
+    totalBySellerBankAccountNumber: data.result.totalBySellerBankAccountNumber,
   });
 
 
@@ -3800,6 +3855,40 @@ const fetchBuyOrders = async () => {
                     className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   />
                 </div>
+
+                {/* 오늘, 어제 버튼 */}
+                <div className="flex flex-row items-center gap-2">
+                  <button
+                    onClick={() => {
+                      const today = new Date();
+                      const yyyy = today.getFullYear();
+                      const mm = String(today.getMonth() + 1).padStart(2, '0');
+                      const dd = String(today.getDate()).padStart(2, '0');
+                      const formattedToday = `${yyyy}-${mm}-${dd}`;
+                      setSearchFormDate(formattedToday);
+                      setSearchToDate(formattedToday);
+                    }}
+                    className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                  >
+                    오늘
+                  </button>
+                  <button
+                    onClick={() => {
+                      const yesterday = new Date();
+                      yesterday.setDate(yesterday.getDate() - 1);
+                      const yyyy = yesterday.getFullYear();
+                      const mm = String(yesterday.getMonth() + 1).padStart(2, '0');
+                      const dd = String(yesterday.getDate()).padStart(2, '0');
+                      const formattedYesterday = `${yyyy}-${mm}-${dd}`;
+                      setSearchFormDate(formattedYesterday);
+                      setSearchToDate(formattedYesterday);
+                    }}
+                    className="bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                  >
+                    어제
+                  </button>
+                </div>
+
               </div>
 
 
@@ -4068,6 +4157,71 @@ const fetchBuyOrders = async () => {
             </div>
 
 
+            <div className="mt-6 mb-4
+              w-full
+              flex flex-col gap-4
+              border-b border-zinc-300 pb-4">
+
+                {/* buyOrderStats.totalBySellerBankAccountNumber */}
+                <div className="w-full
+                  flex flex-col sm:flex-row items-start justify-end gap-4">
+
+                  {/* 판매자 통장번호별 통계 */}
+                  <span className="text-sm font-semibold mb-2 w-full sm:w-auto">
+                    판매자 통장별<br/>P2P 거래 통계
+                  </span>
+
+                  {buyOrderStats.totalBySellerBankAccountNumber?.map((item, index) => (
+                    <div key={index} className="flex flex-col gap-2 items-center">
+
+                      {/* copy account number button */}
+                      <button
+                        className="text-sm font-semibold underline text-blue-600"
+                        onClick={() => {
+                          const accountNumber = item._id || '기타은행';
+                          navigator.clipboard.writeText(accountNumber)
+                            .then(() => {
+                              toast.success(`통장번호 ${accountNumber} 복사됨`);
+                            })
+                            .catch((err) => {
+                              toast.error('복사 실패: ' + err);
+                            });
+                        }}
+                        title="통장번호 복사"
+                      >
+                        {item._id || '기타은행'}
+                      </button>
+
+                      <div className="text-sm font-semibold">
+                        {item.totalCount?.toLocaleString() || '0'}
+                      </div>
+                      <div className="flex flex-row items-center justify-center gap-1">
+                        <Image
+                          src="/icon-tether.png"
+                          alt="Tether"
+                          width={20}
+                          height={20}
+                          className="w-5 h-5"
+                        />
+                        <span className="text-sm font-semibold text-green-600"
+                          style={{ fontFamily: 'monospace' }}>
+                          {item.totalUsdtAmount
+                            ? item.totalUsdtAmount.toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                            : '0.000'}
+                        </span>
+                      </div>
+                      <div className="flex flex-row items-center justify-center gap-1">
+                        <span className="text-sm font-semibold text-yellow-600"
+                          style={{ fontFamily: 'monospace' }}>
+                          {item.totalKrwAmount?.toLocaleString() || '0'}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+
+                </div>
+
+            </div>
 
 
             {/* table view is horizontal scroll */}
@@ -4214,27 +4368,76 @@ const fetchBuyOrders = async () => {
                         
                         <td className="p-2">
                           <div className="
-                            w-20  
-                            flex flex-col items-center justify-center gap-2">
+                          w-36 
+                          flex flex-col items-center gap-2">
+        
+                              <div className="w-full flex flex-row items-center gap-1">
+                                <Image
+                                  src="/icon-user.png"
+                                  alt="User"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5"
+                                />
+                                {item?.userType === 'AAA' ? (
+                                  <div className="
+                                    text-xs text-white bg-red-500 px-1 rounded-md
+                                    ">
+                                    1등급
+                                  </div>
+                                ) : item?.userType === 'BBB' ? (
+                                  <div className="
+                                    text-xs text-white bg-orange-500 px-1 rounded-md
+                                    ">
+                                    2등급
+                                  </div>
+                                ) : item?.userType === 'CCC' ? (
+                                  <div className="
+                                    text-xs text-white bg-yellow-500 px-1 rounded-md
+                                    ">
+                                    3등급
+                                  </div>
+                                ) : item?.userType === 'DDD' ? (
+                                  <div className="
+                                    text-xs text-white bg-green-500 px-1 rounded-md
+                                    ">
+                                    4등급
+                                  </div>
+                                ) : (
+                                  <div className="
+                                    text-xs text-white bg-zinc-500 px-1 rounded-md
+                                    ">
+                                    일반
+                                  </div>
+                                )}
+                                <span className="text-sm text-blue-600 font-semibold">
+                                  {item?.nickname.length > 8 ? item?.nickname.substring(0, 8) + '...' : item?.nickname}
+                                </span>
 
-                              {/* buyer nickname */}
-                              <div className="text-lg text-blue-500 font-normal">
-                                {item?.nickname}
                               </div>
 
                               {/* wallet address */}
-                              <button
-                                onClick={() => {
-                                  navigator.clipboard.writeText(item.walletAddress);
-                                  toast.success('지갑주소가 복사되었습니다.');
-                                }}
-                                className="text-sm 
-                                hover:text-blue-500 cursor-pointer
-                                hover:underline"
-                                title="지갑주소 복사"
-                              >
-                                {item.walletAddress.substring(0, 10) + '...'}
-                              </button>
+                              <div className="flex flex-row items-center gap-1">
+                                <Image
+                                  src="/icon-shield.png"
+                                  alt="Wallet"
+                                  width={20}
+                                  height={20}
+                                  className="w-5 h-5"
+                                />
+                                <button
+                                  onClick={() => {
+                                    navigator.clipboard.writeText(item.walletAddress);
+                                    toast.success('지갑주소가 복사되었습니다.');
+                                  }}
+                                  className="text-smfont-semibold
+                                  hover:text-blue-600 cursor-pointer
+                                  hover:underline"
+                                  title="지갑주소 복사"
+                                >
+                                  {item.walletAddress.substring(0, 10) + '...'}
+                                </button>
+                              </div>
 
                           </div>
                         </td>
