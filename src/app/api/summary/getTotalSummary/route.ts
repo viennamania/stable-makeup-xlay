@@ -75,6 +75,7 @@ export async function POST(request: NextRequest) {
     depositName: "",
     limit: 5,
     page: 1,
+    userType: "all",
   });
 
   //console.log("buyers", buyers);
