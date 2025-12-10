@@ -112,6 +112,10 @@ interface BuyOrder {
   totalEscrowCount: number, // Count the number of escrows
   totalEscrowWithdrawAmount: number, // Total amount withdrawn from escrow
   totalEscrowDepositAmount: number, // Total amount deposited to escrow
+
+  totalClearanceCount: number,
+  totalClearanceUsdtAmount: number,
+  totalClearanceKrwAmount: number,
 }
 
 
@@ -1451,8 +1455,12 @@ export default function Index({ params }: any) {
 
                       {/* escrow withdraw */}
                       <th className="px-4 py-2 text-right text-sm font-normal ">
-                        보유량(USDT) 출금처리
+                        보유량(USDT)
                       </th>
+
+                      <th className="px-4 py-2 text-right text-sm font-normal ">청산수(건)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">청산량(USDT)</th>
+                      <th className="px-4 py-2 text-right text-sm font-normal ">청산금액(원)</th>
 
                     </tr>
                   </thead>
@@ -1474,12 +1482,11 @@ export default function Index({ params }: any) {
                           <td className="px-4 py-2 text-sm ">
                             {new Date(order.date).toLocaleDateString('ko-KR')}
                           </td>
+
                           {/* align right */}
                           <td className="px-4 py-2 text-sm  text-right">
                             {order.totalCount ? order.totalCount.toLocaleString() : 0}
                           </td>
-
-
                           <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
                             style={{ fontFamily: 'monospace' }}
                           >
@@ -1525,7 +1532,7 @@ export default function Index({ params }: any) {
                             {Number(order.totalSettlementAmountKRW).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                           </td>
 
-
+                          {/*
                           <td className="px-4 py-2 text-sm text-blue-500 font-normal text-right">
                             {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
                               <span className="text-green-400"
@@ -1542,6 +1549,40 @@ export default function Index({ params }: any) {
                             
                             )}
                           </td>
+                          */}
+
+
+                          <td className="px-4 py-2 text-sm text-blue-500 font-normal text-right">
+                            {order.totalEscrowCount && order.totalEscrowCount > 0 ? (
+                              <span className="text-green-400"
+                                style={{ fontFamily: 'monospace' }}
+                              >
+                                {Number(order.totalEscrowWithdrawAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')} USDT
+                              </span>
+                            ) : (
+                              
+                              <span className="text-red-500">
+                                출금대기
+                              </span>
+                            )}
+                          </td>
+
+
+
+                          <td className="px-4 py-2 text-sm  text-right">
+                            {order.totalClearanceCount ? order.totalClearanceCount.toLocaleString() : 0}
+                          </td>
+                          <td className="px-4 py-2 text-sm text-green-400 font-normal text-right"
+                            style={{ fontFamily: 'monospace' }}
+                          >
+                            {Number(order.totalClearanceUsdtAmount).toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                          </td>
+                          <td className="px-4 py-2 text-sm text-yellow-500 font-normal text-right"
+                            style={{ fontFamily: 'monospace' }}
+                          >
+                            {Number(order.totalClearanceKrwAmount).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                          </td>
+
 
                         </tr>
 

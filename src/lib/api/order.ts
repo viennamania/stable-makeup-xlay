@@ -3402,6 +3402,47 @@ export async function getBuyOrdersGroupByStorecodeDaily(
 
 
 
+  const pipelinePrivateSale = [
+    {
+      $match: {
+        
+       // if storecode is not empty, then match storecode
+        storecode: storecode ? { $regex: String(storecode), $options: 'i' } : { $ne: null },
+
+
+        status: 'paymentConfirmed',
+        privateSale: true,
+        createdAt: {
+          $gte: fromDateValue,
+          $lte: toDateValue,
+        }
+      }
+    },
+    {
+      $group: {
+        _id: {
+          date: { 
+            $dateToString: { 
+              format: "%Y-%m-%d", 
+              date: { $dateFromString: { dateString: "$createdAt" } },
+              timezone: "Asia/Seoul"
+            } 
+          },
+
+        },
+        totalUsdtAmount: { $sum: "$usdtAmount" },
+        totalKrwAmount: { $sum: "$krwAmount" },
+        totalCount: { $sum: 1 }, // Count the number of orders
+
+      }
+    },
+    {
+      $sort: { "_id.date": -1 } // Sort by date descending
+    }
+  ];
+
+  const privateSaleResults = await collection.aggregate(pipelinePrivateSale).toArray();
+
 
 
 
@@ -3411,10 +3452,13 @@ export async function getBuyOrdersGroupByStorecodeDaily(
     fromDate: fromDate,
     toDate: toDate,
     orders: results.map(result => ({
+      
       date: result._id.date,
+
       totalCount: result.totalCount,
       totalUsdtAmount: result.totalUsdtAmount,
       totalKrwAmount: result.totalKrwAmount,
+      
       totalSettlementCount: result.totalSettlementCount,
       totalSettlementAmount: result.totalSettlementAmount,
       totalSettlementAmountKRW: result.totalSettlementAmountKRW,
@@ -3429,6 +3473,10 @@ export async function getBuyOrdersGroupByStorecodeDaily(
       totalEscrowWithdrawAmount: escrowResults.find(escrow => escrow._id.date === result._id.date)?.totalEscrowWithdrawAmount || 0,
       totalEscrowCount: escrowResults.find(escrow => escrow._id.date === result._id.date)?.totalEscrowCount || 0,
 
+
+      totalClearanceCount: privateSaleResults.find(ps => ps._id.date === result._id.date)?.totalCount || 0,
+      totalClearanceUsdtAmount: privateSaleResults.find(ps => ps._id.date === result._id.date)?.totalUsdtAmount || 0,
+      totalClearanceKrwAmount: privateSaleResults.find(ps => ps._id.date === result._id.date)?.totalKrwAmount || 0,
 
     }))
   }
