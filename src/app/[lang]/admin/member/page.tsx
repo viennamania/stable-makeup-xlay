@@ -2599,7 +2599,7 @@ export default function Index({ params }: any) {
                             month: '2-digit',
                             day: '2-digit',
                           })}
-                          {' '}
+                          <br />
                           {new Date(item.createdAt).toLocaleTimeString('ko-KR', {
                             hour: '2-digit',
                             minute: '2-digit',

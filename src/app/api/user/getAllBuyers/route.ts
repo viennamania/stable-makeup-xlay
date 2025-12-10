@@ -25,6 +25,8 @@ export async function POST(request: NextRequest) {
   console.log("limit", limit);
   console.log("page", page);
 
+  console.log("userType", userType);
+
 
   const result = await getAllBuyers({
     agentcode: agentcode || '',
@@ -35,7 +37,7 @@ export async function POST(request: NextRequest) {
     limit: limit || 100,
     page: page || 1,
 
-    userType: userType,
+    userType: userType === undefined ? 'all' : userType,
   });
 
   //console.log("getAllBuyers result", result);
