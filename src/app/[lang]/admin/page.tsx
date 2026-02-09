@@ -1741,6 +1741,14 @@ export default function Index({ params }: any) {
                   >
                     P2P 거래내역관리
                   </button>
+                  <button
+                    onClick={() => {
+                      router.push('/' + params.lang + '/admin/bank-history');
+                    }}
+                    className="bg-emerald-600 text-sm text-[#0b2316] px-4 py-2 rounded-lg hover:bg-emerald-500/90"
+                  >
+                    은행계좌별 내역
+                  </button>
                 </div>
 
               </div>
