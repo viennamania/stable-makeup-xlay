@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
     searchDepositName,
 
     searchStoreBankAccountNumber,
+    searchBuyerBankAccountNumber,
 
     fromDate,
     toDate,
@@ -81,13 +82,14 @@ export async function POST(request: NextRequest) {
 
     searchStoreName: searchStoreName || "",
 
-    privateSale: privateSale || false,
+    privateSale: privateSale === undefined ? 'all' : privateSale,
 
     searchTradeId: searchTradeId || "",
     searchBuyer: searchBuyer || "",
     searchDepositName: searchDepositName || "",
 
     searchStoreBankAccountNumber: searchStoreBankAccountNumber || "",
+    searchBuyerBankAccountNumber: searchBuyerBankAccountNumber || "",
 
 
     fromDate: fromDate || "",

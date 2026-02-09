@@ -2133,6 +2133,7 @@ export async function getBuyOrders(
     searchDepositName,
 
     searchStoreBankAccountNumber,
+    searchBuyerBankAccountNumber,
 
     fromDate,
     toDate,
@@ -2151,13 +2152,14 @@ export async function getBuyOrders(
 
     searchStoreName: string;
 
-    privateSale: boolean;
+    privateSale: boolean | 'all';
 
     searchTradeId: string;
     searchBuyer: string;
     searchDepositName: string;
 
     searchStoreBankAccountNumber: string;
+    searchBuyerBankAccountNumber: string;
 
     fromDate: string;
     toDate: string;
@@ -2189,6 +2191,19 @@ export async function getBuyOrders(
 
   const client = await clientPromise;
   const collection = client.db(dbName).collection('buyorders');
+  const privateSaleFilter =
+    privateSale === 'all'
+      ? {}
+      : privateSale
+      ? { privateSale: true }
+      : { privateSale: { $ne: true } };
+
+  const privateSaleFilter =
+    privateSale === 'all'
+      ? {}
+      : privateSale
+      ? { privateSale: true }
+      : { privateSale: { $ne: true } };
 
 
   // status is not 'paymentConfirmed'
@@ -2214,7 +2229,7 @@ export async function getBuyOrders(
           : (searchOrderStatusCompleted ? 'paymentConfirmed'
           : { $ne: 'nothing' }))),
 
-        privateSale: privateSale || { $ne: true },
+        ...privateSaleFilter,
         ...(searchStoreName ? { "store.storeName": { $regex: String(searchStoreName), $options: 'i' } } : {}),
         ...(searchBuyer ? { nickname: { $regex: String(searchBuyer), $options: 'i' } } : {}),
 
@@ -2231,10 +2246,8 @@ export async function getBuyOrders(
           }] } : {}),
 
         
-        ///...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
-
-        // seller?.bankInfo?.accountNumber
         ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+        ...(searchBuyerBankAccountNumber ? { 'buyer.bankInfo.accountNumber': { $regex: String(searchBuyerBankAccountNumber), $options: 'i' } } : {}),
 
         
         // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -2275,7 +2288,7 @@ export async function getBuyOrders(
           : (searchOrderStatusCompleted ? 'paymentConfirmed'
           : { $ne: 'nothing' }))),
 
-        pirvateSale: { $ne: true },
+        ...privateSaleFilter,
 
         ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
 
@@ -2369,7 +2382,7 @@ export async function getBuyOrders(
 
         // exclude private sale
         //privateSale: { $ne: true },
-        privateSale: privateSale || { $ne: true },
+        ...privateSaleFilter,
 
 
         // if searchTradeId is provided, search by tradeId
@@ -2396,6 +2409,7 @@ export async function getBuyOrders(
         /////...(searchStoreBankAccountNumber ? { 'store.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
         // seller?.bankInfo?.accountNumber
         ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+        ...(searchBuyerBankAccountNumber ? { 'buyer.bankInfo.accountNumber': { $regex: String(searchBuyerBankAccountNumber), $options: 'i' } } : {}),
 
 
         // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -2433,7 +2447,7 @@ export async function getBuyOrders(
           status: 'paymentConfirmed',
 
           ///privateSale: { $ne: true },
-          privateSale: privateSale,
+          ...privateSaleFilter,
 
 
           //agentcode: { $regex: agentcode, $options: 'i' },
@@ -2456,6 +2470,7 @@ export async function getBuyOrders(
           //'store.bankInfo.accountNumber': { $regex: searchStoreBankAccountNumber, $options: 'i' },
                   // seller?.bankInfo?.accountNumber
           ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+          ...(searchBuyerBankAccountNumber ? { 'buyer.bankInfo.accountNumber': { $regex: String(searchBuyerBankAccountNumber), $options: 'i' } } : {}),
 
 
           // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -2501,7 +2516,7 @@ export async function getBuyOrders(
           settlement: { $exists: true, $ne: null },
 
           ///privateSale: { $ne: true },
-          privateSale: privateSale,
+          ...privateSaleFilter,
 
 
           //agentcode: { $regex: agentcode, $options: 'i' },
@@ -2523,6 +2538,7 @@ export async function getBuyOrders(
           ///'store.bankInfo.accountNumber': { $regex: searchStoreBankAccountNumber, $options: 'i' },
           // seller?.bankInfo?.accountNumber
           ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+          ...(searchBuyerBankAccountNumber ? { 'buyer.bankInfo.accountNumber': { $regex: String(searchBuyerBankAccountNumber), $options: 'i' } } : {}),
 
 
           // if manualConfirmPayment is true, autoConfirmPayment is not true
@@ -2609,6 +2625,7 @@ export async function getBuyOrders(
     searchDepositName,
 
     searchStoreBankAccountNumber,
+    searchBuyerBankAccountNumber,
 
     fromDate,
     toDate,
@@ -2629,13 +2646,14 @@ export async function getBuyOrders(
 
     searchStoreName: string;
 
-    privateSale: boolean;
+    privateSale: boolean | 'all';
 
     searchTradeId: string;
     searchBuyer: string;
     searchDepositName: string;
 
     searchStoreBankAccountNumber: string;
+    searchBuyerBankAccountNumber: string;
 
     fromDate: string;
     toDate: string;
@@ -2676,6 +2694,12 @@ export async function getBuyOrders(
 
   const client = await clientPromise;
   const collection = client.db(dbName).collection('buyorders');
+  const privateSaleFilter =
+    privateSale === 'all'
+      ? {}
+      : privateSale
+      ? { privateSale: true }
+      : { privateSale: { $ne: true } };
 
 
   // status is not 'paymentConfirmed'
@@ -2701,7 +2725,7 @@ export async function getBuyOrders(
           : (searchOrderStatusCompleted ? 'paymentConfirmed'
           : { $ne: 'nothing' }))),
 
-        privateSale: privateSale || { $ne: true },
+        ...privateSaleFilter,
         ...(searchStoreName ? { "store.storeName": { $regex: String(searchStoreName), $options: 'i' } } : {}),
         ...(searchBuyer ? { nickname: { $regex: String(searchBuyer), $options: 'i' } } : {}),
 
@@ -2762,7 +2786,7 @@ export async function getBuyOrders(
           : (searchOrderStatusCompleted ? 'paymentConfirmed'
           : { $ne: 'nothing' }))),
 
-        pirvateSale: { $ne: true },
+        ...privateSaleFilter,
 
         ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
 
@@ -2856,7 +2880,7 @@ export async function getBuyOrders(
 
         // exclude private sale
         //privateSale: { $ne: true },
-        privateSale: privateSale || { $ne: true },
+        ...privateSaleFilter,
 
 
         // if searchTradeId is provided, search by tradeId
@@ -2930,7 +2954,7 @@ export async function getBuyOrders(
           status: 'paymentConfirmed',
 
           ///privateSale: { $ne: true },
-          privateSale: privateSale,
+          ...privateSaleFilter,
 
 
           //agentcode: { $regex: agentcode, $options: 'i' },
@@ -3011,7 +3035,7 @@ export async function getBuyOrders(
           settlement: { $exists: true, $ne: null },
 
           ///privateSale: { $ne: true },
-          privateSale: privateSale,
+          ...privateSaleFilter,
 
 
           //agentcode: { $regex: agentcode, $options: 'i' },
@@ -3093,7 +3117,7 @@ export async function getBuyOrders(
           //settlement: { $exists: true, $ne: null },
 
           ///privateSale: { $ne: true },
-          privateSale: privateSale,
+          ...privateSaleFilter,
 
 
           //agentcode: { $regex: agentcode, $options: 'i' },
@@ -3153,13 +3177,14 @@ export async function getBuyOrders(
           
           //settlement: { $exists: true, $ne: null },
 
-          privateSale: privateSale,
+          ...privateSaleFilter,
           ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
           storecode: { $regex: storecode, $options: 'i' },
           nickname: { $regex: searchBuyer, $options: 'i' },
           ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
           ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } }, { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' } }] } : {}),
           ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+          ...(searchBuyerBankAccountNumber ? { 'buyer.bankInfo.accountNumber': { $regex: String(searchBuyerBankAccountNumber), $options: 'i' } } : {}),
           ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
 
           // userType filter
@@ -3190,13 +3215,14 @@ export async function getBuyOrders(
           
           //settlement: { $exists: true, $ne: null },
 
-          privateSale: privateSale,
+          ...privateSaleFilter,
           ...(agentcode ? { agentcode: { $regex: String(agentcode), $options: 'i' } } : {}),
           storecode: { $regex: storecode, $options: 'i' },
           nickname: { $regex: String(searchBuyer), $options: 'i' },
           ...(searchTradeId ? { tradeId: { $regex: String(searchTradeId), $options: 'i' } } : {}),
           ...(searchDepositName ? { $or: [{ "buyer.depositName": { $regex: String(searchDepositName), $options: 'i' } }, { 'seller.bankInfo.accountHolder': { $regex: String(searchDepositName), $options: 'i' } }] } : {}),
           ...(searchStoreBankAccountNumber ? { 'seller.bankInfo.accountNumber': { $regex: String(searchStoreBankAccountNumber), $options: 'i' } } : {}),
+          ...(searchBuyerBankAccountNumber ? { 'buyer.bankInfo.accountNumber': { $regex: String(searchBuyerBankAccountNumber), $options: 'i' } } : {}),
           ...(manualConfirmPayment ? { autoConfirmPayment: { $ne: true } } : {}),
 
           // userType filter
@@ -9058,4 +9084,3 @@ export async function updateBuyerBankInfoUpdate(
     return null;
   }
 }
-
