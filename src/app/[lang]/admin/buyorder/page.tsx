@@ -240,6 +240,7 @@ export default function Index({ params }: any) {
 
 
   const searchParamsStorecode = searchParams.get('storecode') || "";
+  const searchParamsSellerBankAccountNumber = searchParams.get('searchStoreBankAccountNumber') || "";
 
 
   const activeWallet = useActiveWallet();
@@ -929,6 +930,13 @@ export default function Index({ params }: any) {
 
 
 
+  const [searchStoreBankAccountNumber, setSearchStoreBankAccountNumber] = useState("");
+  useEffect(() => {
+    setSearchStoreBankAccountNumber(searchParamsSellerBankAccountNumber || "");
+  }, [searchParamsSellerBankAccountNumber]);
+
+
+
 
 
 
@@ -1175,6 +1183,7 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
                     searchOrderStatusCompleted: searchOrderStatusCompleted,
 
                     searchStoreName: searchStoreName,
+                    searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
                     fromDate: searchFromDate,
                     toDate: searchToDate,
@@ -1328,6 +1337,7 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
               searchOrderStatusCompleted: searchOrderStatusCompleted,
 
               searchStoreName: searchStoreName,
+              searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               fromDate: searchFromDate,
               toDate: searchToDate,
@@ -1424,6 +1434,7 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
               searchOrderStatusCompleted: searchOrderStatusCompleted,
 
               searchStoreName: searchStoreName,
+              searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               fromDate: searchFromDate,
               toDate: searchToDate,
@@ -1721,17 +1732,18 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
                   storecode: searchStorecode,
                   limit: Number(limitValue),
                   page: Number(pageValue),
-                  walletAddress: address,
-                  searchMyOrders: searchMyOrders,
-                  searchOrderStatusCancelled: searchOrderStatusCancelled,
-                  searchOrderStatusCompleted: searchOrderStatusCompleted,
+                walletAddress: address,
+                searchMyOrders: searchMyOrders,
+                searchOrderStatusCancelled: searchOrderStatusCancelled,
+                searchOrderStatusCompleted: searchOrderStatusCompleted,
 
-                  searchStoreName: searchStoreName,
+                searchStoreName: searchStoreName,
+                searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
 
-                  fromDate: searchFromDate,
-                  toDate: searchToDate,
-                }
+                fromDate: searchFromDate,
+                toDate: searchToDate,
+              }
               )
             }).then(async (response) => {
               const data = await response.json();
@@ -1857,6 +1869,7 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
                 searchOrderStatusCompleted: searchOrderStatusCompleted,
 
                 searchStoreName: searchStoreName,
+                searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
                 fromDate: searchFromDate,
                 toDate: searchToDate,
@@ -2130,17 +2143,18 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
                 storecode: searchStorecode,
                 limit: Number(limitValue),
                 page: Number(pageValue),
-                walletAddress: address,
-                searchMyOrders: searchMyOrders,
-                searchOrderStatusCancelled: searchOrderStatusCancelled,
-                searchOrderStatusCompleted: searchOrderStatusCompleted,
+              walletAddress: address,
+              searchMyOrders: searchMyOrders,
+              searchOrderStatusCancelled: searchOrderStatusCancelled,
+              searchOrderStatusCompleted: searchOrderStatusCompleted,
 
-                searchStoreName: searchStoreName,
+              searchStoreName: searchStoreName,
+              searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
-                fromDate: searchFromDate,
-                toDate: searchToDate,
-              }
-            )
+              fromDate: searchFromDate,
+              toDate: searchToDate,
+            }
+          )
           }).then(async (response) => {
             const data = await response.json();
             //console.log('data', data);
@@ -2452,6 +2466,7 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
               searchOrderStatusCompleted: searchOrderStatusCompleted,
 
               searchStoreName: searchStoreName,
+              searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               fromDate: searchFromDate,
               toDate: searchToDate,
@@ -2568,17 +2583,18 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
             {
               storecode: searchStorecode,
               limit: Number(limitValue),
-              page: Number(pageValue),
-              walletAddress: address,
-              searchMyOrders: searchMyOrders,
-              searchOrderStatusCancelled: searchOrderStatusCancelled,
-              searchOrderStatusCompleted: searchOrderStatusCompleted,
+            page: Number(pageValue),
+            walletAddress: address,
+            searchMyOrders: searchMyOrders,
+            searchOrderStatusCancelled: searchOrderStatusCancelled,
+            searchOrderStatusCompleted: searchOrderStatusCompleted,
 
-              searchStoreName: searchStoreName,
+            searchStoreName: searchStoreName,
+            searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
-              fromDate: searchFromDate,
-              toDate: searchToDate,
-            }
+            fromDate: searchFromDate,
+            toDate: searchToDate,
+          }
 
         ),
       });
@@ -2651,6 +2667,7 @@ getAllBuyOrders result totalAgentFeeAmountKRW 0
     limitValue,
     pageValue,
     searchStorecode,
+    searchStoreBankAccountNumber,
     searchFromDate,
     searchToDate,
 
@@ -2684,6 +2701,7 @@ const fetchBuyOrders = async () => {
         searchMyOrders: searchMyOrders,
 
         searchStoreName: searchStoreName,
+        searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
         fromDate: searchFromDate,
         toDate: searchToDate,
@@ -3940,6 +3958,26 @@ const fetchBuyOrders = async () => {
                     </button>
                   </div>
 
+              </div>
+
+              <div className="flex flex-row items-center gap-2">
+                <Image
+                  src="/icon-bank.png"
+                  alt="Bank"
+                  width={20}
+                  height={20}
+                  className="rounded-lg w-5 h-5 p-1 bg-white object-cover"
+                />
+                <input
+                  type="text"
+                  value={searchStoreBankAccountNumber}
+                  onChange={(e) => {
+                    setSearchStoreBankAccountNumber(e.target.value);
+                    setPageValue(1);
+                  }}
+                  placeholder="판매자 통장번호"
+                  className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                />
               </div>
 
 
@@ -8999,6 +9037,3 @@ const TradeDetail = (
       </div>
     );
   };
-
-
-
