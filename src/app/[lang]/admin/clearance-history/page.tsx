@@ -198,6 +198,7 @@ export default function Index({ params }: any) {
 
 
   const paramSearchTradeId = searchParams.get('searchTradeId') || "";
+  const paramSearchBuyerBankAccountNumber = searchParams.get('searchBuyerBankAccountNumber') || "";
 
 
   const contract = getContract({
@@ -868,6 +869,11 @@ export default function Index({ params }: any) {
   const [searchDepositName, setSearchDepositName] = useState("");
 
 
+  const [searchBuyerBankAccountNumber, setSearchBuyerBankAccountNumber] = useState("");
+  useEffect(() => {
+    setSearchBuyerBankAccountNumber(paramSearchBuyerBankAccountNumber || "");
+  }, [paramSearchBuyerBankAccountNumber]);
+
   // search store bank account number
   const [searchStoreBankAccountNumber, setSearchStoreBankAccountNumber] = useState("");
 
@@ -1063,6 +1069,7 @@ export default function Index({ params }: any) {
                     searchBuyer: searchBuyer,
                     searchDepositName: searchDepositName,
 
+                    searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
                     searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
                     privateSale: true,
@@ -1211,6 +1218,7 @@ export default function Index({ params }: any) {
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
+              searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
               searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               privateSale: true,
@@ -1493,6 +1501,7 @@ export default function Index({ params }: any) {
                   searchBuyer: searchBuyer,
                   searchDepositName: searchDepositName,
 
+                  searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
                   searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
                   privateSale: true,
@@ -1724,6 +1733,7 @@ export default function Index({ params }: any) {
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
+              searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
               searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               privateSale: true, 
@@ -1844,6 +1854,7 @@ export default function Index({ params }: any) {
           searchBuyer: searchBuyer,
           searchDepositName: searchDepositName,
 
+          searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
           searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
           privateSale: true,
@@ -1958,6 +1969,7 @@ export default function Index({ params }: any) {
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
+              searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
               searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               privateSale: true,
@@ -2080,6 +2092,7 @@ export default function Index({ params }: any) {
 
     searchTradeId,
     searchBuyer,
+    searchBuyerBankAccountNumber,
     searchStoreBankAccountNumber,
     searchDepositName,
     
@@ -2377,6 +2390,7 @@ export default function Index({ params }: any) {
               searchBuyer: searchBuyer,
               searchDepositName: searchDepositName,
 
+              searchBuyerBankAccountNumber: searchBuyerBankAccountNumber,
               searchStoreBankAccountNumber: searchStoreBankAccountNumber,
 
               privateSale: true,
@@ -3082,6 +3096,7 @@ export default function Index({ params }: any) {
                         '&toDate=' + searchToDate +
                         '&searchBuyer=' + searchBuyer +
                         '&searchDepositName=' + searchDepositName +
+                        '&searchBuyerBankAccountNumber=' + searchBuyerBankAccountNumber +
                         '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber +
                         '&searchTradeId=' + searchTradeId
                         );
@@ -3132,6 +3147,7 @@ export default function Index({ params }: any) {
                       '&toDate=' + searchToDate +
                       '&searchBuyer=' + searchBuyer +
                       '&searchDepositName=' + searchDepositName +
+                      '&searchBuyerBankAccountNumber=' + searchBuyerBankAccountNumber +
                       '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber +
                       '&searchTradeId=' + searchTradeId
                       );
@@ -3164,6 +3180,7 @@ export default function Index({ params }: any) {
                       '&toDate=' + e.target.value +
                       '&searchBuyer=' + searchBuyer +
                       '&searchDepositName=' + searchDepositName +
+                      '&searchBuyerBankAccountNumber=' + searchBuyerBankAccountNumber +
                       '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber +
                       '&searchTradeId=' + searchTradeId
                       );
@@ -3223,6 +3240,31 @@ export default function Index({ params }: any) {
                     placeholder="입금통장번호"
                     className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
                   /> 
+                </div>
+
+                <div className="flex flex-row items-center gap-2">
+                  <input
+                    type="text"
+                    value={searchBuyerBankAccountNumber}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setSearchBuyerBankAccountNumber(value);
+                      setPageValue(1);
+                      router.push('/' + params.lang + '/admin/clearance-history?storecode=' + searchStorecode
+                        + '&fromDate=' + searchFromDate
+                        + '&toDate=' + searchToDate
+                        + '&searchBuyer=' + searchBuyer
+                        + '&searchDepositName=' + searchDepositName
+                        + '&searchBuyerBankAccountNumber=' + value
+                        + '&searchStoreBankAccountNumber=' + searchStoreBankAccountNumber
+                        + '&searchTradeId=' + searchTradeId
+                        + '&limit=' + limit
+                        + '&page=1'
+                      );
+                    }}
+                    placeholder="구매자 통장번호"
+                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                  />
                 </div>
 
 
@@ -5512,6 +5554,7 @@ export default function Index({ params }: any) {
                     + `&toDate=${searchToDate}`
                     + `&searchBuyer=${searchBuyer}`
                     + `&searchDepositName=${searchDepositName}`
+                    + `&searchBuyerBankAccountNumber=${searchBuyerBankAccountNumber}`
                     + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
                     + `&searchTradeId=${searchTradeId}`
                   )
@@ -5540,6 +5583,7 @@ export default function Index({ params }: any) {
                   + `&toDate=${searchToDate}`
                   + `&searchBuyer=${searchBuyer}`
                   + `&searchDepositName=${searchDepositName}`
+                  + `&searchBuyerBankAccountNumber=${searchBuyerBankAccountNumber}`
                   + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
                   + `&searchTradeId=${searchTradeId}`
                 )
@@ -5563,6 +5607,7 @@ export default function Index({ params }: any) {
                   + `&toDate=${searchToDate}`
                   + `&searchBuyer=${searchBuyer}`
                   + `&searchDepositName=${searchDepositName}`
+                  + `&searchBuyerBankAccountNumber=${searchBuyerBankAccountNumber}`
                   + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
                   + `&searchTradeId=${searchTradeId}`
                 )
@@ -5591,6 +5636,7 @@ export default function Index({ params }: any) {
                   + `&toDate=${searchToDate}`
                   + `&searchBuyer=${searchBuyer}`
                   + `&searchDepositName=${searchDepositName}`
+                  + `&searchBuyerBankAccountNumber=${searchBuyerBankAccountNumber}`
                   + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
                   + `&searchTradeId=${searchTradeId}`
                 )
@@ -5613,6 +5659,7 @@ export default function Index({ params }: any) {
                   + `&toDate=${searchToDate}`
                   + `&searchBuyer=${searchBuyer}`
                   + `&searchDepositName=${searchDepositName}`
+                  + `&searchBuyerBankAccountNumber=${searchBuyerBankAccountNumber}`
                   + `&searchStoreBankAccountNumber=${searchStoreBankAccountNumber}`
                   + `&searchTradeId=${searchTradeId}`
                 )
@@ -5768,6 +5815,3 @@ const TradeDetail = (
       </div>
     );
   };
-
-
-

@@ -101,6 +101,7 @@ import {
 
   bscContractAddressMKRW,
 } from "@/app/config/contractAddresses";
+import * as XLSX from "xlsx";
 
 
 interface BuyOrder {
@@ -183,6 +184,55 @@ const wallets = [
       },
     }),
   ];
+
+const getUserTypeMeta = (userType?: string) => {
+  if (userType === 'AAA') {
+    return { label: '1등급', className: 'bg-red-500/20 text-red-200 ring-1 ring-red-400/40' };
+  }
+  if (userType === 'BBB') {
+    return { label: '2등급', className: 'bg-orange-500/20 text-orange-200 ring-1 ring-orange-400/40' };
+  }
+  if (userType === 'CCC') {
+    return { label: '3등급', className: 'bg-yellow-500/20 text-yellow-200 ring-1 ring-yellow-400/40' };
+  }
+  if (userType === 'DDD') {
+    return { label: '4등급', className: 'bg-green-500/20 text-green-200 ring-1 ring-green-400/40' };
+  }
+  return { label: '일반', className: 'bg-slate-500/20 text-slate-200 ring-1 ring-slate-400/40' };
+};
+
+const getBuyOrderStatusMeta = (status?: string) => {
+  if (status === 'ordered') {
+    return { label: '구매주문', className: 'text-amber-300' };
+  }
+  if (status === 'accepted') {
+    return { label: '판매자확정', className: 'text-cyan-300' };
+  }
+  if (status === 'paymentRequested') {
+    return { label: '결제요청', className: 'text-orange-300' };
+  }
+  if (status === 'paymentConfirmed') {
+    return { label: '결제완료', className: 'text-emerald-300' };
+  }
+  if (status === 'cancelled') {
+    return { label: '거래취소', className: 'text-rose-300' };
+  }
+  return { label: '-', className: 'text-slate-400' };
+};
+
+const formatDateTimeForDisplay = (value?: string) => {
+  if (!value) return '-';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '-';
+  return new Intl.DateTimeFormat('ko-KR', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  }).format(date);
+};
   
 
 
@@ -952,8 +1002,22 @@ export default function Index({ params }: any) {
   const [fetchingAllBuyer, setFetchingAllBuyer] = useState(false);
   const [allBuyer, setAllBuyer] = useState([] as any[]);
   const [totalCount, setTotalCount] = useState(0);
+  const [exportingBuyerExcel, setExportingBuyerExcel] = useState(false);
+
+  const getBuyerSearchPayload = (requestLimit: number, requestPage: number) => {
+    return {
+      storecode: searchParamsStorecode,
+      search: searchBuyer,
+      depositName: searchDepositName,
+      limit: requestLimit,
+      page: requestPage,
+    };
+  };
     
-  const fetchAllBuyer = async () => {
+  const fetchAllBuyer = async (
+    requestPage: number = Number(pageValue),
+    requestLimit: number = Number(limitValue),
+  ) => {
     if (fetchingAllBuyer) {
       return;
     }
@@ -963,17 +1027,7 @@ export default function Index({ params }: any) {
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(
-        {
-          //storecode: searchStorecode,
-          storecode: searchParamsStorecode,
-
-          search: searchBuyer,
-          depositName: searchDepositName,
-          limit: Number(limitValue),
-          page: Number(pageValue),
-        }
-      ),
+      body: JSON.stringify(getBuyerSearchPayload(requestLimit, requestPage)),
     });
     if (!response.ok) {
       setFetchingAllBuyer(false);
@@ -988,7 +1042,118 @@ export default function Index({ params }: any) {
     setFetchingAllBuyer(false);
 
     return data.result.users;
-  }
+  };
+
+  const fetchAllBuyerForExcel = async () => {
+    const batchLimit = 500;
+    let currentPage = 1;
+    let collectedUsers: any[] = [];
+    let totalResultCount = 0;
+
+    while (true) {
+      const response = await fetch('/api/user/getAllBuyers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(getBuyerSearchPayload(batchLimit, currentPage)),
+      });
+
+      if (!response.ok) {
+        throw new Error('회원 검색에 실패했습니다.');
+      }
+
+      const data = await response.json();
+      const users = data?.result?.users || [];
+      const totalCount = Number(data?.result?.totalCount || 0);
+
+      if (currentPage === 1) {
+        totalResultCount = totalCount;
+      }
+
+      collectedUsers = [...collectedUsers, ...users];
+
+      if (users.length === 0 || collectedUsers.length >= totalResultCount) {
+        break;
+      }
+
+      currentPage += 1;
+    }
+
+    return collectedUsers;
+  };
+
+  const downloadBuyerExcel = async () => {
+    if (exportingBuyerExcel) {
+      return;
+    }
+
+    setExportingBuyerExcel(true);
+
+    try {
+      const users = await fetchAllBuyerForExcel();
+
+      if (!users.length) {
+        toast.error('엑셀로 내보낼 회원 데이터가 없습니다.');
+        return;
+      }
+
+      const rows = users.map((item: any, index: number) => {
+        const userTypeMeta = getUserTypeMeta(item?.userType);
+        const statusMeta = getBuyOrderStatusMeta(item?.buyOrderStatus);
+
+        return {
+          No: index + 1,
+          가입일시: formatDateTimeForDisplay(item?.createdAt),
+          회원아이디: item?.nickname || '',
+          회원등급: userTypeMeta.label,
+          가맹점명: item?.store?.storeName || '',
+          가맹점코드: item?.store?.storecode || item?.storecode || '',
+          입금은행: item?.buyer?.depositBankName || '',
+          계좌번호: item?.buyer?.depositBankAccountNumber || '',
+          입금자명: item?.buyer?.depositName || '',
+          결제건수: Number(item?.totalPaymentConfirmedCount || 0),
+          결제금액원: Number(item?.totalPaymentConfirmedKrwAmount || 0),
+          구매량USDT: Number(item?.totalPaymentConfirmedUsdtAmount || 0),
+          주문상태: statusMeta.label,
+          지갑주소: item?.walletAddress || '',
+        };
+      });
+
+      const worksheet = XLSX.utils.json_to_sheet(rows);
+      worksheet['!cols'] = [
+        { wch: 7 },
+        { wch: 22 },
+        { wch: 18 },
+        { wch: 10 },
+        { wch: 20 },
+        { wch: 16 },
+        { wch: 14 },
+        { wch: 22 },
+        { wch: 14 },
+        { wch: 12 },
+        { wch: 16 },
+        { wch: 13 },
+        { wch: 12 },
+        { wch: 46 },
+      ];
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Members');
+
+      const now = new Date();
+      const stamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}-${String(now.getMinutes()).padStart(2, '0')}`;
+      const storeSegment = searchParamsStorecode ? searchParamsStorecode : 'all';
+
+      XLSX.writeFile(workbook, `member-search-results-${storeSegment}-${stamp}.xlsx`);
+      toast.success(`엑셀 다운로드 완료 (${rows.length}건)`);
+    } catch (error) {
+      console.error(error);
+      toast.error('엑셀 다운로드 중 오류가 발생했습니다.');
+    } finally {
+      setExportingBuyerExcel(false);
+    }
+  };
 
   
 
@@ -1670,16 +1835,18 @@ export default function Index({ params }: any) {
     );
   }
 
+  const totalPage = Math.max(1, Math.ceil(Number(totalCount) / Number(limit)));
+
 
 
   return (
 
-    <main className="p-4 pb-10 min-h-[100vh] flex items-start justify-center container max-w-screen-2xl mx-auto">
+    <main className="relative min-h-[100vh] w-full bg-[radial-gradient(circle_at_top,#334155_0%,#0f172a_45%,#020617_100%)] px-4 pb-10 pt-4 text-slate-100">
 
 
       {/* fixed position right and vertically center */}
       <div className="
-        flex
+        hidden xl:flex
         fixed right-4 top-1/2 transform -translate-y-1/2
         z-40
         ">
@@ -1687,11 +1854,7 @@ export default function Index({ params }: any) {
           <div className="w-full flex flex-col items-end justify-center gap-4">
 
 
-            <div className="flex flex-row items-center justify-center gap-2
-            bg-white/80
-            p-2 rounded-lg shadow-md
-            backdrop-blur-md
-            ">
+            <div className="flex flex-row items-center justify-center gap-2 rounded-2xl border border-slate-700/80 bg-slate-900/85 p-3 shadow-2xl backdrop-blur-xl">
               {loadingTotalNumberOfBuyOrders ? (
                 <Image
                   src="/loading.png"
@@ -1715,9 +1878,7 @@ export default function Index({ params }: any) {
               <div className="flex flex-row items-center justify-center gap-1">
                 {processingBuyOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
 
-                  <div className="flex flex-col items-center justify-center
-                  bg-white p-1 rounded-lg shadow-md
-                  "
+                  <div className="flex flex-col items-center justify-center rounded-xl border border-slate-600/70 bg-slate-800/90 p-1 shadow-md"
                   key={index}>
                     <Image
                       src={order?.store?.storeLogo || '/logo.png'}
@@ -1726,10 +1887,10 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5 rounded-lg object-cover"
                     />
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-slate-400">
                       {order?.store?.storeName || 'Store'}
                     </span>
-                    <span className="text-sm text-gray-800 font-semibold">
+                    <span className="text-sm font-semibold text-slate-100">
                       {order?.buyer.depositName || 'Buyer'}
                     </span>
                   </div>
@@ -1737,14 +1898,14 @@ export default function Index({ params }: any) {
                 ))}
 
                 {processingBuyOrders.length > 3 && (
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-slate-400">
                     +{processingBuyOrders.length - 3}
                   </span>
                 )}
               </div>
 
 
-              <p className="text-lg text-red-500 font-semibold">
+              <p className="text-lg font-semibold text-rose-300">
                 {
                 totalNumberOfBuyOrders
                 }
@@ -1764,8 +1925,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/admin/buyorder');
                     }}
-                    className="flex items-center justify-center gap-2
-                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-cyan-400 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:brightness-110"
                   >
                     <span className="text-sm">
                       구매<br />관리
@@ -1778,11 +1938,7 @@ export default function Index({ params }: any) {
 
             {/* Clearance Orders */}
             {version !== 'bangbang' && (
-            <div className="flex flex-row items-center justify-center gap-2
-            bg-white/80
-            p-2 rounded-lg shadow-md
-            backdrop-blur-md
-            ">
+            <div className="flex flex-row items-center justify-center gap-2 rounded-2xl border border-slate-700/80 bg-slate-900/85 p-3 shadow-2xl backdrop-blur-xl">
 
               {loadingTotalNumberOfClearanceOrders ? (
                 <Image
@@ -1806,9 +1962,7 @@ export default function Index({ params }: any) {
               <div className="flex flex-row items-center justify-center gap-1">
                 {processingClearanceOrders.slice(0, 3).map((order: BuyOrder, index: number) => (
 
-                  <div className="flex flex-col items-center justify-center
-                  bg-white p-1 rounded-lg shadow-md
-                  "
+                  <div className="flex flex-col items-center justify-center rounded-xl border border-slate-600/70 bg-slate-800/90 p-1 shadow-md"
                   key={index}>
                     <Image
                       src={order?.store?.storeLogo || '/logo.png'}
@@ -1817,10 +1971,10 @@ export default function Index({ params }: any) {
                       height={20}
                       className="w-5 h-5 rounded-lg object-cover"
                     />
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs text-slate-400">
                       {order?.store?.storeName || 'Store'}
                     </span>
-                    <span className="text-sm text-gray-800 font-semibold">
+                    <span className="text-sm font-semibold text-slate-100">
                       {order?.buyer?.depositName || 'Buyer'}
                     </span>
                   </div>
@@ -1828,7 +1982,7 @@ export default function Index({ params }: any) {
                 ))}
 
                 {processingClearanceOrders.length > 3 && (
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-slate-400">
                     +{processingClearanceOrders.length - 3}
                   </span>
                 )}
@@ -1836,7 +1990,7 @@ export default function Index({ params }: any) {
 
 
 
-              <p className="text-lg text-yellow-500 font-semibold">
+              <p className="text-lg font-semibold text-amber-300">
                 {
                 totalNumberOfClearanceOrders
                 }
@@ -1856,8 +2010,7 @@ export default function Index({ params }: any) {
                     onClick={() => {
                       router.push('/' + params.lang + '/admin/clearance-history');
                     }}
-                    className="flex items-center justify-center gap-2
-                    bg-[#3167b4] text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-[#3167b4]/80"
+                    className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-300 to-orange-300 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:brightness-110"
                   >
                     <span className="text-sm">
                       청산<br />관리
@@ -1874,11 +2027,11 @@ export default function Index({ params }: any) {
       </div>
 
 
-      <div className="py-0 w-full">
+      <div className="mx-auto w-full max-w-screen-2xl py-0">
 
 
 
-        <div className="w-full flex flex-col xl:flex-row items-center justify-center gap-2 bg-white/80 p-2 rounded-lg mb-4">
+        <div className="mb-4 flex w-full flex-col items-center justify-center gap-2 rounded-2xl border border-slate-700/80 bg-slate-900/80 p-3 shadow-xl backdrop-blur-xl xl:flex-row">
             
           {/*
            <div className="w-full flex flex-row items-center justify-start gap-2">
@@ -1907,12 +2060,12 @@ export default function Index({ params }: any) {
           {address && !loadingUser && (
 
 
-            <div className="w-full flex flex-row items-center justify-end gap-2">
+            <div className="flex w-full flex-row items-center justify-end gap-2">
               <button
                 onClick={() => {
                   router.push('/' + params.lang + '/admin/profile-settings');
                 }}
-                className="flex bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                className="flex rounded-xl border border-slate-600 bg-slate-800 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700"
               >
                 <div className="flex flex-row items-center justify-center gap-2">
                   {isAdmin && (
@@ -1924,12 +2077,12 @@ export default function Index({ params }: any) {
                         height={20}
                         className="rounded-lg w-5 h-5"
                       />
-                      <span className="text-sm text-yellow-500">
+                      <span className="text-sm text-yellow-300">
                         전체 관리자
                       </span>
                     </div>
                   )}
-                  <span className="text-sm text-[#f3f4f6]">
+                  <span className="text-sm text-slate-100">
                     {user?.nickname || "프로필"}
                   </span>
 
@@ -1951,8 +2104,7 @@ export default function Index({ params }: any) {
                       });
                   } }
 
-                  className="flex items-center justify-center gap-2
-                    bg-gray-700 text-sm text-[#f3f4f6] px-4 py-2 rounded-lg hover:bg-gray-700/80"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-slate-600 bg-slate-800 px-4 py-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700"
               >
                 <Image
                   src="/icon-logout.webp"
@@ -1975,7 +2127,7 @@ export default function Index({ params }: any) {
 
 
 
-        <div className="flex flex-col items-start justify-center gap-2 mt-4">
+        <div className="mt-4 flex flex-col items-start justify-center gap-3">
               
           {/* USDT 가격 binance market price */}
           {/*
@@ -2008,35 +2160,24 @@ export default function Index({ params }: any) {
       
           {/* 홈 / 가맹점관리 / 회원관리 / 구매주문관리 */}
           {/* memnu buttons same width left side */}
-          <div className="grid grid-cols-3 xl:grid-cols-6 gap-2 items-center justify-start mb-4">
+          <div className="mb-4 grid w-full grid-cols-2 items-center justify-start gap-2 md:grid-cols-3 xl:grid-cols-6">
 
 
 
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/store')}
-                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-gray-700/80
-                  hover:cursor-pointer
-                  hover: scale-105
-                  transition-all duration-200 ease-in-out
-                  ">
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                   가맹점관리
               </button>
 
               <button
                 onClick={() => router.push('/' + params.lang + '/admin/agent')}
-                className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                hover:bg-gray-700/80
-                hover:cursor-pointer
-                hover:scale-105
-                transition-transform duration-200 ease-in-out
-                ">
+                className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                 에이전트관리
             </button>
 
-              <div className='flex w-32 items-center justify-center gap-2
-              bg-yellow-500 text-[#3167b4] text-sm rounded-lg p-2'>
+              <div className='flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 p-2 text-sm font-semibold text-slate-900 shadow-lg shadow-emerald-900/20'>
                 <Image
                   src="/icon-user.png"
                   alt="Buyer"
@@ -2051,70 +2192,40 @@ export default function Index({ params }: any) {
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/buyorder')}
-                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-gray-700/80
-                  hover:cursor-pointer
-                  hover: scale-105
-                  transition-all duration-200 ease-in-out
-                  ">
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                   구매주문관리
               </button>
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/trade-history')}
-                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-gray-700/80
-                  hover:cursor-pointer
-                  hover: scale-105
-                  transition-all duration-200 ease-in-out
-                  ">
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                   P2P 거래내역
               </button>
 
               {version !== 'bangbang' && (
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/clearance-history')}
-                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-gray-700/80
-                    hover:cursor-pointer
-                    hover: scale-105
-                    transition-all duration-200 ease-in-out
-                    ">
+                    className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                     청산관리
                 </button>
               )}
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/trade-history-daily')}
-                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-gray-700/80
-                  hover:cursor-pointer
-                  hover:scale-105
-                  transition-transform duration-200 ease-in-out
-                  ">
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                   통계(가맹)
               </button>
 
               <button
                   onClick={() => router.push('/' + params.lang + '/admin/trade-history-daily-agent')}
-                  className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                  hover:bg-gray-700/80
-                  hover:cursor-pointer
-                  hover:scale-105
-                  transition-transform duration-200 ease-in-out
-                  ">
+                  className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                   통계(AG)
               </button>
 
               { version !== 'bangbang' && (
                 <button
                     onClick={() => router.push('/' + params.lang + '/admin/escrow-history')}
-                    className="flex w-32 bg-gray-700 text-[#f3f4f6] text-sm rounded-lg p-2 items-center justify-center
-                    hover:bg-gray-700/80
-                    hover:cursor-pointer
-                  hover:scale-105
-                  transition-transform duration-200 ease-in-out
-                  ">
+                    className="flex w-full items-center justify-center rounded-xl border border-slate-600 bg-slate-800 p-2 text-sm text-slate-100 transition hover:border-slate-500 hover:bg-slate-700">
                   보유량내역
                 </button>
               )}
@@ -2125,65 +2236,35 @@ export default function Index({ params }: any) {
 
 
 
-          <div className='flex flex-row items-center space-x-4'>
-              <Image
-                src="/icon-user.png"
-                alt="Buyer"
-                width={35}
-                height={35}
-                className="w-6 h-6 p-1 rounded-lg bg-yellow-500"
-              />
+          <div className='flex w-full flex-row items-center justify-between rounded-2xl border border-slate-700/70 bg-slate-900/70 p-4'>
+              <div className='flex flex-row items-center space-x-4'>
+                <Image
+                  src="/icon-user.png"
+                  alt="Buyer"
+                  width={35}
+                  height={35}
+                  className="h-7 w-7 rounded-lg bg-cyan-300 p-1"
+                />
 
-              <div className="text-xl font-normal ">
-                회원관리
-              </div>
-          </div>
-
-
-
-
-
-
-          <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-3">
-
-  
-
-
-
-
-            <div className="w-full flex flex-row items-center justify-end gap-5">
-
-
-              <div className="flex flex-col gap-2 items-center">
-                <div className="text-sm">{Total}</div>
-                <div className="
-                  h-10 w-10
-                  text-center
-                  flex flex-row items-center gap-2">
-                  {
-
-                        totalCount || 0
-
-                    
-                  }
+                <div className="text-xl font-semibold tracking-tight">
+                  회원관리
                 </div>
               </div>
 
-
-            </div>
-
-
+              <div className="rounded-xl bg-slate-800 px-4 py-2 text-right ring-1 ring-slate-600/60">
+                <p className="text-xs text-slate-400">{Total}</p>
+                <p className="text-xl font-semibold text-white">{Number(totalCount || 0).toLocaleString('ko-KR')}</p>
+              </div>
           </div>
 
 
 
 
           {/* 바이어 추가 input and button */}
-          <div className="
-            flex flex-col xl:flex-col items-start justify-center gap-2">
+          <div className="mt-3 flex w-full flex-col items-start justify-center gap-2 rounded-2xl border border-slate-700/70 bg-slate-900/70 p-4">
 
 
-            <div className="w-full flex flex-row items-center justify-between gap-2">
+            <div className="flex w-full flex-col items-center justify-between gap-2 xl:flex-row">
 
               <input
                 disabled={insertingUserCode}
@@ -2196,7 +2277,7 @@ export default function Index({ params }: any) {
 
                 } }
                 placeholder="회원 아이디"
-                className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
 
               {/* userPassword */}
@@ -2206,7 +2287,7 @@ export default function Index({ params }: any) {
                 value={userPassword}
                 onChange={(e) => setUserPassword(e.target.value)}
                 placeholder="회원 비밀번호"
-                className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
 
 
@@ -2217,13 +2298,13 @@ export default function Index({ params }: any) {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 placeholder="회원 이름"
-                className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
 
             </div>
 
 
-            <div className="w-full flex flex-row items-center justify-between gap-2">
+            <div className="flex w-full flex-col items-center justify-between gap-2 xl:flex-row">
 
 
               {/* userBankDepositName */}
@@ -2233,7 +2314,7 @@ export default function Index({ params }: any) {
                 value={userBankDepositName}
                 onChange={(e) => setUserBankDepositName(e.target.value)}
                 placeholder="회원 입금자명"
-                className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
 
 
@@ -2244,7 +2325,7 @@ export default function Index({ params }: any) {
                 disabled={insertingUserCode}
                 value={userBankName}
                 onChange={(e) => setUserBankName(e.target.value)}
-                className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               >
                 <option value="">
                   은행선택
@@ -2344,7 +2425,7 @@ export default function Index({ params }: any) {
                 value={userBankAccountNumber}
                 onChange={(e) => setUserBankAccountNumber(e.target.value)}
                 placeholder="회원 계좌번호"
-                className="w-full p-2 border border-zinc-300 bg-zinc-800  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
 
             </div>
@@ -2371,7 +2452,7 @@ export default function Index({ params }: any) {
                 ) && insertBuyer();
 
               }}
-              className={`bg-gray-700 text-sm  px-4 py-2 rounded-lg w-full
+              className={`w-full rounded-xl bg-gradient-to-r from-indigo-400 to-cyan-400 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:brightness-110
                 ${insertingUserCode ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               {insertingUserCode ? '회원추가 중...' : '회원추가'}
@@ -2384,139 +2465,92 @@ export default function Index({ params }: any) {
 
 
 
-          <div className="w-full flex flex-col xl:flex-row items-start justify-between gap-2 mt-4">
-
-
-
-
-
-
-            {/* search bar */}
-
-            {/* select storecode */}
-            <div className="flex flex-row items-center gap-2">
-              {fetchingAllStores ? (
-                <Image
-                  src="/loading.png"
-                  alt="Loading"
-                  width={20}
-                  height={20}
-                  className="animate-spin"
-                />
-              ) : (
-                <div className="flex flex-row items-center gap-2">
-
-                  
+          <div className="mt-4 flex w-full flex-col items-start justify-between gap-3 rounded-2xl border border-slate-700/70 bg-slate-900/70 p-4 xl:flex-row">
+            <div className="flex w-full flex-col gap-3 xl:flex-row xl:items-center">
+              <div className="flex w-full max-w-xl items-center gap-3 rounded-xl border border-slate-600 bg-slate-800/80 px-3 py-2">
+                {fetchingAllStores ? (
+                  <Image
+                    src="/loading.png"
+                    alt="Loading"
+                    width={20}
+                    height={20}
+                    className="animate-spin"
+                  />
+                ) : (
                   <Image
                     src="/icon-store.png"
                     alt="Store"
                     width={20}
                     height={20}
-                    className="rounded-lg w-5 h-5"
+                    className="h-5 w-5 rounded-lg"
                   />
+                )}
 
-                  <span className="
-                    w-32
-                    text-sm font-normal">
-                    가맹점선택
-                  </span>
+                <span className="w-20 text-sm text-slate-300">가맹점</span>
 
-
-                  <select
-                    
-                    //value={searchStorecode}
-                    value={searchParamsStorecode || ""}
-
-                    onChange={(e) => {
-                      router.push(
-                        `/${params.lang}/admin/member?storecode=${e.target.value}`
-                      );
-
-                    }}
-                    disabled={fetchingAllStores}
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                  >
-                    <option value="">전체</option>
-                    {allStores && allStores.map((item, index) => (
-                      <option key={index} value={item.storecode}
-                        className="flex flex-row items-center justify-start gap-2"
-                      >
-                        
-                        {item.storeName}{' '}({item.storecode})
-
-                      </option>
-                    ))}
-                  </select>
-
-
-                </div>
-
-              )}
-            </div>
-        
-
-          
-
-            <div className="flex flex-row items-center gap-2">
-
-
-              <div className="flex flex-col xl:flex-row items-center justify-center gap-2">
-                {/* search nickname */}
-                <div className="flex flex-row items-center gap-2">
-                  <input
-                    type="text"
-                    value={searchBuyer}
-                    onChange={(e) => setSearchBuyer(e.target.value)}
-                    placeholder="회원 아이디"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                  />
-
-                </div>
-
-                <div className="flex flex-row items-center gap-2">
-                  <input
-                    type="text"
-                    value={searchDepositName}
-                    onChange={(e) => setSearchDepositName(e.target.value)}
-                    placeholder="입금자명"
-                    className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
-                  />
-
-                </div>
-              </div>
-
-
-              {/* 검색 버튼 */}
-              <div className="
-              w-32
-              flex flex-row items-center gap-2">
-                <button
-                  onClick={() => {
-                    setPageValue(1);
-                    fetchAllBuyer();
+                <select
+                  value={searchParamsStorecode || ""}
+                  onChange={(e) => {
+                    router.push(`/${params.lang}/admin/member?storecode=${e.target.value}`);
                   }}
-                  className="bg-gray-700  px-4 py-2 rounded-lg w-full"
-                  disabled={fetchingAllBuyer}
+                  disabled={fetchingAllStores}
+                  className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                 >
-                  <div className="flex flex-row items-center justify-between gap-2">
-                    <Image
-                      src="/icon-search.png"
-                      alt="Search"
-                      width={20}
-                      height={20}
-                      className="rounded-lg w-5 h-5"
-                    />
-                    <span className="text-sm">
-                      {fetchingAllBuyer ? '검색중...' : '검색'}
-                    </span>
-                  </div>
-
-                </button>
+                  <option value="">전체</option>
+                  {allStores && allStores.map((item, index) => (
+                    <option key={index} value={item.storecode}>
+                      {item.storeName}{' '}({item.storecode})
+                    </option>
+                  ))}
+                </select>
               </div>
 
+              <div className="grid w-full gap-2 md:grid-cols-2 xl:max-w-xl">
+                <input
+                  type="text"
+                  value={searchBuyer}
+                  onChange={(e) => setSearchBuyer(e.target.value)}
+                  placeholder="회원 아이디"
+                  className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+
+                <input
+                  type="text"
+                  value={searchDepositName}
+                  onChange={(e) => setSearchDepositName(e.target.value)}
+                  placeholder="입금자명"
+                  className="w-full rounded-xl border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
             </div>
 
+            <div className="flex w-full flex-col items-stretch gap-2 sm:w-auto sm:flex-row">
+              <button
+                onClick={() => {
+                  setPageValue(1);
+                  fetchAllBuyer(1, Number(limitValue));
+                }}
+                className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-400 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                disabled={fetchingAllBuyer}
+              >
+                <Image
+                  src="/icon-search.png"
+                  alt="Search"
+                  width={20}
+                  height={20}
+                  className="h-5 w-5 rounded-lg"
+                />
+                <span>{fetchingAllBuyer ? '검색중...' : '검색'}</span>
+              </button>
 
+              <button
+                onClick={downloadBuyerExcel}
+                className="rounded-xl border border-emerald-400/50 bg-emerald-400/15 px-4 py-2 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-400/25 disabled:cursor-not-allowed disabled:opacity-60"
+                disabled={exportingBuyerExcel}
+              >
+                {exportingBuyerExcel ? '엑셀 생성중...' : '검색결과 엑셀 다운로드'}
+              </button>
+            </div>
           </div>
 
 
@@ -2528,16 +2562,11 @@ export default function Index({ params }: any) {
             {tableView ? (
 
 
-              <div className="w-full overflow-x-auto">
+              <div className="w-full overflow-x-auto rounded-2xl border border-slate-700/70 bg-slate-900/70 shadow-xl">
 
-                <table className=" w-full table-auto border-collapse border border-zinc-800 rounded-md">
+                <table className="min-w-[1280px] w-full table-auto border-collapse">
 
-                  <thead
-                    className="bg-zinc-600 text-sm font-normal"
-                    style={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    }}
-                  >
+                  <thead className="bg-slate-800/95 text-sm font-medium text-slate-100">
                     <tr>
 
                       <th className="
@@ -2586,25 +2615,13 @@ export default function Index({ params }: any) {
                     {allBuyer.map((item, index) => (
 
                       
-                      <tr key={index} className={`
-                        ${
-                          index % 2 === 0 ? 'bg-zinc-700' : 'bg-zinc-600'
-                        }
-                      `}>
+                      <tr
+                        key={index}
+                        className={`${index % 2 === 0 ? 'bg-slate-900/70' : 'bg-slate-800/70'} border-t border-slate-700/60 transition hover:bg-slate-700/80`}
+                      >
 
-                        <td className="
-                          p-2">
-                          {new Date(item.createdAt).toLocaleDateString('ko-KR', {
-                            year: 'numeric',
-                            month: '2-digit',
-                            day: '2-digit',
-                          })}
-                          <br />
-                          {new Date(item.createdAt).toLocaleTimeString('ko-KR', {
-                            hour: '2-digit',
-                            minute: '2-digit',
-                            second: '2-digit',
-                          })}
+                        <td className="p-2 text-sm text-slate-200">
+                          {formatDateTimeForDisplay(item.createdAt)}
                         </td>
                       
                         <td className="p-2">
@@ -2615,20 +2632,10 @@ export default function Index({ params }: any) {
                               flex flex-col xl:flex-row items-center justify-between gap-2">
                               
                               <div className="flex flex-row items-center justify-center gap-2">
-
-                                {item?.userType === ''
-                                ? <span className="bg-gray-500 text-white px-2 py-1 rounded-lg text-xs">일반</span>
-                                : item?.userType === 'AAA'
-                                  ? <span className="bg-red-500 text-white px-2 py-1 rounded-lg text-xs">1등급</span>
-                                  : item?.userType === 'BBB'
-                                    ? <span className="bg-orange-500 text-white px-2 py-1 rounded-lg text-xs">2등급</span>
-                                    : item?.userType === 'CCC'
-                                      ? <span className="bg-yellow-500 text-white px-2 py-1 rounded-lg text-xs">3등급</span>
-                                      : item?.userType === 'DDD'
-                                        ? <span className="bg-green-500 text-white px-2 py-1 rounded-lg text-xs">4등급</span>
-                                        : <span className="bg-gray-500 text-white px-2 py-1 rounded-lg text-xs">일반</span>
-                                }
-                                <span className="text-lg font-normal">
+                                <span className={`rounded-lg px-2 py-1 text-xs ${getUserTypeMeta(item?.userType).className}`}>
+                                  {getUserTypeMeta(item?.userType).label}
+                                </span>
+                                <span className="text-lg font-normal text-slate-100">
                                   {item.nickname}
                                 </span>
 
@@ -2637,7 +2644,7 @@ export default function Index({ params }: any) {
 
 
 
-                              <span className="text-sm">
+                              <span className="text-sm text-slate-300">
                                 {item?.store?.storeName}{' '}({item?.store?.storecode})
                               </span>
                             </div>
@@ -2648,8 +2655,7 @@ export default function Index({ params }: any) {
                                   `/${params.lang}/admin/member-settings?storecode=${item?.storecode}&walletAddress=${item?.walletAddress}`
                                 );
                               }}
-                              className="mt-2 bg-[#3167b4] text-sm px-2 py-1 rounded-lg
-                                hover:bg-[#3167b4]/80"
+                              className="mt-2 rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-2 py-1 text-sm text-cyan-100 transition hover:bg-cyan-400/20"
                             >
                               변경하기
                             </button>
@@ -2715,13 +2721,11 @@ export default function Index({ params }: any) {
                               navigator.clipboard.writeText(item?.walletAddress);
                               toast.success(Copied_Wallet_Address);
                             } }
-                            className="text-sm  underline"
+                            className="text-sm text-cyan-200 underline decoration-cyan-300/60 underline-offset-2"
                           >
-                          {
-                              item?.walletAddress && (
-                                item.walletAddress.substring(0, 6) + '...' + item.walletAddress.substring(item.walletAddress.length - 4)
-                              )
-                            }
+                            {item?.walletAddress
+                              ? item.walletAddress.substring(0, 6) + '...' + item.walletAddress.substring(item.walletAddress.length - 4)
+                              : '-'}
                           </button>
                         </td>
 
@@ -2739,7 +2743,7 @@ export default function Index({ params }: any) {
                                 });
                               }}
                               placeholder="충전금액"
-                              className="w-full p-2 border border-zinc-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3167b4] bg-zinc-800 "
+                              className="w-full rounded-lg border border-slate-600 bg-slate-800 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
                             />
                           </div>
                         </td>
@@ -2762,8 +2766,7 @@ export default function Index({ params }: any) {
                                 openModal();
 
                               }}
-                              className="bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
-                                hover:bg-[#3167b4]/80"
+                              className="rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-2 py-1 text-sm text-cyan-100 transition hover:bg-cyan-400/20"
                             >
                               보기
                             </button>
@@ -2784,8 +2787,7 @@ export default function Index({ params }: any) {
                                 );
                                 toast.success('회원 홈페이지 링크가 복사되었습니다.');
                               }}
-                              className="bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
-                                hover:bg-[#3167b4]/80"
+                              className="rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-2 py-1 text-sm text-cyan-100 transition hover:bg-cyan-400/20"
                             >
                               복사
                             </button>
@@ -2805,8 +2807,7 @@ export default function Index({ params }: any) {
                                 );
                                 toast.success('회원 홈페이지를 새창으로 열었습니다.');
                               }}
-                              className="bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
-                                hover:bg-[#3167b4]/80"
+                              className="rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-2 py-1 text-sm text-cyan-100 transition hover:bg-cyan-400/20"
                             >
                               새창열기
                             </button>
@@ -2818,31 +2819,8 @@ export default function Index({ params }: any) {
 
                         <td className="p-2">
                           <div className="flex flex-col xl:flex-row items-start justify-center gap-2">
-                            <span className="text-sm ">
-                              {
-                              item?.buyOrderStatus === 'ordered' ? (
-                                <span className="text-sm text-yellow-500">
-                                  구매주문
-                                </span>
-                              ) : item?.buyOrderStatus === 'accepted' ? (
-                                <span className="text-sm text-green-500">
-                                  판매자확정
-                                </span>
-                              ) : item?.buyOrderStatus === 'paymentRequested' ? (
-                                <span className="text-sm text-red-500">
-                                  결제요청
-                                </span>
-                              ) : item?.buyOrderStatus === 'paymentConfirmed' ? (
-                                <span className="text-sm text-green-500">
-                                  결제완료
-                                </span>
-                              ) : item?.buyOrderStatus === 'cancelled' ? (
-                                <span className="text-sm text-red-500">
-                                  거래취소
-                                </span>
-                              ) : ''
-                              }
-
+                            <span className={`text-sm font-medium ${getBuyOrderStatusMeta(item?.buyOrderStatus).className}`}>
+                              {getBuyOrderStatusMeta(item?.buyOrderStatus).label}
                             </span>
                           </div>
                         </td>
@@ -2884,11 +2862,7 @@ export default function Index({ params }: any) {
                                   //toast.success(`잔액을 가져왔습니다. 현재 잔액: ${usdtBalance[index] ? usdtBalance[index].toFixed(3).replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0.000'} USDT`);
 
                                 }}
-                                className={`
-                                  w-full mb-2
-                                  bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-[#3167b4]/80
-                                `}
+                                className="mb-2 w-full rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-2 py-1 text-sm text-cyan-100 transition hover:bg-cyan-400/20"
                               >
                                 잔액 확인하기
                               </button>
@@ -2901,11 +2875,7 @@ export default function Index({ params }: any) {
                                   clearanceWalletAddress(item.walletAddress);
                                   toast.success('잔액을 회수했습니다.');
                                 }}
-                                className={`
-                                  w-full mb-2
-                                  bg-[#3167b4] text-sm  px-2 py-1 rounded-lg
-                                  hover:bg-[#3167b4]/80
-                                `}
+                                className="mb-2 w-full rounded-lg border border-cyan-400/40 bg-cyan-400/10 px-2 py-1 text-sm text-cyan-100 transition hover:bg-cyan-400/20"
                               >
                                 잔액 회수하기
                               </button>
@@ -2924,6 +2894,14 @@ export default function Index({ params }: any) {
 
                     ))}
 
+                    {allBuyer.length === 0 && (
+                      <tr>
+                        <td colSpan={9} className="p-8 text-center text-sm text-slate-400">
+                          검색 결과가 없습니다.
+                        </td>
+                      </tr>
+                    )}
+
                   </tbody>
 
                 </table>
@@ -2933,11 +2911,11 @@ export default function Index({ params }: any) {
 
             ) : (
 
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
                 {allBuyer.map((item, index) => (
-                  <div key={index} className="bg-white shadow-md rounded-lg p-4">
-                    <h2 className="text-lg font-normal">{item.nickname}</h2>
+                  <div key={index} className="rounded-xl border border-slate-700 bg-slate-900/70 p-4 shadow-md">
+                    <h2 className="text-lg font-normal text-slate-100">{item.nickname}</h2>
 
                   </div>
                 ))}
@@ -2958,19 +2936,15 @@ export default function Index({ params }: any) {
         {/* ?limit=10&page=1 */}
         {/* submit button */}
         {/* totalPage = Math.ceil(totalCount / limit) */}
-        <div className="mt-4 flex flex-row items-center justify-center gap-4">
-
-
-          <div className="flex flex-row items-center gap-2">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-3 rounded-2xl border border-slate-700/70 bg-slate-900/70 p-4">
+          <div className="flex items-center gap-2 text-sm text-slate-300">
+            <span>표시수</span>
             <select
               value={limit}
               onChange={(e) =>
-                
-                router.push(`/${params.lang}/admin/member?limit=${Number(e.target.value)}&page=${page}`)
-
+                router.push(`/${params.lang}/admin/member?limit=${Number(e.target.value)}&page=1&storecode=${searchParamsStorecode}`)
               }
-
-              className="text-sm bg-zinc-800 text-zinc-200 px-2 py-1 rounded-md"
+              className="rounded-lg border border-slate-600 bg-slate-800 px-2 py-1 text-sm text-slate-100"
             >
               <option value={10}>10</option>
               <option value={20}>20</option>
@@ -2979,62 +2953,49 @@ export default function Index({ params }: any) {
             </select>
           </div>
 
-          {/* 처음 페이지로 이동 버튼 */}
           <button
             disabled={Number(page) <= 1}
-            className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition ${Number(page) <= 1 ? 'cursor-not-allowed bg-slate-700 text-slate-400' : 'bg-cyan-400/20 text-cyan-200 hover:bg-cyan-400/30'}`}
             onClick={() => {
-              
               router.push(`/${params.lang}/admin/member?limit=${Number(limit)}&page=1&storecode=${searchParamsStorecode}`);
-
             }}
           >
             처음
           </button>
 
-
           <button
             disabled={Number(page) <= 1}
-            className={`text-sm  px-4 py-2 rounded-md ${Number(page) <= 1 ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition ${Number(page) <= 1 ? 'cursor-not-allowed bg-slate-700 text-slate-400' : 'bg-cyan-400/20 text-cyan-200 hover:bg-cyan-400/30'}`}
             onClick={() => {
-              
               router.push(`/${params.lang}/admin/member?limit=${Number(limit)}&page=${Number(page) - 1}&storecode=${searchParamsStorecode}`);
-
             }}
           >
             이전
           </button>
 
-
-          <span className="text-sm ">
-            {page} / {Math.ceil(Number(totalCount) / Number(limit))}
+          <span className="rounded-lg bg-slate-800 px-3 py-2 text-sm text-slate-100 ring-1 ring-slate-600/70">
+            {page} / {totalPage}
           </span>
 
-
           <button
-            disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-            className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+            disabled={Number(page) >= totalPage}
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition ${Number(page) >= totalPage ? 'cursor-not-allowed bg-slate-700 text-slate-400' : 'bg-cyan-400/20 text-cyan-200 hover:bg-cyan-400/30'}`}
             onClick={() => {
-              
               router.push(`/${params.lang}/admin/member?limit=${Number(limit)}&page=${Number(page) + 1}&storecode=${searchParamsStorecode}`);
-
             }}
           >
             다음
           </button>
 
           <button
-            disabled={Number(page) >= Math.ceil(Number(totalCount) / Number(limit))}
-            className={`text-sm  px-4 py-2 rounded-md ${Number(page) >= Math.ceil(Number(totalCount) / Number(limit)) ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-600'}`}
+            disabled={Number(page) >= totalPage}
+            className={`rounded-lg px-4 py-2 text-sm font-medium transition ${Number(page) >= totalPage ? 'cursor-not-allowed bg-slate-700 text-slate-400' : 'bg-cyan-400/20 text-cyan-200 hover:bg-cyan-400/30'}`}
             onClick={() => {
-              
-              router.push(`/${params.lang}/admin/member?limit=${Number(limit)}&page=${Math.ceil(Number(totalCount) / Number(limit))}&storecode=${searchParamsStorecode}`);
-
+              router.push(`/${params.lang}/admin/member?limit=${Number(limit)}&page=${totalPage}&storecode=${searchParamsStorecode}`);
             }}
           >
             마지막
           </button>
-
         </div>
 
 
@@ -3225,5 +3186,3 @@ const TradeDetail = (
     );
   };
   */}
-
-
